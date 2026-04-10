@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>release — discover SS25 essence</title>
+<title>release — bold by design</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,202 +12,765 @@
   :root{
     --ink:#0d0d0d;
     --paper:#ffffff;
-    --stone:#efece7;
-    --tile:#e8e6e1;
+    --stone:#f3f1ec;
+    --tile:#ececea;
+    --tile-2:#e8e6e1;
     --muted:#8a8680;
     --hair:#e5e2dc;
+    --moss:#6e7d73;
   }
   html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   .font-display{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 50,"WONK" 0}
+  .font-wonk{font-family:'Fraunces',Georgia,serif;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1}
   .tracking-mega{letter-spacing:.22em}
   .tracking-wide2{letter-spacing:.14em}
   .hairline{border-color:var(--hair)}
   .shadow-tile{box-shadow:0 1px 0 rgba(20,18,15,.04), 0 20px 40px -30px rgba(20,18,15,.18)}
-  /* announcement marquee — subtle cycle */
-  @keyframes fade{0%,40%{opacity:1;transform:translateY(0)}50%,90%{opacity:0;transform:translateY(-4px)}100%{opacity:1;transform:translateY(0)}}
-  /* hero headline entry */
+  .shadow-pop{box-shadow:0 30px 80px -40px rgba(0,0,0,.35), 0 2px 0 rgba(255,255,255,.6) inset}
   @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
   .rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
   .rise-1{animation-delay:.05s}.rise-2{animation-delay:.18s}.rise-3{animation-delay:.32s}.rise-4{animation-delay:.46s}
-  /* buttons */
   .pill{transition:transform .5s cubic-bezier(.2,.9,.2,1),background-color .35s ease,color .35s ease,border-color .35s ease}
   .pill:hover{transform:translateY(-1px)}
   .pill-solid:hover{background:#f4f1ec}
   .pill-ghost:hover{background:rgba(255,255,255,.12)}
-  /* swatch */
+  .pill-dark:hover{background:#1a1a1a}
   .sw{width:12px;height:12px;border-radius:999px;border:1px solid rgba(0,0,0,.15);display:inline-block}
-  /* focus ring */
   a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:999px}
-  header a:focus-visible, .just a:focus-visible{outline-color:#0d0d0d}
-  /* product tile image rollover */
+  .onlight a:focus-visible,.onlight button:focus-visible{outline-color:#0d0d0d}
   .tile{background:var(--tile)}
   .tile img{transition:transform 1.4s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
   .tile:hover img{transform:scale(1.03)}
-  /* subtle grain over hero for depth */
-  .grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.25;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
-  /* hero overlay gradients — depth, readability */
+  .grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
   .hero-shade{position:absolute;inset:0;background:
     radial-gradient(1200px 700px at 50% 55%, rgba(0,0,0,.35), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 62%, rgba(0,0,0,.45) 100%)}
-  /* countdown digit */
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 62%, rgba(0,0,0,.55) 100%)}
   .digit{font-variant-numeric:tabular-nums}
-  /* remove default link underlines in nav */
   nav a{text-decoration:none}
+  .caret{display:inline-block;transform:translateY(-1px);margin-left:4px;font-size:.75em}
+  .link-underline{position:relative;padding-bottom:3px}
+  .link-underline::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;opacity:.5}
+  .link-underline:hover::after{opacity:1}
+  .tab-active{border-color:currentColor}
+  .tab-muted{color:rgba(13,13,13,.35)}
+  .h-section{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-0.022em;line-height:.95}
+  .h-editorial{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-0.025em;line-height:1}
+  /* scrollbar for carousels */
+  .noscroll::-webkit-scrollbar{display:none}
+  .noscroll{scrollbar-width:none}
 </style>
 </head>
 <body class="min-h-screen">
 
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="bg-black text-white">
-    <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-9 flex items-center justify-between text-[11px] font-medium tracking-wide2 uppercase">
-      <div class="hidden md:flex items-center gap-4 text-white/85">
-        <span>US</span>
-        <span class="text-white/40">|</span>
-        <span>$</span>
-        <span class="text-white/40">|</span>
-        <a href="#" class="hover:text-white">Store locator</a>
+<!-- ==================== ANNOUNCEMENT BAR ==================== -->
+<div class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-9 flex items-center justify-between text-[11px] font-medium tracking-wide2 uppercase">
+    <div class="hidden md:flex items-center gap-4 text-white/85">
+      <a href="#" class="hover:text-white">Our stores</a>
+    </div>
+    <div class="flex-1 text-center">Welcome to our store · New products live now</div>
+    <div class="hidden md:flex items-center gap-3 text-white/85">
+      <span>Ends in</span>
+      <span class="digit">1550<span class="text-white/50">D</span></span>
+      <span class="text-white/40">|</span>
+      <span class="digit">10<span class="text-white/50">H</span></span>
+      <span class="text-white/40">|</span>
+      <span class="digit">24<span class="text-white/50">M</span></span>
+      <span class="text-white/40">|</span>
+      <span class="digit">52<span class="text-white/50">S</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HEADER ==================== -->
+<header class="bg-white border-b hairline onlight relative z-40">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center">
+    <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
+      <a href="#" class="hover:text-black">Shop <span class="caret">▾</span></a>
+      <a href="#" class="hover:text-black">Pages <span class="caret">▾</span></a>
+      <a href="#" class="hover:text-black">Product features <span class="caret">▾</span></a>
+      <a href="#" class="hover:text-black">Contact</a>
+    </nav>
+    <a href="#" class="justify-self-center font-display text-[26px] leading-none tracking-tight lowercase" style="letter-spacing:-.01em">release</a>
+    <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
+      <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <span class="caret">▾</span></a>
+      <a href="#" class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <a href="#" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="#" class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14l-1.5 12a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">0</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="relative">
+  <div class="relative h-[min(92vh,860px)] min-h-[620px] w-full overflow-hidden">
+    <img src="https://placehold.co/2400x1600/1a1814/1a1814.png" alt="SS26 editorial" class="absolute inset-0 h-full w-full object-cover object-[50%_40%]"/>
+    <div class="hero-shade"></div>
+    <div class="grain"></div>
+
+    <!-- Age verifier popup -->
+    <div class="absolute left-1/2 top-[22%] -translate-x-1/2 z-20 hidden md:flex items-stretch bg-white rounded-lg shadow-pop overflow-hidden max-w-[560px]">
+      <div class="w-[160px] bg-[url('https://placehold.co/320x320/6a5a46/6a5a46.png')] bg-cover bg-center"></div>
+      <div class="p-6 pr-7 max-w-[380px]">
+        <h3 class="font-display text-[20px] leading-none mb-2">Verify your age</h3>
+        <p class="text-[12px] leading-[1.55] text-black/65">By accessing, you also agree to our Cookie Policy & Privacy Policy. Make sure to only accept if your legal age is above 18 years.</p>
+        <div class="mt-4 flex items-center gap-3">
+          <button class="pill pill-dark inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Yes, I'm over 21</button>
+          <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline text-black/70 hover:text-black">No, get me out of here</a>
+        </div>
       </div>
-      <div class="flex-1 text-center">Free shipping on US orders over $150</div>
-      <div class="hidden md:flex items-center gap-3 text-white/85">
-        <span>Summer sale live now</span>
-        <span class="text-white/40">—</span>
-        <span>Ends in</span>
-        <span class="digit">10<span class="text-white/50">H</span></span>
-        <span class="text-white/40">|</span>
-        <span class="digit">12<span class="text-white/50">M</span></span>
-        <span class="text-white/40">|</span>
-        <span class="digit">20<span class="text-white/50">S</span></span>
+    </div>
+
+    <div class="relative z-10 h-full w-full flex items-end pb-28">
+      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10 text-center text-white">
+        <div class="rise rise-1 text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/80">SS26 statement pieces</div>
+        <h1 class="rise rise-2 h-editorial text-white mt-5 text-[52px] md:text-[108px]" style="letter-spacing:-0.035em">
+          Bold by <em class="font-wonk font-normal">design</em>
+        </h1>
+        <div class="rise rise-3 mt-8 flex items-center justify-center">
+          <a href="#just-arrived" class="pill pill-ghost inline-flex items-center justify-center h-11 px-7 rounded-full border border-white/80 text-white text-[11px] tracking-wide2 uppercase font-medium">Discover more</a>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <header class="bg-white border-b hairline">
-    <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center">
-      <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
-        <a href="#" class="hover:text-black">Catalog</a>
-        <a href="#" class="hover:text-black">Lookbook</a>
-        <a href="#" class="hover:text-black">About us</a>
-      </nav>
-      <a href="#" class="justify-self-center font-display text-[26px] leading-none tracking-tight lowercase" style="letter-spacing:-.01em">release</a>
-      <nav class="justify-self-end flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
-        <a href="#" class="hover:text-black">Account</a>
-        <a href="#" class="hover:text-black inline-flex items-center gap-1.5">
-          Search
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        </a>
-        <a href="#" class="hover:text-black inline-flex items-center gap-1.5">
-          Cart
-          <span class="inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">1</span>
-        </a>
-      </nav>
+<!-- ==================== JUST ARRIVED (4-COL) ==================== -->
+<section id="just-arrived" class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Just arrived</h2>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="relative">
-    <div class="relative h-[min(86vh,820px)] min-h-[560px] w-full overflow-hidden">
-      <!-- image: placeholder standing in for the fashion hero -->
-      <img
-        src="https://placehold.co/2400x1600/6a5a46/6a5a46.png"
-        alt="SS25 editorial portrait"
-        class="absolute inset-0 h-full w-full object-cover object-[50%_28%]"
-      />
-      <div class="hero-shade"></div>
-      <div class="grain"></div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <!-- 1 -->
+      <article class="group">
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">New</span>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Black Puffer Edge</h3>
+          <div class="mt-1 text-[12px]">€90.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 1 title</div>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="group">
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Black Blazer Dress</h3>
+          <div class="mt-1 text-[12px]">€65.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="group">
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Black High-Waist Jeans with a Wide Legs</h3>
+          <div class="mt-1 text-[12px]">€49.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 8 taille</div>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="group">
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Black Puffer Jacket</h3>
+          <div class="mt-1 text-[12px]">€69.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 4 size and 2 color</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <div class="relative z-10 h-full w-full flex items-center">
-        <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10">
-          <div class="max-w-[780px] mx-auto text-center text-white">
-            <div class="rise rise-1 text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/85">Discover SS25 Essence</div>
-            <h1 class="rise rise-2 font-display font-light mt-5 md:mt-6 text-white text-[44px] leading-[1.02] md:text-[80px] md:leading-[.98]" style="letter-spacing:-0.025em">
-              Find elegance in <em class="font-display italic font-normal" style="font-variation-settings:'SOFT' 100,'WONK' 1">stylish</em> <br class="hidden md:block"/>women's wear
-            </h1>
-            <div class="rise rise-3 mt-8 md:mt-10 flex items-center justify-center gap-3">
-              <a href="#just-arrived" class="pill pill-solid inline-flex items-center justify-center h-12 px-7 rounded-full bg-white text-black text-[12px] tracking-wide2 uppercase font-medium">Discover now</a>
-              <a href="#" class="pill pill-ghost inline-flex items-center justify-center h-12 px-7 rounded-full border border-white/80 text-white text-[12px] tracking-wide2 uppercase font-medium">Lookbook</a>
-            </div>
+<!-- ==================== TIMELESS CLASSICS (split editorial) ==================== -->
+<section class="onlight bg-white">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile">
+      <img src="https://placehold.co/1200x1500/3a3530/3a3530.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
+      <div class="absolute left-10 bottom-10 text-white">
+        <h2 class="h-editorial text-[48px] md:text-[64px]">Timeless <em class="font-wonk font-normal">classics</em></h2>
+        <a href="#" class="mt-5 inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Explore</a>
+      </div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile">
+      <img src="https://placehold.co/1200x1500/dddad3/dddad3.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PARALLAX QUOTE ==================== -->
+<section class="relative">
+  <div class="relative h-[min(75vh,720px)] min-h-[460px] overflow-hidden">
+    <img src="https://placehold.co/2400x1200/7a8a86/7a8a86.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/45"></div>
+    <div class="grain"></div>
+    <div class="relative z-10 h-full flex items-center justify-center px-6">
+      <h2 class="h-editorial text-center text-white text-[34px] md:text-[64px] max-w-[1100px]">The brand designs clothing to make<br/>everyone feel <em class="font-wonk font-normal">unique</em></h2>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OUR SPECIAL COLLECTIONS ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Our <em class="font-wonk font-normal">special</em> collections</h2>
+      <a href="#" class="text-[11px] tracking-wide2 uppercase inline-flex items-center justify-center h-10 px-5 rounded-full border hairline hover:bg-black hover:text-white transition pill">Explore all</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
+      <a href="#" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x1500/2c3d5a/2c3d5a.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Tops</span><span class="text-[10px] text-black/45 align-super">14</span></div>
+      </a>
+      <a href="#" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x1500/1e1e1e/1e1e1e.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Accessories</span><span class="text-[10px] text-black/45 align-super">22</span></div>
+      </a>
+      <a href="#" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x1500/0e7a4e/0e7a4e.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Bottoms</span><span class="text-[10px] text-black/45 align-super">18</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CLASSIC MEETS CONTEMPORARY (split) ==================== -->
+<section>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden bg-white">
+      <img src="https://placehold.co/1200x1200/f3f1ec/f3f1ec.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+    <div class="bg-black text-white flex items-center md:min-h-[560px]">
+      <div class="px-10 md:px-16 py-16 max-w-[560px] mx-auto text-center">
+        <h2 class="h-editorial text-[40px] md:text-[56px]">Classic Meets<br/>Contemporary</h2>
+        <p class="mt-5 text-[13px] leading-[1.7] text-white/70">Redefine timeless styles with a modern twist — explore the Heritage Collection and the Future Edit.</p>
+        <a href="#" class="mt-8 inline-flex items-center justify-center h-11 px-7 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Discover more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHAT'S NEW (tabs + grid) ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="text-center mb-10 md:mb-14">
+      <div class="text-[11px] tracking-mega uppercase text-black/55">What's new</div>
+      <div class="mt-4 inline-flex items-end gap-6">
+        <button class="h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Jackets</button>
+        <button class="h-section text-[36px] md:text-[52px] tab-muted">Hoodies</button>
+        <button class="h-section text-[36px] md:text-[52px] tab-muted">T-Shirts</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <article>
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Last few</span>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Aquashield Windbreaker Padded Jacket</h3>
+          <div class="mt-1 text-[12px]"><span class="line-through text-black/40">€79.90</span> <span class="text-[#b4332a]">From €64.90 – €74.90</span></div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Green Long Wool Coat</h3>
+          <div class="mt-1 text-[12px]">€139.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 1 title</div>
+        </div>
+      </article>
+      <article>
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Green Puffguard Jacket</h3>
+          <div class="mt-1 text-[12px]">€94.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 1 title</div>
+        </div>
+      </article>
+      <article>
+        <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Warmguard Hydrodown Jacket</h3>
+          <div class="mt-1 text-[12px]">€149.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 taille</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FULL-BLEED EDITORIAL TAGLINE ==================== -->
+<section class="relative">
+  <div class="relative h-[min(80vh,760px)] min-h-[480px] overflow-hidden">
+    <img src="https://placehold.co/2400x1200/dcd8d0/dcd8d0.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30"></div>
+    <div class="relative z-10 h-full flex items-center justify-center">
+      <div class="text-white text-center">
+        <div class="text-[11px] tracking-mega uppercase font-medium">Your brand tagline</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SALE COUNTDOWN BANNER ==================== -->
+<section class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <div>
+      <h3 class="font-display text-[28px] md:text-[36px] leading-none">Sale has ended</h3>
+      <a href="#" class="mt-4 inline-flex items-center justify-center h-10 px-6 rounded-full border border-white/70 text-white text-[11px] tracking-wide2 uppercase pill pill-ghost">Explore</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Days</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Hours</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Min</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Sec</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ITEM OF THE WEEK ==================== -->
+<section class="onlight bg-[var(--stone)]">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <h2 class="h-section text-[40px] md:text-[56px] mb-10">Item of the <em class="font-wonk font-normal">week</em></h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+      <div class="md:col-span-8 grid grid-cols-2 gap-4">
+        <div class="relative aspect-[4/5] tile overflow-hidden rounded-[2px]">
+          <img src="https://placehold.co/900x1125/e4e1db/e4e1db.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <div class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase text-black/60 bg-white/80 rounded-full px-2 py-1">1 | 7</div>
+          <button class="absolute left-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 6-6 6 6 6"/></svg></button>
+        </div>
+        <div class="relative aspect-[4/5] tile overflow-hidden rounded-[2px]">
+          <img src="https://placehold.co/900x1125/dcd8d2/dcd8d2.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <button class="absolute right-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="md:col-span-4 flex flex-col">
+        <h3 class="text-[12px] tracking-wide2 uppercase font-medium">Black Puffer Jacket</h3>
+        <div class="mt-2 text-[11px] tracking-wide2 uppercase link-underline text-black/60 w-fit">Release theme</div>
+        <div class="mt-4 text-[16px]">€69.95 <span class="text-[11px] text-black/50 tracking-wide2 uppercase ml-2">Taxes included</span></div>
+
+        <div class="mt-8 flex items-center justify-between">
+          <div class="text-[11px] tracking-wide2 uppercase">Size <span class="text-black/60">XS</span></div>
+          <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline">Size guide</a>
+        </div>
+        <div class="mt-3 flex items-center gap-2">
+          <button class="h-10 w-12 border border-black text-[12px] rounded-[3px]">XS</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">S</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">M</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">L</button>
+        </div>
+
+        <div class="mt-6 text-[11px] tracking-wide2 uppercase">Color <span class="text-black/60">Black</span></div>
+        <div class="mt-3 flex items-center gap-2">
+          <span class="h-6 w-6 rounded-full bg-black ring-1 ring-offset-2 ring-offset-[var(--stone)] ring-black"></span>
+          <span class="h-6 w-6 rounded-full bg-white border hairline"></span>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3">
+          <div class="flex items-center border hairline rounded-full h-12 px-3">
+            <button class="w-6 text-black/60">−</button>
+            <input class="w-8 text-center bg-transparent" value="1"/>
+            <button class="w-6 text-black/60">+</button>
+          </div>
+          <button class="flex-1 h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Add to cart</button>
+        </div>
+        <button class="mt-3 h-12 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Buy it now</button>
+        <a href="#" class="mt-4 text-[11px] tracking-wide2 uppercase link-underline w-fit">View product</a>
+      </div>
+    </div>
+
+    <!-- SHOP THE LOOK -->
+    <div class="mt-20">
+      <h3 class="h-section text-[28px] md:text-[36px] mb-6">Shop the look</h3>
+      <div class="flex items-start gap-6">
+        <div class="w-[220px]">
+          <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+            <img src="https://placehold.co/800x1000/8e6b44/8e6b44.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          </div>
+          <div class="mt-4 text-[11px] tracking-wide2 uppercase font-medium">Knit Comfort Turn-up Sleeve Coat</div>
+          <div class="mt-1 text-[12px]">€79.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 3 size</div>
+        </div>
+        <div class="flex-1 pt-4 flex items-center justify-between">
+          <div class="h-px w-20 bg-black/60"></div>
+          <div class="flex items-center gap-2">
+            <button class="h-8 w-8 rounded-full border hairline"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+            <button class="h-8 w-8 rounded-full border hairline"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- JUST ARRIVED -->
-  <section id="just-arrived" class="just bg-white">
-    <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-24 md:pb-28">
-      <div class="flex items-end justify-between mb-10 md:mb-14">
-        <h2 class="font-display font-light text-[36px] md:text-[52px] leading-none" style="letter-spacing:-0.02em">Just arrived</h2>
-        <a href="#" class="group inline-flex flex-col items-end text-[11px] tracking-wide2 uppercase text-black/75 hover:text-black">
-          <span>View all</span>
-          <span class="mt-1 block h-px w-10 bg-black/60 group-hover:w-14 transition-[width] duration-500"></span>
-        </a>
+<!-- ==================== SPRING HAS ARRIVED BANNER ==================== -->
+<section class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32 text-right">
+    <h3 class="h-editorial text-[40px] md:text-[64px]"><em class="font-wonk font-normal">Spring has arrived.</em> Discover<br/>the new items</h3>
+    <div class="mt-8 flex justify-end">
+      <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline">Discover now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TWO-UP EDITORIAL WITH QUOTE ==================== -->
+<section class="bg-black">
+  <div class="grid grid-cols-2 gap-0">
+    <div class="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden">
+      <img src="https://placehold.co/1200x1440/1a1a1a/1a1a1a.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="grain"></div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden">
+      <img src="https://placehold.co/1200x1440/6d6863/6d6863.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="grain"></div>
+    </div>
+  </div>
+  <div class="relative -mt-24 md:-mt-32 pb-20 md:pb-28 z-10">
+    <p class="mx-auto max-w-[900px] px-6 text-center text-white/90 text-[13px] md:text-[15px] tracking-wide2 uppercase">Timeless staples, redesigned for everyday sophistication</p>
+  </div>
+</section>
+
+<!-- ==================== OUR FLAGSHIP STORES ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <h2 class="h-section text-[40px] md:text-[56px] mb-10"><em class="font-wonk font-normal">Our</em> flagship stores</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="relative aspect-[4/3] rounded-[2px] overflow-hidden" style="background:#6e7d73">
+        <div class="absolute inset-0" style="background-image:url('https://placehold.co/1200x900/6e7d73/6e7d73.png');background-size:cover"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+        <div class="absolute left-8 bottom-8 text-white">
+          <h3 class="h-editorial text-[28px] md:text-[36px]">Discover our <em class="font-wonk font-normal">other stores</em></h3>
+        </div>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        <!-- Product 1 -->
-        <article class="group">
-          <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
-            <img src="https://placehold.co/900x1125/e8e6e1/e8e6e1.png" alt="Black Puffer Edge" class="absolute inset-0 h-full w-full object-cover"/>
-            <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 backdrop-blur px-2 py-1 rounded-full">New</span>
-            <span class="absolute right-4 top-4 h-9 w-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-500" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-            </span>
-          </a>
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <h3 class="text-[12px] tracking-wide2 uppercase font-medium">Black Puffer Edge</h3>
-              <div class="mt-2 flex items-center gap-1.5">
-                <span class="sw" style="background:#b4332a"></span>
-                <span class="sw" style="background:#111"></span>
-              </div>
-            </div>
-            <div class="text-[12px] tracking-wide2 uppercase tabular-nums">$95</div>
-          </div>
-        </article>
-
-        <!-- Product 2 -->
-        <article class="group">
-          <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
-            <img src="https://placehold.co/900x1125/e8e6e1/e8e6e1.png" alt="Black Blazer Dress" class="absolute inset-0 h-full w-full object-cover"/>
-            <span class="absolute right-4 top-4 h-9 w-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-500" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-            </span>
-          </a>
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <h3 class="text-[12px] tracking-wide2 uppercase font-medium">Black Blazer Dress</h3>
-              <div class="mt-2 flex items-center gap-1.5">
-                <span class="sw" style="background:#8a8680"></span>
-                <span class="sw" style="background:#111"></span>
-              </div>
-            </div>
-            <div class="text-[12px] tracking-wide2 uppercase tabular-nums">$50</div>
-          </div>
-        </article>
-
-        <!-- Product 3 -->
-        <article class="group">
-          <a href="#" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
-            <img src="https://placehold.co/900x1125/e8e6e1/e8e6e1.png" alt="Black Puffer Jacket" class="absolute inset-0 h-full w-full object-cover"/>
-            <span class="absolute right-4 top-4 h-9 w-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-500" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-            </span>
-          </a>
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <h3 class="text-[12px] tracking-wide2 uppercase font-medium">Black Puffer Jacket</h3>
-              <div class="mt-2 flex items-center gap-1.5">
-                <span class="sw" style="background:#c9c5bd"></span>
-                <span class="sw" style="background:#111"></span>
-              </div>
-            </div>
-            <div class="text-[12px] tracking-wide2 uppercase tabular-nums">$120</div>
-          </div>
-        </article>
+      <div class="relative aspect-[4/3] rounded-[2px] overflow-hidden bg-[#a7d3ea]">
+        <img src="https://placehold.co/1200x900/a7d3ea/a7d3ea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        <div class="absolute inset-4 border border-white/40 rounded-[2px] flex items-center justify-center text-white/70 text-[11px] tracking-wide2 uppercase">Map — Europe</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ==================== BEFORE / AFTER ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-20 md:pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-4">
+        <h2 class="h-section text-[36px] md:text-[48px]">Before <span class="text-black/40">/</span> <em class="font-wonk font-normal">After</em></h2>
+        <p class="mt-5 text-[13px] leading-[1.7] text-black/65 max-w-[340px]">Before and after images are a great way to showcase the transformation or improvement in a particular subject.</p>
+        <a href="#" class="mt-7 inline-flex items-center justify-center h-11 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Shop now</a>
+      </div>
+      <div class="md:col-span-8">
+        <div class="relative aspect-[16/9] overflow-hidden rounded-[2px] bg-[var(--tile)]">
+          <img src="https://placehold.co/1600x900/9c876a/9c876a.png" alt="Before" class="absolute inset-0 h-full w-full object-cover"/>
+          <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden">
+            <img src="https://placehold.co/1600x900/c2b29a/c2b29a.png" alt="After" class="absolute inset-0 h-full w-full object-cover"/>
+          </div>
+          <div class="absolute inset-y-0 left-1/2 w-[2px] bg-white/90"></div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></svg>
+          </div>
+          <span class="absolute left-4 bottom-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Made before</span>
+          <span class="absolute right-4 bottom-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Made after</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TAILORED MOTION SPLIT ==================== -->
+<section>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden bg-[#1a1a1a]">
+      <img src="https://placehold.co/1200x1500/2b2b2b/2b2b2b.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <div class="absolute left-10 bottom-12 text-white max-w-sm">
+        <h3 class="h-editorial text-[36px] md:text-[44px]">Tailored Motion: Style That Moves with You</h3>
+        <a href="#" class="mt-6 inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Discover now</a>
+      </div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden bg-[#e9e3d6]">
+      <img src="https://placehold.co/1200x1500/e9e3d6/e9e3d6.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== THE EDIT MODERN CLASSIC ==================== -->
+<section class="relative">
+  <div class="relative h-[min(70vh,620px)] min-h-[400px] overflow-hidden">
+    <img src="https://placehold.co/2400x1200/8c6f4e/8c6f4e.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/25 to-black/45"></div>
+    <div class="grain"></div>
+    <div class="relative z-10 h-full flex items-end pb-16">
+      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10 flex items-center gap-8 text-white">
+        <h3 class="font-display text-[36px] md:text-[56px] tracking-tight font-light">THE EDIT</h3>
+        <span class="h-px flex-1 bg-white/40"></span>
+        <h3 class="font-display text-[36px] md:text-[56px] tracking-tight font-light">MODERN CLASSIC</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="onlight bg-[var(--stone)]">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-24">
+    <div class="text-center mb-12">
+      <h2 class="h-section text-[40px] md:text-[52px] text-black/15">Testimonials</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Jane Doe</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Rachel Zoë</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Paulina Mertzel</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I was a non believer at first, fully changed my mind. The brand, the aesthetic, the quality. It's all amazing, I'm hooked."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Jane Doe</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
+      </figure>
+    </div>
+    <div class="mt-10 flex justify-center">
+      <div class="h-[2px] w-24 bg-black/70"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BLOG ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Blog</h2>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-[11px] tracking-wide2 uppercase link-underline">Visit blog</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article>
+        <a href="#" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x900/3f3d55/3f3d55.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">Defying the Twilight: Bold Styles for Modern Rebels</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Julia Hampel · March 1, 2024</div>
+        <a href="#" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Read more</a>
+      </article>
+      <article>
+        <a href="#" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x900/e4e1db/e4e1db.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">Cruelty Free Fashion, Is It Possible?</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Julia Hampel · March 1, 2024</div>
+        <a href="#" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Read more</a>
+      </article>
+      <article>
+        <a href="#" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="https://placehold.co/1200x900/d8d4cc/d8d4cc.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">BTS: Matching Shooting Locations With Our Collections</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Julia Hampel · March 1, 2024</div>
+        <a href="#" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Read more</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== IMAGE STRIP ==================== -->
+<section>
+  <div class="grid grid-cols-4 gap-0">
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="https://placehold.co/800x1066/8b816f/8b816f.png" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="https://placehold.co/800x1066/2b2b2b/2b2b2b.png" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="https://placehold.co/800x1066/4a4137/4a4137.png" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="https://placehold.co/800x1066/1f1f1f/1f1f1f.png" alt="" class="h-full w-full object-cover"/></div>
+  </div>
+</section>
+
+<!-- ==================== CAROUSEL ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Carousel</h2>
+      <div class="flex items-center gap-6">
+        <a href="#" class="inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase pill pill-dark">View all</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="https://placehold.co/900x1125/d6c9b7/d6c9b7.png" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="https://placehold.co/900x1125/ece7dd/ece7dd.png" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="https://placehold.co/900x1125/c5ad8b/c5ad8b.png" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="https://placehold.co/900x1125/e8d8c4/e8d8c4.png" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CATEGORY GRID ==================== -->
+<section>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+    <a href="#" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="https://placehold.co/800x1066/e3dccf/e3dccf.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Tops</div>
+      </div>
+    </a>
+    <a href="#" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="https://placehold.co/800x1066/b9a27f/b9a27f.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Bags</div>
+      </div>
+    </a>
+    <a href="#" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="https://placehold.co/800x1066/dcd5c5/dcd5c5.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Dresses</div>
+      </div>
+    </a>
+    <a href="#" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="https://placehold.co/800x1066/a36d3a/a36d3a.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Knitwear</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60">Newsletter</div>
+        <h3 class="mt-3 text-[18px]">Sign up to receive 10% off your first order</h3>
+        <form class="mt-5 flex items-center bg-white rounded-full pl-5 pr-1.5 h-12 max-w-md">
+          <input type="email" placeholder="Email address" class="flex-1 bg-transparent text-black placeholder:text-black/45 text-[13px] outline-none"/>
+          <button class="h-9 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Subscribe</button>
+        </form>
+      </div>
+      <div class="md:col-span-2">
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Company</div>
+        <ul class="space-y-2.5 text-[13px] text-white/85">
+          <li><a href="#" class="hover:text-white">Search</a></li>
+          <li><a href="#" class="hover:text-white">Contact</a></li>
+          <li><a href="#" class="hover:text-white">Terms</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Pages</div>
+        <ul class="space-y-2.5 text-[13px] text-white/85">
+          <li><a href="#" class="hover:text-white">FAQ</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Lookbook</a></li>
+          <li><a href="#" class="hover:text-white">Collections</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-3">
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Shop</div>
+        <ul class="space-y-2.5 text-[13px] text-white/85">
+          <li><a href="#" class="hover:text-white">Tops</a></li>
+          <li><a href="#" class="hover:text-white">T-shirts</a></li>
+          <li><a href="#" class="hover:text-white">Knitwear</a></li>
+          <li><a href="#" class="hover:text-white">Dresses</a></li>
+          <li><a href="#" class="hover:text-white">Bottoms</a></li>
+          <li><a href="#" class="hover:text-white">Jackets &amp; Coats</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-white/10 pt-8">
+      <div class="max-w-md">
+        <div class="font-display text-[56px] md:text-[72px] leading-none lowercase" style="letter-spacing:-.02em">release</div>
+        <p class="mt-4 text-[12px] text-white/55">Release is a premium official Shopify theme designed by DigiFist.</p>
+      </div>
+      <div class="flex items-center gap-5 text-white/80">
+        <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="YouTube" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="TikTok" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3v11a4 4 0 1 1-4-4"/><path d="M15 3a5 5 0 0 0 5 5"/></svg></a>
+        <a href="#" aria-label="X" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+        <a href="#" aria-label="Vimeo" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8c2-2 4-3 5-2s0 4-1 6 0 4 2 3 6-6 7-10-2-5-5-3"/></svg></a>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-white/50">
+      <div>Copyright © 2026 DigiFist. All rights reserved. Powered by Shopify.</div>
+      <div class="flex items-center gap-2 opacity-80">
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
