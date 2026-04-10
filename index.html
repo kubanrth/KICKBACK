@@ -47,7 +47,23 @@
     linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 62%, rgba(0,0,0,.55) 100%)}
   .digit{font-variant-numeric:tabular-nums}
   nav a{text-decoration:none}
-  .caret{display:inline-block;transform:translateY(-1px);margin-left:4px;font-size:.75em}
+  .caret{display:inline-block;transform:translateY(-1px);margin-left:4px;font-size:.75em;transition:transform .3s ease}
+  /* Mega menu */
+  .has-mega{position:relative}
+  .mega{position:absolute;left:0;right:auto;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);box-shadow:0 30px 50px -30px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s;z-index:50}
+  .mega.mega-wide{position:fixed;left:0;right:0;top:calc(36px + 72px);width:100vw;transform:translateY(-6px)}
+  .has-mega:hover > .mega, .has-mega:focus-within > .mega{opacity:1;visibility:visible;transform:translateY(0)}
+  .has-mega:hover .caret, .has-mega:focus-within .caret{transform:translateY(-1px) rotate(180deg)}
+  /* scrim behind mega so the rest dims slightly */
+  .mega-scrim{position:fixed;inset:var(--header-h,108px) 0 0 0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:30}
+  header:has(.has-mega:hover) ~ .mega-scrim,
+  header:has(.has-mega:focus-within) ~ .mega-scrim{opacity:1}
+  .mega-col-title{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);margin-bottom:14px;font-weight:500}
+  .mega-link{display:block;padding:6px 0;font-size:14px;color:#1a1a1a;transition:color .2s, transform .25s}
+  .mega-link:hover{color:#000;transform:translateX(4px)}
+  .mega-card{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:3/4}
+  .mega-card img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+  .mega-card:hover img{transform:scale(1.04)}
   .link-underline{position:relative;padding-bottom:3px}
   .link-underline::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;opacity:.5}
   .link-underline:hover::after{opacity:1}
@@ -86,10 +102,81 @@
 <header class="bg-white border-b hairline onlight relative z-40">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center">
     <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
-      <a href="#" class="hover:text-black">Shop <span class="caret">▾</span></a>
-      <a href="#" class="hover:text-black">Pages <span class="caret">▾</span></a>
-      <a href="#" class="hover:text-black">Product features <span class="caret">▾</span></a>
-      <a href="#" class="hover:text-black">Contact</a>
+      <!-- SHOP (mega wide) -->
+      <div class="has-mega mega-wide-parent">
+        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Shop <span class="caret">▾</span></a>
+        <div class="mega mega-wide">
+          <div class="mx-auto max-w-[1600px] px-10 py-12 grid grid-cols-12 gap-10">
+            <div class="col-span-3">
+              <div class="mega-col-title">Featured</div>
+              <ul class="space-y-0.5">
+                <li><a href="#" class="mega-link">New</a></li>
+                <li><a href="#" class="mega-link">Bestsellers</a></li>
+                <li><a href="#" class="mega-link">Basics</a></li>
+              </ul>
+            </div>
+            <div class="col-span-3">
+              <div class="mega-col-title">Categories</div>
+              <ul class="space-y-0.5">
+                <li><a href="#" class="mega-link">Tops</a></li>
+                <li><a href="#" class="mega-link">Jeans</a></li>
+                <li><a href="#" class="mega-link">Shorts</a></li>
+                <li><a href="#" class="mega-link">T-Shirts</a></li>
+                <li><a href="#" class="mega-link">Bottoms</a></li>
+                <li><a href="#" class="mega-link">Sweatpants</a></li>
+                <li><a href="#" class="mega-link">Jackets &amp; coats</a></li>
+                <li><a href="#" class="mega-link">Hoodies &amp; sweatshirts</a></li>
+              </ul>
+            </div>
+            <a href="#" class="col-span-3 group">
+              <div class="mega-card tile">
+                <img src="https://placehold.co/600x800/3a3530/3a3530.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0"></div>
+                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Spotlight</div>
+                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Transient Echoes</div>
+              </div>
+            </a>
+            <a href="#" class="col-span-3 group">
+              <div class="mega-card tile">
+                <img src="https://placehold.co/600x800/b38b55/b38b55.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0"></div>
+                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">SS26</div>
+                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Get ready for the sun</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGES (compact dropdown) -->
+      <div class="has-mega">
+        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Pages <span class="caret">▾</span></a>
+        <div class="mega rounded-b-[2px] min-w-[220px]">
+          <div class="px-6 py-6">
+            <ul class="space-y-0.5">
+              <li><a href="#" class="mega-link">FAQ</a></li>
+              <li><a href="#" class="mega-link">Blog</a></li>
+              <li><a href="#" class="mega-link">Lookbook</a></li>
+              <li><a href="#" class="mega-link">Content tiles</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCT FEATURES (compact dropdown) -->
+      <div class="has-mega">
+        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Product features <span class="caret">▾</span></a>
+        <div class="mega rounded-b-[2px] min-w-[240px]">
+          <div class="px-6 py-6">
+            <ul class="space-y-0.5">
+              <li><a href="#" class="mega-link">Pre-order feature</a></li>
+              <li><a href="#" class="mega-link">Product groups</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Contact</a>
     </nav>
     <a href="#" class="justify-self-center font-display text-[26px] leading-none tracking-tight lowercase" style="letter-spacing:-.01em">release</a>
     <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
