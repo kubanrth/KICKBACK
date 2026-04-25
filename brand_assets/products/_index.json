@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "brazil-total-90-training-top",
+    "name": "Brazil Total 90 Training Top",
+    "price_cents": 25000,
+    "file": "brazil-total-90-training-top.webp"
+  },
+  {
+    "slug": "schalke-02-04-home",
+    "name": "Schalke 02/04 Home",
+    "price_cents": 29000,
+    "file": "schalke-02-04-home.webp"
+  },
+  {
+    "slug": "fc-porto-16-17-home",
+    "name": "FC Porto 16/17 Home",
+    "price_cents": 23000,
+    "file": "fc-porto-16-17-home.webp"
+  },
+  {
+    "slug": "italy-2002-home",
+    "name": "Italy 2002 Home",
+    "price_cents": 30000,
+    "file": "italy-2002-home.webp"
+  },
+  {
+    "slug": "england-2000-home",
+    "name": "England 2000 Home",
+    "price_cents": 28000,
+    "file": "england-2000-home.webp"
+  },
+  {
+    "slug": "southampton-17-18-home",
+    "name": "Southampton 17/18 Home",
+    "price_cents": 23000,
+    "file": "southampton-17-18-home.webp"
+  },
+  {
+    "slug": "benfica-18-19-home",
+    "name": "Benfica 18/19 Home",
+    "price_cents": 25000,
+    "file": "benfica-18-19-home.webp"
+  },
+  {
+    "slug": "2025-26-topps-real-madrid-team-set",
+    "name": "Topps Real Madrid 25/26 Team Set",
+    "price_cents": 44900,
+    "file": "2025-26-topps-real-madrid-team-set.webp"
+  },
+  {
+    "slug": "parma-97-98-away",
+    "name": "Parma 97/98 Away",
+    "price_cents": 60000,
+    "file": "parma-97-98-away.webp"
+  },
+  {
+    "slug": "real-madrid-98-00-home",
+    "name": "Real Madrid 98/00 Home",
+    "price_cents": 60000,
+    "file": "real-madrid-98-00-home.webp"
+  },
+  {
+    "slug": "fc-bayern-retro-track-sweatshirt",
+    "name": "FC Bayern Retro Track Sweatshirt",
+    "price_cents": 32000,
+    "file": "fc-bayern-retro-track-sweatshirt.webp"
+  },
+  {
+    "slug": "real-madrid-24-25-home-mbappe",
+    "name": "Real Madrid 24/25 Home Mbappe",
+    "price_cents": 25000,
+    "file": "real-madrid-24-25-home-mbappe.webp"
+  },
+  {
+    "slug": "inter-milan-24-25-third",
+    "name": "Inter Milan 24/25 Third",
+    "price_cents": 25000,
+    "file": "inter-milan-24-25-third.webp"
+  },
+  {
+    "slug": "real-madrid-20-21-home",
+    "name": "Real Madrid 20/21 Home",
+    "price_cents": 28000,
+    "file": "real-madrid-20-21-home.webp"
+  },
+  {
+    "slug": "deportivo-de-la-coruna-09-10-home",
+    "name": "Deportivo De La Coruna 09/10 Home",
+    "price_cents": 22000,
+    "file": "deportivo-de-la-coruna-09-10-home.webp"
+  },
+  {
+    "slug": "france-2011-home",
+    "name": "France 2011 Home",
+    "price_cents": 25000,
+    "file": "france-2011-home.webp"
+  },
+  {
+    "slug": "manchester-united-06-07-home",
+    "name": "Manchester United 06/07 Home",
+    "price_cents": 33000,
+    "file": "manchester-united-06-07-home.webp"
+  },
+  {
+    "slug": "manchester-utd-24-25-home-ls",
+    "name": "Manchester Utd. 24/25 Home LS",
+    "price_cents": 26000,
+    "file": "manchester-utd-24-25-home-ls.webp"
+  },
+  {
+    "slug": "panini-fifa-world-cup-adrenalyn-xl-2026-booster-pack",
+    "name": "Panini Fifa World Cup Adrenalyn XL 2026 Booster",
+    "price_cents": 849,
+    "file": "panini-fifa-world-cup-adrenalyn-xl-2026-booster-pack.webp"
+  },
+  {
+    "slug": "panini-fifa-world-cup-adrenalyn-xl-2026-puszka-kolekcjonera",
+    "name": "Panini Fifa World Cup Adrenalyn XL 2026 Puszka kolekcjonera",
+    "price_cents": 6999,
+    "file": "panini-fifa-world-cup-adrenalyn-xl-2026-puszka-kolekcjonera.webp"
+  },
+  {
+    "slug": "panini-fifa-world-cup-adrenalyn-xl-2026-mini-puszka",
+    "name": "Panini Fifa World Cup Adrenalyn XL 2026 Mini Puszka",
+    "price_cents": 3999,
+    "file": "panini-fifa-world-cup-adrenalyn-xl-2026-mini-puszka.webp"
+  },
+  {
+    "slug": "panini-fifa-world-cup-adrenalyn-xl-2026-dream-box",
+    "name": "Panini Fifa World Cup Adrenalyn XL 2026 Dream Box",
+    "price_cents": 14999,
+    "file": "panini-fifa-world-cup-adrenalyn-xl-2026-dream-box.webp"
+  },
+  {
+    "slug": "panini-fifa-world-cup-adrenalyn-xl-2026-blister-gold",
+    "name": "Panini Fifa World Cup Adrenalyn XL 2026 Blister Gold",
+    "price_cents": 3999,
+    "file": "panini-fifa-world-cup-adrenalyn-xl-2026-blister-gold.webp"
+  },
+  {
+    "slug": "topps-manchester-united-25-26-team-set",
+    "name": "Topps Manchester United 25/26 Team Set",
+    "price_cents": 41900,
+    "file": "topps-manchester-united-25-26-team-set.webp"
+  },
+  {
+    "slug": "cagliari-13-14-away-l-s",
+    "name": "Cagliari 13/14 Away L/S",
+    "price_cents": 20000,
+    "file": "cagliari-13-14-away-l-s.webp"
+  },
+  {
+    "slug": "napoli-00-01-third",
+    "name": "Napoli 00/01 Third",
+    "price_cents": 45000,
+    "file": "napoli-00-01-third.webp"
+  },
+  {
+    "slug": "empoli-03-04-home-busce",
+    "name": "Empoli 03/04 Home Busce",
+    "price_cents": 36000,
+    "file": "empoli-03-04-home-busce.webp"
+  },
+  {
+    "slug": "italy-2004-home",
+    "name": "Italy 2004 Home",
+    "price_cents": 35000,
+    "file": "italy-2004-home.webp"
+  },
+  {
+    "slug": "salernitana-training-l-s",
+    "name": "Salernitana Training L/S",
+    "price_cents": 18000,
+    "file": "salernitana-training-l-s.webp"
+  },
+  {
+    "slug": "manchester-utd-21-22-home-ronaldo-3",
+    "name": "Manchester Utd. 21/22 Home Ronaldo",
+    "price_cents": 50000,
+    "file": "manchester-utd-21-22-home-ronaldo-3.webp"
+  }
+]
