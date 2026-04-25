@@ -1,355 +1,599 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>KICKBACK — Vintage Football Jerseys</title>
+<title>release — bold by design</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="min-h-screen">
 
 <div data-release-header></div>
 
-<!-- ==================== HERO COLLAGE ==================== -->
-<section class="relative bg-black overflow-hidden">
-  <div class="relative h-[min(80vh,720px)] min-h-[520px]">
-    <!-- Collage grid background -->
-    <div class="absolute inset-0 grid grid-cols-6 grid-rows-3 gap-1 opacity-90">
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-98-00-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/parma-97-98-away.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/manchester-utd-24-25-home-ls.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/inter-milan-24-25-third.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/fc-bayern-retro-track-sweatshirt.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/italy-2002-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/france-2011-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/brazil-total-90-training-top.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/2025-26-topps-real-madrid-team-set.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/manchester-united-06-07-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-24-25-home-mbappe.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/benfica-18-19-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/schalke-02-04-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/fc-porto-16-17-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/england-2000-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/southampton-17-18-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/deportivo-de-la-coruna-09-10-home.webp')"></div>
-      <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-20-21-home.webp')"></div>
-    </div>
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70"></div>
+<!-- ==================== HERO ==================== -->
+<section class="relative">
+  <div class="relative h-[min(92vh,860px)] min-h-[620px] w-full overflow-hidden">
+    <img src="brand_assets/products/parma-97-98-away.webp" alt="Vintage football jersey editorial" class="absolute inset-0 h-full w-full object-cover object-[50%_40%]"/>
+    <div class="hero-shade"></div>
     <div class="grain"></div>
-    <!-- Headline -->
-    <div class="relative z-10 h-full flex items-center justify-center px-6 text-center">
-      <div class="rise rise-1">
-        <div class="inline-block px-4 py-1 rounded-full bg-[var(--yellow)] text-black text-[11px] tracking-wide2 uppercase font-semibold mb-6">DROP NA ŻYWO</div>
-        <h1 class="font-display text-white text-[60px] md:text-[140px] leading-[0.9]" style="letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,0,0,.5)">GOTOWI<br/><span class="text-[var(--accent)]">OPENING</span></h1>
-        <p class="mt-6 text-white/80 text-[14px] tracking-wide2 uppercase max-w-xl mx-auto">Ponad 350 koszulek vintage · Karty kolekcjonerskie · Mystery Box</p>
-        <div class="mt-8 flex items-center justify-center gap-3">
-          <a href="collections/new-collection.html" class="inline-flex items-center justify-center h-12 px-7 rounded-full bg-[var(--accent)] text-white text-[11px] tracking-wide2 uppercase font-semibold pill pill-accent">Zobacz nowości</a>
-          <a href="collections/best-sellers.html" class="inline-flex items-center justify-center h-12 px-7 rounded-full border border-white/80 text-white text-[11px] tracking-wide2 uppercase pill pill-ghost">Bestsellery</a>
+
+
+    <div class="relative z-10 h-full w-full flex items-end pb-28">
+      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10 text-center text-white">
+        <div class="rise rise-1 text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/80">Kolekcja vintage · Sezon 25/26</div>
+        <h1 class="rise rise-2 h-editorial text-white mt-5 text-[52px] md:text-[108px]" style="letter-spacing:-0.035em">
+          Football <em class="font-wonk font-normal">heritage</em>
+        </h1>
+        <div class="rise rise-3 mt-8 flex items-center justify-center">
+          <a href="#just-arrived" class="pill pill-ghost inline-flex items-center justify-center h-11 px-7 rounded-full border border-white/80 text-white text-[11px] tracking-wide2 uppercase font-medium">Zobacz kolekcję</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== NOWOŚCI ==================== -->
-<section class="onlight bg-white">
-  <h2 class="kb-section-title">Nowości</h2>
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-      <article class="text-center">
-        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/brazil-total-90-training-top.webp" class="w-full h-full object-contain" alt="Brazil Total 90 Training Top"/>
-        </a>
-        <h3 class="pc-name mt-5">Brazil Total 90 Training Top</h3>
-        <div class="pc-price mt-2">250,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/schalke-02-04-home.webp" class="w-full h-full object-contain" alt="Schalke 02/04 Home"/>
-        </a>
-        <h3 class="pc-name mt-5">Schalke 02/04 Home</h3>
-        <div class="pc-price mt-2">290,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/fc-porto-16-17-home.webp" class="w-full h-full object-contain" alt="FC Porto 16/17 Home"/>
-        </a>
-        <h3 class="pc-name mt-5">FC Porto 16/17 Home</h3>
-        <div class="pc-price mt-2">230,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/italy-2002-home.webp" class="w-full h-full object-contain" alt="Italy 2002 Home"/>
-        </a>
-        <h3 class="pc-name mt-5">Italy 2002 Home</h3>
-        <div class="pc-price mt-2">300,00 zł</div>
-      </article>
-    </div>
-    <div class="text-center mt-10">
-      <a href="collections/new-collection.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz wszystkie</a>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== POP-UP STORE ==================== -->
-<section class="onlight bg-stone-50">
-  <h2 class="kb-section-title">Odwiedź nas — Pop-up Store</h2>
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-[4px] overflow-hidden border hairline">
-      <div class="md:col-span-1 bg-white p-8 flex flex-col justify-between">
-        <div>
-          <div class="inline-flex items-center gap-2 mb-4">
-            <span class="text-[10px] tracking-wide2 uppercase bg-[var(--accent)] text-white px-2 py-1 rounded-full font-semibold">Otwarte</span>
-            <span class="text-[11px] tracking-wide2 uppercase text-black/55">Warszawa · Włochy</span>
-          </div>
-          <h3 class="font-display text-[22px] md:text-[26px] leading-tight mb-4">KICKBACK<br/>POP-UP STORE</h3>
-          <div class="text-[13px] text-black/70 leading-[1.7] space-y-1">
-            <div>📍 Oleandrów 4, 00-636 Warszawa</div>
-            <div>⏰ Pn–Pt: 11:00–19:00 · Sb: 12:00–17:00</div>
-            <div>⭐ 5.0 (23 opinii)</div>
-          </div>
-        </div>
-        <a href="pages/store-locator.html" class="mt-8 inline-flex items-center justify-center h-11 px-6 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-semibold pill pill-dark w-fit">Pokaż na mapie →</a>
-      </div>
-      <div class="md:col-span-2 relative aspect-[16/10] md:aspect-auto bg-[#a7d3ea]">
-        <img src="https://placehold.co/1600x900/c8e3f0/c8e3f0.png" alt="Mapa pop-up store Warszawa" class="absolute inset-0 h-full w-full object-cover"/>
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-          <div class="bg-[var(--accent)] text-white px-4 py-2 rounded-full text-[11px] tracking-wide2 uppercase font-semibold shadow-lg">KICKBACK</div>
-          <div class="w-1 h-8 bg-[var(--accent)]"></div>
+<!-- ==================== JUST ARRIVED (4-COL) ==================== -->
+<section id="just-arrived" class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Nowości</h2>
+      <div class="flex items-center gap-6">
+        <a href="collections/new-collection.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz wszystkie</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <!-- 1 -->
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/brazil-total-90-training-top.webp" alt="Brazil Total 90 Training Top" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-4"/><span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Limitowana</span></a>
+        <div class="mt-5">
+        <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Brazil Total 90 Training Top</h3>
+          <div class="mt-1 text-[12px]">250,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 4 rozmiarach</div>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/schalke-02-04-home.webp" alt="Schalke 02/04 Home" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-4"/></a>
+        <div class="mt-5">
+        <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Schalke 02/04 Home</h3>
+          <div class="mt-1 text-[12px]">290,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 3 rozmiarach</div>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/fc-porto-16-17-home.webp" alt="FC Porto 16/17 Home" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-4"/></a>
+        <div class="mt-5">
+        <h3 class="text-[11px] tracking-wide2 uppercase font-medium">FC Porto 16/17 Home</h3>
+          <div class="mt-1 text-[12px]">230,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 4 rozmiarach</div>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/italy-2002-home.webp" alt="Italy 2002 Home" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-4"/><span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Klasyk</span></a>
+        <div class="mt-5">
+        <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Italy 2002 Home</h3>
+          <div class="mt-1 text-[12px]">300,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 5 rozmiarach</div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- ==================== MYSTERY BOX ==================== -->
+<!-- ==================== TIMELESS CLASSICS (split editorial) ==================== -->
 <section class="onlight bg-white">
-  <h2 class="kb-section-title">Mystery Box</h2>
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <article class="group text-center bg-stone-50 rounded-[4px] p-8 hover:shadow-tile transition">
-        <div class="aspect-square mb-6 flex items-center justify-center bg-black rounded-[2px] relative overflow-hidden">
-          <div class="absolute inset-0 bg-[url('brand_assets/products/manchester-utd-21-22-home-ronaldo-3.webp')] bg-cover bg-center opacity-30"></div>
-          <div class="relative z-10 text-white text-center">
-            <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] font-semibold">BLIND BOX</div>
-            <div class="font-display text-[36px] mt-2">?</div>
-          </div>
-          <div class="absolute top-3 left-3 text-[10px] tracking-wide2 uppercase bg-[var(--yellow)] text-black px-2 py-1 rounded-sm font-bold">BESTSELLER</div>
-        </div>
-        <h3 class="font-display text-[14px] mb-2">Bestseller BLIND BOX</h3>
-        <div class="pc-price text-[16px]">299,00 zł</div>
-      </article>
-      <article class="group text-center bg-stone-50 rounded-[4px] p-8 hover:shadow-tile transition">
-        <div class="aspect-square mb-6 flex items-center justify-center bg-black rounded-[2px] relative overflow-hidden">
-          <div class="absolute inset-0 bg-[url('brand_assets/products/real-madrid-98-00-home.webp')] bg-cover bg-center opacity-30"></div>
-          <div class="relative z-10 text-white text-center">
-            <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] font-semibold">PREMIUM</div>
-            <div class="font-display text-[36px] mt-2">?</div>
-          </div>
-        </div>
-        <h3 class="font-display text-[14px] mb-2">Mystery Box Ultimate</h3>
-        <div class="pc-price text-[16px]">449,00 zł</div>
-      </article>
-      <article class="group text-center bg-stone-50 rounded-[4px] p-8 hover:shadow-tile transition">
-        <div class="aspect-square mb-6 flex items-center justify-center bg-black rounded-[2px] relative overflow-hidden">
-          <div class="absolute inset-0 bg-[url('brand_assets/products/parma-97-98-away.webp')] bg-cover bg-center opacity-30"></div>
-          <div class="relative z-10 text-white text-center">
-            <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] font-semibold">CLASSIC</div>
-            <div class="font-display text-[36px] mt-2">?</div>
-          </div>
-        </div>
-        <h3 class="font-display text-[14px] mb-2">Mystery Box Premium</h3>
-        <div class="pc-price text-[16px]">349,00 zł</div>
-      </article>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile">
+      <img src="brand_assets/photos/9-outfit3-kickback.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
+      <div class="absolute left-10 bottom-10 text-white">
+        <h2 class="h-editorial text-[48px] md:text-[64px]">Ponadczasowe <em class="font-wonk font-normal">klasyki</em></h2>
+        <a href="collections/all.html" class="mt-5 inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Eksploruj</a>
+      </div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile">
+      <img src="brand_assets/photos/kickback-site-classics.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
     </div>
   </div>
 </section>
 
-<!-- ==================== LIGI (League collage tiles) ==================== -->
-<section class="onlight bg-stone-50">
-  <h2 class="kb-section-title">Wybierz Swoją Ligę</h2>
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      <a href="collections/all.html" class="group relative aspect-[3/4] overflow-hidden rounded-[4px] bg-black">
-        <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px opacity-90 group-hover:scale-110 transition duration-700">
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-98-00-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-24-25-home-mbappe.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/deportivo-de-la-coruna-09-10-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-20-21-home.webp')"></div>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-white text-center">
-          <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] mb-1">🇪🇸</div>
-          <div class="font-display text-[20px] md:text-[28px] tracking-wide2">LA LIGA</div>
-        </div>
-      </a>
-      <a href="collections/best-sellers.html" class="group relative aspect-[3/4] overflow-hidden rounded-[4px] bg-black">
-        <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px opacity-90 group-hover:scale-110 transition duration-700">
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/manchester-united-06-07-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/manchester-utd-24-25-home-ls.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/southampton-17-18-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/manchester-utd-21-22-home-ronaldo-3.webp')"></div>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-white text-center">
-          <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] mb-1">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-          <div class="font-display text-[20px] md:text-[28px] tracking-wide2">PREMIER LEAGUE</div>
-        </div>
-      </a>
-      <a href="collections/jackets-coats.html" class="group relative aspect-[3/4] overflow-hidden rounded-[4px] bg-black">
-        <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px opacity-90 group-hover:scale-110 transition duration-700">
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/inter-milan-24-25-third.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/parma-97-98-away.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/cagliari-13-14-away-l-s.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/napoli-00-01-third.webp')"></div>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-white text-center">
-          <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] mb-1">🇮🇹</div>
-          <div class="font-display text-[20px] md:text-[28px] tracking-wide2">SERIE A</div>
-        </div>
-      </a>
-      <a href="collections/knitwear.html" class="group relative aspect-[3/4] overflow-hidden rounded-[4px] bg-black">
-        <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px opacity-90 group-hover:scale-110 transition duration-700">
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/fc-bayern-retro-track-sweatshirt.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/schalke-02-04-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/benfica-18-19-home.webp')"></div>
-          <div class="bg-cover bg-center" style="background-image:url('brand_assets/products/real-madrid-98-00-home.webp')"></div>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-white text-center">
-          <div class="text-[11px] tracking-wide2 uppercase text-[var(--yellow)] mb-1">🇩🇪</div>
-          <div class="font-display text-[20px] md:text-[28px] tracking-wide2">BUNDESLIGA</div>
-        </div>
-      </a>
+<!-- ==================== PARALLAX QUOTE ==================== -->
+<section class="relative">
+  <div class="relative h-[min(75vh,720px)] min-h-[460px] overflow-hidden">
+    <img src="brand_assets/photos/9-outfit3-kickback.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/45"></div>
+    <div class="grain"></div>
+    <div class="relative z-10 h-full flex items-center justify-center px-6">
+      <h2 class="h-editorial text-center text-white text-[34px] md:text-[64px] max-w-[1100px]">Każda koszulka to <em class="font-wonk font-normal">historia</em><br/>warta zachowania</h2>
     </div>
   </div>
 </section>
 
-<!-- ==================== BEST OF ==================== -->
+<!-- ==================== OUR SPECIAL COLLECTIONS ==================== -->
 <section class="onlight bg-white">
-  <h2 class="kb-section-title">Best of</h2>
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-20">
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
-      <article class="text-center">
-        <a href="products/black-puffer-jacket.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/real-madrid-98-00-home.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">Real Madrid 98/00 Home</h3>
-        <div class="pc-price mt-2 text-[13px]">600,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/green-puffguard-jacket.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/parma-97-98-away.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">Parma 97/98 Away</h3>
-        <div class="pc-price mt-2 text-[13px]">600,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/white-puffer-jacket.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/manchester-united-06-07-home.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">Manchester United 06/07</h3>
-        <div class="pc-price mt-2 text-[13px]">330,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/green-long-wool-coat.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/inter-milan-24-25-third.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">Inter Milan 24/25 Third</h3>
-        <div class="pc-price mt-2 text-[13px]">250,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/beige-sweater-with-zipper.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/fc-bayern-retro-track-sweatshirt.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">FC Bayern Retro Track</h3>
-        <div class="pc-price mt-2 text-[13px]">320,00 zł</div>
-      </article>
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Nasze <em class="font-wonk font-normal">kategorie</em></h2>
+      <a href="collections/all.html" class="text-[11px] tracking-wide2 uppercase inline-flex items-center justify-center h-10 px-5 rounded-full border hairline hover:bg-black hover:text-white transition pill">Zobacz wszystkie</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
+      <a href="collections/tops.html" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/manchester-united-06-07-home.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Kluby</span><span class="text-[10px] text-black/45 align-super">142</span></div>
+      </a>
+      <a href="collections/all.html" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/italy-2002-home.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Reprezentacje</span><span class="text-[10px] text-black/45 align-super">38</span></div>
+      </a>
+      <a href="collections/pants.html" class="group">
+        <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/2025-26-topps-real-madrid-team-set.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </div>
+        <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Karty</span><span class="text-[10px] text-black/45 align-super">25</span></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <article class="text-center">
-        <a href="products/hydrophobic-wind-resistant-padded-jacket.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/manchester-utd-24-25-home-ls.webp" class="w-full h-full object-contain" alt=""/>
+<!-- ==================== CLASSIC MEETS CONTEMPORARY (split) ==================== -->
+<section>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden bg-white">
+      <img src="brand_assets/photos/kickback-site-classics.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+    <div class="bg-black text-white flex items-center md:min-h-[560px]">
+      <div class="px-10 md:px-16 py-16 max-w-[560px] mx-auto text-center">
+        <h2 class="h-editorial text-[40px] md:text-[56px]">Klasyka spotyka<br/>Współczesność</h2>
+        <p class="mt-5 text-[13px] leading-[1.7] text-white/70">Vintage retro 80's i 90's obok najnowszych trykotów 25/26. Pełna kolekcja w jednym miejscu.</p>
+        <a href="collections/new-collection.html" class="mt-8 inline-flex items-center justify-center h-11 px-7 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz kolekcję</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHAT'S NEW (tabs + grid) ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="text-center mb-10 md:mb-14">
+      <div class="text-[11px] tracking-mega uppercase text-black/55">Najnowsze</div>
+      <div class="mt-4 inline-flex items-end gap-6">
+        <button class="h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Klubowe</button>
+        <button class="h-section text-[36px] md:text-[52px] tab-muted">Reprezentacje</button>
+        <button class="h-section text-[36px] md:text-[52px] tab-muted">Karty</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/real-madrid-98-00-home.webp" alt="Real Madrid 98/00 Home" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-6"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Vintage</span>
         </a>
-        <h3 class="pc-name mt-4 text-[12px]">Man Utd 24/25 Home LS</h3>
-        <div class="pc-price mt-2 text-[13px]">260,00 zł</div>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Real Madrid 98/00 Home</h3>
+          <div class="mt-1 text-[12px]"><span class="line-through text-black/40">700,00 zł</span> <span class="text-[#b4332a]">600,00 zł</span></div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 2 rozmiarach</div>
+        </div>
       </article>
-      <article class="text-center">
-        <a href="products/waterproof-insulated-down-jacket.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/france-2011-home.webp" class="w-full h-full object-contain" alt=""/>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/manchester-united-06-07-home.webp" alt="Manchester United 06/07 Home" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-6"/>
         </a>
-        <h3 class="pc-name mt-4 text-[12px]">France 2011 Home</h3>
-        <div class="pc-price mt-2 text-[13px]">250,00 zł</div>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Manchester United 06/07 Home</h3>
+          <div class="mt-1 text-[12px]">330,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 4 rozmiarach</div>
+        </div>
       </article>
-      <article class="text-center">
-        <a href="products/black-turtleneck.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/england-2000-home.webp" class="w-full h-full object-contain" alt=""/>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/inter-milan-24-25-third.webp" alt="Inter Milan 24/25 Third" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-6"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Nowość</span>
         </a>
-        <h3 class="pc-name mt-4 text-[12px]">England 2000 Home</h3>
-        <div class="pc-price mt-2 text-[13px]">280,00 zł</div>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Inter Milan 24/25 Third</h3>
+          <div class="mt-1 text-[12px]">250,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 5 rozmiarach</div>
+        </div>
       </article>
-      <article class="text-center">
-        <a href="products/brown-turtleneck.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/2025-26-topps-real-madrid-team-set.webp" class="w-full h-full object-contain" alt=""/>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="brand_assets/products/fc-bayern-retro-track-sweatshirt.webp" alt="FC Bayern Retro Track" class="absolute inset-0 h-full w-full object-contain bg-stone-100 p-6"/>
         </a>
-        <h3 class="pc-name mt-4 text-[12px]">Topps Real Madrid 25/26</h3>
-        <div class="pc-price mt-2 text-[13px]">449,00 zł</div>
-      </article>
-      <article class="text-center">
-        <a href="products/sweater-with-stripes.html" class="block aspect-square overflow-hidden">
-          <img src="brand_assets/products/benfica-18-19-home.webp" class="w-full h-full object-contain" alt=""/>
-        </a>
-        <h3 class="pc-name mt-4 text-[12px]">Benfica 18/19 Home</h3>
-        <div class="pc-price mt-2 text-[13px]">250,00 zł</div>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">FC Bayern Retro Track</h3>
+          <div class="mt-1 text-[12px]">320,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 3 rozmiarach</div>
+        </div>
       </article>
     </div>
+
     <div class="text-center mt-12">
-      <a href="collections/best-sellers.html" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-semibold pill pill-dark">Sprawdź wszystkie</a>
+      <a href="collections/jackets-coats.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz wszystkie</a>
     </div>
   </div>
 </section>
 
-<!-- ==================== ARTICLES / GUIDES ==================== -->
-<section class="bg-black text-white">
-  <h2 class="kb-section-title text-white">Poradniki Kolekcjonera</h2>
-  <div class="mx-auto max-w-[1200px] px-6 md:px-10 pb-20">
-    <div class="divide-y divide-white/10">
-      <a href="blogs/news/the-benefits-of-organic-cotton.html" class="flex items-center justify-between gap-4 py-6 group">
-        <div class="flex-1">
-          <h3 class="font-display text-[16px] md:text-[20px] mb-2 group-hover:text-[var(--yellow)] transition">Jak rozpoznać oryginalną koszulkę piłkarską? Kompletny poradnik kolekcjonera</h3>
-          <p class="text-[13px] text-white/55">Dowiedz się, jak odróżnić oryginalną koszulkę piłkarską od podróbki.</p>
-        </div>
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 group-hover:text-[var(--yellow)] transition flex items-center gap-2">CONTINUE →</div>
-      </a>
-      <a href="blogs/news/the-timeless-elegance-of-soft-beige-cream-and-peach.html" class="flex items-center justify-between gap-4 py-6 group">
-        <div class="flex-1">
-          <h3 class="font-display text-[16px] md:text-[20px] mb-2 group-hover:text-[var(--yellow)] transition">Najbardziej kultowe koszulki w historii Serie A</h3>
-          <p class="text-[13px] text-white/55">Poznaj najbardziej kultowe koszulki w historii Serie A — od trykotów Napoli Maradony.</p>
-        </div>
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 group-hover:text-[var(--yellow)] transition flex items-center gap-2">CONTINUE →</div>
-      </a>
-      <a href="blogs/news/10-fresh-fashion-trends-for-the-season-ahead.html" class="flex items-center justify-between gap-4 py-6 group">
-        <div class="flex-1">
-          <h3 class="font-display text-[16px] md:text-[20px] mb-2 group-hover:text-[var(--yellow)] transition">Najrzadsze koszulki w historii Mistrzostw Świata</h3>
-          <p class="text-[13px] text-white/55">Odkryj najrzadsze koszulki w historii Mistrzostw Świata. Od limitowanych edycji po trykoty noszone przez legendy.</p>
-        </div>
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 group-hover:text-[var(--yellow)] transition flex items-center gap-2">CONTINUE →</div>
-      </a>
-      <a href="blogs/news/denim-decoded-a-guide-to-styling-your-favorite-jeans.html" class="flex items-center justify-between gap-4 py-6 group">
-        <div class="flex-1">
-          <h3 class="font-display text-[16px] md:text-[20px] mb-2 group-hover:text-[var(--yellow)] transition">Jak prać koszulkę piłkarską, żeby nie straciła koloru i nadruków</h3>
-          <p class="text-[13px] text-white/55">Sprawdź, jak prawidłowo prać koszulki piłkarskie, by zachowały kolory i nadruki przez lata.</p>
-        </div>
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 group-hover:text-[var(--yellow)] transition flex items-center gap-2">CONTINUE →</div>
-      </a>
+<!-- ==================== FULL-BLEED EDITORIAL TAGLINE ==================== -->
+<section class="relative">
+  <div class="relative h-[min(80vh,760px)] min-h-[480px] overflow-hidden">
+    <img src="brand_assets/photos/kickback-site-classics.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30"></div>
+    <div class="relative z-10 h-full flex items-center justify-center">
+      <div class="text-white text-center">
+        <div class="text-[11px] tracking-mega uppercase font-medium">Vintage football jerseys · Polska</div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ==================== SALE COUNTDOWN BANNER ==================== -->
+<section class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <div>
+      <h3 class="font-display text-[28px] md:text-[36px] leading-none">Drop kończy się za</h3>
+      <a href="collections/all.html" class="mt-4 inline-flex items-center justify-center h-10 px-6 rounded-full border border-white/70 text-white text-[11px] tracking-wide2 uppercase pill pill-ghost">Eksploruj</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Dni</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Godz</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Min</div>
+      </div>
+      <div class="w-[92px] h-[92px] bg-[#171717] border border-white/10 rounded-md flex flex-col items-center justify-center">
+        <div class="font-display text-[36px] leading-none digit">0</div>
+        <div class="mt-1 text-[10px] tracking-wide2 uppercase text-white/60">Sek</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ITEM OF THE WEEK ==================== -->
+<section class="onlight bg-[var(--stone)]">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <h2 class="h-section text-[40px] md:text-[56px] mb-10">Produkt <em class="font-wonk font-normal">tygodnia</em></h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+      <div class="md:col-span-8 grid grid-cols-2 gap-4">
+        <div class="relative aspect-[4/5] tile overflow-hidden rounded-[2px]">
+          <img src="brand_assets/products/parma-97-98-away.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <div class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase text-black/60 bg-white/80 rounded-full px-2 py-1">1 | 7</div>
+          <button class="absolute left-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 6-6 6 6 6"/></svg></button>
+        </div>
+        <div class="relative aspect-[4/5] tile overflow-hidden rounded-[2px]">
+          <img src="brand_assets/products/real-madrid-98-00-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <button class="absolute right-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="md:col-span-4 flex flex-col">
+        <h3 class="text-[12px] tracking-wide2 uppercase font-medium">Parma 97/98 Away</h3>
+        <div class="mt-2 text-[11px] tracking-wide2 uppercase link-underline text-black/60 w-fit">Vintage · Limitowana</div>
+        <div class="mt-4 text-[16px]">600,00 zł <span class="text-[11px] text-black/50 tracking-wide2 uppercase ml-2">VAT wliczony</span></div>
+
+        <div class="mt-8 flex items-center justify-between">
+          <div class="text-[11px] tracking-wide2 uppercase">Rozmiar <span class="text-black/60">M</span></div>
+          <a href="pages/size-guide.html" class="text-[11px] tracking-wide2 uppercase link-underline">Tabela rozmiarów</a>
+        </div>
+        <div class="mt-3 flex items-center gap-2">
+          <button class="h-10 w-12 border border-black text-[12px] rounded-[3px]">XS</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">S</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">M</button>
+          <button class="h-10 w-12 border hairline text-[12px] rounded-[3px]">L</button>
+        </div>
+
+        <div class="mt-6 text-[11px] tracking-wide2 uppercase">Kolor <span class="text-black/60">Original</span></div>
+        <div class="mt-3 flex items-center gap-2">
+          <span class="h-6 w-6 rounded-full bg-black ring-1 ring-offset-2 ring-offset-[var(--stone)] ring-black"></span>
+          <span class="h-6 w-6 rounded-full bg-white border hairline"></span>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3">
+          <div class="flex items-center border hairline rounded-full h-12 px-3">
+            <button class="w-6 text-black/60">−</button>
+            <input class="w-8 text-center bg-transparent" value="1"/>
+            <button class="w-6 text-black/60">+</button>
+          </div>
+          <button class="flex-1 h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Do koszyka</button>
+        </div>
+        <button class="mt-3 h-12 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Kup teraz</button>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="mt-4 text-[11px] tracking-wide2 uppercase link-underline w-fit">Zobacz produkt</a>
+      </div>
+    </div>
+
+    <!-- SHOP THE LOOK -->
+    <div class="mt-20">
+      <h3 class="h-section text-[28px] md:text-[36px] mb-6">Skompletuj <em class="font-wonk font-normal">look</em></h3>
+      <div class="flex items-start gap-6">
+        <div class="w-[220px]">
+          <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
+            <img src="brand_assets/products/fc-bayern-retro-track-sweatshirt.webp" style="background:#f5f5f5;padding:16px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          </div>
+          <div class="mt-4 text-[11px] tracking-wide2 uppercase font-medium">FC Bayern Retro Track</div>
+          <div class="mt-1 text-[12px]">320,00 zł</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Dostępne w 3 rozmiarach</div>
+        </div>
+        <div class="flex-1 pt-4 flex items-center justify-between">
+          <div class="h-px w-20 bg-black/60"></div>
+          <div class="flex items-center gap-2">
+            <button class="h-8 w-8 rounded-full border hairline"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+            <button class="h-8 w-8 rounded-full border hairline"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SPRING HAS ARRIVED BANNER ==================== -->
+<section class="bg-black text-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32 text-right">
+    <h3 class="h-editorial text-[40px] md:text-[64px]"><em class="font-wonk font-normal">Nowy drop.</em> Sprawdź<br/>kolekcję 25/26</h3>
+    <div class="mt-8 flex justify-end">
+      <a href="collections/new-collection.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz teraz</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TWO-UP EDITORIAL WITH QUOTE ==================== -->
+<section class="bg-black">
+  <div class="grid grid-cols-2 gap-0">
+    <div class="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden">
+      <img src="brand_assets/photos/9-outfit3-kickback.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="grain"></div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden">
+      <img src="brand_assets/photos/kickback-site-classics.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="grain"></div>
+    </div>
+  </div>
+  <div class="relative -mt-24 md:-mt-32 pb-20 md:pb-28 z-10">
+    <p class="mx-auto max-w-[900px] px-6 text-center text-white/90 text-[13px] md:text-[15px] tracking-wide2 uppercase">Każda koszulka opowiada historię — od stadionu do twojej szafy</p>
+  </div>
+</section>
+
+<!-- ==================== OUR FLAGSHIP STORES ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <h2 class="h-section text-[40px] md:text-[56px] mb-10"><em class="font-wonk font-normal">Nasz</em> pop-up store</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="relative aspect-[4/3] rounded-[2px] overflow-hidden" style="background:#6e7d73">
+        <div class="absolute inset-0" style="background-image:url('https://placehold.co/1200x900/6e7d73/6e7d73.png');background-size:cover"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+        <div class="absolute left-8 bottom-8 text-white">
+          <h3 class="h-editorial text-[28px] md:text-[36px]">Warszawa · <em class="font-wonk font-normal">Oleandrów 4</em></h3>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] rounded-[2px] overflow-hidden bg-[#a7d3ea]">
+        <img src="https://placehold.co/1200x900/a7d3ea/a7d3ea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        <div class="absolute inset-4 border border-white/40 rounded-[2px] flex items-center justify-center text-white/70 text-[11px] tracking-wide2 uppercase">Warszawa, Polska</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BEFORE / AFTER ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pb-20 md:pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-4">
+        <h2 class="h-section text-[36px] md:text-[48px]">Przed <span class="text-black/40">/</span> <em class="font-wonk font-normal">Po</em></h2>
+        <p class="mt-5 text-[13px] leading-[1.7] text-black/65 max-w-[340px]">Każda koszulka przechodzi przez profesjonalną renowację. Zobacz różnicę.</p>
+        <a href="collections/best-sellers.html" class="mt-7 inline-flex items-center justify-center h-11 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Sprawdź</a>
+      </div>
+      <div class="md:col-span-8">
+        <div class="relative aspect-[16/9] overflow-hidden rounded-[2px] bg-[var(--tile)]">
+          <img src="https://placehold.co/1600x900/9c876a/9c876a.png" alt="Before" class="absolute inset-0 h-full w-full object-cover"/>
+          <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden">
+            <img src="https://placehold.co/1600x900/c2b29a/c2b29a.png" alt="After" class="absolute inset-0 h-full w-full object-cover"/>
+          </div>
+          <div class="absolute inset-y-0 left-1/2 w-[2px] bg-white/90"></div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></svg>
+          </div>
+          <span class="absolute left-4 bottom-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Stan oryginalny</span>
+          <span class="absolute right-4 bottom-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Po renowacji</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TAILORED MOTION SPLIT ==================== -->
+<section>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden bg-[#1a1a1a]">
+      <img src="brand_assets/photos/9-outfit3-kickback.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <div class="absolute left-10 bottom-12 text-white max-w-sm">
+        <h3 class="h-editorial text-[36px] md:text-[44px]">Mystery Box: <em class="font-wonk font-normal">losowanie</em> kolekcjonera</h3>
+        <a href="collections/new-collection.html" class="mt-6 inline-flex items-center justify-center h-10 px-6 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz teraz</a>
+      </div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden bg-[#e9e3d6]">
+      <img src="brand_assets/photos/kickback-site-classics.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== THE EDIT MODERN CLASSIC ==================== -->
+<section class="relative">
+  <div class="relative h-[min(70vh,620px)] min-h-[400px] overflow-hidden">
+    <img src="https://placehold.co/2400x1200/8c6f4e/8c6f4e.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/25 to-black/45"></div>
+    <div class="grain"></div>
+    <div class="relative z-10 h-full flex items-end pb-16">
+      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10 flex items-center gap-8 text-white">
+        <h3 class="font-display text-[36px] md:text-[56px] tracking-tight font-light">RETRO</h3>
+        <span class="h-px flex-1 bg-white/40"></span>
+        <h3 class="font-display text-[36px] md:text-[56px] tracking-tight font-light">VINTAGE 90s</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="onlight bg-[var(--stone)]">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-24">
+    <div class="text-center mb-12">
+      <h2 class="h-section text-[40px] md:text-[52px] text-black/15">Opinie</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Michał K.</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"Kupiłem Real Madrid 98/00 i jakość przeszła moje oczekiwania. Szybka wysyłka, profesjonalne pakowanie."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Karolina W.</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"Mystery Box to najlepszy prezent jaki dałam mojemu chłopakowi. Dostał Inter Milan 03/04, oszalał z radości."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Bartek P.</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"Mam już 6 koszulek z Kickbacka. Każda autentyczna, każda dokładnie opisana. Polecam każdemu kolekcjonerowi."</blockquote>
+      </figure>
+      <figure class="text-center">
+        <div class="text-[12px] tracking-wide2 uppercase mb-3">Julia S.</div>
+        <blockquote class="text-[13px] leading-[1.7] text-black/70">"Pop-up store w Warszawie to magiczne miejsce. Można dotknąć każdej koszulki, ekipa zna się na temacie."</blockquote>
+      </figure>
+    </div>
+    <div class="mt-10 flex justify-center">
+      <div class="h-[2px] w-24 bg-black/70"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BLOG ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Blog</h2>
+      <div class="flex items-center gap-6">
+        <a href="blogs/news.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz blog</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article>
+        <a href="blogs/news/the-timeless-elegance-of-soft-beige-cream-and-peach.html" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/parma-97-98-away.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">Jak rozpoznać oryginalną koszulkę piłkarską</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Kickback · 1 marca 2026</div>
+        <a href="blogs/news/the-timeless-elegance-of-soft-beige-cream-and-peach.html" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Czytaj dalej</a>
+      </article>
+      <article>
+        <a href="blogs/news/the-benefits-of-organic-cotton.html" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/manchester-united-06-07-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">Najbardziej kultowe koszulki w historii Serie A</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Kickback · 1 marca 2026</div>
+        <a href="blogs/news/the-benefits-of-organic-cotton.html" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Czytaj dalej</a>
+      </article>
+      <article>
+        <a href="blogs/news/denim-decoded-a-guide-to-styling-your-favorite-jeans.html" class="tile block relative aspect-[4/3] overflow-hidden rounded-[2px] shadow-tile">
+          <img src="brand_assets/products/italy-2002-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <h3 class="mt-5 h-section text-[20px] md:text-[22px] max-w-sm">Najrzadsze koszulki w historii Mistrzostw Świata</h3>
+        <div class="mt-2 text-[10px] tracking-wide2 uppercase text-black/55">Kickback · 1 marca 2026</div>
+        <a href="blogs/news/denim-decoded-a-guide-to-styling-your-favorite-jeans.html" class="mt-3 inline-block text-[11px] tracking-wide2 uppercase link-underline">Czytaj dalej</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== IMAGE STRIP ==================== -->
+<section>
+  <div class="grid grid-cols-4 gap-0">
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="brand_assets/products/real-madrid-98-00-home.webp" style="background:#f5f5f5;padding:32px" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="brand_assets/products/parma-97-98-away.webp" style="background:#f5f5f5;padding:32px" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="brand_assets/products/manchester-united-06-07-home.webp" style="background:#f5f5f5;padding:32px" alt="" class="h-full w-full object-cover"/></div>
+    <div class="aspect-[3/4] tile overflow-hidden"><img src="brand_assets/products/inter-milan-24-25-third.webp" style="background:#f5f5f5;padding:32px" alt="" class="h-full w-full object-cover"/></div>
+  </div>
+</section>
+
+<!-- ==================== CAROUSEL ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Polecane</h2>
+      <div class="flex items-center gap-6">
+        <a href="collections/all.html" class="inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase pill pill-dark">Zobacz wszystkie</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="brand_assets/products/brazil-total-90-training-top.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="brand_assets/products/schalke-02-04-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="brand_assets/products/fc-porto-16-17-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+      <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile"><img src="brand_assets/products/italy-2002-home.webp" style="background:#f5f5f5;padding:24px" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CATEGORY GRID ==================== -->
+<section>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+    <a href="collections/tops.html" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="brand_assets/products/manchester-united-06-07-home.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Kluby</div>
+      </div>
+    </a>
+    <a href="collections/all.html" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="brand_assets/products/italy-2002-home.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Reprezentacje</div>
+      </div>
+    </a>
+    <a href="collections/dresses.html" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="brand_assets/products/fc-bayern-retro-track-sweatshirt.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Bluzy</div>
+      </div>
+    </a>
+    <a href="collections/knitwear.html" class="relative aspect-[3/4] overflow-hidden tile group">
+      <img src="brand_assets/products/2025-26-topps-real-madrid-team-set.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-display text-white text-[32px] md:text-[44px] drop-shadow-lg">Karty</div>
+      </div>
+    </a>
+  </div>
+</section>
+
 
 <div data-release-footer></div>
 <script src="assets/partials.js"></script>
