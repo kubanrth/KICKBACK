@@ -104,7 +104,7 @@
 <section class="onlight bg-white">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
     <a href="collections/all.html" class="group relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile block">
-      <img src="brand_assets/photos/baner-kickback-1.webp" alt="Retro 80s — 00s" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
+      <img src="brand_assets/photos/baner-kickback-1.webp" alt="Retro 80s — 00s" class="absolute inset-0 h-full w-full object-contain transition-transform duration-1000 group-hover:scale-105"/>
       <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
       <div class="absolute left-10 bottom-10 text-white">
         <h2 class="h-editorial text-[48px] md:text-[64px]">Retro <em class="font-wonk font-normal">(80s — 00s)</em></h2>
@@ -144,19 +144,19 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
       <a href="collections/tops.html" class="group">
         <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
-          <img src="https://placehold.co/1200x1500/2c3d5a/2c3d5a.png" alt="Ronaldo" class="absolute inset-0 h-full w-full object-cover"/>
+          <img src="brand_assets/photos/ronaldo.webp" alt="Ronaldo" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
         </div>
         <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Ronaldo</span></div>
       </a>
       <a href="collections/all.html" class="group">
         <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
-          <img src="https://placehold.co/1200x1500/1e1e1e/1e1e1e.png" alt="Messi" class="absolute inset-0 h-full w-full object-cover"/>
+          <img src="brand_assets/photos/messi.webp" alt="Messi" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
         </div>
         <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Messi</span></div>
       </a>
       <a href="collections/pants.html" class="group">
         <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px] shadow-tile">
-          <img src="https://placehold.co/1200x1500/0e7a4e/0e7a4e.png" alt="Other heroes" class="absolute inset-0 h-full w-full object-cover"/>
+          <img src="brand_assets/photos/heroes.webp" alt="Other heroes" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
         </div>
         <div class="mt-5 flex items-baseline gap-1.5"><span class="text-[16px]">Other heroes</span></div>
       </a>
@@ -168,7 +168,7 @@
 <section>
   <div class="grid grid-cols-1 md:grid-cols-2">
     <a href="collections/all.html" class="group relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden bg-white block">
-      <img src="https://placehold.co/1200x1200/f3f1ec/f3f1ec.png" alt="Reprezentacje" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
+      <img src="brand_assets/photos/reprezentacje-banner.webp" alt="Reprezentacje" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
       <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
       <div class="absolute left-10 bottom-10 text-white">
         <h2 class="h-editorial text-[48px] md:text-[64px]"><em class="font-wonk font-normal">Reprezentacje</em></h2>
@@ -247,20 +247,20 @@
   </div>
 </section>
 
-<!-- ==================== JUNIOR (full-bleed banner) ==================== -->
-<section class="relative">
-  <div class="relative h-[min(80vh,760px)] min-h-[520px] overflow-hidden">
-    <img src="brand_assets/photos/banner-junior-2.webp" alt="Junior" class="absolute inset-0 h-full w-full object-cover"/>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/25 to-black/55"></div>
-    <div class="grain"></div>
-    <div class="relative z-10 h-full flex items-center justify-center px-6">
-      <div class="text-white text-center max-w-[1100px]">
-        <div class="text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/85 mb-6" style="text-shadow:0 2px 12px rgba(0,0,0,.5)">Od najmłodszych lat</div>
-        <h2 class="h-editorial text-[96px] md:text-[180px] leading-[0.9]" style="letter-spacing:-0.04em; text-shadow:0 8px 40px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.5)">
+<!-- ==================== JUNIOR (split: clean photo + text panel) ==================== -->
+<section class="onlight">
+  <div class="grid grid-cols-1 md:grid-cols-12 min-h-[520px] md:min-h-[640px]">
+    <div class="md:col-span-8 relative overflow-hidden order-1 md:order-1">
+      <img src="brand_assets/photos/banner-junior-2.webp" alt="Junior" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+    <div class="md:col-span-4 relative flex items-center justify-center order-2 md:order-2 py-20 md:py-0" style="background:var(--stone)">
+      <div class="px-10 md:px-12 text-left max-w-[420px] w-full">
+        <div class="text-[11px] tracking-mega uppercase text-black/55 mb-5">Od najmłodszych lat</div>
+        <h2 class="h-editorial text-[72px] md:text-[112px] leading-[0.9] text-black" style="letter-spacing:-0.035em">
           <em class="font-wonk font-normal">Junior</em>
         </h2>
-        <p class="mt-6 text-[14px] md:text-[16px] leading-[1.6] text-white max-w-[520px] mx-auto" style="text-shadow:0 2px 16px rgba(0,0,0,.65)">Sprawdź selekcję koszulek w juniorskich rozmiarach</p>
-        <a href="collections/all.html" class="mt-9 inline-flex items-center justify-center h-12 px-8 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz kolekcję</a>
+        <p class="mt-7 text-[14px] md:text-[15px] leading-[1.7] text-black/65">Sprawdź selekcję koszulek w juniorskich rozmiarach.</p>
+        <a href="collections/all.html" class="mt-8 inline-flex items-center justify-center h-11 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz kolekcję</a>
       </div>
     </div>
   </div>
