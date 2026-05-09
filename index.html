@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="min-h-screen">
@@ -134,6 +134,67 @@
   </div>
 </section>
 
+<!-- ==================== POLECANE (product slider — duplicate of Just Arrived) ==================== -->
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
+    <div class="flex items-end justify-between mb-10 md:mb-14">
+      <h2 class="h-section text-[40px] md:text-[56px]">Polecane</h2>
+      <div class="flex items-center gap-6">
+        <a href="collections/all.html" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
+        <div class="flex items-center gap-2">
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/d6c9b7/d6c9b7.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">Bestseller</span>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Heritage Wool Trench</h3>
+          <div class="mt-1 text-[12px]">€129.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 4 size</div>
+        </div>
+      </article>
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/c5ad8b/c5ad8b.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Cashmere Roll Neck</h3>
+          <div class="mt-1 text-[12px]">€95.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/ece7dd/ece7dd.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Tailored Wide-Leg Trousers</h3>
+          <div class="mt-1 text-[12px]">€85.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 6 size</div>
+        </div>
+      </article>
+      <article class="group">
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/e8d8c4/e8d8c4.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">New</span>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Linen Shirt Dress</h3>
+          <div class="mt-1 text-[12px]">€72.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 3 size</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== TOPOWE NAZWISKA ==================== -->
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
@@ -190,14 +251,14 @@
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
     <div class="text-center mb-10 md:mb-14">
       <div class="text-[11px] tracking-mega uppercase text-black/55">What's new</div>
-      <div class="mt-4 inline-flex items-end gap-6">
-        <button class="h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Jackets</button>
-        <button class="h-section text-[36px] md:text-[52px] tab-muted">Hoodies</button>
-        <button class="h-section text-[36px] md:text-[52px] tab-muted">T-Shirts</button>
+      <div class="mt-4 inline-flex items-end gap-6" id="whats-new-tabs">
+        <button data-wn-tab="jackets" class="wn-tab h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Jackets</button>
+        <button data-wn-tab="hoodies" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">Hoodies</button>
+        <button data-wn-tab="tshirts" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">T-Shirts</button>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+    <div data-wn-panel="jackets" class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
       <article>
         <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
           <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
@@ -241,33 +302,141 @@
       </article>
     </div>
 
+    <div data-wn-panel="hoodies" class="hidden grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/d9d4cb/d9d4cb.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Cropped Heavyweight Hoodie</h3>
+          <div class="mt-1 text-[12px]">€89.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 4 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/c9c2b7/c9c2b7.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Oversized Boxy Hoodie</h3>
+          <div class="mt-1 text-[12px]">€99.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 3 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/b8b1a5/b8b1a5.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Half-Zip Tech Pullover</h3>
+          <div class="mt-1 text-[12px]">€79.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/a79e91/a79e91.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Heritage Logo Hoodie</h3>
+          <div class="mt-1 text-[12px]">€69.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 6 size</div>
+        </div>
+      </article>
+    </div>
+
+    <div data-wn-panel="tshirts" class="hidden grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/efece5/efece5.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+          <span class="absolute left-4 top-4 text-[10px] tracking-wide2 uppercase bg-white/90 px-2 py-1 rounded-full">New</span>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Vintage Boxy Crop Tee</h3>
+          <div class="mt-1 text-[12px]">€39.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 4 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/e2dccf/e2dccf.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Heritage Logo Tee</h3>
+          <div class="mt-1 text-[12px]">€34.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/d4cdbe/d4cdbe.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Striped Long Sleeve</h3>
+          <div class="mt-1 text-[12px]">€44.00</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 3 size</div>
+        </div>
+      </article>
+      <article>
+        <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
+          <img src="https://placehold.co/900x1125/c5beac/c5beac.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+        </a>
+        <div class="mt-5">
+          <h3 class="text-[11px] tracking-wide2 uppercase font-medium">Pocket Pique Polo</h3>
+          <div class="mt-1 text-[12px]">€49.95</div>
+          <div class="mt-1 text-[10px] text-black/50 tracking-wide2 uppercase">Available in 5 size</div>
+        </div>
+      </article>
+    </div>
+
     <div class="text-center mt-12">
       <a href="collections/jackets-coats.html" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  const tabs = document.querySelectorAll('#whats-new-tabs .wn-tab');
+  const panels = document.querySelectorAll('[data-wn-panel]');
+  if (!tabs.length || !panels.length) return;
+  tabs.forEach(t => t.addEventListener('click', () => {
+    const key = t.getAttribute('data-wn-tab');
+    tabs.forEach(x => {
+      x.classList.toggle('tab-active', x === t);
+      x.classList.toggle('border-b', x === t);
+      x.classList.toggle('tab-muted', x !== t);
+    });
+    panels.forEach(p => {
+      const match = p.getAttribute('data-wn-panel') === key;
+      p.classList.toggle('hidden', !match);
+      p.classList.toggle('grid', match);
+    });
+  }));
+})();
+</script>
 
-<!-- ==================== JUNIOR (split: clean photo + text panel) ==================== -->
-<section class="onlight">
-  <div class="grid grid-cols-1 md:grid-cols-12 min-h-[520px] md:min-h-[640px]">
-    <div class="md:col-span-8 relative overflow-hidden order-1 md:order-1">
-      <img src="brand_assets/photos/banner-junior-2.webp" alt="Junior" class="absolute inset-0 h-full w-full object-cover"/>
-    </div>
-    <div class="md:col-span-4 relative flex items-center justify-center order-2 md:order-2 py-20 md:py-0" style="background:var(--stone)">
-      <div class="px-10 md:px-12 text-left max-w-[420px] w-full">
-        <div class="text-[11px] tracking-mega uppercase text-black/55 mb-5">Od najmłodszych lat</div>
-        <h2 class="h-editorial text-[72px] md:text-[112px] leading-[0.9] text-black" style="letter-spacing:-0.035em">
-          <em class="font-wonk font-normal">Junior</em>
-        </h2>
-        <p class="mt-7 text-[14px] md:text-[15px] leading-[1.7] text-black/65">Sprawdź selekcję koszulek w juniorskich rozmiarach.</p>
-        <a href="collections/all.html" class="mt-8 inline-flex items-center justify-center h-11 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz kolekcję</a>
+<!-- ==================== JUNIOR (full-bleed photo, text overlay left) ==================== -->
+<section class="relative">
+  <div class="relative h-[min(85vh,780px)] min-h-[560px] overflow-hidden">
+    <img src="brand_assets/photos/banner-junior-2.webp" alt="Junior" class="absolute inset-0 h-full w-full object-cover"/>
+    <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 28%, rgba(0,0,0,0) 55%)"></div>
+    <div class="relative z-10 h-full flex items-center">
+      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10">
+        <div class="max-w-[460px] text-white">
+          <div class="text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/85 mb-5" style="text-shadow:0 2px 12px rgba(0,0,0,.55)">Od najmłodszych lat</div>
+          <h2 class="h-editorial text-[80px] md:text-[140px] leading-[0.88]" style="letter-spacing:-0.04em; text-shadow:0 6px 32px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.55)">
+            <em class="font-wonk font-normal">Junior</em>
+          </h2>
+          <p class="mt-7 text-[14px] md:text-[16px] leading-[1.65] text-white max-w-[400px]" style="text-shadow:0 2px 14px rgba(0,0,0,.7)">Sprawdź selekcję koszulek w juniorskich rozmiarach.</p>
+          <a href="collections/all.html" class="mt-8 inline-flex items-center justify-center h-12 px-8 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium pill pill-solid">Zobacz kolekcję</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== SALE COUNTDOWN BANNER ==================== -->
-<section class="bg-black text-white">
+<!-- ==================== SALE COUNTDOWN BANNER (hidden — keep for future) ==================== -->
+<section class="bg-black text-white hidden">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
     <div>
       <h3 class="font-display text-[28px] md:text-[36px] leading-none">Sale has ended</h3>
@@ -479,36 +648,6 @@
         <span class="h-px flex-1 bg-white/40"></span>
         <h3 class="font-display text-[36px] md:text-[56px] tracking-tight font-light">MODERN CLASSIC</h3>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== TESTIMONIALS ==================== -->
-<section class="onlight bg-[var(--stone)]">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-20 md:py-24">
-    <div class="text-center mb-12">
-      <h2 class="h-section text-[40px] md:text-[52px] text-black/15">Testimonials</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <figure class="text-center">
-        <div class="text-[12px] tracking-wide2 uppercase mb-3">Jane Doe</div>
-        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
-      </figure>
-      <figure class="text-center">
-        <div class="text-[12px] tracking-wide2 uppercase mb-3">Rachel Zoë</div>
-        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
-      </figure>
-      <figure class="text-center">
-        <div class="text-[12px] tracking-wide2 uppercase mb-3">Paulina Mertzel</div>
-        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I was a non believer at first, fully changed my mind. The brand, the aesthetic, the quality. It's all amazing, I'm hooked."</blockquote>
-      </figure>
-      <figure class="text-center">
-        <div class="text-[12px] tracking-wide2 uppercase mb-3">Jane Doe</div>
-        <blockquote class="text-[13px] leading-[1.7] text-black/70">"I absolutely love the quality of my Leo Bikini Bottoms."</blockquote>
-      </figure>
-    </div>
-    <div class="mt-10 flex justify-center">
-      <div class="h-[2px] w-24 bg-black/70"></div>
     </div>
   </div>
 </section>

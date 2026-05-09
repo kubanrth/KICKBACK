@@ -104,7 +104,7 @@
       </div>
       <a href="${R('pages/contact.html')}" class="hover:text-black inline-flex items-center h-[72px]">Contact</a>
     </nav>
-    <a href="${R('index.html')}" class="justify-self-center font-display text-[26px] leading-none tracking-tight lowercase" style="letter-spacing:-.01em">release</a>
+    <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
       <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <span class="caret">▾</span></a>
       <a href="${R('pages/search.html')}" class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
@@ -161,7 +161,7 @@
     </div>
     <div class="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-white/10 pt-8">
       <div class="max-w-md">
-        <div class="font-display text-[56px] md:text-[72px] leading-none lowercase" style="letter-spacing:-.02em">release</div>
+        <img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-12 md:h-16 w-auto" style="filter:invert(1) brightness(2)"/>
         <p class="mt-4 text-[12px] text-white/55">Release is a premium official Shopify theme designed by DigiFist.</p>
       </div>
       <div class="flex items-center gap-5 text-white/80">

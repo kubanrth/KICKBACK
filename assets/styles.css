@@ -10,8 +10,9 @@
   --moss:#6e7d73;
 }
 html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.font-display{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 50,"WONK" 0}
-.font-wonk{font-family:'Fraunces',Georgia,serif;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1}
+h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400}
+.font-display{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em}
+.font-wonk{font-family:'Michroma','Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.01em}
 .tracking-mega{letter-spacing:.22em}
 .tracking-wide2{letter-spacing:.14em}
 .hairline{border-color:var(--hair)}
@@ -53,13 +54,14 @@ nav a{text-decoration:none}
 .link-underline{position:relative;padding-bottom:3px}
 .link-underline::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;opacity:.5}
 .link-underline:hover::after{opacity:1}
-.h-section{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-0.022em;line-height:.95}
-.h-editorial{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-0.025em;line-height:1}
+.h-section{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em;line-height:1.05}
+.h-editorial{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em;line-height:1.1}
+.product-title{font-family:'Michroma','DM Sans',sans-serif;letter-spacing:.05em}
 .noscroll::-webkit-scrollbar{display:none}
 .noscroll{scrollbar-width:none}
 /* page banner */
 .page-banner{background:var(--stone);padding:80px 0 72px}
-.page-banner h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(44px,7vw,88px);letter-spacing:-.03em;line-height:.95}
+.page-banner h1{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;font-size:clamp(44px,7vw,88px);letter-spacing:.01em;line-height:1.05}
 .page-banner p{max-width:640px;margin:20px auto 0;color:rgba(13,13,13,.6);font-size:14px;line-height:1.75}
 /* breadcrumb */
 .crumbs{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55)}
