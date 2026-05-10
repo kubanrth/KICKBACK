@@ -10,6 +10,10 @@
   --moss:#6e7d73;
 }
 html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.prod-slider{scrollbar-width:none;-ms-overflow-style:none}
+.prod-slider::-webkit-scrollbar{display:none}
+.prod-slider > article{flex:0 0 calc(50% - 10px);scroll-snap-align:start}
+@media (min-width:768px){.prod-slider > article{flex:0 0 calc(25% - 21px)}}
 h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400}
 .font-display{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em}
 .font-wonk{font-family:'Michroma','Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.01em}

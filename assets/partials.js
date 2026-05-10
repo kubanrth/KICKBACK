@@ -11,24 +11,6 @@
   const R = (p) => base + p;
 
   const header = `
-<div class="bg-black text-white">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-9 flex items-center justify-between text-[11px] font-medium tracking-wide2 uppercase">
-    <div class="hidden md:flex items-center gap-4 text-white/85">
-      <a href="${R('pages/store-locator.html')}" class="hover:text-white">Our stores</a>
-    </div>
-    <div class="flex-1 text-center">Welcome to our store · New products live now</div>
-    <div class="hidden md:flex items-center gap-3 text-white/85">
-      <span>Ends in</span>
-      <span class="digit">1550<span class="text-white/50">D</span></span>
-      <span class="text-white/40">|</span>
-      <span class="digit">10<span class="text-white/50">H</span></span>
-      <span class="text-white/40">|</span>
-      <span class="digit">24<span class="text-white/50">M</span></span>
-      <span class="text-white/40">|</span>
-      <span class="digit">52<span class="text-white/50">S</span></span>
-    </div>
-  </div>
-</div>
 <header class="bg-white border-b hairline onlight relative z-40">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center">
     <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">

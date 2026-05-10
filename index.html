@@ -17,20 +17,15 @@
 <!-- ==================== HERO ==================== -->
 <section class="relative">
   <div class="relative h-[min(92vh,860px)] min-h-[620px] w-full overflow-hidden">
-    <img src="brand_assets/photos/baner-glowny.webp" alt="Kickback hero" class="absolute inset-0 h-full w-full object-cover object-[50%_40%]"/>
-    <div class="hero-shade"></div>
-    <div class="grain"></div>
+    <img src="brand_assets/photos/baner-glowny.webp" alt="Kickback hero" class="absolute inset-0 h-full w-full object-cover object-[50%_10%]"/>
 
-
-    <div class="relative z-10 h-full w-full flex items-end pb-28">
-      <div class="mx-auto max-w-[1600px] w-full px-6 md:px-10 text-center text-white">
-        <div class="rise rise-1 text-[11px] md:text-[12px] tracking-mega uppercase font-medium text-white/80">SS26 statement pieces</div>
-        <h1 class="rise rise-2 h-editorial text-white mt-5 text-[52px] md:text-[108px]" style="letter-spacing:-0.035em">
-          Bold by <em class="font-wonk font-normal">design</em>
-        </h1>
-        <div class="rise rise-3 mt-8 flex items-center justify-center">
-          <a href="#just-arrived" class="pill pill-ghost inline-flex items-center justify-center h-11 px-7 rounded-full border border-white/80 text-white text-[11px] tracking-wide2 uppercase font-medium">Discover more</a>
-        </div>
+    <div class="absolute z-10 left-6 md:left-12 bottom-10 md:bottom-14 text-white max-w-[480px]">
+      <div class="rise rise-1 text-[10px] md:text-[11px] tracking-mega uppercase font-medium text-white/85" style="text-shadow:0 2px 12px rgba(0,0,0,.5)">Kickback · Sezon 25/26</div>
+      <h1 class="rise rise-2 h-editorial text-white mt-4 text-[34px] md:text-[52px]" style="letter-spacing:0.005em; line-height:1.05; text-shadow:0 4px 20px rgba(0,0,0,.55)">
+        Twoja koszulka,<br/><em class="font-wonk font-normal">twoja historia.</em>
+      </h1>
+      <div class="rise rise-3 mt-7">
+        <a href="#just-arrived" class="pill pill-ghost inline-flex items-center justify-center h-11 px-7 rounded-full bg-white text-black text-[11px] tracking-wide2 uppercase font-medium">Zobacz kolekcję</a>
       </div>
     </div>
   </div>
@@ -44,13 +39,13 @@
       <div class="flex items-center gap-6">
         <a href="collections/new-collection.html" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
         <div class="flex items-center gap-2">
-          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
-          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+          <button data-slider-prev="ja" class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button data-slider-next="ja" class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+    <div data-slider="ja" class="prod-slider flex gap-5 md:gap-7 overflow-x-auto snap-x snap-mandatory scroll-smooth">
       <!-- 1 -->
       <article class="group">
         <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
@@ -104,7 +99,7 @@
 <section class="onlight bg-white">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
     <a href="collections/all.html" class="group relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden tile block">
-      <img src="brand_assets/photos/baner-kickback-1.webp" alt="Retro 80s — 00s" class="absolute inset-0 h-full w-full object-contain transition-transform duration-1000 group-hover:scale-105"/>
+      <img src="brand_assets/photos/baner-kickback-1.webp" alt="Retro 80s — 00s" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
       <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
       <div class="absolute left-10 bottom-10 text-white">
         <h2 class="h-editorial text-[48px] md:text-[64px]">Retro <em class="font-wonk font-normal">(80s — 00s)</em></h2>
@@ -142,13 +137,13 @@
       <div class="flex items-center gap-6">
         <a href="collections/all.html" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
         <div class="flex items-center gap-2">
-          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
-          <button class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
+          <button data-slider-prev="polecane" class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Prev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button data-slider-next="polecane" class="h-9 w-9 rounded-full border hairline hover:bg-black hover:text-white transition" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto"><path d="m10 6 6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+    <div data-slider="polecane" class="prod-slider flex gap-5 md:gap-7 overflow-x-auto snap-x snap-mandatory scroll-smooth">
       <article class="group">
         <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
           <img src="https://placehold.co/900x1125/d6c9b7/d6c9b7.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
@@ -250,15 +245,15 @@
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
     <div class="text-center mb-10 md:mb-14">
-      <div class="text-[11px] tracking-mega uppercase text-black/55">What's new</div>
+      <div class="text-[11px] tracking-mega uppercase text-black/55">Co nowego</div>
       <div class="mt-4 inline-flex items-end gap-6" id="whats-new-tabs">
-        <button data-wn-tab="jackets" class="wn-tab h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Jackets</button>
-        <button data-wn-tab="hoodies" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">Hoodies</button>
-        <button data-wn-tab="tshirts" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">T-Shirts</button>
+        <button data-wn-tab="tshirts" class="wn-tab h-section text-[36px] md:text-[52px] border-b tab-active pb-1">Koszulki</button>
+        <button data-wn-tab="hoodies" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">Bluzy</button>
+        <button data-wn-tab="jackets" class="wn-tab h-section text-[36px] md:text-[52px] tab-muted pb-1">Kurtki</button>
       </div>
     </div>
 
-    <div data-wn-panel="jackets" class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+    <div data-wn-panel="jackets" class="hidden grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
       <article>
         <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
           <img src="https://placehold.co/900x1125/ececea/ececea.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
@@ -345,7 +340,7 @@
       </article>
     </div>
 
-    <div data-wn-panel="tshirts" class="hidden grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+    <div data-wn-panel="tshirts" class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
       <article>
         <a href="products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile">
           <img src="https://placehold.co/900x1125/efece5/efece5.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
@@ -475,7 +470,7 @@
 
 <!-- ==================== AKCESORIA + KURTKI I BLUZY (single banner, split clicks) ==================== -->
 <section class="bg-black">
-  <div class="relative w-full overflow-hidden" style="aspect-ratio:1561/879">
+  <div class="relative w-full overflow-hidden" style="aspect-ratio:1561/700">
     <img src="brand_assets/photos/banner-akcesoriakurtki.webp" alt="Akcesoria & Kurtki i bluzy" class="absolute inset-0 h-full w-full object-cover"/>
     <a href="collections/accessories.html" class="group absolute inset-y-0 left-0 w-1/2 block">
       <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent transition-opacity group-hover:opacity-80"></div>
@@ -541,21 +536,19 @@
   </div>
 </section>
 
-<!-- ==================== TOP 5 + RESZTA ŚWIATA (split, both clickable) ==================== -->
+<!-- ==================== TOP 5 + RESZTA ŚWIATA (full-width stacked, both clickable) ==================== -->
 <section>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-    <a href="collections/all.html" class="group relative aspect-[16/9] md:aspect-[1561/879] overflow-hidden block bg-[#0e0e0e]">
-      <img src="brand_assets/photos/banner-top5.webp" alt="TOP 5" class="absolute inset-0 h-full w-full object-contain transition-transform duration-1000 group-hover:scale-[1.03]"/>
-    </a>
-    <a href="collections/best-sellers.html" class="group relative aspect-[16/9] md:aspect-[1561/879] overflow-hidden block bg-[#0e0e0e]">
-      <img src="brand_assets/photos/banner-resztaswiata.webp" alt="Reszta świata" class="absolute inset-0 h-full w-full object-contain transition-transform duration-1000 group-hover:scale-[1.03]"/>
-    </a>
-  </div>
+  <a href="collections/all.html" class="group relative block w-full overflow-hidden bg-[#0e0e0e]" style="aspect-ratio:1561/620">
+    <img src="brand_assets/photos/banner-top5.webp" alt="TOP 5" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"/>
+  </a>
+  <a href="collections/best-sellers.html" class="group relative block w-full overflow-hidden bg-[#0e0e0e]" style="aspect-ratio:1561/620">
+    <img src="brand_assets/photos/banner-resztaswiata.webp" alt="Reszta świata" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"/>
+  </a>
 </section>
 
 <!-- ==================== KOSZULKI BANNER (no text) ==================== -->
 <section class="relative bg-[#0e0e0e]">
-  <div class="relative w-full overflow-hidden" style="aspect-ratio:1561/879">
+  <div class="relative w-full overflow-hidden" style="aspect-ratio:1561/620">
     <img src="brand_assets/photos/banner-koszulki.webp" alt="Koszulki" class="absolute inset-0 h-full w-full object-cover"/>
   </div>
 </section>
@@ -661,5 +654,20 @@
 
 <div data-release-footer></div>
 <script src="assets/partials.js"></script>
+<script>
+(function(){
+  function step(name, dir){
+    const slider = document.querySelector(`[data-slider="${name}"]`);
+    if (!slider) return;
+    const card = slider.querySelector('article');
+    if (!card) return;
+    const cardW = card.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(slider).columnGap || getComputedStyle(slider).gap || 0);
+    slider.scrollBy({ left: dir * (cardW + gap), behavior: 'smooth' });
+  }
+  document.querySelectorAll('[data-slider-prev]').forEach(b => b.addEventListener('click', () => step(b.getAttribute('data-slider-prev'), -1)));
+  document.querySelectorAll('[data-slider-next]').forEach(b => b.addEventListener('click', () => step(b.getAttribute('data-slider-next'), 1)));
+})();
+</script>
 </body>
 </html>
