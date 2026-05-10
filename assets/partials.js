@@ -130,46 +130,41 @@
         </form>
       </div>
       <div class="md:col-span-2">
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Company</div>
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Kickback</div>
         <ul class="space-y-2.5 text-[13px] text-white/85">
-          <li><a href="#" class="hover:text-white">Search</a></li>
-          <li><a href="${R('pages/contact.html')}" class="hover:text-white">Contact</a></li>
-          <li><a href="${R('pages/terms.html')}" class="hover:text-white">Terms</a></li>
-          <li><a href="${R('pages/privacy.html')}" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="${R('pages/contact.html')}" class="hover:text-white">Kontakt</a></li>
+          <li><a href="${R('pages/terms.html')}" class="hover:text-white">Regulamin</a></li>
+          <li><a href="${R('pages/privacy.html')}" class="hover:text-white">Polityka prywatności</a></li>
+          <li><a href="${R('pages/shipping.html')}" class="hover:text-white">Wymiana i zwroty</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Pages</div>
-        <ul class="space-y-2.5 text-[13px] text-white/85">
+        <ul class="space-y-2.5 text-[13px] text-white/85 md:mt-9">
           <li><a href="${R('pages/faq.html')}" class="hover:text-white">FAQ</a></li>
           <li><a href="${R('blogs/news.html')}" class="hover:text-white">Blog</a></li>
-          <li><a href="${R('pages/lookbook.html')}" class="hover:text-white">Lookbook</a></li>
-          <li><a href="${R('collections/all.html')}" class="hover:text-white">Collections</a></li>
+          <li><a href="${R('pages/about.html')}" class="hover:text-white">O nas</a></li>
         </ul>
       </div>
       <div class="md:col-span-3">
-        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Shop</div>
+        <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Produkty</div>
         <ul class="space-y-2.5 text-[13px] text-white/85">
-          <li><a href="${R('collections/tops.html')}" class="hover:text-white">Tops</a></li>
-          <li><a href="${R('collections/t-shirts.html')}" class="hover:text-white">T-shirts</a></li>
-          <li><a href="${R('collections/knitwear.html')}" class="hover:text-white">Knitwear</a></li>
-          <li><a href="${R('collections/dresses.html')}" class="hover:text-white">Dresses</a></li>
-          <li><a href="${R('collections/pants.html')}" class="hover:text-white">Bottoms</a></li>
-          <li><a href="${R('collections/jackets-coats.html')}" class="hover:text-white">Jackets &amp; Coats</a></li>
+          <li><a href="${R('collections/all.html')}" class="hover:text-white">Koszulki RETRO</a></li>
+          <li><a href="${R('collections/new-collection.html')}" class="hover:text-white">Nowe koszulki</a></li>
+          <li><a href="${R('collections/basics.html')}" class="hover:text-white">Karty piłkarskie</a></li>
+          <li><a href="${R('collections/best-sellers.html')}" class="hover:text-white">Mystery Box</a></li>
+          <li><a href="${R('collections/jackets-coats.html')}" class="hover:text-white">Bluzy i kurtki</a></li>
+          <li><a href="${R('collections/accessories.html')}" class="hover:text-white">Akcesoria</a></li>
         </ul>
       </div>
     </div>
     <div class="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-white/10 pt-8">
       <div class="max-w-md">
         <img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-12 md:h-16 w-auto" style="filter:invert(1) brightness(2)"/>
-        <p class="mt-4 text-[12px] text-white/55">Release is a premium official Shopify theme designed by DigiFist.</p>
       </div>
       <div class="flex items-center gap-5 text-white/80">
         <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
         <a href="#" aria-label="YouTube" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z" fill="currentColor"/></svg></a>
         <a href="#" aria-label="TikTok" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3v11a4 4 0 1 1-4-4"/><path d="M15 3a5 5 0 0 0 5 5"/></svg></a>
-        <a href="#" aria-label="X" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
-        <a href="#" aria-label="Vimeo" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8c2-2 4-3 5-2s0 4-1 6 0 4 2 3 6-6 7-10-2-5-5-3"/></svg></a>
       </div>
     </div>
     <div class="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-white/50">
