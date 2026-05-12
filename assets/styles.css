@@ -24,6 +24,10 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 .qv-btn::after{content:"+";font-size:22px;font-weight:300;line-height:1}
 .group:hover .qv-btn,.qv-btn:focus-visible{opacity:1;transform:translateY(0)}
 .qv-btn:hover{background:#0d0d0d;color:#fff}
+/* What's new — oversized type-only tabs; opacity fades with distance from active */
+.wn-tab{transition:color .3s ease;cursor:pointer;background:transparent;border:0;padding:0;line-height:1;color:rgba(13,13,13,var(--tab-alpha,.55))}
+.wn-tab.tab-active{color:#0d0d0d}
+.wn-tab:not(.tab-active):hover{color:rgba(13,13,13,.78)}
 /* Touch / coarse-pointer devices: no hover state, so reveal the "+" always */
 @media (hover:none),(pointer:coarse){.qv-btn{opacity:1;transform:translateY(0);height:36px;width:36px;right:10px;bottom:10px}}
 /* Sticky header: only background fades in on scroll; size/width/padding stay 1:1 */

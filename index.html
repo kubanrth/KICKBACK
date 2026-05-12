@@ -435,12 +435,12 @@
 <!-- ==================== WHAT'S NEW (tabs + grid) ==================== -->
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
-    <div class="text-center mb-10 md:mb-14">
+    <div class="text-center mb-12 md:mb-16">
       <div class="text-[11px] tracking-mega uppercase text-black/55">Co nowego</div>
-      <div class="mt-4 inline-flex items-end gap-6" id="whats-new-tabs">
-        <button data-wn-tab="tshirts" class="wn-tab h-section text-[24px] md:text-[34px] border-b tab-active pb-1">Koszulki</button>
-        <button data-wn-tab="hoodies" class="wn-tab h-section text-[24px] md:text-[34px] tab-muted pb-1">Bluzy</button>
-        <button data-wn-tab="jackets" class="wn-tab h-section text-[24px] md:text-[34px] tab-muted pb-1">Kurtki</button>
+      <div class="mt-5 md:mt-8 flex items-baseline gap-4 md:gap-14 flex-nowrap justify-center whitespace-nowrap px-4" id="whats-new-tabs">
+        <button data-wn-tab="tshirts" class="wn-tab h-section text-[20px] md:text-[68px] tab-active">Koszulki</button>
+        <button data-wn-tab="hoodies" class="wn-tab h-section text-[20px] md:text-[68px]">Bluzy</button>
+        <button data-wn-tab="jackets" class="wn-tab h-section text-[20px] md:text-[68px]">Kurtki</button>
       </div>
     </div>
 
@@ -582,22 +582,28 @@
 </section>
 <script>
 (function(){
-  const tabs = document.querySelectorAll('#whats-new-tabs .wn-tab');
+  const tabs = Array.from(document.querySelectorAll('#whats-new-tabs .wn-tab'));
   const panels = document.querySelectorAll('[data-wn-panel]');
   if (!tabs.length || !panels.length) return;
-  tabs.forEach(t => t.addEventListener('click', () => {
+  // Alpha by distance from active: 0 → active (handled by .tab-active), 1 → .55, 2 → .28, 3+ → .15
+  const alphaFor = d => d === 1 ? '.55' : d === 2 ? '.28' : '.15';
+  function setActive(t){
+    const activeIdx = tabs.indexOf(t);
     const key = t.getAttribute('data-wn-tab');
-    tabs.forEach(x => {
+    tabs.forEach((x, i) => {
       x.classList.toggle('tab-active', x === t);
-      x.classList.toggle('border-b', x === t);
-      x.classList.toggle('tab-muted', x !== t);
+      x.style.setProperty('--tab-alpha', x === t ? '1' : alphaFor(Math.abs(i - activeIdx)));
     });
     panels.forEach(p => {
       const match = p.getAttribute('data-wn-panel') === key;
       p.classList.toggle('hidden', !match);
       p.classList.toggle('grid', match);
     });
-  }));
+  }
+  // Initialize alphas based on whichever tab starts as .tab-active
+  const initial = tabs.find(t => t.classList.contains('tab-active')) || tabs[0];
+  setActive(initial);
+  tabs.forEach(t => t.addEventListener('click', () => setActive(t)));
 })();
 </script>
 
