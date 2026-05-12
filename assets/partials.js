@@ -89,7 +89,7 @@
     <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
       <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <span class="caret">▾</span></a>
-      <a href="${R('pages/search.html')}" class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <button type="button" data-search-open class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('pages/login.html')}" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
       <a href="${R('pages/cart.html')}" class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14l-1.5 12a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
@@ -164,9 +164,93 @@
   </div>
 </footer>`;
 
+  const searchDrawer = `
+<div id="search-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
+  <div data-search-backdrop class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300"></div>
+  <div data-search-panel class="absolute top-0 left-0 right-0 bg-white border-b hairline -translate-y-full transition-transform duration-400 ease-out">
+    <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 pb-12">
+      <div class="flex items-center justify-between gap-6 mb-8">
+        <div class="text-[11px] tracking-wide2 uppercase text-black/55">Wyszukiwarka</div>
+        <button type="button" data-search-close aria-label="Close" class="text-[11px] tracking-wide2 uppercase inline-flex items-center gap-2 hover:text-black/60"><span>Zamknij</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <form onsubmit="event.preventDefault()" class="border-b border-black/80 pb-4 flex items-center gap-4">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-black/55"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input data-search-input type="search" placeholder="Szukaj produktów, kolekcji, artykułów…" class="flex-1 bg-transparent text-[20px] md:text-[28px] outline-none placeholder:text-black/35 text-black"/>
+        <a href="${R('pages/search.html')}" class="hidden md:inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Szukaj</a>
+      </form>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mt-10">
+        <div class="md:col-span-4">
+          <div class="text-[10px] tracking-mega uppercase text-black/55 mb-4">Popularne wyszukiwania</div>
+          <ul class="space-y-2 text-[14px]">
+            <li><a href="${R('collections/all.html')}" class="hover:underline">Real Madrid retro</a></li>
+            <li><a href="${R('collections/all.html')}" class="hover:underline">Napoli 1991</a></li>
+            <li><a href="${R('collections/all.html')}" class="hover:underline">Manchester United</a></li>
+            <li><a href="${R('collections/best-sellers.html')}" class="hover:underline">Reprezentacja Polski</a></li>
+            <li><a href="${R('collections/new-collection.html')}" class="hover:underline">Mystery Box</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-8">
+          <div class="text-[10px] tracking-mega uppercase text-black/55 mb-4">Polecane</div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
+              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/d6c9b7/d6c9b7.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Heritage Wool Trench</div>
+              <div class="text-[11px] mt-0.5">€129.00</div>
+            </a>
+            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
+              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/c5ad8b/c5ad8b.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Cashmere Roll Neck</div>
+              <div class="text-[11px] mt-0.5">€95.00</div>
+            </a>
+            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
+              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/ece7dd/ece7dd.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Tailored Trousers</div>
+              <div class="text-[11px] mt-0.5">€85.00</div>
+            </a>
+            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
+              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/e8d8c4/e8d8c4.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
+              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Linen Shirt Dress</div>
+              <div class="text-[11px] mt-0.5">€72.00</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+  function bindSearch(){
+    const drawer = document.getElementById('search-drawer');
+    if (!drawer) return;
+    const panel = drawer.querySelector('[data-search-panel]');
+    const backdrop = drawer.querySelector('[data-search-backdrop]');
+    const input = drawer.querySelector('[data-search-input]');
+    function open(){
+      drawer.classList.remove('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.style.opacity = '1';
+      panel.style.transform = 'translateY(0)';
+      setTimeout(() => input && input.focus(), 80);
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      drawer.classList.add('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.style.opacity = '0';
+      panel.style.transform = 'translateY(-100%)';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-search-open]').forEach(b => b.addEventListener('click', open));
+    document.querySelectorAll('[data-search-close]').forEach(b => b.addEventListener('click', close));
+    backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
+    document.body.insertAdjacentHTML('beforeend', searchDrawer);
+    bindSearch();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
   else inject();
