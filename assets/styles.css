@@ -62,9 +62,9 @@ h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:40
 /* Ghost CTAs: transparent → fill on hover, full-button transition (no scaleY from bottom) */
 .btn-ghost-light, .btn-ghost-dark{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid currentColor;transition:background-color .3s ease,color .3s ease,border-color .3s ease}
 .btn-ghost-light{color:#fff;border-color:rgba(255,255,255,.75)}
-.btn-ghost-light:hover{background:#fff;color:#0d0d0d;border-color:#fff}
+.btn-ghost-light:hover,.btn-ghost-light:active,.btn-ghost-light:focus-visible{background:#fff;color:#0d0d0d;border-color:#fff}
 .btn-ghost-dark{color:#0d0d0d;border-color:rgba(13,13,13,.55)}
-.btn-ghost-dark:hover{background:#0d0d0d;color:#fff;border-color:#0d0d0d}
+.btn-ghost-dark:hover,.btn-ghost-dark:active,.btn-ghost-dark:focus-visible{background:#0d0d0d;color:#fff;border-color:#0d0d0d}
 .sw{width:12px;height:12px;border-radius:999px;border:1px solid rgba(0,0,0,.15);display:inline-block}
 a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:999px}
 .onlight a:focus-visible,.onlight button:focus-visible{outline-color:#0d0d0d}
