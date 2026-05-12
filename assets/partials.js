@@ -11,8 +11,9 @@
   const R = (p) => base + p;
 
   const header = `
-<header class="bg-white border-b hairline onlight relative z-40">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center">
+<div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
+<header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
     <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
       <div class="has-mega">
         <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center h-[72px]">Shop <span class="caret">▾</span></a>
@@ -97,7 +98,8 @@
       </a>
     </nav>
   </div>
-</header>`;
+</header>
+</div>`;
 
   const footer = `
 <footer class="bg-black text-white mt-0">
@@ -166,53 +168,23 @@
 
   const searchDrawer = `
 <div id="search-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
-  <div data-search-backdrop class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300"></div>
-  <div data-search-panel class="absolute top-0 left-0 right-0 bg-white border-b hairline -translate-y-full transition-transform duration-400 ease-out">
-    <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 pb-12">
-      <div class="flex items-center justify-between gap-6 mb-8">
-        <div class="text-[11px] tracking-wide2 uppercase text-black/55">Wyszukiwarka</div>
-        <button type="button" data-search-close aria-label="Close" class="text-[11px] tracking-wide2 uppercase inline-flex items-center gap-2 hover:text-black/60"><span>Zamknij</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div data-search-backdrop class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300"></div>
+  <div data-search-panel class="absolute top-0 left-0 right-0 bg-white -translate-y-full transition-transform duration-400 ease-out shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)]" style="border-radius:0 0 14px 14px">
+    <div class="mx-auto max-w-[1600px] px-8 md:px-14 pt-8 pb-10">
+      <div class="flex items-center gap-5 pb-6 border-b hairline">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-black/60 shrink-0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input data-search-input type="search" placeholder="Search for..." class="flex-1 bg-transparent text-[26px] md:text-[32px] outline-none placeholder:text-black/40 text-black"/>
+        <button type="button" data-search-close aria-label="Close" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
-      <form onsubmit="event.preventDefault()" class="border-b border-black/80 pb-4 flex items-center gap-4">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-black/55"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input data-search-input type="search" placeholder="Szukaj produktów, kolekcji, artykułów…" class="flex-1 bg-transparent text-[20px] md:text-[28px] outline-none placeholder:text-black/35 text-black"/>
-        <a href="${R('pages/search.html')}" class="hidden md:inline-flex items-center justify-center h-10 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Szukaj</a>
-      </form>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mt-10">
-        <div class="md:col-span-4">
-          <div class="text-[10px] tracking-mega uppercase text-black/55 mb-4">Popularne wyszukiwania</div>
-          <ul class="space-y-2 text-[14px]">
-            <li><a href="${R('collections/all.html')}" class="hover:underline">Real Madrid retro</a></li>
-            <li><a href="${R('collections/all.html')}" class="hover:underline">Napoli 1991</a></li>
-            <li><a href="${R('collections/all.html')}" class="hover:underline">Manchester United</a></li>
-            <li><a href="${R('collections/best-sellers.html')}" class="hover:underline">Reprezentacja Polski</a></li>
-            <li><a href="${R('collections/new-collection.html')}" class="hover:underline">Mystery Box</a></li>
-          </ul>
-        </div>
-        <div class="md:col-span-8">
-          <div class="text-[10px] tracking-mega uppercase text-black/55 mb-4">Polecane</div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
-              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/d6c9b7/d6c9b7.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
-              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Heritage Wool Trench</div>
-              <div class="text-[11px] mt-0.5">€129.00</div>
-            </a>
-            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
-              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/c5ad8b/c5ad8b.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
-              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Cashmere Roll Neck</div>
-              <div class="text-[11px] mt-0.5">€95.00</div>
-            </a>
-            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
-              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/ece7dd/ece7dd.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
-              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Tailored Trousers</div>
-              <div class="text-[11px] mt-0.5">€85.00</div>
-            </a>
-            <a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="group">
-              <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden"><img src="${R('https://placehold.co/600x750/e8d8c4/e8d8c4.png')}" alt="" class="absolute inset-0 h-full w-full object-cover"/></div>
-              <div class="mt-3 text-[10px] tracking-wide2 uppercase">Linen Shirt Dress</div>
-              <div class="text-[11px] mt-0.5">€72.00</div>
-            </a>
-          </div>
+      <div class="mt-8">
+        <div class="text-[10px] md:text-[11px] tracking-mega uppercase text-black/55 mb-5">Popularne wyszukiwania</div>
+        <div class="flex flex-wrap gap-3">
+          <a href="${R('collections/all.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Koszulki retro</a>
+          <a href="${R('collections/all.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Real Madrid</a>
+          <a href="${R('collections/all.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Manchester United</a>
+          <a href="${R('collections/best-sellers.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Reprezentacja Polski</a>
+          <a href="${R('collections/new-collection.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Mystery Box</a>
+          <a href="${R('collections/jackets-coats.html')}" class="inline-flex items-center justify-center h-11 px-6 rounded-full border hairline text-[11px] tracking-wide2 uppercase hover:bg-black hover:text-white transition">Kurtki i bluzy</a>
         </div>
       </div>
     </div>
@@ -246,11 +218,23 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   }
 
+  function bindStickyHeader(){
+    const wrap = document.getElementById('site-header-wrap');
+    if (!wrap) return;
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      wrap.classList.toggle('is-floating', y > 40);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     bindSearch();
+    bindStickyHeader();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
   else inject();
