@@ -27,40 +27,38 @@
         <div class="mega mega-wide">
           <div class="mx-auto max-w-[1600px] px-10 py-12 grid grid-cols-12 gap-10">
             <div class="col-span-3">
-              <div class="mega-col-title">Featured</div>
+              <div class="mega-col-title">Polecane</div>
               <ul class="space-y-0.5">
-                <li><a href="${R('collections/new-collection.html')}" class="mega-link">New</a></li>
-                <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Bestsellers</a></li>
-                <li><a href="${R('collections/basics.html')}" class="mega-link">Basics</a></li>
+                <li><a href="${R('collections/new-collection.html')}" class="mega-link">Nowości</a></li>
+                <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Bestsellery</a></li>
+                <li><a href="${R('collections/basics.html')}" class="mega-link">Mystery Box</a></li>
               </ul>
             </div>
             <div class="col-span-3">
-              <div class="mega-col-title">Categories</div>
+              <div class="mega-col-title">Kategorie</div>
               <ul class="space-y-0.5">
-                <li><a href="${R('collections/tops.html')}" class="mega-link">Tops</a></li>
-                <li><a href="${R('collections/jeans.html')}" class="mega-link">Jeans</a></li>
-                <li><a href="${R('collections/shorts.html')}" class="mega-link">Shorts</a></li>
-                <li><a href="${R('collections/t-shirts.html')}" class="mega-link">T-Shirts</a></li>
-                <li><a href="${R('collections/pants.html')}" class="mega-link">Bottoms</a></li>
-                <li><a href="${R('collections/sweatpants.html')}" class="mega-link">Sweatpants</a></li>
-                <li><a href="${R('collections/jackets-coats.html')}" class="mega-link">Jackets &amp; coats</a></li>
-                <li><a href="${R('collections/hoodies-sweatshirts.html')}" class="mega-link">Hoodies &amp; sweatshirts</a></li>
+                <li><a href="${R('collections/all.html')}" class="mega-link">Koszulki RETRO</a></li>
+                <li><a href="${R('collections/tops.html')}" class="mega-link">Kluby</a></li>
+                <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Reprezentacje</a></li>
+                <li><a href="${R('collections/basics.html')}" class="mega-link">Karty piłkarskie</a></li>
+                <li><a href="${R('collections/jackets-coats.html')}" class="mega-link">Bluzy i kurtki</a></li>
+                <li><a href="${R('collections/accessories.html')}" class="mega-link">Akcesoria</a></li>
               </ul>
             </div>
-            <a href="${R('collections/new-collection.html')}" class="col-span-3 group">
+            <a href="${R('collections/all.html')}" class="col-span-3 group">
               <div class="mega-card tile">
-                <img src="https://placehold.co/600x800/3a3530/3a3530.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0"></div>
-                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Spotlight</div>
-                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Transient Echoes</div>
+                <img src="${R('brand_assets/photos/banner-kluby.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0"></div>
+                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Hit sezonu</div>
+                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Kluby</div>
               </div>
             </a>
-            <a href="${R('collections/shorts.html')}" class="col-span-3 group">
+            <a href="${R('collections/new-collection.html')}" class="col-span-3 group">
               <div class="mega-card tile">
-                <img src="https://placehold.co/600x800/b38b55/b38b55.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0"></div>
-                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">SS26</div>
-                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Get ready for the sun</div>
+                <img src="${R('brand_assets/photos/banner-junior-2.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0"></div>
+                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Sezon 25/26</div>
+                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Od najmłodszych lat</div>
               </div>
             </a>
           </div>
