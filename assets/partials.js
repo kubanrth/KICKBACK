@@ -97,14 +97,14 @@
 
   const footer = `
 <footer class="bg-black text-white mt-0">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-20 pb-10">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-      <div class="md:col-span-5">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-12 md:pt-20 pb-10">
+    <div class="grid grid-cols-2 md:grid-cols-12 gap-y-8 gap-x-6 md:gap-10">
+      <div class="col-span-2 md:col-span-5">
         <div class="text-[11px] tracking-wide2 uppercase text-white/60">Newsletter</div>
-        <h3 class="mt-3 text-[18px] leading-[1.4] max-w-[420px]">Zapisz się do naszego newslettera i otrzymaj 10% na swoje pierwsze zamówienie</h3>
-        <form class="mt-5 flex items-center bg-white rounded-full pl-5 pr-1.5 h-12 max-w-md" onsubmit="event.preventDefault()">
-          <input type="email" placeholder="Adres email" class="flex-1 bg-transparent text-black placeholder:text-black/45 text-[13px] outline-none"/>
-          <button class="h-9 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Zapisz się</button>
+        <h3 class="mt-3 text-[16px] md:text-[18px] leading-[1.4] max-w-[420px]">Zapisz się do naszego newslettera i otrzymaj 10% na swoje pierwsze zamówienie</h3>
+        <form class="mt-5 flex items-center bg-white rounded-full pl-4 md:pl-5 pr-1.5 h-12 max-w-md" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Adres email" class="flex-1 bg-transparent text-black placeholder:text-black/45 text-[13px] outline-none min-w-0"/>
+          <button class="h-9 px-4 md:px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium whitespace-nowrap">Zapisz się</button>
         </form>
       </div>
       <div class="md:col-span-2">
@@ -135,9 +135,9 @@
         </ul>
       </div>
     </div>
-    <div class="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-t border-white/10 pt-8">
+    <div class="mt-12 md:mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 border-t border-white/10 pt-8">
       <div class="max-w-md">
-        <img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-12 md:h-16 w-auto" style="filter:invert(1) brightness(2)"/>
+        <img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-9 md:h-16 w-auto" style="filter:invert(1) brightness(2)"/>
       </div>
       <div class="flex items-center gap-5 text-white/80">
         <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
