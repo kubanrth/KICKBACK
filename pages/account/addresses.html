@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Addresses — release</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="min-h-screen">
+<div data-release-header></div>
+
+<section class="page-banner text-center">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="crumbs mb-6"><a href="../../index.html">Home</a><span class="sep">/</span><a href="index.html">My account</a><span class="sep">/</span><span>Addresses</span></div>
+    <h1>Your <em class="font-wonk font-normal">addresses</em></h1>
+    <p>Save addresses to speed up checkout. Set one as default for quicker delivery.</p>
+  </div>
+</section>
+
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-16 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10">
+
+    <aside class="md:col-span-3">
+      <nav class="acct-rail">
+        <a href="index.html">Overview <span>›</span></a>
+        <a href="orders.html">Orders <span>›</span></a>
+        <a href="addresses.html" class="active">Addresses <span>›</span></a>
+        <a href="details.html">Account details <span>›</span></a>
+        <a href="../login.html" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
+      </nav>
+    </aside>
+
+    <main class="md:col-span-9">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="h-section text-[24px] md:text-[32px]">Saved <em class="font-wonk font-normal">addresses</em></h2>
+        <button onclick="document.getElementById('addr-form').hidden=false;this.hidden=true" class="inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark items-center">+ Add address</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <article class="acct-card">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] tracking-wide2 uppercase px-2 py-0.5 rounded-full bg-black text-white">Default</span>
+            <span class="text-[10px] tracking-wide2 uppercase text-black/55">Home</span>
+          </div>
+          <p class="text-[15px] font-medium">Jane Doe</p>
+          <p class="text-[13px] text-black/65 mt-1 leading-[1.7]">ul. Marszałkowska 23/12<br/>00-001 Warszawa<br/>Poland<br/>+48 600 000 000</p>
+          <div class="mt-5 flex items-center gap-4 text-[11px] tracking-wide2 uppercase">
+            <a href="#" class="link-underline">Edit</a>
+            <a href="#" class="link-underline text-[#b4332a]">Delete</a>
+          </div>
+        </article>
+
+        <article class="acct-card">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] tracking-wide2 uppercase text-black/55">Work</span>
+          </div>
+          <p class="text-[15px] font-medium">Jane Doe</p>
+          <p class="text-[13px] text-black/65 mt-1 leading-[1.7]">ul. Grzybowska 4/8<br/>00-131 Warszawa<br/>Poland<br/>+48 600 000 000</p>
+          <div class="mt-5 flex items-center gap-4 text-[11px] tracking-wide2 uppercase">
+            <a href="#" class="link-underline">Set default</a>
+            <a href="#" class="link-underline">Edit</a>
+            <a href="#" class="link-underline text-[#b4332a]">Delete</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Add address form (hidden by default) -->
+      <form id="addr-form" hidden onsubmit="event.preventDefault();this.hidden=true;document.querySelector('button[onclick]').hidden=false" class="mt-10 acct-card space-y-5">
+        <h3 class="text-[18px] font-medium mb-2">Add a new address</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="block"><span class="auth-label">First name</span><input class="auth-input"/></label>
+          <label class="block"><span class="auth-label">Last name</span><input class="auth-input"/></label>
+        </div>
+        <label class="block"><span class="auth-label">Company (optional)</span><input class="auth-input"/></label>
+        <label class="block"><span class="auth-label">Address</span><input class="auth-input"/></label>
+        <label class="block"><span class="auth-label">Apartment, suite, etc. (optional)</span><input class="auth-input"/></label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <label class="block"><span class="auth-label">City</span><input class="auth-input"/></label>
+          <label class="block"><span class="auth-label">Postal code</span><input class="auth-input"/></label>
+          <label class="block"><span class="auth-label">Country</span><input class="auth-input" value="Poland"/></label>
+        </div>
+        <label class="block"><span class="auth-label">Phone</span><input class="auth-input" type="tel"/></label>
+        <label class="inline-flex items-center gap-2 text-[12px] text-black/65"><input type="checkbox"/>Set as default address</label>
+        <div class="flex items-center gap-3 pt-2">
+          <button class="inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Save address</button>
+          <button type="button" onclick="document.getElementById('addr-form').hidden=true;document.querySelector('button[onclick^=&quot;document&quot;]').hidden=false" class="text-[11px] tracking-wide2 uppercase link-underline">Cancel</button>
+        </div>
+      </form>
+    </main>
+
+  </div>
+</section>
+
+<div data-release-footer></div>
+<script src="../../assets/partials.js"></script>
+</body>
+</html>

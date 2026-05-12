@@ -111,6 +111,16 @@ nav a{text-decoration:none}
 /* product card shared */
 .pc-name{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 .pc-meta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.5);margin-top:4px}
+/* Account / Auth (login, register, dashboard) */
+.auth-h{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-0.02em;line-height:1.02}
+.auth-label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.7);font-weight:500;margin-bottom:8px}
+.auth-input{display:block;width:100%;height:46px;padding:0 14px;border:1px solid var(--hair);border-radius:4px;font-size:14px;color:#0d0d0d;background:#fff;outline:none;transition:border-color .15s ease}
+.auth-input::placeholder{color:rgba(13,13,13,.35)}
+.auth-input:focus{border-color:#0d0d0d}
+.acct-rail a{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:14px;color:#0d0d0d;border-bottom:1px solid var(--hair);transition:color .2s}
+.acct-rail a:hover{color:rgba(13,13,13,.55)}
+.acct-rail a.active{color:#0d0d0d;font-weight:600}
+.acct-card{border:1px solid var(--hair);border-radius:4px;padding:24px;background:#fff}
 /* More Info section (PDP) — matches Release Shopify theme */
 .more-info-h{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.015em;line-height:1.05}
 .more-info-item summary::-webkit-details-marker{display:none}

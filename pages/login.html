@@ -13,46 +13,79 @@
 <body class="min-h-screen">
 <div data-release-header></div>
 
-<section class="page-banner text-center">
-  <div class="mx-auto max-w-[1200px] px-6">
-    <div class="crumbs mb-6"><a href="../index.html">Home</a><span class="sep">/</span><span>Account</span></div>
-    <h1>Login</h1>
-    <p>Welcome back. Sign in to access your orders, saved items, and account details.</p>
-  </div>
-</section>
-
 <section class="onlight bg-white">
-  <div class="mx-auto max-w-[460px] px-6 py-20">
-    <form class="space-y-5" onsubmit="event.preventDefault()">
-      <label class="block">
-        <span class="text-[11px] tracking-wide2 uppercase text-black/60">Email</span>
-        <input type="email" class="mt-2 w-full h-12 px-4 border hairline rounded-[2px] text-[14px] outline-none focus:border-black" placeholder="jane@example.com"/>
-      </label>
-      <label class="block">
-        <span class="text-[11px] tracking-wide2 uppercase text-black/60">Password</span>
-        <input type="password" class="mt-2 w-full h-12 px-4 border hairline rounded-[2px] text-[14px] outline-none focus:border-black" placeholder="••••••••"/>
-      </label>
-      <div class="flex items-center justify-between text-[11px] tracking-wide2 uppercase">
-        <label class="inline-flex items-center gap-2 text-black/60"><input type="checkbox"/>Remember me</label>
-        <a href="#" class="link-underline">Forgot password?</a>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
+      <img src="https://placehold.co/1200x1500/1a1a1a/1a1a1a.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </div>
+
+    <div class="flex items-center md:pl-16 lg:pl-24 px-8 py-16 md:py-20">
+      <div class="w-full max-w-[420px]">
+
+        <!-- LOGIN FORM -->
+        <div id="login-view">
+          <h1 class="auth-h text-[44px] md:text-[56px] mb-10">Welcome back!</h1>
+
+          <button class="w-full h-12 rounded-full bg-[#5A31F4] hover:bg-[#4925cf] active:bg-[#3d1eb0] transition-colors text-white text-[13px] font-medium pill flex items-center justify-center gap-1.5">
+            Sign in with
+            <span class="font-semibold">shop</span>
+          </button>
+
+          <div class="my-8 flex items-center gap-4 text-[12px] text-black/50">
+            <span class="flex-1 border-t hairline"></span>
+            <span>or</span>
+            <span class="flex-1 border-t hairline"></span>
+          </div>
+
+          <form class="space-y-5" onsubmit="event.preventDefault();location.href='account/index.html'">
+            <label class="block">
+              <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
+              <input type="email" class="auth-input" placeholder="Enter your email" required/>
+            </label>
+            <label class="block">
+              <span class="auth-label">Password<span class="text-[#b4332a]">*</span></span>
+              <input type="password" class="auth-input" placeholder="Enter your password" required/>
+            </label>
+
+            <button class="mt-2 inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Log in</button>
+
+            <a href="#recover" onclick="showRecover()" class="block text-[11px] tracking-wide2 uppercase link-underline w-fit">Forgot your password?</a>
+          </form>
+
+          <div class="mt-14">
+            <h2 class="auth-h text-[34px] md:text-[44px] mb-6">Don't have an account?</h2>
+            <a href="register.html" class="inline-flex h-10 px-7 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill items-center">Create account</a>
+          </div>
+        </div>
+
+        <!-- RECOVER PASSWORD FORM -->
+        <div id="recover-view" hidden>
+          <h1 class="auth-h text-[44px] md:text-[56px] mb-6">Recover password</h1>
+          <p class="text-[14px] text-black/65 leading-[1.7] mb-8">We'll send you an email to reset your password.</p>
+
+          <form class="space-y-5" onsubmit="event.preventDefault()">
+            <label class="block">
+              <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
+              <input type="email" class="auth-input" placeholder="Enter your email" required/>
+            </label>
+            <button class="mt-2 inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Recover</button>
+          </form>
+
+          <a href="#login" onclick="showLogin()" class="mt-8 inline-block text-[11px] tracking-wide2 uppercase link-underline">← Back to login</a>
+        </div>
+
       </div>
-      <button class="w-full h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Sign in</button>
-    </form>
-    <div class="mt-10 pt-8 border-t hairline text-center">
-      <p class="text-[13px] text-black/60">New to release?</p>
-      <a href="register.html" class="mt-4 inline-flex items-center justify-center h-12 px-7 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Create account</a>
-    </div>
-    <div class="mt-10 text-center text-[11px] tracking-wide2 uppercase text-black/45">
-      Or continue with
-    </div>
-    <div class="mt-4 flex items-center justify-center gap-3">
-      <button class="h-11 w-11 rounded-full border hairline flex items-center justify-center" aria-label="Google"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22 12c0-.7-.1-1.4-.2-2H12v4h5.7c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.8 3-4.5 3-7.7z"/><path fill="#34A853" d="M12 23c2.8 0 5.2-.9 6.9-2.5l-3.4-2.6c-.9.6-2.1 1-3.5 1-2.7 0-5-1.8-5.8-4.3H2.7v2.7C4.4 20.7 7.9 23 12 23z"/><path fill="#FBBC05" d="M6.2 14.6c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V8.1H2.7C2 9.5 1.6 11 1.6 12.7s.4 3.2 1.1 4.6l3.5-2.7z"/><path fill="#EA4335" d="M12 5.6c1.5 0 2.9.5 4 1.5l3-3C17.2 2.5 14.8 1.6 12 1.6 7.9 1.6 4.4 3.9 2.7 7.2l3.5 2.7C7 7.4 9.3 5.6 12 5.6z"/></svg></button>
-      <button class="h-11 w-11 rounded-full border hairline flex items-center justify-center" aria-label="Shop Pay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#5A31F4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 14.5v-4l-3-3h3v-3l3 3v3h3l-3 3v4h-3z"/></svg></button>
     </div>
   </div>
 </section>
 
 <div data-release-footer></div>
 <script src="../assets/partials.js"></script>
+<script>
+function showRecover(){document.getElementById('login-view').hidden=true;document.getElementById('recover-view').hidden=false;}
+function showLogin(){document.getElementById('login-view').hidden=false;document.getElementById('recover-view').hidden=true;}
+window.addEventListener('hashchange',()=>location.hash==='#recover'?showRecover():showLogin());
+if(location.hash==='#recover')showRecover();
+</script>
 </body>
 </html>
