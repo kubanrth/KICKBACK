@@ -290,6 +290,82 @@
   </div>
 </aside>`;
 
+  const FD_COLORS = [
+    ['#0d0d0d', 'Czarny'],
+    ['#1f3fa6', 'Niebieski'],
+    ['#6b6b6b', 'Szary'],
+    ['#3f8a45', 'Zielony'],
+    ['#c4a26e', 'Beżowy'],
+    ['#b4332a', 'Czerwony'],
+    ['#f3f1ec', 'Biały'],
+  ];
+  const filterDrawer = `
+<aside id="filter-drawer" class="fixed inset-0 z-[105] pointer-events-none" aria-hidden="true">
+  <div data-fd-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
+  <div data-fd-panel class="absolute inset-y-0 left-0 h-full w-full sm:w-[440px] md:w-[480px] bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
+    <div class="flex items-center justify-between px-6 md:px-8 h-[64px] md:h-[72px] shrink-0">
+      <h2 class="text-[20px] md:text-[26px] font-semibold tracking-tight" style="letter-spacing:-0.01em">Filtruj</h2>
+      <button type="button" data-fd-close aria-label="Zamknij" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-6 md:px-8">
+      <details class="border-t hairline py-5 fd-section" open>
+        <summary class="flex items-center justify-between text-[16px] md:text-[18px] cursor-pointer list-none"><span>Cena</span><svg class="fd-caret transition-transform duration-200" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="mt-5 grid grid-cols-2 gap-4">
+          <label class="block">
+            <span class="block text-[10px] tracking-wide2 uppercase text-black/60 mb-1.5">Od</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[14px] text-black/55">zł</span>
+              <input data-fd-price-min type="number" min="0" placeholder="0" class="w-full h-11 pl-10 pr-3 border hairline rounded-[4px] text-[14px] outline-none focus:border-black"/>
+            </div>
+          </label>
+          <label class="block">
+            <span class="block text-[10px] tracking-wide2 uppercase text-black/60 mb-1.5">Do</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[14px] text-black/55">zł</span>
+              <input data-fd-price-max type="number" min="0" placeholder="999" class="w-full h-11 pl-10 pr-3 border hairline rounded-[4px] text-[14px] outline-none focus:border-black"/>
+            </div>
+          </label>
+        </div>
+      </details>
+      <details class="border-t hairline py-5 fd-section" open>
+        <summary class="flex items-center justify-between text-[16px] md:text-[18px] cursor-pointer list-none"><span>Kolor</span><svg class="fd-caret transition-transform duration-200" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="mt-5 space-y-2.5">
+          ${FD_COLORS.map(([hex, name]) => `
+          <label class="flex items-center gap-3 cursor-pointer py-1.5">
+            <input type="checkbox" data-fd-color value="${name.toLowerCase()}" class="h-4 w-4 accent-black"/>
+            <span class="h-5 w-5 rounded-[3px] border border-black/15" style="background:${hex}"></span>
+            <span class="text-[12px] tracking-wide2 uppercase">${name}</span>
+          </label>`).join('')}
+        </div>
+      </details>
+      <details class="border-t hairline py-5 fd-section" open>
+        <summary class="flex items-center justify-between text-[16px] md:text-[18px] cursor-pointer list-none"><span>Dostępność</span><svg class="fd-caret transition-transform duration-200" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="mt-5 space-y-2.5">
+          <label class="flex items-center gap-3 cursor-pointer py-1.5"><input type="checkbox" data-fd-avail value="in" class="h-4 w-4 accent-black"/><span class="text-[12px] tracking-wide2 uppercase">Dostępne</span></label>
+          <label class="flex items-center gap-3 cursor-pointer py-1.5"><input type="checkbox" data-fd-avail value="out" class="h-4 w-4 accent-black"/><span class="text-[12px] tracking-wide2 uppercase">Niedostępne</span></label>
+        </div>
+      </details>
+      <div class="h-4"></div>
+    </div>
+    <div class="px-6 md:px-8 py-5 border-t hairline shrink-0 space-y-3">
+      <button type="button" data-fd-clear class="btn-ghost-dark pill w-full h-12 rounded-full text-[11px] tracking-wide2 uppercase font-medium inline-flex items-center justify-center">Wyczyść</button>
+      <button type="button" data-fd-apply class="w-full h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark inline-flex items-center justify-center">Zastosuj filtry</button>
+    </div>
+  </div>
+</aside>`;
+
+  const SORT_OPTIONS = [
+    ['featured', 'Polecane'],
+    ['relevant', 'Najtrafniejsze'],
+    ['best-selling', 'Bestsellery'],
+    ['az', 'Alfabetycznie, A-Z'],
+    ['za', 'Alfabetycznie, Z-A'],
+    ['price-asc', 'Cena: od najniższej'],
+    ['price-desc', 'Cena: od najwyższej'],
+    ['date-asc', 'Data: od najstarszych'],
+    ['date-desc', 'Data: od najnowszych'],
+  ];
+
   const CART_KEY = 'release_cart_v1';
   const CartState = {
     read(){ try { const v = JSON.parse(localStorage.getItem(CART_KEY)); return v && Array.isArray(v.items) ? v : { items: [] }; } catch(e){ return { items: [] }; } },
@@ -716,6 +792,93 @@
     window.openSizeGuide = open;
   }
 
+  function bindFilters(){
+    const drawer = document.getElementById('filter-drawer');
+    if (!drawer) return;
+    const panel = drawer.querySelector('[data-fd-panel]');
+    const backdrop = drawer.querySelector('[data-fd-backdrop]');
+    function open(){
+      drawer.classList.remove('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        panel.classList.remove('-translate-x-full');
+      });
+      document.documentElement.style.overflow = 'hidden';
+    }
+    function shut(){
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.style.opacity = '0';
+      panel.classList.add('-translate-x-full');
+      setTimeout(() => drawer.classList.add('pointer-events-none'), 280);
+      document.documentElement.style.overflow = '';
+    }
+    document.querySelectorAll('[data-filters-open]').forEach(b => b.addEventListener('click', open));
+    drawer.querySelectorAll('[data-fd-close]').forEach(b => b.addEventListener('click', shut));
+    backdrop.addEventListener('click', shut);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') shut(); });
+    const clearBtn = drawer.querySelector('[data-fd-clear]');
+    if (clearBtn) clearBtn.addEventListener('click', () => {
+      drawer.querySelectorAll('input[type="number"]').forEach(i => { i.value = ''; });
+      drawer.querySelectorAll('input[type="checkbox"]').forEach(c => { c.checked = false; });
+    });
+    const applyBtn = drawer.querySelector('[data-fd-apply]');
+    if (applyBtn) applyBtn.addEventListener('click', shut);
+    // Caret rotation tied to <details> open state
+    drawer.querySelectorAll('.fd-section').forEach(sec => {
+      const caret = sec.querySelector('.fd-caret');
+      const sync = () => { if (caret) caret.style.transform = sec.open ? 'rotate(180deg)' : ''; };
+      sec.addEventListener('toggle', sync);
+      sync();
+    });
+  }
+
+  function bindSort(){
+    const roots = document.querySelectorAll('[data-sort-root]');
+    if (!roots.length) return;
+    function closeAll(){
+      document.querySelectorAll('[data-sort-menu]').forEach(m => m.remove());
+      document.querySelectorAll('[data-sort-caret]').forEach(c => c.style.transform = '');
+    }
+    roots.forEach(root => {
+      const toggle = root.querySelector('[data-sort-toggle]');
+      const label = root.querySelector('[data-sort-label]');
+      const caret = root.querySelector('[data-sort-caret]');
+      if (!toggle || !label) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const existing = root.querySelector('[data-sort-menu]');
+        closeAll();
+        if (existing) return;
+        const menu = document.createElement('div');
+        menu.setAttribute('data-sort-menu', '');
+        menu.className = 'absolute right-0 top-full mt-2 w-[230px] bg-white border hairline rounded-[6px] shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)] z-50 overflow-hidden';
+        const current = label.textContent.trim();
+        menu.innerHTML = SORT_OPTIONS.map(([id, name]) => {
+          const active = current === name;
+          return `<button type="button" data-sort-pick="${id}" class="w-full text-left px-5 py-2.5 text-[13px] hover:bg-black/[.04] transition-colors ${active ? 'font-semibold bg-black/[.03]' : ''}">${name}</button>`;
+        }).join('');
+        root.appendChild(menu);
+        if (caret) caret.style.transform = 'rotate(180deg)';
+        menu.querySelectorAll('[data-sort-pick]').forEach(b => {
+          b.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            const id = b.getAttribute('data-sort-pick');
+            const pick = SORT_OPTIONS.find(o => o[0] === id);
+            if (pick) label.textContent = pick[1];
+            closeAll();
+          });
+        });
+      });
+    });
+    document.addEventListener('click', (e) => {
+      const inMenu = e.target.closest && e.target.closest('[data-sort-menu]');
+      const inToggle = e.target.closest && e.target.closest('[data-sort-toggle]');
+      if (!inMenu && !inToggle) closeAll();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+  }
+
   function bindMobileMenu(){
     const drawer = document.getElementById('mobile-menu');
     if (!drawer) return;
@@ -753,7 +916,10 @@
     document.body.insertAdjacentHTML('beforeend', cartDrawer);
     document.body.insertAdjacentHTML('beforeend', quickviewDrawer);
     document.body.insertAdjacentHTML('beforeend', sizeGuideModal);
+    document.body.insertAdjacentHTML('beforeend', filterDrawer);
     bindMobileMenu();
+    bindFilters();
+    bindSort();
     bindSearch();
     bindStickyHeader();
     bindReveal();

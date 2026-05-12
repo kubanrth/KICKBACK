@@ -30,14 +30,14 @@
 
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-5 md:px-10 py-4 md:py-10 grid grid-cols-2 md:flex md:items-center md:justify-between gap-y-2 border-b hairline">
-    <button class="inline-flex items-center gap-2 text-[11px] tracking-wide2 uppercase">
+    <button type="button" data-filters-open class="inline-flex items-center gap-2 text-[11px] tracking-wide2 uppercase hover:text-black/55 transition-colors">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
-      Filters
+      Filtruj
     </button>
-    <div class="col-span-2 md:col-auto order-last md:order-none text-[10px] md:text-[11px] tracking-wide2 uppercase text-black/55 md:text-black/60">Showing 21 of 21 products</div>
-    <div class="inline-flex items-center gap-2 text-[11px] tracking-wide2 uppercase justify-end">
-      <span class="hidden md:inline text-black/60">Sort by</span>
-      <button class="inline-flex items-center gap-1.5 border hairline rounded-full px-4 h-9">Best selling <span class="caret">▾</span></button>
+    <div class="col-span-2 md:col-auto order-last md:order-none text-[10px] md:text-[11px] tracking-wide2 uppercase text-black/55 md:text-black/60">Pokazuję 21 z 21 produktów</div>
+    <div data-sort-root class="relative inline-flex items-center gap-2 text-[11px] tracking-wide2 uppercase justify-end">
+      <span class="hidden md:inline text-black/60">Sortuj</span>
+      <button type="button" data-sort-toggle class="inline-flex items-center gap-1.5 border hairline rounded-full px-4 h-9 hover:bg-black hover:text-white transition"><span data-sort-label>Polecane</span> <svg data-sort-caret width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200"><polyline points="6 9 12 15 18 9"/></svg></button>
     </div>
   </div>
 
