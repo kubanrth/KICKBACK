@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -16,34 +16,34 @@
 <section class="page-banner text-center">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="crumbs mb-6"><a href="../../index.html">Home</a><span class="sep">/</span><a href="index.html">My account</a><span class="sep">/</span><span>Orders</span></div>
-    <h1>Order <em class="font-wonk font-normal">history</em></h1>
+    <h1>Historia <em class="font-wonk font-normal">zamówień</em></h1>
     <p>All orders placed on your account.</p>
   </div>
 </section>
 
 <section class="onlight bg-white">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-16 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-10 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-10">
 
     <aside class="md:col-span-3">
       <nav class="acct-rail">
-        <a href="index.html">Overview <span>›</span></a>
-        <a href="orders.html" class="active">Orders <span>›</span></a>
-        <a href="addresses.html">Addresses <span>›</span></a>
-        <a href="details.html">Account details <span>›</span></a>
-        <a href="../login.html" onclick="try{localStorage.removeItem('demo_auth');localStorage.removeItem('demo_auth_email');}catch(e){}" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
+        <a href="index.html">Twoje konto <span>›</span></a>
+        <a href="orders.html" class="active">Zamówienia <span>›</span></a>
+        <a href="addresses.html">Adresy <span>›</span></a>
+        <a href="details.html">Dane konta <span>›</span></a>
+        <a href="../login.html" onclick="try{localStorage.removeItem('demo_auth');localStorage.removeItem('demo_auth_email');}catch(e){}" class="text-[#b4332a] hover:text-[#b4332a]/70">Wyloguj <span>›</span></a>
       </nav>
     </aside>
 
     <main class="md:col-span-9">
-      <div class="border hairline rounded-[4px] overflow-hidden">
-        <table class="w-full text-[13px]">
+      <div class="border hairline rounded-[4px] overflow-x-auto">
+        <table class="w-full text-[13px] min-w-[640px]">
           <thead class="bg-[#fafafa] text-[11px] tracking-wide2 uppercase text-black/55">
             <tr>
-              <th class="text-left px-5 py-3 font-medium">Order</th>
-              <th class="text-left px-5 py-3 font-medium">Date</th>
-              <th class="text-left px-5 py-3 font-medium">Payment</th>
-              <th class="text-left px-5 py-3 font-medium">Fulfillment</th>
-              <th class="text-right px-5 py-3 font-medium">Total</th>
+              <th class="text-left px-5 py-3 font-medium">Numer</th>
+              <th class="text-left px-5 py-3 font-medium">Data</th>
+              <th class="text-left px-5 py-3 font-medium">Płatność</th>
+              <th class="text-left px-5 py-3 font-medium">Status</th>
+              <th class="text-right px-5 py-3 font-medium">Suma</th>
             </tr>
           </thead>
           <tbody class="divide-y hairline">
