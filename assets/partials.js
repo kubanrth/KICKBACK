@@ -229,9 +229,12 @@
     const onScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
       wrap.classList.toggle('is-floating', y > 40);
+      const rect = wrap.getBoundingClientRect();
+      document.documentElement.style.setProperty('--mega-top', rect.bottom + 'px');
     };
-    onScroll();
+    requestAnimationFrame(onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
   }
 
   function inject(){

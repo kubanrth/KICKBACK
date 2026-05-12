@@ -72,8 +72,7 @@ nav a{text-decoration:none}
 /* Mega menu */
 .has-mega{position:relative}
 .mega{position:absolute;left:0;right:auto;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);box-shadow:0 30px 50px -30px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s;z-index:50}
-.mega.mega-wide{position:fixed;left:0;right:0;top:calc(36px + 72px);width:100vw;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s, top .25s ease}
-#site-header-wrap.is-floating .mega.mega-wide{top:72px}
+.mega.mega-wide{position:fixed;left:0;right:0;top:var(--mega-top, calc(36px + 72px));width:100vw;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s}
 .has-mega:hover > .mega, .has-mega:focus-within > .mega{opacity:1;visibility:visible;transform:translateY(0)}
 .has-mega:hover .caret, .has-mega:focus-within .caret{transform:rotate(180deg)}
 .mega-col-title{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);margin-bottom:14px;font-weight:500}
