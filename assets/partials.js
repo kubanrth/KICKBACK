@@ -20,8 +20,10 @@
 </div>
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
-    <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
+  <div class="mx-auto max-w-[1600px] px-4 md:px-10 h-[60px] md:h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
+    <div class="flex items-center">
+      <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <nav class="hidden md:flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
       <div class="has-mega">
         <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center h-[72px]">Shop <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="mega mega-wide">
@@ -78,9 +80,10 @@
       </div>
       <a href="${R('pages/contact.html')}" class="hover:text-black inline-flex items-center h-[72px]">Kontakt</a>
     </nav>
-    <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 md:h-8 w-auto"/></a>
-    <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
-      <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+    </div>
+    <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 md:h-8 w-auto"/></a>
+    <nav class="justify-self-end flex items-center gap-3 md:gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
+      <a href="#" class="hidden md:inline-flex hover:text-black items-center gap-1.5">United states <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <button type="button" data-search-open class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('pages/login.html')}" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
       <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">
@@ -241,6 +244,51 @@
     </div>
   </div>
 </div>`;
+
+  const mobileMenu = `
+<aside id="mobile-menu" class="fixed inset-0 z-[105] pointer-events-none md:hidden" aria-hidden="true">
+  <div data-mm-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
+  <div data-mm-panel class="absolute inset-y-0 left-0 w-[86%] max-w-[380px] bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
+    <div class="flex items-center justify-between px-5 h-[60px] border-b hairline shrink-0">
+      <a href="${R('index.html')}" class="inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
+      <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="flex-1 overflow-y-auto">
+      <nav class="px-5 pt-2 pb-4 text-[15px]">
+        <a href="${R('collections/all.html')}" class="flex items-center justify-between py-4 border-b hairline">Shop<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <details class="border-b hairline group">
+          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Kategorie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
+          <ul class="pb-3 pl-3 space-y-1.5">
+            <li><a href="${R('collections/new-collection.html')}" class="block py-2 text-black/75 text-[14px]">Nowości</a></li>
+            <li><a href="${R('collections/best-sellers.html')}" class="block py-2 text-black/75 text-[14px]">Bestsellery</a></li>
+            <li><a href="${R('collections/basics.html')}" class="block py-2 text-black/75 text-[14px]">Mystery Box</a></li>
+            <li><a href="${R('collections/all.html')}" class="block py-2 text-black/75 text-[14px]">Koszulki RETRO</a></li>
+            <li><a href="${R('collections/tops.html')}" class="block py-2 text-black/75 text-[14px]">Kluby</a></li>
+            <li><a href="${R('collections/best-sellers.html')}" class="block py-2 text-black/75 text-[14px]">Reprezentacje</a></li>
+            <li><a href="${R('collections/jackets-coats.html')}" class="block py-2 text-black/75 text-[14px]">Bluzy i kurtki</a></li>
+            <li><a href="${R('collections/accessories.html')}" class="block py-2 text-black/75 text-[14px]">Akcesoria</a></li>
+          </ul>
+        </details>
+        <a href="${R('blogs/news.html')}" class="flex items-center justify-between py-4 border-b hairline">Blog<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('pages/about-us.html')}" class="flex items-center justify-between py-4 border-b hairline">O nas<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('pages/faq.html')}" class="flex items-center justify-between py-4 border-b hairline">FAQ<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('pages/contact.html')}" class="flex items-center justify-between py-4 border-b hairline">Kontakt<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+      </nav>
+      <div class="px-5 pt-6 pb-8">
+        <div class="text-[10px] tracking-mega uppercase text-black/55 mb-3">Konto</div>
+        <a href="${R('pages/login.html')}" class="inline-flex h-11 px-7 mr-3 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Zaloguj się</a>
+        <a href="${R('pages/register.html')}" class="inline-flex h-11 px-7 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase mt-2">Załóż konto</a>
+      </div>
+      <div class="px-5 pt-6 pb-10 border-t hairline">
+        <div class="text-[10px] tracking-mega uppercase text-black/55 mb-3">Pomoc</div>
+        <a href="${R('pages/store-locator.html')}" class="block py-1.5 text-[13px] text-black/75">Nasze sklepy</a>
+        <a href="${R('pages/shipping.html')}" class="block py-1.5 text-[13px] text-black/75">Wymiana i zwroty</a>
+        <a href="${R('pages/terms.html')}" class="block py-1.5 text-[13px] text-black/75">Regulamin</a>
+        <a href="${R('pages/privacy.html')}" class="block py-1.5 text-[13px] text-black/75">Polityka prywatności</a>
+      </div>
+    </div>
+  </div>
+</aside>`;
 
   const CART_KEY = 'release_cart_v1';
   const CartState = {
@@ -668,13 +716,44 @@
     window.openSizeGuide = open;
   }
 
+  function bindMobileMenu(){
+    const drawer = document.getElementById('mobile-menu');
+    if (!drawer) return;
+    const panel = drawer.querySelector('[data-mm-panel]');
+    const backdrop = drawer.querySelector('[data-mm-backdrop]');
+    function open(){
+      drawer.classList.remove('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        panel.classList.remove('-translate-x-full');
+      });
+      document.documentElement.style.overflow = 'hidden';
+    }
+    function shut(){
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.style.opacity = '0';
+      panel.classList.add('-translate-x-full');
+      setTimeout(() => { drawer.classList.add('pointer-events-none'); }, 280);
+      document.documentElement.style.overflow = '';
+    }
+    document.querySelectorAll('[data-mobile-menu-toggle]').forEach(b => b.addEventListener('click', open));
+    drawer.querySelectorAll('[data-mm-close]').forEach(b => b.addEventListener('click', shut));
+    backdrop.addEventListener('click', shut);
+    // close on link click inside the panel
+    panel.querySelectorAll('a[href]').forEach(a => a.addEventListener('click', shut));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') shut(); });
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
+    document.body.insertAdjacentHTML('beforeend', mobileMenu);
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     document.body.insertAdjacentHTML('beforeend', cartDrawer);
     document.body.insertAdjacentHTML('beforeend', quickviewDrawer);
     document.body.insertAdjacentHTML('beforeend', sizeGuideModal);
+    bindMobileMenu();
     bindSearch();
     bindStickyHeader();
     bindReveal();
