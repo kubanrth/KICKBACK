@@ -122,9 +122,9 @@ nav a{text-decoration:none}
 .acct-rail a.active{color:#0d0d0d;font-weight:600}
 .acct-card{border:1px solid var(--hair);border-radius:4px;padding:24px;background:#fff}
 /* More Info section (PDP) — matches Release Shopify theme */
-.more-info-h{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.015em;line-height:1.05}
+.more-info-h{font-family:'DM Sans',system-ui,sans-serif;font-weight:700;letter-spacing:-0.01em;line-height:1.05}
 .more-info-item summary::-webkit-details-marker{display:none}
-.mi-label{font-family:'Fraunces',Georgia,serif;font-weight:500}
+.mi-label{font-family:'DM Sans',system-ui,sans-serif;font-weight:600;letter-spacing:-0.005em}
 details[open] > summary .mi-label{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .mi-toggle{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;font-size:22px;line-height:1;color:#111;font-weight:300}
 .mi-toggle::after{content:"+";display:inline-block}
