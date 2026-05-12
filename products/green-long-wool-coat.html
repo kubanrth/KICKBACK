@@ -32,13 +32,14 @@
         <p class="mt-6 text-[13px] leading-[1.75] text-black/70">Long-line wool coat in deep moss green. Traditional tailoring with a modern oversized cut, notched lapel, single-breasted closure. Made from a 70% wool blend.</p>
 
         <div class="mt-8 flex items-center justify-between">
-          <div class="text-[11px] tracking-wide2 uppercase">Size <span class="text-black/60">M</span></div>
+          <div class="text-[11px] tracking-wide2 uppercase">Rozmiar <span class="text-black/60">M</span></div>
+          <button type="button" data-size-guide-open class="text-[11px] tracking-wide2 uppercase text-black/60 hover:text-black underline underline-offset-4 decoration-1 decoration-black/40 hover:decoration-black transition">Tabela rozmiarów</button>
         </div>
         <div class="mt-3 flex items-center gap-2">
           <button class="h-11 w-12 border hairline text-[12px] rounded-[3px]">XS</button><button class="h-11 w-12 border hairline text-[12px] rounded-[3px]">S</button><button class="h-11 w-12 border border-black text-[12px] rounded-[3px]">M</button><button class="h-11 w-12 border hairline text-[12px] rounded-[3px]">L</button><button class="h-11 w-12 border hairline text-[12px] rounded-[3px]">XL</button>
         </div>
 
-        <div class="mt-6 text-[11px] tracking-wide2 uppercase">Color <span class="text-black/60">Moss</span></div>
+        <div class="mt-6 text-[11px] tracking-wide2 uppercase">Kolor <span class="text-black/60">Moss</span></div>
         <div class="mt-3 flex items-center gap-2">
           <span class="h-6 w-6 rounded-full" style="background:#4a5a40;border:1px solid rgba(0,0,0,.15)"></span>
         </div>
@@ -49,11 +50,11 @@
             <input class="w-8 text-center bg-transparent" value="1"/>
             <button class="w-6 text-black/60">+</button>
           </div>
-          <button id="main-add-to-cart" class="flex-1 h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Add to cart</button>
+          <button id="main-add-to-cart" class="flex-1 h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Dodaj do koszyka</button>
         </div>
-        <button class="mt-3 w-full h-12 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Buy it now</button>
+        <button class="mt-3 w-full h-12 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Kup teraz</button>
 
-        <div class="mt-6 text-[11px] tracking-wide2 uppercase text-[#b4332a]">In stock.</div>
+        <div class="mt-6 text-[11px] tracking-wide2 uppercase text-[#b4332a]">Dostępny</div>
 
         <div class="mt-8 grid grid-cols-2 gap-3 text-[11px] tracking-wide2 uppercase text-black/70">
           <div class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5 9.5 18 20 6.5"/></svg>Darmowa dostawa od 500 zł</div>
@@ -74,18 +75,18 @@
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-14 md:pt-20 pb-10 md:pb-14">
     <div class="ml-auto max-w-[860px]">
-      <h2 class="more-info-h text-[34px] md:text-[44px] font-semibold tracking-tight mb-8 pb-6 border-b hairline">More Info</h2>
+      <h2 class="more-info-h text-[34px] md:text-[44px] font-semibold tracking-tight mb-8 pb-6 border-b hairline">Więcej informacji</h2>
       <div class="divide-y hairline">
         <details id="description" class="more-info-item py-5" open>
           <summary class="flex items-center justify-between text-[16px] md:text-[20px] cursor-pointer py-3 list-none">
-            <span class="mi-label">Description</span>
+            <span class="mi-label">Opis</span>
             <span class="mi-toggle"></span>
           </summary>
           <div class="mt-3 text-[15px] leading-[1.75] text-black/75">Long-line wool coat in deep moss green. Traditional tailoring with a modern oversized cut, notched lapel, single-breasted closure. Made from a 70% wool blend.</div>
         </details>
         <details class="more-info-item py-5">
           <summary class="flex items-center justify-between text-[16px] md:text-[20px] cursor-pointer py-3 list-none">
-            <span class="mi-label">Delivery &amp; Returns</span>
+            <span class="mi-label">Bezpieczne zakupy online</span>
             <span class="mi-toggle"></span>
           </summary>
           <ul class="mt-3 text-[15px] leading-[1.9] text-black/75 list-disc pl-5">
@@ -97,7 +98,7 @@
           </ul>
         </details>
         <a href="../pages/contact.html" class="more-info-item py-3 flex items-center justify-between text-[16px] md:text-[20px] hover:text-black/70 transition-colors">
-          <span class="mi-label">Contact Us</span>
+          <span class="mi-label">Dane kontaktowe</span>
           <span class="mi-chevron">›</span>
         </a>
       </div>
@@ -162,7 +163,7 @@
       <div id="sa-name" class="text-[14px] font-semibold truncate text-black"></div>
       <div class="mt-1 text-[12px] text-black/65 flex items-center gap-2"><span id="sa-price"></span><span class="text-black/30">·</span><span id="sa-size">XS</span></div>
     </div>
-    <button class="h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark whitespace-nowrap" onclick="document.getElementById('main-add-to-cart')?.click()">Add to cart</button>
+    <button class="h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark whitespace-nowrap" onclick="document.getElementById('main-add-to-cart')?.click()">Dodaj do koszyka</button>
   </div>
 </div>
 <script>

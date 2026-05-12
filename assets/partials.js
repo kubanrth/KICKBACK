@@ -71,26 +71,12 @@
             <ul class="space-y-0.5">
               <li><a href="${R('pages/faq.html')}" class="mega-link">FAQ</a></li>
               <li><a href="${R('blogs/news.html')}" class="mega-link">Blog</a></li>
-              <li><a href="${R('pages/lookbook.html')}" class="mega-link">Lookbook</a></li>
-              <li><a href="${R('pages/content-tiles.html')}" class="mega-link">Content tiles</a></li>
-              <li><a href="${R('pages/about-us.html')}" class="mega-link">About us</a></li>
-              <li><a href="${R('pages/size-guide.html')}" class="mega-link">Size guide</a></li>
+              <li><a href="${R('pages/about-us.html')}" class="mega-link">O nas</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="has-mega">
-        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Product features <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="mega rounded-b-[2px] min-w-[240px]">
-          <div class="px-6 py-6">
-            <ul class="space-y-0.5">
-              <li><a href="${R('products/knit-comfort-turn-up-sleeve-coat.html')}" class="mega-link">Pre-order feature</a></li>
-              <li><a href="${R('collections/all.html')}" class="mega-link">Product groups</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <a href="${R('pages/contact.html')}" class="hover:text-black inline-flex items-center h-[72px]">Contact</a>
+      <a href="${R('pages/contact.html')}" class="hover:text-black inline-flex items-center h-[72px]">Kontakt</a>
     </nav>
     <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
@@ -112,10 +98,10 @@
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
       <div class="md:col-span-5">
         <div class="text-[11px] tracking-wide2 uppercase text-white/60">Newsletter</div>
-        <h3 class="mt-3 text-[18px]">Sign up to receive 10% off your first order</h3>
+        <h3 class="mt-3 text-[18px] leading-[1.4] max-w-[420px]">Zapisz się do naszego newslettera i otrzymaj 10% na swoje pierwsze zamówienie</h3>
         <form class="mt-5 flex items-center bg-white rounded-full pl-5 pr-1.5 h-12 max-w-md" onsubmit="event.preventDefault()">
-          <input type="email" placeholder="Email address" class="flex-1 bg-transparent text-black placeholder:text-black/45 text-[13px] outline-none"/>
-          <button class="h-9 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Subscribe</button>
+          <input type="email" placeholder="Adres email" class="flex-1 bg-transparent text-black placeholder:text-black/45 text-[13px] outline-none"/>
+          <button class="h-9 px-5 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium">Zapisz się</button>
         </form>
       </div>
       <div class="md:col-span-2">
@@ -131,7 +117,7 @@
         <ul class="space-y-2.5 text-[13px] text-white/85 md:mt-9">
           <li><a href="${R('pages/faq.html')}" class="hover:text-white">FAQ</a></li>
           <li><a href="${R('blogs/news.html')}" class="hover:text-white">Blog</a></li>
-          <li><a href="${R('pages/about.html')}" class="hover:text-white">O nas</a></li>
+          <li><a href="${R('pages/about-us.html')}" class="hover:text-white">O nas</a></li>
         </ul>
       </div>
       <div class="md:col-span-3">
@@ -219,6 +205,41 @@
     <div data-cart-body class="flex-1 overflow-y-auto"></div>
     <div data-cart-foot class="shrink-0"></div>
   </aside>
+</div>`;
+
+  const sizeGuideModal = `
+<div id="size-guide-modal" class="fixed inset-0 z-[110] pointer-events-none" aria-hidden="true">
+  <div data-sg-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4 md:p-8">
+    <div data-sg-content class="relative bg-white max-w-[760px] w-full max-h-[88vh] overflow-y-auto rounded-[3px] shadow-[0_20px_60px_-20px_rgba(0,0,0,.35)] translate-y-3 opacity-0 transition-all duration-300 ease-out">
+      <button type="button" data-sg-close aria-label="Zamknij" class="sticky float-right top-5 right-5 mt-5 mr-5 h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition z-10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="px-8 md:px-12 py-10 md:py-14">
+        <h2 class="h-editorial text-[28px] md:text-[40px] leading-[1.05]">Tabela <em class="font-wonk font-normal">rozmiarów</em></h2>
+        <p class="mt-4 text-[14px] text-black/65 leading-[1.7] max-w-[520px]">Aby dobrać najlepszy rozmiar, zmierz się zgodnie z wymiarami w tabeli poniżej przed zakupem.</p>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full text-[13px] border-collapse">
+            <thead>
+              <tr class="border-b hairline">
+                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Rozmiar</th>
+                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Klatka (cm)</th>
+                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Talia (cm)</th>
+                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Biodra (cm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">XS</td><td class="py-3 px-3 text-black/75">78–84</td><td class="py-3 px-3 text-black/75">60–66</td><td class="py-3 px-3 text-black/75">86–92</td></tr>
+              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">S</td><td class="py-3 px-3 text-black/75">85–91</td><td class="py-3 px-3 text-black/75">67–73</td><td class="py-3 px-3 text-black/75">93–99</td></tr>
+              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">M</td><td class="py-3 px-3 text-black/75">92–98</td><td class="py-3 px-3 text-black/75">74–80</td><td class="py-3 px-3 text-black/75">100–106</td></tr>
+              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">L</td><td class="py-3 px-3 text-black/75">99–105</td><td class="py-3 px-3 text-black/75">81–87</td><td class="py-3 px-3 text-black/75">107–113</td></tr>
+              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">XL</td><td class="py-3 px-3 text-black/75">106–112</td><td class="py-3 px-3 text-black/75">88–94</td><td class="py-3 px-3 text-black/75">114–120</td></tr>
+              <tr><td class="py-3 px-3 font-medium">XXL</td><td class="py-3 px-3 text-black/75">113–119</td><td class="py-3 px-3 text-black/75">95–101</td><td class="py-3 px-3 text-black/75">121–127</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-6 text-[12px] text-black/55 leading-[1.6]">Wymiary podane w tabeli odpowiadają wymiarom ciała, nie ubrania. Jeśli wahasz się między rozmiarami, polecamy wybrać większy dla luźniejszego kroju.</p>
+      </div>
+    </div>
+  </div>
 </div>`;
 
   const CART_KEY = 'release_cart_v1';
@@ -615,12 +636,45 @@
     });
   }
 
+  function bindSizeGuide(){
+    const root = document.getElementById('size-guide-modal');
+    if (!root) return;
+    const backdrop = root.querySelector('[data-sg-backdrop]');
+    const content = root.querySelector('[data-sg-content]');
+    const close = root.querySelector('[data-sg-close]');
+    function open(){
+      root.classList.remove('pointer-events-none');
+      root.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        content.classList.remove('translate-y-3', 'opacity-0');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+    function shut(){
+      root.setAttribute('aria-hidden', 'true');
+      backdrop.style.opacity = '0';
+      content.classList.add('translate-y-3', 'opacity-0');
+      document.body.style.overflow = '';
+      setTimeout(() => root.classList.add('pointer-events-none'), 300);
+    }
+    backdrop.addEventListener('click', shut);
+    close.addEventListener('click', shut);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && root.getAttribute('aria-hidden') === 'false') shut(); });
+    document.addEventListener('click', e => {
+      const t = e.target.closest('[data-size-guide-open]');
+      if (t) { e.preventDefault(); open(); }
+    });
+    window.openSizeGuide = open;
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     document.body.insertAdjacentHTML('beforeend', cartDrawer);
     document.body.insertAdjacentHTML('beforeend', quickviewDrawer);
+    document.body.insertAdjacentHTML('beforeend', sizeGuideModal);
     bindSearch();
     bindStickyHeader();
     bindReveal();
@@ -628,6 +682,7 @@
     bindQuickview();
     bindProductPage();
     bindAuth();
+    bindSizeGuide();
     updateCartBadges();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
