@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Your shopping cart — release</title>
+<title>Twój koszyk — release</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,31 +13,128 @@
 <body class="min-h-screen">
 <div data-release-header></div>
 
-<section class="onlight bg-white pt-12 pb-20">
-  <div class="mx-auto max-w-[900px] px-6 md:px-10 text-center">
-    <div class="text-[11px] tracking-wide2 uppercase text-black/55">Your cart 0</div>
-    <h1 class="h-editorial text-[60px] md:text-[96px] mt-8 leading-[0.95]">It's a little<br/><em class="font-wonk font-normal">empty</em> here</h1>
-    <p class="mt-6 text-[14px] text-black/60">Your cart is currently empty</p>
-    <a href="../collections/all.html" class="mt-8 inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Start shopping</a>
+<section class="onlight bg-white pt-12 pb-12">
+  <div class="mx-auto max-w-[1200px] px-6 md:px-10">
+    <div class="text-[11px] tracking-wide2 uppercase text-black/55">Koszyk <span data-cart-page-count>0</span></div>
+    <h1 data-cart-page-title class="h-editorial text-[44px] md:text-[72px] mt-4 leading-[0.95]">Twój <em class="font-wonk font-normal">koszyk</em></h1>
+  </div>
+</section>
+
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1200px] px-6 md:px-10 pb-20">
+
+    <div data-cart-page-empty class="hidden text-center py-12 border-t hairline">
+      <h2 class="h-editorial text-[40px] md:text-[60px] leading-[0.95]">It's a little<br/><em class="font-wonk font-normal">empty</em> here</h2>
+      <p class="mt-5 text-[14px] text-black/60">Your cart is currently empty</p>
+      <a href="../collections/all.html" class="mt-7 inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Start shopping</a>
+    </div>
+
+    <div data-cart-page-grid class="hidden grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-16">
+      <div>
+        <div class="hidden md:grid grid-cols-[1fr_120px_120px_40px] gap-6 pb-4 border-b hairline text-[11px] tracking-wide2 uppercase text-black/55">
+          <div>Produkt</div>
+          <div class="text-center">Ilość</div>
+          <div class="text-right">Cena</div>
+          <div></div>
+        </div>
+        <div data-cart-page-lines></div>
+      </div>
+      <aside class="lg:sticky lg:top-28 self-start">
+        <div class="border hairline rounded-[4px] p-6">
+          <div class="text-[11px] tracking-wide2 uppercase text-black/55 mb-4">Podsumowanie</div>
+          <div class="flex items-center justify-between mb-3 text-[13px]">
+            <span class="text-black/65">Suma częściowa</span>
+            <span data-cart-page-subtotal class="tabular-nums">0,00 zł</span>
+          </div>
+          <div class="flex items-center justify-between mb-5 text-[13px]">
+            <span class="text-black/65">Wysyłka</span>
+            <span class="text-black/55 text-[11px] tracking-wide2 uppercase">Przy kasie</span>
+          </div>
+          <div class="flex items-center justify-between pt-5 border-t hairline">
+            <span class="text-[11px] tracking-wide2 uppercase">Suma</span>
+            <span data-cart-page-total class="text-[22px] tabular-nums">0,00 zł</span>
+          </div>
+          <a href="#" class="mt-6 block text-center h-12 leading-[3rem] rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Przejdź do kasy</a>
+          <a href="../collections/all.html" class="mt-3 block text-center text-[11px] tracking-wide2 uppercase text-black/60 hover:text-black">Kontynuuj zakupy</a>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 py-14 border-t hairline">
     <div class="flex items-end justify-between mb-10">
-      <h2 class="h-section text-[20px] md:text-[28px]">You may also <em class="font-wonk font-normal">like</em></h2>
-      <a href="../collections/all.html" class="text-[11px] tracking-wide2 uppercase link-underline">View all</a>
+      <h2 class="h-section text-[20px] md:text-[28px]">Może <em class="font-wonk font-normal">spodoba</em> Ci się</h2>
+      <a href="../collections/all.html" class="text-[11px] tracking-wide2 uppercase link-underline">Zobacz wszystkie</a>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
-      <article><a href="../products/black-puffer-jacket.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/111111/111111.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Black Puffer Jacket</h3><div class="mt-1 text-[12px]">69,95 zł</div></div></article>
-      <article><a href="../products/green-puffguard-jacket.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/3a4a36/3a4a36.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Green PuffGuard Jacket</h3><div class="mt-1 text-[12px]">94,95 zł</div></div></article>
-      <article><a href="../products/beige-sweater-with-zipper.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/e0d2b4/e0d2b4.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Beige Sweater with Zipper</h3><div class="mt-1 text-[12px]">69,95 zł</div></div></article>
-      <article><a href="../products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/8e6b44/8e6b44.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Knit Comfort Turn-Up Sleeve Coat</h3><div class="mt-1 text-[12px]">79,95 zł</div></div></article>
+      <article class="group"><a href="../products/black-puffer-jacket.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/111111/111111.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Black Puffer Jacket</h3><div class="mt-1 text-[12px]">69,95 zł</div></div></article>
+      <article class="group"><a href="../products/green-puffguard-jacket.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/3a4a36/3a4a36.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Green PuffGuard Jacket</h3><div class="mt-1 text-[12px]">94,95 zł</div></div></article>
+      <article class="group"><a href="../products/beige-sweater-with-zipper.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/e0d2b4/e0d2b4.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Beige Sweater with Zipper</h3><div class="mt-1 text-[12px]">69,95 zł</div></div></article>
+      <article class="group"><a href="../products/knit-comfort-turn-up-sleeve-coat.html" class="tile block relative aspect-[4/5] rounded-[2px] overflow-hidden shadow-tile"><img src="https://placehold.co/900x1125/8e6b44/8e6b44.png" class="absolute inset-0 h-full w-full object-cover" alt=""/></a><div class="mt-5"><h3 class="pc-name">Knit Comfort Turn-Up Sleeve Coat</h3><div class="mt-1 text-[12px]">79,95 zł</div></div></article>
     </div>
   </div>
 </section>
 
 <div data-release-footer></div>
 <script src="../assets/partials.js"></script>
+<script>
+(function(){
+  function formatPLN(n){ return n.toFixed(2).replace('.', ',') + ' zł'; }
+  function render(){
+    if (!window.ReleaseCart) { requestAnimationFrame(render); return; }
+    const s = window.ReleaseCart.read();
+    const empty = document.querySelector('[data-cart-page-empty]');
+    const grid  = document.querySelector('[data-cart-page-grid]');
+    document.querySelector('[data-cart-page-count]').textContent = window.ReleaseCart.count();
+    if (s.items.length === 0){
+      empty.classList.remove('hidden');
+      grid.classList.add('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+    grid.classList.remove('hidden');
+    grid.classList.add('grid');
+    const lines = document.querySelector('[data-cart-page-lines]');
+    lines.innerHTML = s.items.map((item, i) => `
+      <article class="grid grid-cols-[80px_1fr_120px_120px_40px] md:grid-cols-[120px_1fr_120px_120px_40px] gap-4 md:gap-6 items-center py-6 border-b hairline">
+        <a href="${item.url || '#'}" class="block aspect-[4/5] rounded-[2px] overflow-hidden bg-[var(--tile)]">
+          ${item.image ? '<img src="' + item.image + '" alt="" class="w-full h-full object-cover">' : ''}
+        </a>
+        <div class="min-w-0">
+          <h3 class="pc-name truncate">${item.name}</h3>
+          ${(item.size || item.color) ? '<div class="text-[10px] tracking-wide2 uppercase text-black/55 mt-1">' + [item.size, item.color].filter(Boolean).join(' / ') + '</div>' : ''}
+          <div class="text-[12px] text-black/60 mt-1">${formatPLN(item.price)}</div>
+        </div>
+        <div class="flex items-center justify-center">
+          <div class="flex items-center border hairline rounded-full h-9 px-2 text-[13px]">
+            <button type="button" data-cart-qty="${i}" data-delta="-1" class="w-6 text-black/55 hover:text-black">−</button>
+            <span class="w-7 text-center tabular-nums">${item.qty}</span>
+            <button type="button" data-cart-qty="${i}" data-delta="1" class="w-6 text-black/55 hover:text-black">+</button>
+          </div>
+        </div>
+        <div class="text-right text-[14px] tabular-nums">${formatPLN(item.price * item.qty)}</div>
+        <button type="button" data-cart-remove="${i}" class="text-black/40 hover:text-black justify-self-end"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </article>`).join('');
+    document.querySelector('[data-cart-page-subtotal]').textContent = formatPLN(window.ReleaseCart.subtotal());
+    document.querySelector('[data-cart-page-total]').textContent = formatPLN(window.ReleaseCart.subtotal());
+  }
+  document.addEventListener('cart:change', render);
+  document.querySelector('[data-cart-page-lines]')?.addEventListener('click', e => {
+    const q = e.target.closest('[data-cart-qty]');
+    const r = e.target.closest('[data-cart-remove]');
+    if (q){
+      const i = +q.dataset.cartQty, d = +q.dataset.delta;
+      const s = window.ReleaseCart.read();
+      if (s.items[i]) window.ReleaseCart.setQty(i, s.items[i].qty + d);
+    } else if (r){
+      window.ReleaseCart.remove(+r.dataset.cartRemove);
+    }
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else requestAnimationFrame(render);
+})();
+</script>
 </body>
 </html>

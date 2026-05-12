@@ -178,7 +178,7 @@
   const btn = document.getElementById('main-add-to-cart');
   if (!bar || !btn) return;
   const name = document.querySelector('h1');
-  const priceEl = document.querySelector('.product-price') || document.querySelector('section .text-[22px]');
+  const priceEl = document.querySelector('.product-price') || document.querySelector('section .text-\\[22px\\]');
   const img = document.querySelector('section .grid-cols-2 img');
   if (name) document.getElementById('sa-name').textContent = name.textContent.trim();
   if (priceEl) document.getElementById('sa-price').textContent = priceEl.textContent.trim();
