@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Login — release</title>
+<title>Logowanie — Kickback</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,56 +16,51 @@
 <section class="onlight bg-white">
   <div class="grid grid-cols-1 md:grid-cols-2">
     <div class="hidden md:block relative md:min-h-[640px] overflow-hidden">
-      <img src="https://placehold.co/1200x1500/1a1a1a/1a1a1a.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+      <img src="../brand_assets/photos/banner-konto.png" alt="" class="absolute inset-0 h-full w-full object-cover"/>
     </div>
 
     <div class="flex items-center md:pl-16 lg:pl-24 px-8 py-16 md:py-20">
       <div class="w-full max-w-[420px]">
 
-        <!-- LOGIN FORM -->
+        <!-- LOGIN -->
         <div id="login-view">
-          <h1 class="auth-h text-[44px] md:text-[56px] mb-6">Welcome back!</h1>
+          <h1 class="h-section text-[28px] md:text-[36px] mb-10">Logowanie</h1>
 
-          <div class="mb-6 px-4 py-3 rounded-[4px] bg-[#fff8e6] border border-[#f0d997] text-[12px] text-[#7d5b00] leading-[1.5]">
-            <strong class="font-semibold tracking-wide2 uppercase text-[11px] block mb-1">Demo mode</strong>
-            Konto pre-fillowane — kliknij <strong>Log in</strong> żeby wejść na dashboard. Bez prawdziwej autoryzacji.
-          </div>
-
-          <form class="space-y-5" onsubmit="event.preventDefault();try{localStorage.setItem('demo_auth','1');localStorage.setItem('demo_auth_email',this.email.value);}catch(e){}location.href='account/index.html'">
+          <form class="space-y-6" onsubmit="event.preventDefault();try{localStorage.setItem('demo_auth','1');localStorage.setItem('demo_auth_email',this.email.value);}catch(e){}location.href='account/index.html'">
             <label class="block">
-              <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
-              <input type="email" name="email" class="auth-input" value="demo@kickback.pl" required/>
+              <span class="auth-label">E-mail<span class="text-[#b4332a]">*</span></span>
+              <input type="email" name="email" class="auth-input" placeholder="twoj@email.pl" required/>
             </label>
             <label class="block">
-              <span class="auth-label">Password<span class="text-[#b4332a]">*</span></span>
-              <input type="password" name="password" class="auth-input" value="demo123" required/>
+              <span class="auth-label">Hasło<span class="text-[#b4332a]">*</span></span>
+              <input type="password" name="password" class="auth-input" placeholder="••••••••" required/>
             </label>
 
-            <button class="mt-2 inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Log in</button>
+            <button type="submit" class="btn-ghost-dark pill inline-flex items-center justify-center h-11 px-8 rounded-full text-[11px] tracking-wide2 uppercase font-medium">Zaloguj się</button>
 
-            <a href="#recover" onclick="showRecover()" class="block text-[11px] tracking-wide2 uppercase link-underline w-fit">Forgot your password?</a>
+            <a href="#recover" onclick="showRecover()" class="block text-[11px] tracking-wide2 uppercase link-underline w-fit mt-1">Nie pamiętasz hasła?</a>
           </form>
 
-          <div class="mt-14">
-            <h2 class="auth-h text-[34px] md:text-[44px] mb-6">Don't have an account?</h2>
-            <a href="register.html" class="inline-flex h-10 px-7 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill items-center">Create account</a>
+          <div class="mt-16">
+            <h2 class="h-section text-[22px] md:text-[28px] mb-6">Nie masz konta?</h2>
+            <a href="register.html" class="btn-ghost-dark pill inline-flex items-center justify-center h-11 px-8 rounded-full text-[11px] tracking-wide2 uppercase font-medium">Załóż konto</a>
           </div>
         </div>
 
-        <!-- RECOVER PASSWORD FORM -->
+        <!-- RECOVER -->
         <div id="recover-view" hidden>
-          <h1 class="auth-h text-[44px] md:text-[56px] mb-6">Recover password</h1>
-          <p class="text-[14px] text-black/65 leading-[1.7] mb-8">We'll send you an email to reset your password.</p>
+          <h1 class="h-section text-[28px] md:text-[36px] mb-6">Odzyskaj hasło</h1>
+          <p class="text-[14px] text-black/65 leading-[1.7] mb-8">Wyślemy Ci e-mail do zresetowania hasła.</p>
 
           <form class="space-y-5" onsubmit="event.preventDefault()">
             <label class="block">
-              <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
-              <input type="email" class="auth-input" placeholder="Enter your email" required/>
+              <span class="auth-label">E-mail<span class="text-[#b4332a]">*</span></span>
+              <input type="email" class="auth-input" placeholder="twoj@email.pl" required/>
             </label>
-            <button class="mt-2 inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Recover</button>
+            <button type="submit" class="btn-ghost-dark pill inline-flex items-center justify-center h-11 px-8 rounded-full text-[11px] tracking-wide2 uppercase font-medium">Wyślij link</button>
           </form>
 
-          <a href="#login" onclick="showLogin()" class="mt-8 inline-block text-[11px] tracking-wide2 uppercase link-underline">← Back to login</a>
+          <a href="#login" onclick="showLogin()" class="mt-8 inline-block text-[11px] tracking-wide2 uppercase link-underline">← Wróć do logowania</a>
         </div>
 
       </div>
