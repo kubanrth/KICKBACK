@@ -14,6 +14,13 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 .prod-slider::-webkit-scrollbar{display:none}
 .prod-slider > article{flex:0 0 calc(50% - 10px);scroll-snap-align:start}
 @media (min-width:768px){.prod-slider > article{flex:0 0 calc(25% - 21px)}}
+/* Quick-add "+" overlay on product cards */
+.qv-btn{position:absolute;right:14px;bottom:14px;height:38px;width:38px;border-radius:999px;background:#fff;color:#0d0d0d;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease,background .2s ease,color .2s ease;z-index:5;cursor:pointer;border:0}
+.qv-btn::after{content:"+";font-size:22px;font-weight:300;line-height:1}
+.group:hover .qv-btn,.qv-btn:focus-visible{opacity:1;transform:translateY(0)}
+.qv-btn:hover{background:#0d0d0d;color:#fff}
+/* Touch / coarse-pointer devices: no hover state, so reveal the "+" always */
+@media (hover:none),(pointer:coarse){.qv-btn{opacity:1;transform:translateY(0);height:36px;width:36px;right:10px;bottom:10px}}
 /* Sticky header: only background fades in on scroll; size/width/padding stay 1:1 */
 #site-header-wrap.is-floating #site-header{box-shadow:0 1px 12px -6px rgba(0,0,0,.18)}
 /* Hero-overlay mode: header sits over the hero photo (home page) */

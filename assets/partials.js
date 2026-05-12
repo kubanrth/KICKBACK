@@ -196,6 +196,18 @@
   </div>
 </div>`;
 
+  const quickviewDrawer = `
+<div id="qv-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
+  <div data-qv-backdrop class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300"></div>
+  <aside data-qv-panel class="absolute top-0 right-0 h-full w-full max-w-[480px] bg-white translate-x-full transition-transform duration-400 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]" role="dialog" aria-label="Choose options">
+    <header class="flex items-center justify-between px-6 md:px-8 h-[72px] border-b hairline shrink-0">
+      <div class="text-[15px] font-medium">Choose options</div>
+      <button type="button" data-qv-close aria-label="Zamknij" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </header>
+    <div data-qv-body class="flex-1 overflow-y-auto"></div>
+  </aside>
+</div>`;
+
   const cartDrawer = `
 <div id="cart-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
   <div data-cart-backdrop class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300"></div>
@@ -500,6 +512,92 @@
     targets.forEach(el => io.observe(el));
   }
 
+  function bindQuickview(){
+    const drawer = document.getElementById('qv-drawer');
+    if (!drawer) return;
+    const panel = drawer.querySelector('[data-qv-panel]');
+    const backdrop = drawer.querySelector('[data-qv-backdrop]');
+    const body = drawer.querySelector('[data-qv-body]');
+    let lastFocus = null;
+    function open(data){
+      lastFocus = document.activeElement;
+      const sizes = (data.sizes || 'XS,S,M,L,XL').split(',').map(s => s.trim()).filter(Boolean);
+      const priceFmt = data.price ? data.price : '';
+      body.innerHTML = `
+        <div class="px-6 md:px-8 py-6">
+          <div class="tile relative aspect-[4/5] rounded-[2px] overflow-hidden mb-6">
+            ${data.image ? '<img src="' + data.image + '" alt="" class="absolute inset-0 h-full w-full object-cover">' : ''}
+          </div>
+          <h2 class="text-[20px] md:text-[22px] font-medium tracking-tight">${data.name || ''}</h2>
+          <div class="mt-2 text-[18px]">${priceFmt}</div>
+          <form class="mt-6" data-qv-form>
+            <div class="text-[11px] tracking-wide2 uppercase mb-3">Size <span class="text-black/55" data-qv-size-label>XS</span></div>
+            <div class="flex flex-wrap items-center gap-2 mb-6">
+              ${sizes.map((s, i) => `<button type="button" data-qv-size="${s}" class="h-11 w-12 border ${i===0?'border-black':'hairline'} text-[12px] rounded-[3px] hover:border-black transition">${s}</button>`).join('')}
+            </div>
+            <button type="submit" class="block w-full h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Add to cart</button>
+            <a href="${data.url || '#'}" class="block text-center mt-3 h-12 leading-[3rem] rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Buy it now</a>
+            <a href="${data.url || '#'}" class="block text-center mt-4 text-[11px] tracking-wide2 uppercase link-underline">View full details</a>
+          </form>
+        </div>`;
+      // size selection
+      const sizeBtns = body.querySelectorAll('[data-qv-size]');
+      const sizeLabel = body.querySelector('[data-qv-size-label]');
+      let selectedSize = sizes[0];
+      sizeBtns.forEach(b => b.addEventListener('click', () => {
+        sizeBtns.forEach(x => { x.classList.remove('border-black'); x.classList.add('hairline'); });
+        b.classList.add('border-black'); b.classList.remove('hairline');
+        selectedSize = b.getAttribute('data-qv-size');
+        if (sizeLabel) sizeLabel.textContent = selectedSize;
+      }));
+      // add to cart
+      const form = body.querySelector('[data-qv-form]');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        if (!window.ReleaseCart) return;
+        const priceNum = parseFloat((data.price || '0').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+        window.ReleaseCart.add({ id: data.id || data.url || data.name, name: data.name, price: priceNum, qty: 1, size: selectedSize, image: data.image, url: data.url });
+        close();
+        if (window.ReleaseCart.open) setTimeout(() => window.ReleaseCart.open(), 320);
+      });
+      drawer.classList.remove('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.style.opacity = '1';
+      panel.style.transform = 'translateX(0)';
+      document.body.style.overflow = 'hidden';
+      const closeBtn = drawer.querySelector('[data-qv-close]');
+      setTimeout(() => closeBtn && closeBtn.focus(), 80);
+    }
+    function close(){
+      drawer.classList.add('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.style.opacity = '0';
+      panel.style.transform = 'translateX(100%)';
+      document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+    drawer.querySelectorAll('[data-qv-close]').forEach(b => b.addEventListener('click', close));
+    backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') close();
+    });
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('[data-qv-open]');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('[data-qv-card]') || btn;
+      open({
+        id: card.getAttribute('data-qv-id'),
+        name: card.getAttribute('data-qv-name'),
+        price: card.getAttribute('data-qv-price'),
+        image: card.getAttribute('data-qv-image'),
+        url: card.getAttribute('data-qv-url'),
+        sizes: card.getAttribute('data-qv-sizes')
+      });
+    });
+  }
+
   function bindAuth(){
     const loggedIn = (typeof localStorage !== 'undefined') && localStorage.getItem('demo_auth') === '1';
     if (!loggedIn) return;
@@ -522,10 +620,12 @@
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     document.body.insertAdjacentHTML('beforeend', cartDrawer);
+    document.body.insertAdjacentHTML('beforeend', quickviewDrawer);
     bindSearch();
     bindStickyHeader();
     bindReveal();
     bindCart();
+    bindQuickview();
     bindProductPage();
     bindAuth();
     updateCartBadges();
