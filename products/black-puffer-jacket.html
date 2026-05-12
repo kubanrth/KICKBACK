@@ -74,43 +74,38 @@
   </div>
 </section>
 
-
 <!-- ==================== MORE INFO ==================== -->
 <section class="onlight bg-white">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-14 md:pt-20 pb-10 md:pb-14">
-    <h2 class="h-section text-[26px] md:text-[40px] mb-8 pb-6 border-b hairline">More <em class="font-wonk font-normal">Info</em></h2>
-    <div class="divide-y hairline">
-          <details id="description" class="py-5">
-            <summary class="flex items-center justify-between text-[14px] md:text-[18px] font-semibold cursor-pointer py-6">Opis<span>+</span></summary>
-            <p class="mt-4 text-[13px] leading-[1.75] text-black/70">Classic black puffer with oversized baffles and a slightly cropped cut. Pairs equally with tailoring and denim. Drawstring hem, zipped hand pockets, matte exterior.</p>
-          </details>
-          <details id="size-guide" class="py-5">
-            <summary class="flex items-center justify-between text-[14px] md:text-[18px] font-semibold cursor-pointer py-6">Tabela rozmiarów<span>+</span></summary>
-            <table class="mt-4 w-full text-[12px]">
-              <thead><tr class="text-left text-black/60"><th class="py-1">Size</th><th>Bust</th><th>Waist</th><th>Hips</th></tr></thead>
-              <tbody>
-                <tr><td class="py-1">XS</td><td>78</td><td>60</td><td>83.5</td></tr>
-                <tr><td class="py-1">S</td><td>80.5</td><td>62.5</td><td>86</td></tr>
-                <tr><td class="py-1">M</td><td>83</td><td>65</td><td>88.5</td></tr>
-                <tr><td class="py-1">L</td><td>88</td><td>70</td><td>93.5</td></tr>
-              </tbody>
-            </table>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between text-[14px] md:text-[18px] font-semibold cursor-pointer py-6">Bezpieczne zakupy online<span>+</span></summary>
-            <ul class="mt-4 text-[13px] leading-[1.9] text-black/70 list-disc pl-5">
-              <li>Darmowa dostawa od 500 zł</li>
-              <li>InPost Paczkomaty &amp; kurier</li>
-              <li>14 dni na zwrot bez podania przyczyny</li>
-              <li>Bezpieczne płatności Przelewy24 &amp; BLIK</li>
-              <li>Wysyłka z certyfikowanego źródła</li>
-            </ul>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between text-[14px] md:text-[18px] font-semibold cursor-pointer py-6">Dane kontaktowe<span>+</span></summary>
-            <p class="mt-4 text-[13px] leading-[1.75] text-black/70">Skontaktuj się z nami przez <a href="../pages/contact.html" class="link-underline">stronę kontaktową</a> — odpisujemy w 24h.</p>
-          </details>
-        </div>
+    <div class="mx-auto max-w-[860px] md:pl-[60px]">
+      <h2 class="more-info-h text-[34px] md:text-[44px] font-semibold tracking-tight mb-8 pb-6 border-b hairline">More Info</h2>
+      <div class="divide-y hairline">
+        <details id="description" class="more-info-item py-5" open>
+          <summary class="flex items-center justify-between text-[16px] md:text-[20px] cursor-pointer py-3 list-none">
+            <span class="mi-label">Opis</span>
+            <span class="mi-toggle"></span>
+          </summary>
+          <div class="mt-3 text-[15px] leading-[1.75] text-black/75">Classic black puffer with oversized baffles and a slightly cropped cut. Pairs equally with tailoring and denim. Drawstring hem, zipped hand pockets, matte exterior.</div>
+        </details>
+        <details class="more-info-item py-5">
+          <summary class="flex items-center justify-between text-[16px] md:text-[20px] cursor-pointer py-3 list-none">
+            <span class="mi-label">Dostawa i zwroty</span>
+            <span class="mi-toggle"></span>
+          </summary>
+          <ul class="mt-3 text-[15px] leading-[1.9] text-black/75 list-disc pl-5">
+            <li>Darmowa dostawa od 500 zł</li>
+            <li>InPost Paczkomaty &amp; kurier od 9,99 zł</li>
+            <li>14 dni na zwrot bez podania przyczyny</li>
+            <li>Wysyłka klimatycznie kompensowana</li>
+            <li>Opakowania bez plastiku, w pełni recyklowalne</li>
+          </ul>
+        </details>
+        <a href="../pages/contact.html" class="more-info-item py-3 flex items-center justify-between text-[16px] md:text-[20px] hover:text-black/70 transition-colors">
+          <span class="mi-label">Kontakt</span>
+          <span class="mi-chevron">›</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -162,7 +157,7 @@
 <script src="../assets/partials.js"></script>
 
 <!-- Sticky Add To Cart bar -->
-<div id="sticky-atc" class="fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-300 ease-out bg-white border-t hairline shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)]" aria-hidden="true">
+<div id="sticky-atc" class="fixed top-0 left-0 right-0 z-50 -translate-y-full transition-transform duration-300 ease-out bg-white border-b hairline shadow-[0_8px_24px_-12px_rgba(0,0,0,0.18)]" aria-hidden="true">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[88px] flex items-center gap-4">
     <div class="relative tile rounded-[3px] overflow-hidden h-[64px] w-[64px] flex-shrink-0">
       <img id="sa-img" src="" alt="" class="absolute inset-0 h-full w-full object-cover"/>
@@ -188,7 +183,7 @@
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       const show = !e.isIntersecting && e.boundingClientRect.top < 0;
-      bar.classList.toggle('translate-y-full', !show);
+      bar.classList.toggle('-translate-y-full', !show);
       bar.setAttribute('aria-hidden', show ? 'false' : 'true');
     });
   }, { threshold: 0 });
