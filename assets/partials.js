@@ -252,7 +252,7 @@
         <div class="h-full flex flex-col items-center justify-center text-center px-8 py-20">
           <h2 class="h-editorial text-[44px] md:text-[56px] leading-[0.95]">It's a little<br><em class="font-wonk font-normal">empty</em> here</h2>
           <p class="mt-6 text-[13px] text-black/60">Your cart is currently empty</p>
-          <a href="${R('collections/all.html')}" class="mt-8 inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Start shopping</a>
+          <a href="${R('collections/all.html')}" class="mt-8 btn-ghost-dark h-12 px-10 rounded-full text-[11px] tracking-wide2 uppercase font-medium">Start shopping</a>
         </div>`;
       foot.innerHTML = '';
       return;
