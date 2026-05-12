@@ -11,11 +11,36 @@
   const R = (p) => base + p;
 
   const header = `
-<div id="site-announcement" class="bg-black text-white text-[11px] tracking-wide2 uppercase relative z-40">
-  <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-9 flex items-center justify-between gap-6">
-    <a href="${R('pages/store-locator.html')}" class="hidden md:inline-flex items-center gap-2 hover:text-white/70"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.6"/></svg>Nasze sklepy</a>
-    <div class="flex-1 text-center"><span class="inline-flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v9H3zM16 10h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Darmowa dostawa od 500 zł</span></div>
-    <div class="hidden md:inline-flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.5 9a2 2 0 0 1-2 1.6H8.5a2 2 0 0 1-2-1.6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Nowości</span><span class="text-white/40">·</span><span>kończą się za</span><span class="digit">133<span class="text-white/55">D</span></span><span class="text-white/40">|</span><span class="digit">10<span class="text-white/55">H</span></span><span class="text-white/40">|</span><span class="digit">05<span class="text-white/55">M</span></span></div>
+<div id="site-announcement" class="bg-black text-white text-[11px] tracking-wide2 uppercase relative z-40 h-9 overflow-hidden">
+  <div class="marquee absolute inset-y-0 left-0 flex items-center whitespace-nowrap will-change-transform">
+    <div class="marquee-track flex items-center shrink-0">
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v9H3zM16 10h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Darmowa dostawa od 500 zł</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v4"/></svg>14 dni na zwrot, bez pytań</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 14.5 8.5 21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5z"/></svg>Sezon 25/26 — nowa kolekcja online</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayPo · Przelewy24</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-6.2-8.55"/><path d="M21 5v5h-5"/></svg>Wysyłka w 24h od poniedziałku do piątku</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Każda koszulka opowiada historię</span>
+      <span class="text-white/30">✦</span>
+    </div>
+    <div class="marquee-track flex items-center shrink-0" aria-hidden="true">
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v9H3zM16 10h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Darmowa dostawa od 500 zł</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v4"/></svg>14 dni na zwrot, bez pytań</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 14.5 8.5 21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5z"/></svg>Sezon 25/26 — nowa kolekcja online</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayPo · Przelewy24</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-6.2-8.55"/><path d="M21 5v5h-5"/></svg>Wysyłka w 24h od poniedziałku do piątku</span>
+      <span class="text-white/30">✦</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Każda koszulka opowiada historię</span>
+      <span class="text-white/30">✦</span>
+    </div>
   </div>
 </div>
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
@@ -83,7 +108,6 @@
     </div>
     <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-3 md:gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
-      <a href="#" class="hidden md:inline-flex hover:text-black items-center gap-1.5">United states <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <button type="button" data-search-open class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('pages/login.html')}" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
       <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">

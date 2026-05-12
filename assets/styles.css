@@ -152,3 +152,14 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 @media (prefers-reduced-motion: reduce){
   html.js .js-animation-fade-in{animation:none;opacity:1}
 }
+
+/* Announcement marquee — two duplicated tracks scroll left in a seamless loop */
+.marquee{animation:marquee 38s linear infinite}
+.marquee:hover{animation-play-state:paused}
+@keyframes marquee{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-50%,0,0)}
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee{animation:none}
+}
