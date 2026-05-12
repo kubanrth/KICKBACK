@@ -45,7 +45,7 @@
 </div>
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
-  <div class="mx-auto max-w-[1600px] px-4 md:px-10 h-[60px] md:h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
+  <div class="mx-auto max-w-[1600px] pl-3 pr-1 md:px-10 h-[60px] md:h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
     <div class="flex items-center">
       <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
     <nav class="hidden md:flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
@@ -107,12 +107,12 @@
     </nav>
     </div>
     <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 md:h-8 w-auto"/></a>
-    <nav class="justify-self-end flex items-center gap-3 md:gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
-      <button type="button" data-search-open class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-      <a href="${R('pages/login.html')}" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
-      <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14l-1.5 12a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        <span data-cart-badge class="inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">0</span>
+    <nav class="justify-self-end flex items-center gap-0.5 md:gap-5 text-[12px] tracking-wide2 uppercase text-black/80">
+      <button type="button" data-search-open class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Search"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="${R('pages/login.html')}" class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Account"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center justify-center relative h-11 w-11 md:h-9 md:w-auto md:gap-1.5 md:px-1" aria-label="Cart">
+        <svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7h14l-1.5 12a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span data-cart-badge class="absolute md:static -top-0.5 -right-0.5 md:top-auto md:right-auto inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">0</span>
       </a>
     </nav>
   </div>
