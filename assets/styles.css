@@ -51,22 +51,20 @@ h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:40
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
 .rise-1{animation-delay:.05s}.rise-2{animation-delay:.18s}.rise-3{animation-delay:.32s}.rise-4{animation-delay:.46s}
-.pill{transition:transform .5s cubic-bezier(.2,.9,.2,1),background-color .35s ease,color .35s ease,border-color .35s ease}
+.pill{transition:transform .5s cubic-bezier(.2,.9,.2,1),background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease}
 .pill:hover{transform:translateY(-1px)}
-.pill-solid:hover{background:#f4f1ec}
+/* Solid light (white bg) → invert to dark on hover (whole button at once) */
+.pill-solid:hover{background:#0d0d0d;color:#fff;box-shadow:inset 0 0 0 1px #fff}
+/* Solid dark (black bg) → invert to light on hover (whole button at once) */
+.pill-dark:hover{background:#fff;color:#0d0d0d;box-shadow:inset 0 0 0 1px #0d0d0d}
+/* Transparent ghost stays transparent — subtle tint only, no full invert */
 .pill-ghost:hover{background:rgba(255,255,255,.12)}
-.pill-dark:hover{background:#1a1a1a}
-/* Ghost CTAs: transparent → fill on hover (mirrors Release theme) */
-.btn-ghost-light, .btn-ghost-dark{position:relative;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid currentColor;overflow:hidden;isolation:isolate;transition:color .35s ease, border-color .35s ease}
-.btn-ghost-light::before, .btn-ghost-dark::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:-1}
+/* Ghost CTAs: transparent → fill on hover, full-button transition (no scaleY from bottom) */
+.btn-ghost-light, .btn-ghost-dark{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid currentColor;transition:background-color .3s ease,color .3s ease,border-color .3s ease}
 .btn-ghost-light{color:#fff;border-color:rgba(255,255,255,.75)}
-.btn-ghost-light::before{background:#fff}
-.btn-ghost-light:hover{color:#0d0d0d;border-color:#fff}
-.btn-ghost-light:hover::before{transform:scaleY(1)}
+.btn-ghost-light:hover{background:#fff;color:#0d0d0d;border-color:#fff}
 .btn-ghost-dark{color:#0d0d0d;border-color:rgba(13,13,13,.55)}
-.btn-ghost-dark::before{background:#0d0d0d}
-.btn-ghost-dark:hover{color:#fff;border-color:#0d0d0d}
-.btn-ghost-dark:hover::before{transform:scaleY(1)}
+.btn-ghost-dark:hover{background:#0d0d0d;color:#fff;border-color:#0d0d0d}
 .sw{width:12px;height:12px;border-radius:999px;border:1px solid rgba(0,0,0,.15);display:inline-block}
 a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:999px}
 .onlight a:focus-visible,.onlight button:focus-visible{outline-color:#0d0d0d}
