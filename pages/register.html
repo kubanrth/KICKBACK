@@ -23,7 +23,7 @@
       <div class="w-full max-w-[460px]">
         <h1 class="auth-h text-[44px] md:text-[56px] mb-10">Welcome!</h1>
 
-        <form class="space-y-5" onsubmit="event.preventDefault();location.href='account/index.html'">
+        <form class="space-y-5" onsubmit="event.preventDefault();try{localStorage.setItem('demo_auth','1');localStorage.setItem('demo_auth_email',this.elements.email.value||'demo@kickback.pl');}catch(e){}location.href='account/index.html'">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <label class="block">
               <span class="auth-label">First name<span class="text-[#b4332a]">*</span></span>
@@ -36,7 +36,7 @@
           </div>
           <label class="block">
             <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
-            <input type="email" class="auth-input" placeholder="Enter your email" required/>
+            <input type="email" name="email" class="auth-input" placeholder="Enter your email" required/>
           </label>
           <label class="block">
             <span class="auth-label">Password<span class="text-[#b4332a]">*</span></span>

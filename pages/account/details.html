@@ -30,17 +30,17 @@
         <a href="orders.html">Orders <span>›</span></a>
         <a href="addresses.html">Addresses <span>›</span></a>
         <a href="details.html" class="active">Account details <span>›</span></a>
-        <a href="../login.html" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
+        <a href="../login.html" onclick="try{localStorage.removeItem('demo_auth');localStorage.removeItem('demo_auth_email');}catch(e){}" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
       </nav>
     </aside>
 
     <main class="md:col-span-9 max-w-[640px]">
       <form class="space-y-6" onsubmit="event.preventDefault()">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label class="block"><span class="auth-label">First name</span><input class="auth-input" value="Jane"/></label>
-          <label class="block"><span class="auth-label">Last name</span><input class="auth-input" value="Doe"/></label>
+          <label class="block"><span class="auth-label">First name</span><input class="auth-input" value="Demo"/></label>
+          <label class="block"><span class="auth-label">Last name</span><input class="auth-input" value="User"/></label>
         </div>
-        <label class="block"><span class="auth-label">Email</span><input type="email" class="auth-input" value="jane@example.com"/></label>
+        <label class="block"><span class="auth-label">Email</span><input type="email" class="auth-input" value="demo@kickback.pl"/></label>
         <label class="block"><span class="auth-label">Phone</span><input type="tel" class="auth-input" value="+48 600 000 000"/></label>
 
         <div class="pt-2">

@@ -500,6 +500,23 @@
     targets.forEach(el => io.observe(el));
   }
 
+  function bindAuth(){
+    const loggedIn = (typeof localStorage !== 'undefined') && localStorage.getItem('demo_auth') === '1';
+    if (!loggedIn) return;
+    document.querySelectorAll('a[aria-label="Account"]').forEach(a => {
+      a.setAttribute('href', R('pages/account/index.html'));
+      a.setAttribute('title', 'demo@kickback.pl');
+      // small green dot indicator
+      if (!a.querySelector('.auth-dot')){
+        const dot = document.createElement('span');
+        dot.className = 'auth-dot';
+        dot.style.cssText = 'position:absolute;top:-2px;right:-2px;width:7px;height:7px;border-radius:99px;background:#00b067;box-shadow:0 0 0 2px #fff';
+        a.style.position = 'relative';
+        a.appendChild(dot);
+      }
+    });
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
@@ -510,6 +527,7 @@
     bindReveal();
     bindCart();
     bindProductPage();
+    bindAuth();
     updateCartBadges();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);

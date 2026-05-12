@@ -24,16 +24,21 @@
 
         <!-- LOGIN FORM -->
         <div id="login-view">
-          <h1 class="auth-h text-[44px] md:text-[56px] mb-10">Welcome back!</h1>
+          <h1 class="auth-h text-[44px] md:text-[56px] mb-6">Welcome back!</h1>
 
-          <form class="space-y-5" onsubmit="event.preventDefault();location.href='account/index.html'">
+          <div class="mb-6 px-4 py-3 rounded-[4px] bg-[#fff8e6] border border-[#f0d997] text-[12px] text-[#7d5b00] leading-[1.5]">
+            <strong class="font-semibold tracking-wide2 uppercase text-[11px] block mb-1">Demo mode</strong>
+            Konto pre-fillowane — kliknij <strong>Log in</strong> żeby wejść na dashboard. Bez prawdziwej autoryzacji.
+          </div>
+
+          <form class="space-y-5" onsubmit="event.preventDefault();try{localStorage.setItem('demo_auth','1');localStorage.setItem('demo_auth_email',this.email.value);}catch(e){}location.href='account/index.html'">
             <label class="block">
               <span class="auth-label">Email<span class="text-[#b4332a]">*</span></span>
-              <input type="email" class="auth-input" placeholder="Enter your email" required/>
+              <input type="email" name="email" class="auth-input" value="demo@kickback.pl" required/>
             </label>
             <label class="block">
               <span class="auth-label">Password<span class="text-[#b4332a]">*</span></span>
-              <input type="password" class="auth-input" placeholder="Enter your password" required/>
+              <input type="password" name="password" class="auth-input" value="demo123" required/>
             </label>
 
             <button class="mt-2 inline-flex h-10 px-7 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Log in</button>

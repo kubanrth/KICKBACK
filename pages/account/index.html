@@ -17,7 +17,7 @@
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="crumbs mb-6"><a href="../../index.html">Home</a><span class="sep">/</span><span>My account</span></div>
     <h1>My <em class="font-wonk font-normal">account</em></h1>
-    <p>Welcome back, Jane. Manage your orders, addresses and details.</p>
+    <p>Welcome back, Demo. Manage your orders, addresses and details.</p>
   </div>
 </section>
 
@@ -31,7 +31,7 @@
         <a href="orders.html">Orders <span>›</span></a>
         <a href="addresses.html">Addresses <span>›</span></a>
         <a href="details.html">Account details <span>›</span></a>
-        <a href="../login.html" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
+        <a href="../login.html" onclick="try{localStorage.removeItem('demo_auth');localStorage.removeItem('demo_auth_email');}catch(e){}" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
       </nav>
     </aside>
 
@@ -89,15 +89,15 @@
             <h3 class="text-[11px] tracking-wide2 uppercase text-black/55">Account details</h3>
             <a href="details.html" class="text-[11px] tracking-wide2 uppercase link-underline">Edit</a>
           </div>
-          <p class="text-[15px]">Jane Doe</p>
-          <p class="text-[13px] text-black/65 mt-1">jane@example.com</p>
+          <p class="text-[15px]">Demo User</p>
+          <p class="text-[13px] text-black/65 mt-1">demo@kickback.pl</p>
         </div>
         <div class="acct-card">
           <div class="flex items-baseline justify-between mb-4">
             <h3 class="text-[11px] tracking-wide2 uppercase text-black/55">Default address</h3>
             <a href="addresses.html" class="text-[11px] tracking-wide2 uppercase link-underline">Manage</a>
           </div>
-          <p class="text-[15px]">Jane Doe</p>
+          <p class="text-[15px]">Demo User</p>
           <p class="text-[13px] text-black/65 mt-1 leading-[1.7]">ul. Marszałkowska 23/12<br/>00-001 Warszawa<br/>Poland<br/>+48 600 000 000</p>
         </div>
       </div>

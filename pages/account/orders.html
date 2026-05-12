@@ -30,7 +30,7 @@
         <a href="orders.html" class="active">Orders <span>›</span></a>
         <a href="addresses.html">Addresses <span>›</span></a>
         <a href="details.html">Account details <span>›</span></a>
-        <a href="../login.html" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
+        <a href="../login.html" onclick="try{localStorage.removeItem('demo_auth');localStorage.removeItem('demo_auth_email');}catch(e){}" class="text-[#b4332a] hover:text-[#b4332a]/70">Log out <span>›</span></a>
       </nav>
     </aside>
 
