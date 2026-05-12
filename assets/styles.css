@@ -18,7 +18,6 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 #site-header-wrap.is-floating{padding:10px 14px}
 #site-header-wrap.is-floating #site-header{border-radius:999px;border-bottom:none;box-shadow:0 12px 30px -12px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.06);max-width:1500px;margin:0 auto}
 #site-header-wrap.is-floating #site-header > div{height:60px;padding-left:32px;padding-right:32px}
-#site-header-wrap.is-floating #site-announcement{display:none}
 /* Hero-overlay mode: header sits over the hero photo (home page) */
 body.home-hero #site-header-wrap:not(.is-floating) #site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,.12);color:#fff}
 body.home-hero #site-header-wrap:not(.is-floating) #site-header nav a,
@@ -26,8 +25,8 @@ body.home-hero #site-header-wrap:not(.is-floating) #site-header nav button,
 body.home-hero #site-header-wrap:not(.is-floating) #site-header > div > a{color:#fff}
 body.home-hero #site-header-wrap:not(.is-floating) #site-header img{filter:invert(1) brightness(2)}
 body.home-hero #site-header-wrap:not(.is-floating) #site-header .hover\:text-black:hover{color:#fff;opacity:.75}
-body.home-hero main, body.home-hero > section:first-of-type{margin-top:calc(-1 * (36px + 72px))}
-body.home-hero > section.relative:first-of-type{position:relative}
+/* Pull the hero up under the sticky header so it shows behind the transparent nav */
+body.home-hero > section.relative:first-of-type{margin-top:-72px;position:relative;z-index:1}
 h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400}
 .font-display{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em}
 .font-wonk{font-family:'Michroma','Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.01em}

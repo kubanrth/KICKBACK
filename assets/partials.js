@@ -11,14 +11,14 @@
   const R = (p) => base + p;
 
   const header = `
-<div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
-<div id="site-announcement" class="bg-black text-white text-[11px] tracking-wide2 uppercase">
+<div id="site-announcement" class="bg-black text-white text-[11px] tracking-wide2 uppercase relative z-40">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-9 flex items-center justify-between gap-6">
     <a href="${R('pages/store-locator.html')}" class="hidden md:inline-flex items-center gap-2 hover:text-white/70"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.6"/></svg>Nasze sklepy</a>
     <div class="flex-1 text-center"><span class="inline-flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v9H3zM16 10h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Darmowa dostawa od 500 zł</span></div>
     <div class="hidden md:inline-flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.5 9a2 2 0 0 1-2 1.6H8.5a2 2 0 0 1-2-1.6Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Nowości</span><span class="text-white/40">·</span><span>kończą się za</span><span class="digit">133<span class="text-white/55">D</span></span><span class="text-white/40">|</span><span class="digit">10<span class="text-white/55">H</span></span><span class="text-white/40">|</span><span class="digit">05<span class="text-white/55">M</span></span></div>
   </div>
 </div>
+<div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
     <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
