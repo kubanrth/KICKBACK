@@ -17,7 +17,7 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 /* Sticky header: only background fades in on scroll; size/width/padding stay 1:1 */
 #site-header-wrap.is-floating #site-header{box-shadow:0 1px 12px -6px rgba(0,0,0,.18)}
 /* Hero-overlay mode: header sits over the hero photo (home page) */
-body.home-hero #site-header-wrap:not(.is-floating) #site-header{background:transparent;border-bottom:none;color:#fff}
+body.home-hero #site-header-wrap:not(.is-floating) #site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,.16);color:#fff}
 body.home-hero #site-header-wrap:not(.is-floating) #site-header nav a,
 body.home-hero #site-header-wrap:not(.is-floating) #site-header nav button,
 body.home-hero #site-header-wrap:not(.is-floating) #site-header > div > a{color:#fff}
@@ -26,6 +26,17 @@ body.home-hero #site-header-wrap:not(.is-floating) #site-header .hover\:text-bla
 /* Mega panels keep their own white background — links inside must stay dark */
 body.home-hero #site-header-wrap:not(.is-floating) #site-header .mega a{color:#1a1a1a}
 body.home-hero #site-header-wrap:not(.is-floating) #site-header .mega .mega-link:hover{color:#000;opacity:1}
+/* Hovering a dropdown trigger snaps the whole header to white so the open mega reads as one continuous surface */
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header{background:#fff;border-bottom-color:var(--hair);color:var(--ink)}
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header nav a,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header nav button,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header > div > a,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header nav a,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header nav button,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header > div > a{color:var(--ink)}
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header img,
+body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header img{filter:none}
 /* Pull the hero up so it fills the entire top of the page behind both bars */
 body.home-hero #site-announcement{position:relative;z-index:60}
 body.home-hero > section.relative:first-of-type{margin-top:calc(-1 * (36px + 72px));position:relative;z-index:1}
@@ -57,13 +68,14 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;b
   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 62%, rgba(0,0,0,.55) 100%)}
 .digit{font-variant-numeric:tabular-nums}
 nav a{text-decoration:none}
-.caret{display:inline-block;transform:translateY(-1px);margin-left:4px;font-size:.75em;transition:transform .3s ease}
+.caret{display:inline-block;margin-left:6px;width:10px;height:10px;transition:transform .35s cubic-bezier(.2,.8,.2,1);vertical-align:middle}
 /* Mega menu */
 .has-mega{position:relative}
 .mega{position:absolute;left:0;right:auto;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);box-shadow:0 30px 50px -30px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s;z-index:50}
-.mega.mega-wide{position:fixed;left:0;right:0;top:calc(36px + 72px);width:100vw;transform:translateY(-6px)}
+.mega.mega-wide{position:fixed;left:0;right:0;top:calc(36px + 72px);width:100vw;transform:translateY(-6px);transition:opacity .35s ease, transform .35s ease, visibility .35s, top .25s ease}
+#site-header-wrap.is-floating .mega.mega-wide{top:72px}
 .has-mega:hover > .mega, .has-mega:focus-within > .mega{opacity:1;visibility:visible;transform:translateY(0)}
-.has-mega:hover .caret, .has-mega:focus-within .caret{transform:translateY(-1px) rotate(180deg)}
+.has-mega:hover .caret, .has-mega:focus-within .caret{transform:rotate(180deg)}
 .mega-col-title{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);margin-bottom:14px;font-weight:500}
 .mega-link{display:block;padding:6px 0;font-size:14px;color:#1a1a1a;transition:color .2s, transform .25s}
 .mega-link:hover{color:#000;transform:translateX(4px)}

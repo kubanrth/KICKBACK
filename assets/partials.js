@@ -23,7 +23,7 @@
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
     <nav class="flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
       <div class="has-mega">
-        <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center h-[72px]">Shop <span class="caret">▾</span></a>
+        <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center h-[72px]">Shop <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="mega mega-wide">
           <div class="mx-auto max-w-[1600px] px-10 py-12 grid grid-cols-12 gap-10">
             <div class="col-span-3">
@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="has-mega">
-        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Pages <span class="caret">▾</span></a>
+        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Pages <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="mega rounded-b-[2px] min-w-[220px]">
           <div class="px-6 py-6">
             <ul class="space-y-0.5">
@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="has-mega">
-        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Product features <span class="caret">▾</span></a>
+        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Product features <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="mega rounded-b-[2px] min-w-[240px]">
           <div class="px-6 py-6">
             <ul class="space-y-0.5">
@@ -94,7 +94,7 @@
     </nav>
     <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-6 text-[12px] tracking-wide2 uppercase text-black/80">
-      <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <span class="caret">▾</span></a>
+      <a href="#" class="hover:text-black inline-flex items-center gap-1.5">United states <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
       <button type="button" data-search-open class="hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('pages/login.html')}" class="hover:text-black" aria-label="Account"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
       <a href="${R('pages/cart.html')}" class="hover:text-black inline-flex items-center gap-1.5" aria-label="Cart">
