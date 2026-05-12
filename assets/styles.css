@@ -100,3 +100,10 @@ nav a{text-decoration:none}
 /* product card shared */
 .pc-name{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 .pc-meta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.5);margin-top:4px}
+/* Reveal-on-scroll — mirrors Shopify Release theme: paused fade-in, IO unpauses */
+@keyframes fade-in{0%{opacity:.01}to{opacity:1}}
+html.js .js-animation-fade-in{animation:fade-in .5s cubic-bezier(.2,.8,.2,1) forwards paused}
+html.js .js-animation-fade-in.animation-init{animation-play-state:running}
+@media (prefers-reduced-motion: reduce){
+  html.js .js-animation-fade-in{animation:none;opacity:1}
+}

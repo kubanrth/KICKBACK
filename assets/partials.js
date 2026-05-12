@@ -237,12 +237,39 @@
     window.addEventListener('resize', onScroll, { passive: true });
   }
 
+  function bindReveal(){
+    document.documentElement.classList.add('js');
+    // Tag common reveal targets on collection / PDP / related-collection pages
+    const targets = new Set([
+      ...document.querySelectorAll('main article.group, body > section article.group'),
+      ...document.querySelectorAll('article.group'),
+      ...document.querySelectorAll('body > section.relative h1, body > section.relative .text-white\\/70'),
+      ...document.querySelectorAll('body > section a.group'),
+      ...document.querySelectorAll('.h-section')
+    ]);
+    targets.forEach(el => el.classList.add('js-animation-fade-in'));
+    if (!('IntersectionObserver' in window)){
+      targets.forEach(el => el.classList.add('animation-init'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries){
+        if (e.isIntersecting){
+          e.target.classList.add('animation-init');
+          io.unobserve(e.target);
+        }
+      }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+    targets.forEach(el => io.observe(el));
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     bindSearch();
     bindStickyHeader();
+    bindReveal();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
   else inject();
