@@ -52,7 +52,7 @@
     </div>
     <div class="flex items-center justify-center">
       <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
-      <nav class="hidden md:flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
+      <nav data-site-nav class="hidden md:flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
         <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
         <div class="has-mega">
           <a href="${R('collections/kluby.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -402,7 +402,7 @@
       <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="flex-1 overflow-y-auto">
-      <nav class="px-5 pt-2 pb-4 text-[15px]">
+      <nav data-mm-nav class="px-5 pt-2 pb-4 text-[15px]">
         <a href="${R('collections/nowosci.html')}" class="flex items-center justify-between py-4 border-b hairline">Nowości<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
         <details class="border-b hairline group">
           <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Kluby</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>

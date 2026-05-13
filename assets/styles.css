@@ -156,3 +156,10 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
   .wn-tabs-strip::-webkit-scrollbar{display:none}
   .wn-tabs-strip .wn-tab{scroll-snap-align:center;scroll-snap-stop:always}
 }
+
+/* Header + drawer top-level labels match the rest of the site (Michroma display) */
+[data-site-nav] > a,
+[data-site-nav] > .has-mega > a{font-family:'Michroma','Fraunces',Georgia,serif;letter-spacing:.05em}
+.mega .mega-col-title{font-family:'Michroma','Fraunces',Georgia,serif;letter-spacing:.1em}
+[data-mm-nav] > a,
+[data-mm-nav] > details > summary{font-family:'Michroma','Fraunces',Georgia,serif;letter-spacing:.005em}
