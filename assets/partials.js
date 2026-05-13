@@ -46,67 +46,81 @@
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
   <div class="mx-auto max-w-[1600px] pl-3 pr-1 md:px-10 h-[60px] md:h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
-    <div class="flex items-center">
+    <div class="flex items-center md:justify-start">
       <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
-    <nav class="hidden md:flex items-center gap-8 text-[12px] tracking-wide2 uppercase text-black/80">
-      <div class="has-mega">
-        <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center h-[72px]">Shop <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="mega mega-wide">
-          <div class="mx-auto max-w-[1600px] px-10 py-12 grid grid-cols-12 gap-10">
-            <div class="col-span-3">
-              <div class="mega-col-title">Polecane</div>
+      <a href="${R('index.html')}" class="hidden md:inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-8 w-auto"/></a>
+    </div>
+    <div class="flex items-center justify-center">
+      <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
+      <nav class="hidden md:flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
+        <a href="${R('collections/new-collection.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
+        <div class="has-mega">
+          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[240px]">
+            <div class="px-6 py-6">
               <ul class="space-y-0.5">
-                <li><a href="${R('collections/new-collection.html')}" class="mega-link">Nowości</a></li>
+                <li><a href="${R('collections/all.html')}#real-madrid" class="mega-link">Real Madrid</a></li>
+                <li><a href="${R('collections/all.html')}#barcelona" class="mega-link">FC Barcelona</a></li>
+                <li><a href="${R('collections/all.html')}#chelsea" class="mega-link">Chelsea</a></li>
+                <li><a href="${R('collections/all.html')}#arsenal" class="mega-link">Arsenal</a></li>
+                <li><a href="${R('collections/all.html')}#manchester-united" class="mega-link">Manchester United</a></li>
+                <li><a href="${R('collections/all.html')}#manchester-city" class="mega-link">Manchester City</a></li>
+                <li><a href="${R('collections/all.html')}#juventus" class="mega-link">Juventus</a></li>
+                <li><a href="${R('collections/all.html')}#bayern-munich" class="mega-link">Bayern München</a></li>
+                <li><a href="${R('collections/all.html')}#borussia-dortmund" class="mega-link">Borussia Dortmund</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[220px]">
+            <div class="px-6 py-6">
+              <ul class="space-y-0.5">
+                <li><a href="${R('collections/all.html')}#polska" class="mega-link">Polska</a></li>
+                <li><a href="${R('collections/all.html')}#niemcy" class="mega-link">Niemcy</a></li>
+                <li><a href="${R('collections/all.html')}#hiszpania" class="mega-link">Hiszpania</a></li>
+                <li><a href="${R('collections/all.html')}#wlochy" class="mega-link">Włochy</a></li>
+                <li><a href="${R('collections/all.html')}#anglia" class="mega-link">Anglia</a></li>
+                <li><a href="${R('collections/all.html')}#francja" class="mega-link">Francja</a></li>
+                <li><a href="${R('collections/all.html')}#brazylia" class="mega-link">Brazylia</a></li>
+                <li><a href="${R('collections/all.html')}#argentyna" class="mega-link">Argentyna</a></li>
+                <li><a href="${R('collections/all.html')}#holandia" class="mega-link">Holandia</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/accessories.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Akcesoria <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[220px]">
+            <div class="px-6 py-6">
+              <ul class="space-y-0.5">
+                <li><a href="${R('collections/accessories.html')}#czapki" class="mega-link">Czapki</a></li>
+                <li><a href="${R('collections/accessories.html')}#szaliki" class="mega-link">Szaliki</a></li>
+                <li><a href="${R('collections/accessories.html')}#skarpety" class="mega-link">Skarpety</a></li>
+                <li><a href="${R('collections/accessories.html')}#plecaki" class="mega-link">Plecaki i torby</a></li>
+                <li><a href="${R('collections/basics.html')}" class="mega-link">Karty piłkarskie</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[220px]">
+            <div class="px-6 py-6">
+              <ul class="space-y-0.5">
                 <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Bestsellery</a></li>
                 <li><a href="${R('collections/basics.html')}" class="mega-link">Mystery Box</a></li>
-              </ul>
-            </div>
-            <div class="col-span-3">
-              <div class="mega-col-title">Kategorie</div>
-              <ul class="space-y-0.5">
-                <li><a href="${R('collections/all.html')}" class="mega-link">Koszulki RETRO</a></li>
-                <li><a href="${R('collections/tops.html')}" class="mega-link">Kluby</a></li>
-                <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Reprezentacje</a></li>
-                <li><a href="${R('collections/basics.html')}" class="mega-link">Karty piłkarskie</a></li>
+                <li><a href="${R('collections/all.html')}#sale" class="mega-link">Wyprzedaż</a></li>
+                <li><a href="${R('collections/all.html')}#vintage" class="mega-link">Vintage</a></li>
+                <li><a href="${R('collections/all.html')}#junior" class="mega-link">Junior</a></li>
                 <li><a href="${R('collections/jackets-coats.html')}" class="mega-link">Bluzy i kurtki</a></li>
-                <li><a href="${R('collections/accessories.html')}" class="mega-link">Akcesoria</a></li>
               </ul>
             </div>
-            <a href="${R('collections/all.html')}" class="col-span-3 group">
-              <div class="mega-card tile">
-                <img src="${R('brand_assets/photos/banner-kluby.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0"></div>
-                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Hit sezonu</div>
-                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Kluby</div>
-              </div>
-            </a>
-            <a href="${R('collections/new-collection.html')}" class="col-span-3 group">
-              <div class="mega-card tile">
-                <img src="${R('brand_assets/photos/banner-junior-2.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0"></div>
-                <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Sezon 25/26</div>
-                <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Od najmłodszych lat</div>
-              </div>
-            </a>
           </div>
         </div>
-      </div>
-      <div class="has-mega">
-        <a href="#" class="hover:text-black inline-flex items-center h-[72px]">Pages <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="mega rounded-b-[2px] min-w-[220px]">
-          <div class="px-6 py-6">
-            <ul class="space-y-0.5">
-              <li><a href="${R('pages/faq.html')}" class="mega-link">FAQ</a></li>
-              <li><a href="${R('blogs/news.html')}" class="mega-link">Blog</a></li>
-              <li><a href="${R('pages/about-us.html')}" class="mega-link">O nas</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <a href="${R('pages/contact.html')}" class="hover:text-black inline-flex items-center h-[72px]">Kontakt</a>
-    </nav>
+      </nav>
     </div>
-    <a href="${R('index.html')}" class="justify-self-center inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 md:h-8 w-auto"/></a>
     <nav class="justify-self-end flex items-center gap-0.5 md:gap-5 text-[12px] tracking-wide2 uppercase text-black/80">
       <button type="button" data-search-open class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Search"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('pages/login.html')}" class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Account"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
