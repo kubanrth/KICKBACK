@@ -235,14 +235,12 @@ function childTiles(cat){
       <h2 class="h-section text-[22px] md:text-[28px]">${kindLabel}</h2>
       <div class="text-[11px] tracking-wide2 uppercase text-black/55">${kids.length}</div>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-      ${kids.map(k => `
-        <a href="${k.slug}.html" class="group block">
-          <div class="relative aspect-square bg-[var(--tile)] rounded-[2px] overflow-hidden shadow-tile">
-            <div class="absolute inset-0 flex items-center justify-center px-3 text-center">
-              <span class="text-[12px] md:text-[13px] tracking-tight text-black/80 group-hover:text-black transition-colors leading-[1.25]">${k.label}</span>
-            </div>
-          </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3">
+      ${kids.map((k, i) => `
+        <a href="${k.slug}.html" class="cat-tile group">
+          <span class="cat-tile-index">${String(i+1).padStart(2,'0')}</span>
+          <span class="cat-tile-label">${k.label}</span>
+          <svg class="cat-tile-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><polyline points="9 6 15 12 9 18"/></svg>
         </a>`).join('')}
     </div>
   </div>

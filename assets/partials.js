@@ -110,33 +110,33 @@
 </div>
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
-  <div class="mx-auto max-w-[1600px] pl-3 pr-1 md:px-10 h-[60px] md:h-[72px] grid grid-cols-3 items-center transition-all duration-300 ease-out">
+  <div class="mx-auto max-w-[1600px] pl-3 pr-1 md:px-6 lg:px-8 h-[60px] md:h-[72px] grid grid-cols-3 md:grid-cols-[auto_1fr_auto] items-center md:gap-8 transition-all duration-300 ease-out">
     <div class="flex items-center md:justify-start">
       <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
       <a href="${R('index.html')}" class="hidden md:inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-8 w-auto"/></a>
     </div>
     <div class="flex items-center justify-center">
       <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
-      <nav data-site-nav class="hidden md:flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
-        <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
+      <nav data-site-nav class="hidden md:flex items-center justify-center gap-7 lg:gap-9 text-[12px] tracking-wide2 uppercase text-black/80">
+        <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px] whitespace-nowrap">Nowości</a>
         <div class="has-mega">
-          <a href="${R('collections/kluby.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="${R('collections/kluby.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px] whitespace-nowrap">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           ${renderDesktopMega(MM_TOPS[0])}
         </div>
         <div class="has-mega">
-          <a href="${R('collections/reprezentacje.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="${R('collections/reprezentacje.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px] whitespace-nowrap">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           ${renderDesktopMega(MM_TOPS[1])}
         </div>
         <div class="has-mega">
-          <a href="${R('collections/karty-pilkarskie.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Karty <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="${R('collections/karty-pilkarskie.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px] whitespace-nowrap">Karty <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           ${renderDesktopMega(MM_TOPS[2])}
         </div>
         <div class="has-mega">
-          <a href="${R('collections/mystery-box.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Mystery Box <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="${R('collections/mystery-box.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px] whitespace-nowrap">Mystery Box <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           ${renderDesktopMega(MM_TOPS[3])}
         </div>
         <div class="has-mega">
-          <a href="#" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="#" class="hover:text-black inline-flex items-center gap-1.5 h-[72px] whitespace-nowrap">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="mega rounded-b-[2px] min-w-[240px]">
             <div class="px-6 py-6">
               <ul class="space-y-0.5">

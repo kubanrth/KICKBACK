@@ -191,3 +191,17 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 .dm-see-all{display:block;margin-top:auto;padding:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);border-top:1px solid var(--hair)}
 .dm-see-all:hover{color:#0d0d0d}
 .dm-items-col .mega-link{padding:6px 0}
+
+/* Category overview tiles — minimal typographic cards */
+.cat-tile{display:flex;align-items:center;gap:14px;padding:18px 20px;background:#fff;border:1px solid var(--hair);border-radius:2px;transition:background .2s ease,border-color .2s ease,transform .25s cubic-bezier(.2,.85,.2,1)}
+.cat-tile:hover{background:#0d0d0d;border-color:#0d0d0d;transform:translateY(-1px)}
+.cat-tile-index{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.18em;font-weight:500;color:rgba(13,13,13,.45);font-variant-numeric:tabular-nums;transition:color .2s}
+.cat-tile-label{flex:1;font-family:'Michroma','Fraunces',Georgia,serif;font-size:14px;letter-spacing:0;line-height:1.2;color:#0d0d0d;transition:color .2s}
+.cat-tile-arrow{color:rgba(13,13,13,.3);flex-shrink:0;transition:color .2s,transform .25s cubic-bezier(.2,.85,.2,1)}
+.cat-tile:hover .cat-tile-index{color:rgba(255,255,255,.5)}
+.cat-tile:hover .cat-tile-label{color:#fff}
+.cat-tile:hover .cat-tile-arrow{color:#fff;transform:translateX(3px)}
+@media (max-width:767px){
+  .cat-tile{padding:16px 18px;gap:12px}
+  .cat-tile-label{font-size:13px}
+}
