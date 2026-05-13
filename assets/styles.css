@@ -32,30 +32,6 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 @media (hover:none),(pointer:coarse){.qv-btn{opacity:1;transform:translateY(0);height:36px;width:36px;right:10px;bottom:10px}}
 /* Sticky header: only background fades in on scroll; size/width/padding stay 1:1 */
 #site-header-wrap.is-floating #site-header{box-shadow:0 1px 12px -6px rgba(0,0,0,.18)}
-/* Hero-overlay mode: header sits over the hero photo (home page) */
-body.home-hero #site-header-wrap:not(.is-floating) #site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,.16);color:#fff}
-body.home-hero #site-header-wrap:not(.is-floating) #site-header nav a,
-body.home-hero #site-header-wrap:not(.is-floating) #site-header nav button,
-body.home-hero #site-header-wrap:not(.is-floating) #site-header > div > a{color:#fff}
-body.home-hero #site-header-wrap:not(.is-floating) #site-header img{filter:invert(1) brightness(2)}
-body.home-hero #site-header-wrap:not(.is-floating) #site-header .hover\:text-black:hover{color:#fff;opacity:.75}
-/* Mega panels keep their own white background — links inside must stay dark */
-body.home-hero #site-header-wrap:not(.is-floating) #site-header .mega a{color:#1a1a1a}
-body.home-hero #site-header-wrap:not(.is-floating) #site-header .mega .mega-link:hover{color:#000;opacity:1}
-/* Hovering a dropdown trigger snaps the whole header to white so the open mega reads as one continuous surface */
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header{background:#fff;border-bottom-color:var(--hair);color:var(--ink)}
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header nav a,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header nav button,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header > div > a,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header nav a,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header nav button,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header > div > a{color:var(--ink)}
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:hover) #site-header img,
-body.home-hero #site-header-wrap:not(.is-floating):has(.has-mega:focus-within) #site-header img{filter:none}
-/* Pull the hero up so it fills the entire top of the page behind both bars */
-body.home-hero #site-announcement{position:relative;z-index:60}
-body.home-hero > section.relative:first-of-type{margin-top:calc(-1 * (36px + 72px));position:relative;z-index:1}
 h1,h2,h3,h4,h5,h6{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400}
 .font-display{font-family:'Michroma','Fraunces',Georgia,serif;font-weight:400;letter-spacing:.01em}
 .font-wonk{font-family:'Michroma','Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.01em}
