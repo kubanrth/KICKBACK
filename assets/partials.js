@@ -224,10 +224,10 @@
   const cartDrawer = `
 <div id="cart-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
   <div data-cart-backdrop class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300"></div>
-  <aside data-cart-panel class="absolute top-0 right-0 h-full w-full max-w-[440px] bg-white translate-x-full transition-transform duration-400 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]" role="dialog" aria-label="Shopping cart">
-    <header class="flex items-center justify-between px-6 md:px-8 h-[72px] border-b hairline shrink-0">
-      <div class="text-[12px] tracking-wide2 uppercase">Twój koszyk <span data-cart-header-count class="text-black/55 ml-1">0</span></div>
-      <button type="button" data-cart-close aria-label="Zamknij" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <aside data-cart-panel class="absolute top-0 right-0 h-full w-full md:w-[60vw] md:max-w-[820px] bg-white translate-x-full transition-transform duration-400 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]" role="dialog" aria-label="Twój koszyk">
+    <header class="flex items-center justify-between px-6 md:px-8 h-[60px] md:h-[64px] border-b hairline shrink-0">
+      <div class="text-[11px] tracking-wide2 uppercase text-black/85">Twój koszyk <span data-cart-header-count class="text-black/45 ml-1">0</span></div>
+      <button type="button" data-cart-close aria-label="Zamknij" class="h-10 w-10 -mr-2 rounded-full flex items-center justify-center hover:bg-black/5 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </header>
     <div data-cart-body class="flex-1 overflow-y-auto"></div>
     <div data-cart-foot class="shrink-0"></div>
@@ -430,11 +430,11 @@
     headerCount.textContent = CartState.count();
     if (s.items.length === 0){
       body.innerHTML = `
-        <div class="h-full flex flex-col items-center justify-center text-center px-8 py-20">
-          <h2 class="h-editorial text-[44px] md:text-[56px] leading-[0.95]">It's a little<br><em class="font-wonk font-normal">empty</em> here</h2>
-          <p class="mt-6 text-[13px] text-black/60">Your cart is currently empty</p>
-          <a href="${R('collections/all.html')}" class="mt-8 btn-ghost-dark h-12 px-10 rounded-full text-[11px] tracking-wide2 uppercase font-medium">Start shopping</a>
-        </div>`;
+        <div class="flex flex-col items-center justify-center text-center px-8 pt-24 md:pt-28 pb-12">
+          <h2 class="h-section text-[22px] md:text-[28px]">Twój koszyk jest pusty</h2>
+          <a href="${R('collections/all.html')}" class="mt-8 inline-flex items-center justify-center h-12 px-10 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Przejdź do zakupów</a>
+        </div>
+        ${recommendedSliderHTML('Polecane dla Ciebie')}`;
       foot.innerHTML = '';
       return;
     }
@@ -456,7 +456,7 @@
           </div>
         </div>
         <button type="button" data-cart-remove="${i}" aria-label="Usuń" class="text-black/40 hover:text-black self-start mt-1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      </article>`).join('');
+      </article>`).join('') + recommendedSliderHTML('Dodaj do swoich zakupów');
     foot.innerHTML = `
       <div class="border-t hairline px-6 md:px-8 py-6">
         <div class="flex items-center justify-between mb-4">
@@ -464,9 +464,38 @@
           <span class="text-[20px] tabular-nums">${formatPLN(CartState.subtotal())}</span>
         </div>
         <div class="text-[10px] tracking-wide2 uppercase text-black/45 mb-5">Wysyłka liczona przy kasie</div>
-        <a href="#" class="block text-center h-12 leading-[3rem] rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Przejdź do kasy</a>
+        <a href="${R('pages/checkout.html')}" class="block text-center h-12 leading-[3rem] rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Przejdź do kasy</a>
         <a href="${R('pages/cart.html')}" class="block text-center mt-3 text-[11px] tracking-wide2 uppercase text-black/60 hover:text-black">Zobacz koszyk</a>
       </div>`;
+  }
+
+  function recommendedSliderHTML(title){
+    const items = [
+      { name: 'Real Madrid Home 02/03', price: 219, img: 'https://placehold.co/600x750/3d3a30/3d3a30.png', url: R('collections/all.html#real-madrid') },
+      { name: 'Brazylia Reprezentacja 1998', price: 189, img: 'https://placehold.co/600x750/c4b48c/c4b48c.png', url: R('collections/all.html#brazil') },
+      { name: 'Manchester United Retro 99/00', price: 239, img: 'https://placehold.co/600x750/8c2a1f/8c2a1f.png', url: R('collections/all.html#manchester-united') },
+      { name: 'Karta piłkarska — Topps Chrome', price: 49, img: 'https://placehold.co/600x750/e8d8b0/e8d8b0.png', url: R('collections/all.html#cards') },
+      { name: 'Mystery Box S', price: 149, img: 'https://placehold.co/600x750/1e1e1e/1e1e1e.png', url: R('collections/all.html#mystery') },
+      { name: 'Bayern München Home', price: 209, img: 'https://placehold.co/600x750/a52424/a52424.png', url: R('collections/all.html#bayern-munich') },
+    ];
+    return `
+      <section class="px-6 md:px-8 py-8 border-t hairline">
+        <h3 class="h-section text-[18px] md:text-[20px] mb-5">${title}</h3>
+        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 md:-mx-8 px-6 md:px-8 pb-2">
+          ${items.map(p => `
+            <a href="${p.url}" class="group block shrink-0 w-[150px] md:w-[170px] snap-start">
+              <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px]">
+                <img src="${p.img}" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>
+              </div>
+              <div class="mt-3">
+                <div class="pc-name">${p.name}</div>
+                <div class="mt-1 text-[12px] tabular-nums">${formatPLN(p.price)}</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      </section>
+    `;
   }
 
   function bindCart(){

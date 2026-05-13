@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kasa — Kickback</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="min-h-screen bg-white">
+<div data-release-header></div>
+
+<section class="onlight bg-white pt-8 md:pt-12 pb-8 border-b hairline">
+  <div class="mx-auto max-w-[1280px] px-6 md:px-10">
+    <div class="text-[11px] tracking-wide2 uppercase text-black/55">
+      <a href="cart.html" class="hover:text-black border-b border-black/30 pb-0.5">Koszyk</a>
+      <span class="mx-2 text-black/30">/</span>
+      <span class="text-black">Kasa</span>
+    </div>
+    <h1 class="h-section text-[28px] md:text-[40px] mt-4">Kasa</h1>
+  </div>
+</section>
+
+<section class="onlight bg-white">
+  <form id="checkout-form" class="mx-auto max-w-[1280px] px-6 md:px-10 py-10 md:py-14 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 lg:gap-16" onsubmit="event.preventDefault();completeOrder();">
+
+    <!-- LEFT: form steps -->
+    <div class="space-y-10">
+
+      <!-- Step 1: Kontakt -->
+      <section>
+        <div class="flex items-baseline justify-between mb-5">
+          <h2 class="h-section text-[18px] md:text-[22px]">1. Kontakt</h2>
+          <a href="login.html" class="text-[11px] tracking-wide2 uppercase link-underline">Mam konto</a>
+        </div>
+        <label class="block">
+          <span class="auth-label">E-mail<span class="text-[#b4332a]">*</span></span>
+          <input type="email" name="email" class="auth-input" placeholder="twoj@email.pl" required/>
+        </label>
+        <label class="block mt-4">
+          <input type="checkbox" class="h-4 w-4 accent-black align-middle mr-2"/>
+          <span class="text-[12px] tracking-wide2 uppercase text-black/70 align-middle">Chcę otrzymywać oferty na e-mail</span>
+        </label>
+      </section>
+
+      <!-- Step 2: Wysyłka -->
+      <section>
+        <h2 class="h-section text-[18px] md:text-[22px] mb-5">2. Wysyłka</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="auth-label">Imię<span class="text-[#b4332a]">*</span></span>
+            <input type="text" class="auth-input" required/>
+          </label>
+          <label class="block">
+            <span class="auth-label">Nazwisko<span class="text-[#b4332a]">*</span></span>
+            <input type="text" class="auth-input" required/>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="auth-label">Ulica i numer<span class="text-[#b4332a]">*</span></span>
+            <input type="text" class="auth-input" placeholder="ul. Przykładowa 12/3" required/>
+          </label>
+          <label class="block">
+            <span class="auth-label">Kod pocztowy<span class="text-[#b4332a]">*</span></span>
+            <input type="text" class="auth-input" placeholder="00-000" required/>
+          </label>
+          <label class="block">
+            <span class="auth-label">Miasto<span class="text-[#b4332a]">*</span></span>
+            <input type="text" class="auth-input" required/>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="auth-label">Telefon<span class="text-[#b4332a]">*</span></span>
+            <input type="tel" class="auth-input" placeholder="+48 600 000 000" required/>
+          </label>
+        </div>
+
+        <div class="mt-6">
+          <div class="auth-label mb-2">Sposób dostawy</div>
+          <div class="space-y-2">
+            <label class="ck-row" data-ship="inpost-pacz" data-fee="9.99">
+              <input type="radio" name="ship" value="inpost-pacz" class="accent-black" checked/>
+              <span class="ck-row-name">InPost Paczkomat</span>
+              <span class="ck-row-fee">9,99 zł</span>
+            </label>
+            <label class="ck-row" data-ship="inpost-kurier" data-fee="14.99">
+              <input type="radio" name="ship" value="inpost-kurier" class="accent-black"/>
+              <span class="ck-row-name">InPost Kurier</span>
+              <span class="ck-row-fee">14,99 zł</span>
+            </label>
+            <label class="ck-row" data-ship="orlen" data-fee="9.49">
+              <input type="radio" name="ship" value="orlen" class="accent-black"/>
+              <span class="ck-row-name">Orlen Paczka</span>
+              <span class="ck-row-fee">9,49 zł</span>
+            </label>
+            <label class="ck-row" data-ship="dhl" data-fee="17.99">
+              <input type="radio" name="ship" value="dhl" class="accent-black"/>
+              <span class="ck-row-name">DHL</span>
+              <span class="ck-row-fee">17,99 zł</span>
+            </label>
+            <label class="ck-row" data-ship="dpd" data-fee="16.99">
+              <input type="radio" name="ship" value="dpd" class="accent-black"/>
+              <span class="ck-row-name">DPD</span>
+              <span class="ck-row-fee">16,99 zł</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Płatność -->
+      <section>
+        <h2 class="h-section text-[18px] md:text-[22px] mb-5">3. Płatność</h2>
+        <div class="space-y-2">
+          <label class="ck-row" data-pay="blik">
+            <input type="radio" name="pay" value="blik" class="accent-black" checked/>
+            <span class="ck-row-name">BLIK</span>
+            <span class="text-[10px] tracking-wide2 uppercase text-black/55">Natychmiastowo</span>
+          </label>
+          <label class="ck-row" data-pay="card">
+            <input type="radio" name="pay" value="card" class="accent-black"/>
+            <span class="ck-row-name">Karta — Visa / Mastercard</span>
+            <span class="text-[10px] tracking-wide2 uppercase text-black/55">Przelewy24</span>
+          </label>
+          <label class="ck-row" data-pay="apple">
+            <input type="radio" name="pay" value="apple" class="accent-black"/>
+            <span class="ck-row-name">Apple Pay</span>
+          </label>
+          <label class="ck-row" data-pay="google">
+            <input type="radio" name="pay" value="google" class="accent-black"/>
+            <span class="ck-row-name">Google Pay</span>
+          </label>
+          <label class="ck-row" data-pay="paypo">
+            <input type="radio" name="pay" value="paypo" class="accent-black"/>
+            <span class="ck-row-name">PayPo</span>
+            <span class="text-[10px] tracking-wide2 uppercase text-black/55">Płać za 30 dni</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div>
+        <button type="submit" class="w-full md:w-auto inline-flex items-center justify-center h-12 px-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Zapłać <span data-ck-total-inline class="ml-2 tabular-nums">0,00 zł</span></button>
+        <a href="cart.html" class="block mt-4 text-[11px] tracking-wide2 uppercase link-underline w-fit">← Wróć do koszyka</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: order summary -->
+    <aside class="lg:sticky lg:top-28 self-start">
+      <div class="border hairline rounded-[4px] p-6 bg-[#fafaf7]">
+        <div class="flex items-baseline justify-between mb-4">
+          <span class="text-[11px] tracking-wide2 uppercase text-black/55">Twoje zamówienie</span>
+          <span data-ck-count class="text-[11px] tracking-wide2 uppercase text-black/55">0</span>
+        </div>
+        <div data-ck-lines class="divide-y hairline -my-2"></div>
+        <div class="mt-5 pt-5 border-t hairline space-y-2 text-[13px]">
+          <div class="flex items-center justify-between">
+            <span class="text-black/65">Suma częściowa</span>
+            <span data-ck-subtotal class="tabular-nums">0,00 zł</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-black/65">Dostawa</span>
+            <span data-ck-shipping class="tabular-nums">9,99 zł</span>
+          </div>
+          <div class="flex items-center justify-between text-[16px] pt-3 border-t hairline mt-3">
+            <span class="font-medium">Razem</span>
+            <span data-ck-total class="font-medium tabular-nums">0,00 zł</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-[11px] tracking-wide2 uppercase text-black/55 leading-[1.7]">
+        <div class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Bezpieczne płatności</div>
+        <div class="flex items-center gap-2 mt-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v4"/></svg>14 dni na zwrot</div>
+      </div>
+    </aside>
+  </form>
+</section>
+
+<!-- Order confirmation -->
+<section id="ck-success" class="hidden onlight bg-white">
+  <div class="mx-auto max-w-[760px] px-6 md:px-10 py-20 md:py-28 text-center">
+    <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-black mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+    <h2 class="h-section text-[28px] md:text-[40px]">Dziękujemy <em class="font-wonk font-normal">za zamówienie</em></h2>
+    <p class="mt-5 text-[14px] text-black/65 max-w-[480px] mx-auto leading-[1.7]">Twoje zamówienie zostało przyjęte. Potwierdzenie wysłaliśmy na podany adres e-mail. Numer zamówienia: <span data-ck-order-id class="font-medium text-black">#000000</span></p>
+    <div class="mt-8 inline-flex flex-col sm:flex-row gap-3">
+      <a href="../index.html" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Wróć na stronę główną</a>
+      <a href="account/index.html" class="inline-flex items-center justify-center h-12 px-8 rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Twoje zamówienia</a>
+    </div>
+  </div>
+</section>
+
+<div data-release-footer></div>
+<script src="../assets/partials.js"></script>
+<script>
+(function(){
+  function plnFmt(n){ return n.toFixed(2).replace('.', ',') + ' zł'; }
+  function readCart(){
+    try { const v = JSON.parse(localStorage.getItem('release_cart_v1')); return v && Array.isArray(v.items) ? v : { items: [] }; }
+    catch(e){ return { items: [] }; }
+  }
+  function shippingFee(){
+    const r = document.querySelector('input[name="ship"]:checked');
+    if (!r) return 0;
+    return parseFloat(r.closest('[data-fee]').getAttribute('data-fee'));
+  }
+  function render(){
+    const cart = readCart();
+    const linesEl = document.querySelector('[data-ck-lines]');
+    const countEl = document.querySelector('[data-ck-count]');
+    const subEl = document.querySelector('[data-ck-subtotal]');
+    const shipEl = document.querySelector('[data-ck-shipping]');
+    const totEl = document.querySelector('[data-ck-total]');
+    const totInlineEl = document.querySelector('[data-ck-total-inline]');
+    if (!linesEl) return;
+    if (cart.items.length === 0){
+      linesEl.innerHTML = '<div class="text-[13px] text-black/55 py-3">Koszyk jest pusty. <a href="cart.html" class="link-underline">Wróć do koszyka</a></div>';
+      countEl.textContent = '0';
+      subEl.textContent = plnFmt(0);
+      totEl.textContent = plnFmt(0);
+      totInlineEl.textContent = plnFmt(0);
+      return;
+    }
+    let subtotal = 0;
+    linesEl.innerHTML = cart.items.map(it => {
+      subtotal += it.price * it.qty;
+      return `
+        <div class="flex items-center gap-3 py-3">
+          <div class="relative w-[56px] h-[70px] rounded-[2px] overflow-hidden bg-[var(--tile)] shrink-0">
+            ${it.image ? '<img src="'+it.image+'" alt="" class="w-full h-full object-cover">' : ''}
+            <span class="absolute -top-1.5 -right-1.5 inline-flex items-center justify-center min-w-[20px] h-5 px-1 text-[10px] rounded-full bg-black text-white">${it.qty}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="pc-name text-[10px]">${it.name}</div>
+            ${(it.size || it.color) ? '<div class="text-[10px] tracking-wide2 uppercase text-black/55 mt-1">'+[it.size,it.color].filter(Boolean).join(' / ')+'</div>' : ''}
+          </div>
+          <div class="text-[13px] tabular-nums">${plnFmt(it.price * it.qty)}</div>
+        </div>`;
+    }).join('');
+    const ship = shippingFee();
+    const total = subtotal + ship;
+    countEl.textContent = cart.items.reduce((s,i)=>s+i.qty,0);
+    subEl.textContent = plnFmt(subtotal);
+    shipEl.textContent = plnFmt(ship);
+    totEl.textContent = plnFmt(total);
+    totInlineEl.textContent = plnFmt(total);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    render();
+    document.querySelectorAll('input[name="ship"]').forEach(r => r.addEventListener('change', render));
+    document.addEventListener('cart:change', render);
+  });
+  window.completeOrder = function(){
+    const id = '#' + String(Math.floor(100000 + Math.random()*900000));
+    const idEl = document.querySelector('[data-ck-order-id]');
+    if (idEl) idEl.textContent = id;
+    // empty cart
+    try { localStorage.setItem('release_cart_v1', JSON.stringify({ items: [] })); } catch(e){}
+    document.dispatchEvent(new CustomEvent('cart:change'));
+    document.getElementById('checkout-form').style.display = 'none';
+    document.getElementById('ck-success').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+})();
+</script>
+<style>
+.ck-row{display:flex;align-items:center;gap:14px;border:1px solid var(--hair);border-radius:6px;padding:14px 16px;cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
+.ck-row:hover{border-color:rgba(13,13,13,.5)}
+.ck-row:has(input:checked){border-color:#0d0d0d;background:rgba(13,13,13,.02)}
+.ck-row-name{font-size:13px;flex:1}
+.ck-row-fee{font-size:13px;font-variant-numeric:tabular-nums;color:rgba(13,13,13,.85)}
+</style>
+</body>
+</html>
