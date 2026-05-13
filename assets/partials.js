@@ -53,68 +53,161 @@
     <div class="flex items-center justify-center">
       <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
       <nav class="hidden md:flex items-center gap-7 text-[12px] tracking-wide2 uppercase text-black/80">
-        <a href="${R('collections/new-collection.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
+        <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
         <div class="has-mega">
-          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="${R('collections/kluby.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega mega-wide">
+            <div class="mx-auto max-w-[1600px] px-10 py-10 grid grid-cols-12 gap-8">
+              <div class="col-span-3">
+                <div class="mega-col-title">Europa</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/premier-league.html')}" class="mega-link">Premier League</a></li>
+                  <li><a href="${R('collections/efl-championship.html')}" class="mega-link">EFL Championship</a></li>
+                  <li><a href="${R('collections/la-liga.html')}" class="mega-link">La Liga</a></li>
+                  <li><a href="${R('collections/serie-a.html')}" class="mega-link">Serie A</a></li>
+                  <li><a href="${R('collections/serie-b.html')}" class="mega-link">Serie B</a></li>
+                  <li><a href="${R('collections/bundesliga.html')}" class="mega-link">Bundesliga</a></li>
+                  <li><a href="${R('collections/ligue-1.html')}" class="mega-link">Ligue 1</a></li>
+                  <li><a href="${R('collections/eredivisie.html')}" class="mega-link">Eredivisie</a></li>
+                  <li><a href="${R('collections/liga-portugal.html')}" class="mega-link">Liga Portugal</a></li>
+                  <li><a href="${R('collections/ekstraklasa.html')}" class="mega-link">Ekstraklasa</a></li>
+                </ul>
+              </div>
+              <div class="col-span-3">
+                <div class="mega-col-title">Reszta świata</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/mls.html')}" class="mega-link">MLS</a></li>
+                  <li><a href="${R('collections/saudi-pro-league.html')}" class="mega-link">Saudi Pro League</a></li>
+                  <li><a href="${R('collections/super-lig.html')}" class="mega-link">Super Lig</a></li>
+                  <li><a href="${R('collections/scottish-premiership.html')}" class="mega-link">Scottish Premiership</a></li>
+                  <li><a href="${R('collections/superleague-ellada.html')}" class="mega-link">Superleague Ellada</a></li>
+                  <li><a href="${R('collections/reszta-swiata.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
+                </ul>
+              </div>
+              <a href="${R('collections/premier-league.html')}" class="col-span-3 group">
+                <div class="mega-card tile">
+                  <img src="${R('brand_assets/photos/banner-kluby.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/0"></div>
+                  <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Najpopularniejsza</div>
+                  <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Premier League</div>
+                </div>
+              </a>
+              <a href="${R('collections/la-liga.html')}" class="col-span-3 group">
+                <div class="mega-card tile">
+                  <img src="${R('brand_assets/photos/banner-resztaswiata.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/0"></div>
+                  <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Klasyki El Clásico</div>
+                  <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">La Liga</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/reprezentacje.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega mega-wide">
+            <div class="mx-auto max-w-[1600px] px-10 py-10 grid grid-cols-12 gap-8">
+              <div class="col-span-3">
+                <div class="mega-col-title">Europa</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/reprezentacja-polska.html')}" class="mega-link">Polska</a></li>
+                  <li><a href="${R('collections/reprezentacja-anglia.html')}" class="mega-link">Anglia</a></li>
+                  <li><a href="${R('collections/reprezentacja-niemcy.html')}" class="mega-link">Niemcy</a></li>
+                  <li><a href="${R('collections/reprezentacja-hiszpania.html')}" class="mega-link">Hiszpania</a></li>
+                  <li><a href="${R('collections/reprezentacja-francja.html')}" class="mega-link">Francja</a></li>
+                  <li><a href="${R('collections/reprezentacja-wlochy.html')}" class="mega-link">Włochy</a></li>
+                  <li><a href="${R('collections/reprezentacje-europa.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
+                </ul>
+              </div>
+              <div class="col-span-3">
+                <div class="mega-col-title">Ameryka</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/reprezentacja-argentyna.html')}" class="mega-link">Argentyna</a></li>
+                  <li><a href="${R('collections/reprezentacja-brazylia.html')}" class="mega-link">Brazylia</a></li>
+                  <li><a href="${R('collections/reprezentacja-urugwaj.html')}" class="mega-link">Urugwaj</a></li>
+                  <li><a href="${R('collections/reprezentacja-usa.html')}" class="mega-link">USA</a></li>
+                  <li><a href="${R('collections/reprezentacje-ameryka.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
+                </ul>
+              </div>
+              <div class="col-span-3">
+                <div class="mega-col-title">Azja</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/reprezentacja-japonia.html')}" class="mega-link">Japonia</a></li>
+                  <li><a href="${R('collections/reprezentacja-korea-poludniowa.html')}" class="mega-link">Korea Płd.</a></li>
+                  <li><a href="${R('collections/reprezentacja-australia.html')}" class="mega-link">Australia</a></li>
+                  <li><a href="${R('collections/reprezentacje-azja.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
+                </ul>
+              </div>
+              <div class="col-span-3">
+                <div class="mega-col-title">Afryka</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/reprezentacja-maroko.html')}" class="mega-link">Maroko</a></li>
+                  <li><a href="${R('collections/reprezentacja-senegal.html')}" class="mega-link">Senegal</a></li>
+                  <li><a href="${R('collections/reprezentacja-egipt.html')}" class="mega-link">Egipt</a></li>
+                  <li><a href="${R('collections/reprezentacja-algieria.html')}" class="mega-link">Algieria</a></li>
+                  <li><a href="${R('collections/reprezentacje-afryka.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/karty-pilkarskie.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Karty <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[560px]">
+            <div class="px-8 py-8 grid grid-cols-3 gap-8">
+              <div>
+                <div class="mega-col-title">DAKA</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/daka-top-audience-real-madrid.html')}" class="mega-link">Top Audience Real Madrid</a></li>
+                  <li><a href="${R('collections/daka-top-audience-barcelona.html')}" class="mega-link">Top Audience Barcelona</a></li>
+                  <li><a href="${R('collections/daka-top-audience-juventus.html')}" class="mega-link">Top Audience Juventus</a></li>
+                  <li><a href="${R('collections/daka-top-audience-manchester-city.html')}" class="mega-link">Top Audience Man. City</a></li>
+                  <li><a href="${R('collections/karty-daka.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
+                </ul>
+              </div>
+              <div>
+                <div class="mega-col-title">Topps</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/topps-chrome.html')}" class="mega-link">Chrome</a></li>
+                  <li><a href="${R('collections/topps-merlin.html')}" class="mega-link">Merlin</a></li>
+                  <li><a href="${R('collections/topps-real-madrid.html')}" class="mega-link">Real Madrid</a></li>
+                  <li><a href="${R('collections/topps-barcelona.html')}" class="mega-link">Barcelona</a></li>
+                  <li><a href="${R('collections/karty-topps.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
+                </ul>
+              </div>
+              <div>
+                <div class="mega-col-title">Panini</div>
+                <ul class="space-y-0.5">
+                  <li><a href="${R('collections/panini-world-cup-2026.html')}" class="mega-link">World Cup 2026</a></li>
+                  <li><a href="${R('collections/panini-euro-2012.html')}" class="mega-link">Euro 2012</a></li>
+                  <li><a href="${R('collections/karty-panini.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="${R('collections/mystery-box.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Mystery Box <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="mega rounded-b-[2px] min-w-[220px]">
+            <div class="px-6 py-6">
+              <ul class="space-y-0.5">
+                <li><a href="${R('collections/mystery-basic.html')}" class="mega-link">Basic</a></li>
+                <li><a href="${R('collections/mystery-premium.html')}" class="mega-link">Premium</a></li>
+                <li><a href="${R('collections/mystery-ultimate.html')}" class="mega-link">Ultimate</a></li>
+                <li><a href="${R('collections/mystery-blind-box.html')}" class="mega-link">Blind Box</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="#" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="mega rounded-b-[2px] min-w-[240px]">
             <div class="px-6 py-6">
               <ul class="space-y-0.5">
-                <li><a href="${R('collections/all.html')}#real-madrid" class="mega-link">Real Madrid</a></li>
-                <li><a href="${R('collections/all.html')}#barcelona" class="mega-link">FC Barcelona</a></li>
-                <li><a href="${R('collections/all.html')}#chelsea" class="mega-link">Chelsea</a></li>
-                <li><a href="${R('collections/all.html')}#arsenal" class="mega-link">Arsenal</a></li>
-                <li><a href="${R('collections/all.html')}#manchester-united" class="mega-link">Manchester United</a></li>
-                <li><a href="${R('collections/all.html')}#manchester-city" class="mega-link">Manchester City</a></li>
-                <li><a href="${R('collections/all.html')}#juventus" class="mega-link">Juventus</a></li>
-                <li><a href="${R('collections/all.html')}#bayern-munich" class="mega-link">Bayern München</a></li>
-                <li><a href="${R('collections/all.html')}#borussia-dortmund" class="mega-link">Borussia Dortmund</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="has-mega">
-          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega rounded-b-[2px] min-w-[220px]">
-            <div class="px-6 py-6">
-              <ul class="space-y-0.5">
-                <li><a href="${R('collections/all.html')}#polska" class="mega-link">Polska</a></li>
-                <li><a href="${R('collections/all.html')}#niemcy" class="mega-link">Niemcy</a></li>
-                <li><a href="${R('collections/all.html')}#hiszpania" class="mega-link">Hiszpania</a></li>
-                <li><a href="${R('collections/all.html')}#wlochy" class="mega-link">Włochy</a></li>
-                <li><a href="${R('collections/all.html')}#anglia" class="mega-link">Anglia</a></li>
-                <li><a href="${R('collections/all.html')}#francja" class="mega-link">Francja</a></li>
-                <li><a href="${R('collections/all.html')}#brazylia" class="mega-link">Brazylia</a></li>
-                <li><a href="${R('collections/all.html')}#argentyna" class="mega-link">Argentyna</a></li>
-                <li><a href="${R('collections/all.html')}#holandia" class="mega-link">Holandia</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="has-mega">
-          <a href="${R('collections/accessories.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Akcesoria <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega rounded-b-[2px] min-w-[220px]">
-            <div class="px-6 py-6">
-              <ul class="space-y-0.5">
-                <li><a href="${R('collections/accessories.html')}#czapki" class="mega-link">Czapki</a></li>
-                <li><a href="${R('collections/accessories.html')}#szaliki" class="mega-link">Szaliki</a></li>
-                <li><a href="${R('collections/accessories.html')}#skarpety" class="mega-link">Skarpety</a></li>
-                <li><a href="${R('collections/accessories.html')}#plecaki" class="mega-link">Plecaki i torby</a></li>
-                <li><a href="${R('collections/basics.html')}" class="mega-link">Karty piłkarskie</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="has-mega">
-          <a href="${R('collections/all.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega rounded-b-[2px] min-w-[220px]">
-            <div class="px-6 py-6">
-              <ul class="space-y-0.5">
-                <li><a href="${R('collections/best-sellers.html')}" class="mega-link">Bestsellery</a></li>
-                <li><a href="${R('collections/basics.html')}" class="mega-link">Mystery Box</a></li>
-                <li><a href="${R('collections/all.html')}#sale" class="mega-link">Wyprzedaż</a></li>
-                <li><a href="${R('collections/all.html')}#vintage" class="mega-link">Vintage</a></li>
-                <li><a href="${R('collections/all.html')}#junior" class="mega-link">Junior</a></li>
-                <li><a href="${R('collections/jackets-coats.html')}" class="mega-link">Bluzy i kurtki</a></li>
+                <li><a href="${R('collections/best-of.html')}" class="mega-link">Best Of</a></li>
+                <li><a href="${R('collections/nowe-z-metka.html')}" class="mega-link">Koszulki nowe z metką</a></li>
+                <li><a href="${R('collections/bluzy-i-kurtki.html')}" class="mega-link">Bluzy i kurtki</a></li>
+                <li><a href="${R('collections/reszta-swiata.html')}" class="mega-link">Reszta świata</a></li>
               </ul>
             </div>
           </div>
@@ -164,13 +257,13 @@
       <div class="md:col-span-3">
         <div class="text-[11px] tracking-wide2 uppercase text-white/60 mb-4">Produkty</div>
         <ul class="space-y-2.5 text-[13px] text-white/85">
-          <li><a href="${R('collections/all.html')}" class="hover:text-white">Koszulki RETRO</a></li>
-          <li><a href="${R('collections/new-collection.html')}" class="hover:text-white">Nowe koszulki</a></li>
-          <li><a href="${R('collections/basics.html')}" class="hover:text-white">Karty piłkarskie</a></li>
-          <li><a href="${R('collections/best-sellers.html')}" class="hover:text-white">Mystery Box</a></li>
-          <li><a href="${R('collections/jackets-coats.html')}" class="hover:text-white">Bluzy i kurtki</a></li>
-          <li><a href="${R('collections/accessories.html')}" class="hover:text-white">Akcesoria</a></li>
-          <li><a href="${R('collections/best-sellers.html')}#sale" class="hover:text-white text-[#e8c87a]">Aktualne promocje</a></li>
+          <li><a href="${R('collections/kluby.html')}" class="hover:text-white">Kluby</a></li>
+          <li><a href="${R('collections/reprezentacje.html')}" class="hover:text-white">Reprezentacje</a></li>
+          <li><a href="${R('collections/karty-pilkarskie.html')}" class="hover:text-white">Karty piłkarskie</a></li>
+          <li><a href="${R('collections/mystery-box.html')}" class="hover:text-white">Mystery Box</a></li>
+          <li><a href="${R('collections/bluzy-i-kurtki.html')}" class="hover:text-white">Bluzy i kurtki</a></li>
+          <li><a href="${R('collections/nowe-z-metka.html')}" class="hover:text-white">Koszulki nowe z metką</a></li>
+          <li><a href="${R('collections/best-of.html')}" class="hover:text-white text-[#e8c87a]">Best Of</a></li>
         </ul>
       </div>
     </div>
@@ -310,23 +403,58 @@
     </div>
     <div class="flex-1 overflow-y-auto">
       <nav class="px-5 pt-2 pb-4 text-[15px]">
-        <a href="${R('collections/all.html')}" class="flex items-center justify-between py-4 border-b hairline">Shop<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('collections/nowosci.html')}" class="flex items-center justify-between py-4 border-b hairline">Nowości<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
         <details class="border-b hairline group">
-          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Kategorie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
+          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Kluby</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
           <ul class="pb-3 pl-3 space-y-1.5">
-            <li><a href="${R('collections/new-collection.html')}" class="block py-2 text-black/75 text-[14px]">Nowości</a></li>
-            <li><a href="${R('collections/best-sellers.html')}" class="block py-2 text-black/75 text-[14px]">Bestsellery</a></li>
-            <li><a href="${R('collections/basics.html')}" class="block py-2 text-black/75 text-[14px]">Mystery Box</a></li>
-            <li><a href="${R('collections/all.html')}" class="block py-2 text-black/75 text-[14px]">Koszulki RETRO</a></li>
-            <li><a href="${R('collections/tops.html')}" class="block py-2 text-black/75 text-[14px]">Kluby</a></li>
-            <li><a href="${R('collections/best-sellers.html')}" class="block py-2 text-black/75 text-[14px]">Reprezentacje</a></li>
-            <li><a href="${R('collections/jackets-coats.html')}" class="block py-2 text-black/75 text-[14px]">Bluzy i kurtki</a></li>
-            <li><a href="${R('collections/accessories.html')}" class="block py-2 text-black/75 text-[14px]">Akcesoria</a></li>
+            <li><a href="${R('collections/premier-league.html')}" class="block py-2 text-black/75 text-[14px]">Premier League</a></li>
+            <li><a href="${R('collections/efl-championship.html')}" class="block py-2 text-black/75 text-[14px]">EFL Championship</a></li>
+            <li><a href="${R('collections/la-liga.html')}" class="block py-2 text-black/75 text-[14px]">La Liga</a></li>
+            <li><a href="${R('collections/serie-a.html')}" class="block py-2 text-black/75 text-[14px]">Serie A</a></li>
+            <li><a href="${R('collections/serie-b.html')}" class="block py-2 text-black/75 text-[14px]">Serie B</a></li>
+            <li><a href="${R('collections/bundesliga.html')}" class="block py-2 text-black/75 text-[14px]">Bundesliga</a></li>
+            <li><a href="${R('collections/ligue-1.html')}" class="block py-2 text-black/75 text-[14px]">Ligue 1</a></li>
+            <li><a href="${R('collections/mls.html')}" class="block py-2 text-black/75 text-[14px]">MLS</a></li>
+            <li><a href="${R('collections/eredivisie.html')}" class="block py-2 text-black/75 text-[14px]">Eredivisie</a></li>
+            <li><a href="${R('collections/liga-portugal.html')}" class="block py-2 text-black/75 text-[14px]">Liga Portugal</a></li>
+            <li><a href="${R('collections/ekstraklasa.html')}" class="block py-2 text-black/75 text-[14px]">Ekstraklasa</a></li>
+            <li><a href="${R('collections/reszta-swiata.html')}" class="block py-2 text-black/75 text-[14px]">Reszta świata</a></li>
+            <li><a href="${R('collections/kluby.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
           </ul>
         </details>
+        <details class="border-b hairline group">
+          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Reprezentacje</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
+          <ul class="pb-3 pl-3 space-y-1.5">
+            <li><a href="${R('collections/reprezentacje-europa.html')}" class="block py-2 text-black/75 text-[14px]">Europa</a></li>
+            <li><a href="${R('collections/reprezentacje-ameryka.html')}" class="block py-2 text-black/75 text-[14px]">Ameryka</a></li>
+            <li><a href="${R('collections/reprezentacje-azja.html')}" class="block py-2 text-black/75 text-[14px]">Azja</a></li>
+            <li><a href="${R('collections/reprezentacje-afryka.html')}" class="block py-2 text-black/75 text-[14px]">Afryka</a></li>
+            <li><a href="${R('collections/reprezentacje.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
+          </ul>
+        </details>
+        <details class="border-b hairline group">
+          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Karty piłkarskie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
+          <ul class="pb-3 pl-3 space-y-1.5">
+            <li><a href="${R('collections/karty-daka.html')}" class="block py-2 text-black/75 text-[14px]">DAKA</a></li>
+            <li><a href="${R('collections/karty-topps.html')}" class="block py-2 text-black/75 text-[14px]">Topps</a></li>
+            <li><a href="${R('collections/karty-panini.html')}" class="block py-2 text-black/75 text-[14px]">Panini</a></li>
+            <li><a href="${R('collections/karty-pilkarskie.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
+          </ul>
+        </details>
+        <details class="border-b hairline group">
+          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Mystery Box</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
+          <ul class="pb-3 pl-3 space-y-1.5">
+            <li><a href="${R('collections/mystery-basic.html')}" class="block py-2 text-black/75 text-[14px]">Basic</a></li>
+            <li><a href="${R('collections/mystery-premium.html')}" class="block py-2 text-black/75 text-[14px]">Premium</a></li>
+            <li><a href="${R('collections/mystery-ultimate.html')}" class="block py-2 text-black/75 text-[14px]">Ultimate</a></li>
+            <li><a href="${R('collections/mystery-blind-box.html')}" class="block py-2 text-black/75 text-[14px]">Blind Box</a></li>
+          </ul>
+        </details>
+        <a href="${R('collections/bluzy-i-kurtki.html')}" class="flex items-center justify-between py-4 border-b hairline">Bluzy i kurtki<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('collections/best-of.html')}" class="flex items-center justify-between py-4 border-b hairline">Best Of<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
+        <a href="${R('collections/nowe-z-metka.html')}" class="flex items-center justify-between py-4 border-b hairline">Koszulki nowe z metką<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
         <a href="${R('blogs/news.html')}" class="flex items-center justify-between py-4 border-b hairline">Blog<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
         <a href="${R('pages/about-us.html')}" class="flex items-center justify-between py-4 border-b hairline">O nas<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('pages/faq.html')}" class="flex items-center justify-between py-4 border-b hairline">FAQ<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
         <a href="${R('pages/contact.html')}" class="flex items-center justify-between py-4 border-b hairline">Kontakt<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
       </nav>
       <div class="px-5 pt-6 pb-8">
