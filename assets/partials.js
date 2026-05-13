@@ -438,42 +438,78 @@
     { slug:'nowosci',        label:'Nowości',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg>' },
   ];
 
-  const mmRenderPills = () => `
-    ${MM_TOPS.map((t,i)=>`<button data-mm-top="${t.slug}" class="mm-toppill ${i===0?'mm-toppill-active':''}"><span class="mm-toppill-icon">${t.icon}</span><span class="mm-toppill-label">${t.label}</span><svg class="mm-toppill-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></button>`).join('')}
-    ${MM_FLATS.map(f=>`<a href="${R('collections/'+f.slug+'.html')}" class="mm-toppill mm-toppill-flat"><span class="mm-toppill-icon">${f.icon}</span><span class="mm-toppill-label">${f.label}</span></a>`).join('')}
-  `;
+  // mobile drawer renders as a navigation STACK (iOS-style push/pop).
+  // Each level lives on its own absolutely-positioned screen; tapping a row pushes the next
+  // screen in from the right, tapping the "‹ Label" back row pops to the previous screen.
+  const chevR = '<svg class="mm-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><polyline points="9 6 15 12 9 18"/></svg>';
+  const chevL = '<svg class="mm-back-chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 6 9 12 15 18"/></svg>';
 
-  const mmRenderTopPanel = (top, isFirst) => {
-    const subEntries = Object.entries(top.subs);
+  function mmScreenRoot(){
     return `
-    <div data-mm-panel-for="${top.slug}" class="mm-drill-panel${isFirst?'':' hidden'} grid grid-cols-[42%_58%] h-full">
-      <div class="mm-subs-col" data-mm-subs>
-        ${subEntries.map(([slug,sub],i)=>`<button type="button" data-mm-sub="${slug}" class="mm-sub${i===0?' mm-sub-active':''}">${sub.label}<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 6 15 12 9 18"/></svg></button>`).join('')}
-        <a href="${R('collections/'+top.slug+'.html')}" class="mm-see-all">${top.seeAll}</a>
-      </div>
-      <div class="mm-items-col" data-mm-items>
-        ${subEntries.map(([slug,sub],i)=>`<div data-mm-items-for="${slug}" class="${i===0?'':'hidden'}">${sub.items.length ? sub.items.map(([is,il])=>`<a href="${R('collections/'+is+'.html')}" class="mm-item">${il}</a>`).join('') : `<a href="${R('collections/'+slug+'.html')}" class="mm-item">Zobacz produkty →</a>`}</div>`).join('')}
+    <div data-mm-screen="root" class="mm-screen mm-screen-active">
+      <div class="mm-list">
+        <a href="${R('index.html')}" class="mm-row">Strona główna</a>
+        <a href="${R('collections/nowosci.html')}" class="mm-row">Nowości</a>
+        ${MM_TOPS.map(t => `<button type="button" data-mm-go="${t.slug}" class="mm-row">${t.label}${chevR}</button>`).join('')}
+        ${MM_FLATS.filter(f=>f.slug!=='nowosci').map(f => `<a href="${R('collections/'+f.slug+'.html')}" class="mm-row">${f.label}</a>`).join('')}
+        <a href="${R('blogs/news.html')}" class="mm-row">Blog</a>
+        <a href="${R('pages/about-us.html')}" class="mm-row">O nas</a>
+        <a href="${R('pages/contact.html')}" class="mm-row">Kontakt</a>
       </div>
     </div>`;
-  };
+  }
+
+  function mmScreenTop(top){
+    const subs = Object.entries(top.subs);
+    return `
+    <div data-mm-screen="${top.slug}" class="mm-screen mm-screen-right">
+      <button type="button" data-mm-back class="mm-back-row">${chevL}<span>${top.label}</span></button>
+      <div class="mm-list">
+        ${subs.map(([slug,sub]) => sub.items.length
+          ? `<button type="button" data-mm-go="${slug}" class="mm-row">${sub.label}${chevR}</button>`
+          : `<a href="${R('collections/'+slug+'.html')}" class="mm-row">${sub.label}</a>`).join('')}
+        <a href="${R('collections/'+top.slug+'.html')}" class="mm-row mm-row-see-all">${top.seeAll}</a>
+      </div>
+    </div>`;
+  }
+
+  function mmScreenSub(slug, sub, parentLabel){
+    return `
+    <div data-mm-screen="${slug}" class="mm-screen mm-screen-right">
+      <button type="button" data-mm-back class="mm-back-row">${chevL}<span>${sub.label}</span></button>
+      <div class="mm-list">
+        ${sub.items.map(([is,il]) => `<a href="${R('collections/'+is+'.html')}" class="mm-row">${il}</a>`).join('')}
+        <a href="${R('collections/'+slug+'.html')}" class="mm-row mm-row-see-all">Wszystkie produkty (${sub.label})</a>
+      </div>
+    </div>`;
+  }
+
+  function mmStackScreens(){
+    const out = [mmScreenRoot()];
+    MM_TOPS.forEach(top => {
+      out.push(mmScreenTop(top));
+      Object.entries(top.subs).forEach(([slug,sub]) => {
+        if (sub.items.length) out.push(mmScreenSub(slug, sub, top.label));
+      });
+    });
+    return out.join('');
+  }
 
   const mobileMenu = `
 <aside id="mobile-menu" class="fixed inset-0 z-[105] pointer-events-none md:hidden" aria-hidden="true">
   <div data-mm-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
   <div data-mm-panel class="absolute inset-0 bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
-    <div class="flex items-center justify-between px-5 h-[56px] border-b hairline shrink-0">
+    <div class="flex items-center justify-between px-4 h-[56px] border-b hairline shrink-0">
+      <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <a href="${R('index.html')}" class="inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
-      <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="flex items-center gap-0.5">
+        <button type="button" data-search-open class="inline-flex items-center justify-center h-10 w-10 text-black/85" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        <a href="${R('pages/login.html')}" class="inline-flex items-center justify-center h-10 w-10 text-black/85" aria-label="Konto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+        <a href="${R('pages/cart.html')}" data-cart-open class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85" aria-label="Koszyk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
     </div>
-    <div class="mm-tabs-strip flex items-center gap-2 px-4 py-3 overflow-x-auto whitespace-nowrap border-b hairline shrink-0" data-mm-tabs>
-      ${mmRenderPills()}
-    </div>
-    <div class="flex-1 overflow-hidden" data-mm-drill>
-      ${MM_TOPS.map((t,i)=>mmRenderTopPanel(t,i===0)).join('')}
-    </div>
-    <div class="border-t hairline px-5 py-3 flex items-center gap-3 shrink-0">
-      <a href="${R('pages/login.html')}" class="flex-1 inline-flex h-10 px-4 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Zaloguj się</a>
-      <a href="${R('pages/register.html')}" class="flex-1 inline-flex h-10 px-4 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Załóż konto</a>
+    <div class="relative flex-1 overflow-hidden" data-mm-stack>
+      ${mmStackScreens()}
     </div>
   </div>
 </aside>`;
@@ -1121,30 +1157,49 @@
     document.querySelectorAll('[data-mobile-menu-toggle]').forEach(b => b.addEventListener('click', open));
     drawer.querySelectorAll('[data-mm-close]').forEach(b => b.addEventListener('click', shut));
     backdrop.addEventListener('click', shut);
-    // close on link click inside the panel
-    panel.querySelectorAll('a[href]').forEach(a => a.addEventListener('click', shut));
+    // close drawer when a leaf link is clicked (anchors only — push buttons handled separately)
+    drawer.querySelectorAll('a[href]:not([data-mm-back])').forEach(a => a.addEventListener('click', shut));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') shut(); });
 
-    // Top-level pill switch (Kluby/Reprezentacje/Karty/Mystery Box)
-    drawer.querySelectorAll('[data-mm-top]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const top = btn.getAttribute('data-mm-top');
-        drawer.querySelectorAll('[data-mm-top]').forEach(b => b.classList.toggle('mm-toppill-active', b === btn));
-        drawer.querySelectorAll('[data-mm-panel-for]').forEach(p => p.classList.toggle('hidden', p.getAttribute('data-mm-panel-for') !== top));
-      });
-    });
-    // Sub switch inside each drill panel (league/continent/maker/tier)
-    drawer.querySelectorAll('[data-mm-panel-for]').forEach(panelEl => {
-      const subs = panelEl.querySelectorAll('[data-mm-sub]');
-      const itemsBlocks = panelEl.querySelectorAll('[data-mm-items-for]');
-      subs.forEach(sb => sb.addEventListener('click', () => {
-        const k = sb.getAttribute('data-mm-sub');
-        subs.forEach(x => x.classList.toggle('mm-sub-active', x === sb));
-        itemsBlocks.forEach(b => b.classList.toggle('hidden', b.getAttribute('data-mm-items-for') !== k));
-        const items = panelEl.querySelector('[data-mm-items]');
-        if (items) items.scrollTop = 0;
-      }));
-    });
+    // Stack navigation: each [data-mm-screen] is an absolutely-positioned full-height page.
+    // mm-screen-active = visible, mm-screen-right = waiting off-screen right, mm-screen-left = pushed away to the left.
+    const stack = ['root'];
+    function screenEl(name){ return drawer.querySelector('[data-mm-screen="' + name + '"]'); }
+    function pushTo(target){
+      const cur = stack[stack.length - 1];
+      const curEl = screenEl(cur);
+      const tgtEl = screenEl(target);
+      if (!curEl || !tgtEl || cur === target) return;
+      tgtEl.classList.remove('mm-screen-right');
+      tgtEl.classList.add('mm-screen-active');
+      curEl.classList.remove('mm-screen-active');
+      curEl.classList.add('mm-screen-left');
+      tgtEl.scrollTop = 0;
+      stack.push(target);
+    }
+    function popOne(){
+      if (stack.length < 2) return;
+      const popped = stack.pop();
+      const popEl = screenEl(popped);
+      const prev = stack[stack.length - 1];
+      const prevEl = screenEl(prev);
+      if (!popEl || !prevEl) return;
+      popEl.classList.remove('mm-screen-active');
+      popEl.classList.add('mm-screen-right');
+      prevEl.classList.remove('mm-screen-left');
+      prevEl.classList.add('mm-screen-active');
+    }
+    function resetToRoot(){
+      while (stack.length > 1) popOne();
+    }
+    drawer.querySelectorAll('[data-mm-go]').forEach(b => b.addEventListener('click', () => pushTo(b.getAttribute('data-mm-go'))));
+    drawer.querySelectorAll('[data-mm-back]').forEach(b => b.addEventListener('click', popOne));
+    // Reset stack to root every time the drawer is closed
+    const originalShut = shut;
+    const wrappedShut = function(){ originalShut(); setTimeout(resetToRoot, 320); };
+    drawer.querySelectorAll('[data-mm-close]').forEach(b => { b.removeEventListener('click', shut); b.addEventListener('click', wrappedShut); });
+    backdrop.removeEventListener('click', shut);
+    backdrop.addEventListener('click', wrappedShut);
   }
 
   function inject(){
