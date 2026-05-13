@@ -10,6 +10,71 @@
   const base = src.replace(/assets\/partials\.js$/, '');
   const R = (p) => base + p;
 
+  // ---------- shared category taxonomy (used by both desktop mega + mobile drawer) ----------
+  const MM_CLUBS = {
+    'premier-league': { label: 'Premier League', items: [['arsenal','Arsenal'],['aston-villa','Aston Villa'],['bournemouth','Bournemouth'],['brentford','Brentford'],['brighton','Brighton'],['burnley','Burnley'],['chelsea','Chelsea'],['crystal-palace','Crystal Palace'],['everton','Everton'],['fulham','Fulham'],['leeds-utd','Leeds Utd.'],['liverpool','Liverpool'],['manchester-city','Manchester City'],['manchester-utd','Manchester Utd.'],['newcastle-utd','Newcastle Utd.'],['nottingham-forest','Nottingham Forest'],['sunderland','Sunderland'],['tottenham','Tottenham'],['west-ham','West Ham'],['wolverhampton','Wolverhampton']] },
+    'efl-championship': { label: 'EFL Championship', items: [['derby','Derby'],['hull-city','Hull City'],['leicester','Leicester'],['millwall','Millwall'],['southampton','Southampton'],['swansea','Swansea'],['sheffield-utd','Sheffield Utd.'],['qpr','QPR']] },
+    'la-liga': { label: 'La Liga', items: [['athletic-bilbao','Athletic Bilbao'],['atletico-madrid','Atlético Madrid'],['barcelona','Barcelona'],['cd-tenerife','CD Tenerife'],['girona','Girona'],['malaga','Málaga'],['real-betis','Real Betis'],['real-madrid','Real Madrid'],['real-sociedad','Real Sociedad'],['sevilla','Sevilla'],['valencia','Valencia'],['villareal','Villarreal']] },
+    'serie-a': { label: 'Serie A', items: [['ac-milan','AC Milan'],['as-roma','AS Roma'],['atalanta','Atalanta'],['bologna','Bologna'],['como','Como'],['fiorentina','Fiorentina'],['inter-milan','Inter Milan'],['juventus','Juventus'],['lazio-roma','Lazio Roma'],['napoli','Napoli'],['parma','Parma'],['torino','Torino'],['venezia','Venezia'],['udinese','Udinese']] },
+    'serie-b': { label: 'Serie B', items: [['sampdoria','Sampdoria'],['monza','Monza'],['pescara','Pescara']] },
+    'bundesliga': { label: 'Bundesliga', items: [['bayer-leverkusen','Bayer 04 Leverkusen'],['bayern-munich','Bayern Munich'],['borussia-dortmund','Borussia Dortmund'],['borussia-monchengladbach','Borussia Mönchengladbach'],['eintracht-frankfurt','Eintracht Frankfurt'],['rb-leipzig','RB Leipzig'],['union-berlin','Union Berlin'],['vfb-stuttgart','VFB Stuttgart']] },
+    'ligue-1': { label: 'Ligue 1', items: [['as-monaco','AS Monaco'],['losc-lille','LOSC Lille'],['olympique-marseille','Olympique Marseille'],['olympique-lyon','Olympique Lyon'],['psg','PSG']] },
+    'mls': { label: 'MLS', items: [['chicago-fire','Chicago Fire'],['inter-miami','Inter Miami'],['la-galaxy','LA Galaxy'],['new-york-fc','New York FC'],['orlando-city','Orlando City'],['seattle-sounders','Seattle Sounders']] },
+    'eredivisie': { label: 'Eredivisie', items: [['ajax-amsterdam','Ajax Amsterdam'],['feyenoord','Feyenoord'],['psv-eindhoven','PSV Eindhoven']] },
+    'liga-portugal': { label: 'Liga Portugal', items: [['benfica-lisboa','Benfica Lizbona'],['sporting','Sporting'],['porto','Porto']] },
+    'ekstraklasa': { label: 'Ekstraklasa', items: [['lech-poznan','Lech Poznań'],['legia-warszawa','Legia Warszawa'],['wisla-krakow','Wisła Kraków']] },
+    'reszta-swiata': { label: 'Reszta świata', items: [['al-hilal','Al Hilal'],['al-nassr','Al Nassr'],['besiktas','Beşiktaş'],['galatasaray','Galatasaray'],['fenerbahce','Fenerbahçe'],['celtic','Celtic'],['rangers','Rangers'],['aek-athens','AEK Athens'],['paok-saloniki','PAOK Saloniki'],['panathinaikos','Panathinaikos'],['olympiakos','Olympiakos']] },
+  };
+  const MM_NATIONALS = {
+    'reprezentacje-europa': { label: 'Europa', items: [['polska','Polska'],['anglia','Anglia'],['belgia','Belgia'],['chorwacja','Chorwacja'],['czechy','Czechy'],['francja','Francja'],['grecja','Grecja'],['holandia','Holandia'],['hiszpania','Hiszpania'],['niemcy','Niemcy'],['portugalia','Portugalia'],['wlochy','Włochy']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-ameryka': { label: 'Ameryka', items: [['argentyna','Argentyna'],['brazylia','Brazylia'],['chile','Chile'],['ekwador','Ekwador'],['kolumbia','Kolumbia'],['urugwaj','Urugwaj'],['usa','USA']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-azja': { label: 'Azja', items: [['australia','Australia'],['japonia','Japonia'],['korea-poludniowa','Korea Płd.']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-afryka': { label: 'Afryka', items: [['algieria','Algieria'],['egipt','Egipt'],['kamerun','Kamerun'],['maroko','Maroko'],['senegal','Senegal'],['wybrzeze-kosci-sloniowej','Wybrzeże Kości Słoniowej']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+  };
+  const MM_CARDS = {
+    'karty-daka':   { label: 'DAKA',   items: [['daka-top-audience-ac-milan','Top Audience AC Milan'],['daka-top-audience-barcelona','Top Audience Barcelona'],['daka-top-audience-belgium','Top Audience Belgia'],['daka-top-audience-inter-milan','Top Audience Inter Milan'],['daka-top-audience-juventus','Top Audience Juventus'],['daka-top-audience-manchester-city','Top Audience Manchester City'],['daka-top-audience-real-madrid','Top Audience Real Madrid']] },
+    'karty-topps':  { label: 'Topps',  items: [['topps-chrome','Chrome'],['topps-merlin','Merlin'],['topps-arsenal','Arsenal'],['topps-atletico-madrid','Atlético Madrid'],['topps-barcelona','Barcelona'],['topps-bayern-munich','Bayern Munich'],['topps-chelsea','Chelsea'],['topps-liverpool','Liverpool'],['topps-manchester-city','Manchester City'],['topps-manchester-utd','Manchester Utd.'],['topps-psg','PSG'],['topps-real-madrid','Real Madrid']] },
+    'karty-panini': { label: 'Panini', items: [['panini-world-cup-2026','World Cup 2026'],['panini-euro-2012','Euro 2012']] },
+  };
+  const MM_MYSTERY = {
+    'mystery-basic':     { label: 'Basic',     items: [] },
+    'mystery-premium':   { label: 'Premium',   items: [] },
+    'mystery-ultimate':  { label: 'Ultimate',  items: [] },
+    'mystery-blind-box': { label: 'Blind Box', items: [] },
+  };
+  const MM_TOPS = [
+    { slug:'kluby',             label:'Kluby',             subs: MM_CLUBS,     seeAll:'Wszystkie kluby',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/></svg>' },
+    { slug:'reprezentacje',     label:'Reprezentacje',     subs: MM_NATIONALS, seeAll:'Wszystkie reprezentacje', icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>' },
+    { slug:'karty-pilkarskie',  label:'Karty piłkarskie',  subs: MM_CARDS,     seeAll:'Wszystkie karty',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>' },
+    { slug:'mystery-box',       label:'Mystery Box',       subs: MM_MYSTERY,   seeAll:'Wszystkie boxy',      icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18v13H3zM3 7l3-4h12l3 4M12 7v13M12 11v0"/></svg>' },
+  ];
+  const MM_FLATS = [
+    { slug:'bluzy-i-kurtki', label:'Kurtki i bluzy',         icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7l3-3h8l3 3 2 4-3 1v9H5v-9L2 11z"/></svg>' },
+    { slug:'best-of',        label:'Best Of',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>' },
+    { slug:'nowe-z-metka',   label:'Nowe z metką',           icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l9-10 9 10-9 8z"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></svg>' },
+    { slug:'nowosci',        label:'Nowości',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg>' },
+  ];
+
+  // Renderer for desktop mega: 2-col drill (left = subs / right = items per active sub)
+  function renderDesktopMega(top){
+    const subs = Object.entries(top.subs);
+    const itemColsClass = top.slug === 'kluby' || top.slug === 'reprezentacje' ? 'grid-cols-3' : 'grid-cols-2';
+    return `
+      <div class="mega mega-wide">
+        <div class="mx-auto max-w-[1600px] px-10 py-8" data-dm-drill="${top.slug}">
+          <div class="grid grid-cols-[280px_1fr] gap-10 min-h-[360px]">
+            <div class="dm-subs-col border-r hairline pr-6 py-2">
+              ${subs.map(([slug,sub],i) => `<button type="button" data-dm-sub="${slug}" class="dm-sub${i===0?' dm-sub-active':''}"><span>${sub.label}</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 6 15 12 9 18"/></svg></button>`).join('')}
+              <a href="${R('collections/'+top.slug+'.html')}" class="dm-see-all">${top.seeAll}</a>
+            </div>
+            <div class="dm-items-col py-2">
+              ${subs.map(([slug,sub],i) => `<div data-dm-items-for="${slug}" class="${i===0?'':'hidden'} grid ${itemColsClass} gap-x-8 gap-y-1.5">${sub.items.length ? sub.items.map(([is,il]) => `<a href="${R('collections/'+is+'.html')}" class="mega-link">${il}</a>`).join('') : `<div class="text-[13px] text-black/55 py-2 col-span-full"><a href="${R('collections/'+slug+'.html')}" class="link-underline">Zobacz produkty →</a></div>`}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
   const header = `
 <div id="site-announcement" class="bg-black text-white text-[11px] tracking-wide2 uppercase relative z-40 h-9 overflow-hidden">
   <div class="marquee absolute inset-y-0 left-0 flex items-center whitespace-nowrap will-change-transform">
@@ -56,148 +121,19 @@
         <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px]">Nowości</a>
         <div class="has-mega">
           <a href="${R('collections/kluby.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Kluby <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega mega-wide">
-            <div class="mx-auto max-w-[1600px] px-10 py-10 grid grid-cols-12 gap-8">
-              <div class="col-span-3">
-                <div class="mega-col-title">Europa</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/premier-league.html')}" class="mega-link">Premier League</a></li>
-                  <li><a href="${R('collections/efl-championship.html')}" class="mega-link">EFL Championship</a></li>
-                  <li><a href="${R('collections/la-liga.html')}" class="mega-link">La Liga</a></li>
-                  <li><a href="${R('collections/serie-a.html')}" class="mega-link">Serie A</a></li>
-                  <li><a href="${R('collections/serie-b.html')}" class="mega-link">Serie B</a></li>
-                  <li><a href="${R('collections/bundesliga.html')}" class="mega-link">Bundesliga</a></li>
-                  <li><a href="${R('collections/ligue-1.html')}" class="mega-link">Ligue 1</a></li>
-                  <li><a href="${R('collections/eredivisie.html')}" class="mega-link">Eredivisie</a></li>
-                  <li><a href="${R('collections/liga-portugal.html')}" class="mega-link">Liga Portugal</a></li>
-                  <li><a href="${R('collections/ekstraklasa.html')}" class="mega-link">Ekstraklasa</a></li>
-                </ul>
-              </div>
-              <div class="col-span-3">
-                <div class="mega-col-title">Reszta świata</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/mls.html')}" class="mega-link">MLS</a></li>
-                  <li><a href="${R('collections/saudi-pro-league.html')}" class="mega-link">Saudi Pro League</a></li>
-                  <li><a href="${R('collections/super-lig.html')}" class="mega-link">Super Lig</a></li>
-                  <li><a href="${R('collections/scottish-premiership.html')}" class="mega-link">Scottish Premiership</a></li>
-                  <li><a href="${R('collections/superleague-ellada.html')}" class="mega-link">Superleague Ellada</a></li>
-                  <li><a href="${R('collections/reszta-swiata.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
-                </ul>
-              </div>
-              <a href="${R('collections/premier-league.html')}" class="col-span-3 group">
-                <div class="mega-card tile">
-                  <img src="${R('brand_assets/photos/banner-kluby.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/0"></div>
-                  <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Najpopularniejsza</div>
-                  <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">Premier League</div>
-                </div>
-              </a>
-              <a href="${R('collections/la-liga.html')}" class="col-span-3 group">
-                <div class="mega-card tile">
-                  <img src="${R('brand_assets/photos/banner-resztaswiata.webp')}" alt="" class="absolute inset-0 h-full w-full object-cover"/>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/0"></div>
-                  <div class="absolute left-5 top-5 text-[10px] tracking-wide2 uppercase text-white/85">Klasyki El Clásico</div>
-                  <div class="absolute left-5 bottom-5 text-white font-display text-[22px] leading-tight normal-case">La Liga</div>
-                </div>
-              </a>
-            </div>
-          </div>
+          ${renderDesktopMega(MM_TOPS[0])}
         </div>
         <div class="has-mega">
           <a href="${R('collections/reprezentacje.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Reprezentacje <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega mega-wide">
-            <div class="mx-auto max-w-[1600px] px-10 py-10 grid grid-cols-12 gap-8">
-              <div class="col-span-3">
-                <div class="mega-col-title">Europa</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/reprezentacja-polska.html')}" class="mega-link">Polska</a></li>
-                  <li><a href="${R('collections/reprezentacja-anglia.html')}" class="mega-link">Anglia</a></li>
-                  <li><a href="${R('collections/reprezentacja-niemcy.html')}" class="mega-link">Niemcy</a></li>
-                  <li><a href="${R('collections/reprezentacja-hiszpania.html')}" class="mega-link">Hiszpania</a></li>
-                  <li><a href="${R('collections/reprezentacja-francja.html')}" class="mega-link">Francja</a></li>
-                  <li><a href="${R('collections/reprezentacja-wlochy.html')}" class="mega-link">Włochy</a></li>
-                  <li><a href="${R('collections/reprezentacje-europa.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
-                </ul>
-              </div>
-              <div class="col-span-3">
-                <div class="mega-col-title">Ameryka</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/reprezentacja-argentyna.html')}" class="mega-link">Argentyna</a></li>
-                  <li><a href="${R('collections/reprezentacja-brazylia.html')}" class="mega-link">Brazylia</a></li>
-                  <li><a href="${R('collections/reprezentacja-urugwaj.html')}" class="mega-link">Urugwaj</a></li>
-                  <li><a href="${R('collections/reprezentacja-usa.html')}" class="mega-link">USA</a></li>
-                  <li><a href="${R('collections/reprezentacje-ameryka.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
-                </ul>
-              </div>
-              <div class="col-span-3">
-                <div class="mega-col-title">Azja</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/reprezentacja-japonia.html')}" class="mega-link">Japonia</a></li>
-                  <li><a href="${R('collections/reprezentacja-korea-poludniowa.html')}" class="mega-link">Korea Płd.</a></li>
-                  <li><a href="${R('collections/reprezentacja-australia.html')}" class="mega-link">Australia</a></li>
-                  <li><a href="${R('collections/reprezentacje-azja.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
-                </ul>
-              </div>
-              <div class="col-span-3">
-                <div class="mega-col-title">Afryka</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/reprezentacja-maroko.html')}" class="mega-link">Maroko</a></li>
-                  <li><a href="${R('collections/reprezentacja-senegal.html')}" class="mega-link">Senegal</a></li>
-                  <li><a href="${R('collections/reprezentacja-egipt.html')}" class="mega-link">Egipt</a></li>
-                  <li><a href="${R('collections/reprezentacja-algieria.html')}" class="mega-link">Algieria</a></li>
-                  <li><a href="${R('collections/reprezentacje-afryka.html')}" class="mega-link text-black/55">Zobacz wszystko →</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          ${renderDesktopMega(MM_TOPS[1])}
         </div>
         <div class="has-mega">
           <a href="${R('collections/karty-pilkarskie.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Karty <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega rounded-b-[2px] min-w-[560px]">
-            <div class="px-8 py-8 grid grid-cols-3 gap-8">
-              <div>
-                <div class="mega-col-title">DAKA</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/daka-top-audience-real-madrid.html')}" class="mega-link">Top Audience Real Madrid</a></li>
-                  <li><a href="${R('collections/daka-top-audience-barcelona.html')}" class="mega-link">Top Audience Barcelona</a></li>
-                  <li><a href="${R('collections/daka-top-audience-juventus.html')}" class="mega-link">Top Audience Juventus</a></li>
-                  <li><a href="${R('collections/daka-top-audience-manchester-city.html')}" class="mega-link">Top Audience Man. City</a></li>
-                  <li><a href="${R('collections/karty-daka.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
-                </ul>
-              </div>
-              <div>
-                <div class="mega-col-title">Topps</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/topps-chrome.html')}" class="mega-link">Chrome</a></li>
-                  <li><a href="${R('collections/topps-merlin.html')}" class="mega-link">Merlin</a></li>
-                  <li><a href="${R('collections/topps-real-madrid.html')}" class="mega-link">Real Madrid</a></li>
-                  <li><a href="${R('collections/topps-barcelona.html')}" class="mega-link">Barcelona</a></li>
-                  <li><a href="${R('collections/karty-topps.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
-                </ul>
-              </div>
-              <div>
-                <div class="mega-col-title">Panini</div>
-                <ul class="space-y-0.5">
-                  <li><a href="${R('collections/panini-world-cup-2026.html')}" class="mega-link">World Cup 2026</a></li>
-                  <li><a href="${R('collections/panini-euro-2012.html')}" class="mega-link">Euro 2012</a></li>
-                  <li><a href="${R('collections/karty-panini.html')}" class="mega-link text-black/55">Zobacz wszystkie →</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          ${renderDesktopMega(MM_TOPS[2])}
         </div>
         <div class="has-mega">
           <a href="${R('collections/mystery-box.html')}" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Mystery Box <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="mega rounded-b-[2px] min-w-[220px]">
-            <div class="px-6 py-6">
-              <ul class="space-y-0.5">
-                <li><a href="${R('collections/mystery-basic.html')}" class="mega-link">Basic</a></li>
-                <li><a href="${R('collections/mystery-premium.html')}" class="mega-link">Premium</a></li>
-                <li><a href="${R('collections/mystery-ultimate.html')}" class="mega-link">Ultimate</a></li>
-                <li><a href="${R('collections/mystery-blind-box.html')}" class="mega-link">Blind Box</a></li>
-              </ul>
-            </div>
-          </div>
+          ${renderDesktopMega(MM_TOPS[3])}
         </div>
         <div class="has-mega">
           <a href="#" class="hover:text-black inline-flex items-center gap-1.5 h-[72px]">Pozostałe <svg class="caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -392,51 +328,6 @@
     </div>
   </div>
 </div>`;
-
-  // ---------- mobile menu: 2-column drill-down ----------
-  const MM_CLUBS = {
-    'premier-league': { label: 'Premier League', items: [['arsenal','Arsenal'],['aston-villa','Aston Villa'],['bournemouth','Bournemouth'],['brentford','Brentford'],['brighton','Brighton'],['burnley','Burnley'],['chelsea','Chelsea'],['crystal-palace','Crystal Palace'],['everton','Everton'],['fulham','Fulham'],['leeds-utd','Leeds Utd.'],['liverpool','Liverpool'],['manchester-city','Manchester City'],['manchester-utd','Manchester Utd.'],['newcastle-utd','Newcastle Utd.'],['nottingham-forest','Nottingham Forest'],['sunderland','Sunderland'],['tottenham','Tottenham'],['west-ham','West Ham'],['wolverhampton','Wolverhampton']] },
-    'efl-championship': { label: 'EFL Championship', items: [['derby','Derby'],['hull-city','Hull City'],['leicester','Leicester'],['millwall','Millwall'],['southampton','Southampton'],['swansea','Swansea'],['sheffield-utd','Sheffield Utd.'],['qpr','QPR']] },
-    'la-liga': { label: 'La Liga', items: [['athletic-bilbao','Athletic Bilbao'],['atletico-madrid','Atlético Madrid'],['barcelona','Barcelona'],['cd-tenerife','CD Tenerife'],['girona','Girona'],['malaga','Málaga'],['real-betis','Real Betis'],['real-madrid','Real Madrid'],['real-sociedad','Real Sociedad'],['sevilla','Sevilla'],['valencia','Valencia'],['villareal','Villarreal']] },
-    'serie-a': { label: 'Serie A', items: [['ac-milan','AC Milan'],['as-roma','AS Roma'],['atalanta','Atalanta'],['bologna','Bologna'],['como','Como'],['fiorentina','Fiorentina'],['inter-milan','Inter Milan'],['juventus','Juventus'],['lazio-roma','Lazio Roma'],['napoli','Napoli'],['parma','Parma'],['torino','Torino'],['venezia','Venezia'],['udinese','Udinese']] },
-    'serie-b': { label: 'Serie B', items: [['sampdoria','Sampdoria'],['monza','Monza'],['pescara','Pescara']] },
-    'bundesliga': { label: 'Bundesliga', items: [['bayer-leverkusen','Bayer 04 Leverkusen'],['bayern-munich','Bayern Munich'],['borussia-dortmund','Borussia Dortmund'],['borussia-monchengladbach','Borussia Mönchengladbach'],['eintracht-frankfurt','Eintracht Frankfurt'],['rb-leipzig','RB Leipzig'],['union-berlin','Union Berlin'],['vfb-stuttgart','VFB Stuttgart']] },
-    'ligue-1': { label: 'Ligue 1', items: [['as-monaco','AS Monaco'],['losc-lille','LOSC Lille'],['olympique-marseille','Olympique Marseille'],['olympique-lyon','Olympique Lyon'],['psg','PSG']] },
-    'mls': { label: 'MLS', items: [['chicago-fire','Chicago Fire'],['inter-miami','Inter Miami'],['la-galaxy','LA Galaxy'],['new-york-fc','New York FC'],['orlando-city','Orlando City'],['seattle-sounders','Seattle Sounders']] },
-    'eredivisie': { label: 'Eredivisie', items: [['ajax-amsterdam','Ajax Amsterdam'],['feyenoord','Feyenoord'],['psv-eindhoven','PSV Eindhoven']] },
-    'liga-portugal': { label: 'Liga Portugal', items: [['benfica-lisboa','Benfica Lizbona'],['sporting','Sporting'],['porto','Porto']] },
-    'ekstraklasa': { label: 'Ekstraklasa', items: [['lech-poznan','Lech Poznań'],['legia-warszawa','Legia Warszawa'],['wisla-krakow','Wisła Kraków']] },
-    'reszta-swiata': { label: 'Reszta świata', items: [['al-hilal','Al Hilal'],['al-nassr','Al Nassr'],['besiktas','Beşiktaş'],['galatasaray','Galatasaray'],['fenerbahce','Fenerbahçe'],['celtic','Celtic'],['rangers','Rangers'],['aek-athens','AEK Athens'],['paok-saloniki','PAOK Saloniki'],['panathinaikos','Panathinaikos'],['olympiakos','Olympiakos']] },
-  };
-  const MM_NATIONALS = {
-    'reprezentacje-europa': { label: 'Europa', items: [['polska','Polska'],['anglia','Anglia'],['belgia','Belgia'],['chorwacja','Chorwacja'],['czechy','Czechy'],['francja','Francja'],['grecja','Grecja'],['holandia','Holandia'],['hiszpania','Hiszpania'],['niemcy','Niemcy'],['portugalia','Portugalia'],['wlochy','Włochy']].map(x=>['reprezentacja-'+x[0], x[1]]) },
-    'reprezentacje-ameryka': { label: 'Ameryka', items: [['argentyna','Argentyna'],['brazylia','Brazylia'],['chile','Chile'],['ekwador','Ekwador'],['kolumbia','Kolumbia'],['urugwaj','Urugwaj'],['usa','USA']].map(x=>['reprezentacja-'+x[0], x[1]]) },
-    'reprezentacje-azja': { label: 'Azja', items: [['australia','Australia'],['japonia','Japonia'],['korea-poludniowa','Korea Płd.']].map(x=>['reprezentacja-'+x[0], x[1]]) },
-    'reprezentacje-afryka': { label: 'Afryka', items: [['algieria','Algieria'],['egipt','Egipt'],['kamerun','Kamerun'],['maroko','Maroko'],['senegal','Senegal'],['wybrzeze-kosci-sloniowej','Wybrzeże Kości Słoniowej']].map(x=>['reprezentacja-'+x[0], x[1]]) },
-  };
-  const MM_CARDS = {
-    'karty-daka':   { label: 'DAKA',   items: [['daka-top-audience-ac-milan','Top Audience AC Milan'],['daka-top-audience-barcelona','Top Audience Barcelona'],['daka-top-audience-belgium','Top Audience Belgia'],['daka-top-audience-inter-milan','Top Audience Inter Milan'],['daka-top-audience-juventus','Top Audience Juventus'],['daka-top-audience-manchester-city','Top Audience Manchester City'],['daka-top-audience-real-madrid','Top Audience Real Madrid']] },
-    'karty-topps':  { label: 'Topps',  items: [['topps-chrome','Chrome'],['topps-merlin','Merlin'],['topps-arsenal','Arsenal'],['topps-atletico-madrid','Atlético Madrid'],['topps-barcelona','Barcelona'],['topps-bayern-munich','Bayern Munich'],['topps-chelsea','Chelsea'],['topps-liverpool','Liverpool'],['topps-manchester-city','Manchester City'],['topps-manchester-utd','Manchester Utd.'],['topps-psg','PSG'],['topps-real-madrid','Real Madrid']] },
-    'karty-panini': { label: 'Panini', items: [['panini-world-cup-2026','World Cup 2026'],['panini-euro-2012','Euro 2012']] },
-  };
-  const MM_MYSTERY = {
-    'mystery-basic':     { label: 'Basic',     items: [] },
-    'mystery-premium':   { label: 'Premium',   items: [] },
-    'mystery-ultimate':  { label: 'Ultimate',  items: [] },
-    'mystery-blind-box': { label: 'Blind Box', items: [] },
-  };
-  const MM_TOPS = [
-    { slug:'kluby',             label:'Kluby',             subs: MM_CLUBS,     seeAll:'Wszystkie kluby',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/></svg>' },
-    { slug:'reprezentacje',     label:'Reprezentacje',     subs: MM_NATIONALS, seeAll:'Wszystkie reprezentacje', icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>' },
-    { slug:'karty-pilkarskie',  label:'Karty piłkarskie',  subs: MM_CARDS,     seeAll:'Wszystkie karty',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>' },
-    { slug:'mystery-box',       label:'Mystery Box',       subs: MM_MYSTERY,   seeAll:'Wszystkie boxy',      icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18v13H3zM3 7l3-4h12l3 4M12 7v13M12 11v0"/></svg>' },
-  ];
-  const MM_FLATS = [
-    { slug:'bluzy-i-kurtki', label:'Kurtki i bluzy',         icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7l3-3h8l3 3 2 4-3 1v9H5v-9L2 11z"/></svg>' },
-    { slug:'best-of',        label:'Best Of',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>' },
-    { slug:'nowe-z-metka',   label:'Nowe z metką',           icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l9-10 9 10-9 8z"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></svg>' },
-    { slug:'nowosci',        label:'Nowości',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg>' },
-  ];
 
   // mobile drawer renders as a navigation STACK (iOS-style push/pop).
   // Each level lives on its own absolutely-positioned screen; tapping a row pushes the next
@@ -1133,6 +1024,23 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
   }
 
+  function bindDesktopMega(){
+    document.querySelectorAll('[data-dm-drill]').forEach(drill => {
+      const subs  = drill.querySelectorAll('[data-dm-sub]');
+      const items = drill.querySelectorAll('[data-dm-items-for]');
+      subs.forEach(sb => {
+        const activate = () => {
+          const k = sb.getAttribute('data-dm-sub');
+          subs.forEach(x => x.classList.toggle('dm-sub-active', x === sb));
+          items.forEach(b => b.classList.toggle('hidden', b.getAttribute('data-dm-items-for') !== k));
+        };
+        sb.addEventListener('mouseenter', activate);
+        sb.addEventListener('focus', activate);
+        sb.addEventListener('click', activate);
+      });
+    });
+  }
+
   function bindMobileMenu(){
     const drawer = document.getElementById('mobile-menu');
     if (!drawer) return;
@@ -1212,6 +1120,7 @@
     document.body.insertAdjacentHTML('beforeend', sizeGuideModal);
     document.body.insertAdjacentHTML('beforeend', filterDrawer);
     bindMobileMenu();
+    bindDesktopMega();
     bindFilters();
     bindSort();
     bindSearch();

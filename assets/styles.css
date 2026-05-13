@@ -180,3 +180,14 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 .mm-back-chev{color:rgba(13,13,13,.55)}
 
 #mobile-menu [data-mm-panel]{will-change:transform}
+
+/* Desktop mega: 2-column hover drill (subs left, items right) */
+.dm-subs-col{display:flex;flex-direction:column}
+.dm-sub{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 14px;font-family:'Michroma','Fraunces',Georgia,serif;font-size:13px;letter-spacing:.01em;line-height:1.1;color:rgba(13,13,13,.65);background:transparent;border:0;border-radius:4px;text-align:left;cursor:pointer;transition:background .15s, color .15s}
+.dm-sub > svg{color:rgba(13,13,13,.35);transition:color .15s, transform .15s;flex-shrink:0;margin-left:10px}
+.dm-sub:hover{color:#0d0d0d;background:rgba(13,13,13,.04)}
+.dm-sub-active{color:#0d0d0d;background:rgba(13,13,13,.05)}
+.dm-sub-active > svg{color:#0d0d0d;transform:translateX(2px)}
+.dm-see-all{display:block;margin-top:auto;padding:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);border-top:1px solid var(--hair)}
+.dm-see-all:hover{color:#0d0d0d}
+.dm-items-col .mega-link{padding:6px 0}
