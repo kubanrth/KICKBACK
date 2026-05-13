@@ -170,6 +170,7 @@
           <li><a href="${R('collections/best-sellers.html')}" class="hover:text-white">Mystery Box</a></li>
           <li><a href="${R('collections/jackets-coats.html')}" class="hover:text-white">Bluzy i kurtki</a></li>
           <li><a href="${R('collections/accessories.html')}" class="hover:text-white">Akcesoria</a></li>
+          <li><a href="${R('collections/best-sellers.html')}#sale" class="hover:text-white text-[#e8c87a]">Aktualne promocje</a></li>
         </ul>
       </div>
     </div>
@@ -183,17 +184,32 @@
         <a href="#" aria-label="TikTok" class="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3v11a4 4 0 1 1-4-4"/><path d="M15 3a5 5 0 0 0 5 5"/></svg></a>
       </div>
     </div>
-    <div class="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-white/50">
-      <div>Copyright © 2026 DigiFist. All rights reserved. Powered by Shopify.</div>
-      <div class="flex items-center gap-2 opacity-80">
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
-        <span class="h-6 w-9 bg-white/10 rounded-[2px]"></span>
+    <div class="mt-10 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-10">
+      <div class="space-y-5">
+        <div>
+          <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Płatności</div>
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black">BLIK</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#1a1f71]">VISA</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[10px] font-semibold tracking-wide rounded-[4px] bg-white text-[#eb001b]">Mastercard</span>
+            <span class="inline-flex items-center justify-center gap-1 h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black"><svg width="11" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 11.5c0 3.7 3.3 4.9 3.3 5 0 0-2.7 1-3.4 2.8-.5 1.4 0 2.5-1.2 2.5-.8 0-1.4-.4-2.4-.4-1 0-1.6.4-2.4.4-1.7 0-3-3.1-3-5.6 0-3.7 2.3-5.6 4.5-5.6 1 0 2 .7 2.7.7.6 0 1.8-.8 3-.7 1.6.1 2.8.6 3.5 1.7-.1.1-2.6 1.6-2.6 4.6V11.5zm-3.5-8.5C12.7 1.4 13.7 0 14.8 0c.1 1.6-1.5 3.5-2.6 3.5z"/></svg>Pay</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[10px] font-semibold tracking-wide rounded-[4px] bg-white text-black">G Pay</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#e60028]">PayNow</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#9b3eb1]">PayPo</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Dostawa</div>
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#ffcc00] text-black">InPost Paczkomat</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black">InPost Kurier</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#e60028]">Orlen Paczka</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#ffcc00] text-[#cc0000]">DHL</span>
+            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#dc0032] text-white">DPD</span>
+          </div>
+        </div>
       </div>
+      <div class="text-[11px] text-white/50 md:text-right md:self-end">Copyright © 2026 DigiFist. Wszystkie prawa zastrzeżone. Powered by Shopify.</div>
     </div>
   </div>
 </footer>`;
