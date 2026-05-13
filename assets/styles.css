@@ -17,8 +17,8 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 /* Topowe nazwiska — 3-up wide slider */
 .topowe-slider{scrollbar-width:none;-ms-overflow-style:none}
 .topowe-slider::-webkit-scrollbar{display:none}
-.topowe-slider > a{flex:0 0 calc(85% - 0px);scroll-snap-align:start}
-@media (min-width:768px){.topowe-slider > a{flex:0 0 calc(33.333% - 19px)}}
+.topowe-slider > a{flex:0 0 100%;scroll-snap-align:center}
+@media (min-width:768px){.topowe-slider > a{flex:0 0 calc(33.333% - 19px);scroll-snap-align:start}}
 /* Quick-add "+" overlay on product cards */
 .qv-btn{position:absolute;right:14px;bottom:14px;height:38px;width:38px;border-radius:999px;background:#fff;color:#0d0d0d;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease,background .2s ease,color .2s ease;z-index:5;cursor:pointer;border:0}
 .qv-btn::after{content:"+";font-size:22px;font-weight:300;line-height:1}
@@ -148,4 +148,11 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 @media (max-width:767px){
   #ba-handle{height:48px;width:48px}
   #ba-divider{width:3px}
+}
+
+/* What's new tabs — mobile: scrollable strip with active tab centered via snap */
+@media (max-width: 767px){
+  .wn-tabs-strip{padding-left:50%;padding-right:50%;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .wn-tabs-strip::-webkit-scrollbar{display:none}
+  .wn-tabs-strip .wn-tab{scroll-snap-align:center;scroll-snap-stop:always}
 }
