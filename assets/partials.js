@@ -501,27 +501,28 @@
 
   function recommendedSliderHTML(title){
     const items = [
-      { name: 'Real Madrid Home 02/03', price: 219, img: 'https://placehold.co/600x750/3d3a30/3d3a30.png', url: R('collections/all.html#real-madrid') },
-      { name: 'Brazylia Reprezentacja 1998', price: 189, img: 'https://placehold.co/600x750/c4b48c/c4b48c.png', url: R('collections/all.html#brazil') },
-      { name: 'Manchester United Retro 99/00', price: 239, img: 'https://placehold.co/600x750/8c2a1f/8c2a1f.png', url: R('collections/all.html#manchester-united') },
-      { name: 'Karta piłkarska — Topps Chrome', price: 49, img: 'https://placehold.co/600x750/e8d8b0/e8d8b0.png', url: R('collections/all.html#cards') },
-      { name: 'Mystery Box S', price: 149, img: 'https://placehold.co/600x750/1e1e1e/1e1e1e.png', url: R('collections/all.html#mystery') },
-      { name: 'Bayern München Home', price: 209, img: 'https://placehold.co/600x750/a52424/a52424.png', url: R('collections/all.html#bayern-munich') },
+      { id: 'rec-real-madrid-02', name: 'Real Madrid Home 02/03', price: 219, img: 'https://placehold.co/600x750/3d3a30/3d3a30.png', url: R('collections/all.html#real-madrid'), sizes: 'S,M,L,XL' },
+      { id: 'rec-brazylia-98',   name: 'Brazylia Reprezentacja 1998', price: 189, img: 'https://placehold.co/600x750/c4b48c/c4b48c.png', url: R('collections/all.html#brazylia'), sizes: 'S,M,L,XL' },
+      { id: 'rec-mu-99',         name: 'Manchester United Retro 99/00', price: 239, img: 'https://placehold.co/600x750/8c2a1f/8c2a1f.png', url: R('collections/all.html#manchester-united'), sizes: 'S,M,L,XL,XXL' },
+      { id: 'rec-card-topps',    name: 'Karta piłkarska — Topps Chrome', price: 49, img: 'https://placehold.co/600x750/e8d8b0/e8d8b0.png', url: R('collections/basics.html'), sizes: 'one' },
+      { id: 'rec-mbox-s',        name: 'Mystery Box S', price: 149, img: 'https://placehold.co/600x750/1e1e1e/1e1e1e.png', url: R('collections/basics.html'), sizes: 'S,M,L,XL' },
+      { id: 'rec-bayern',        name: 'Bayern München Home', price: 209, img: 'https://placehold.co/600x750/a52424/a52424.png', url: R('collections/all.html#bayern-munich'), sizes: 'S,M,L,XL' },
     ];
     return `
       <section class="px-6 md:px-8 py-8 border-t hairline">
         <h3 class="h-section text-[18px] md:text-[20px] mb-5">${title}</h3>
         <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 md:-mx-8 px-6 md:px-8 pb-2">
           ${items.map(p => `
-            <a href="${p.url}" class="group block shrink-0 w-[150px] md:w-[170px] snap-start">
+            <article class="group block shrink-0 w-[150px] md:w-[170px] snap-start" data-qv-card data-qv-id="${p.id}" data-qv-name="${p.name}" data-qv-price="${formatPLN(p.price)}" data-qv-image="${p.img}" data-qv-url="${p.url}" data-qv-sizes="${p.sizes}">
               <div class="tile relative aspect-[4/5] overflow-hidden rounded-[2px]">
-                <img src="${p.img}" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>
+                <a href="${p.url}" class="absolute inset-0"><img src="${p.img}" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"/></a>
+                <button type="button" class="qv-btn" data-qv-open aria-label="Dodaj do koszyka"></button>
               </div>
               <div class="mt-3">
                 <div class="pc-name">${p.name}</div>
                 <div class="mt-1 text-[12px] tabular-nums">${formatPLN(p.price)}</div>
               </div>
-            </a>
+            </article>
           `).join('')}
         </div>
       </section>
