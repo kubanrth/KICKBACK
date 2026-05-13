@@ -393,82 +393,87 @@
   </div>
 </div>`;
 
+  // ---------- mobile menu: 2-column drill-down ----------
+  const MM_CLUBS = {
+    'premier-league': { label: 'Premier League', items: [['arsenal','Arsenal'],['aston-villa','Aston Villa'],['bournemouth','Bournemouth'],['brentford','Brentford'],['brighton','Brighton'],['burnley','Burnley'],['chelsea','Chelsea'],['crystal-palace','Crystal Palace'],['everton','Everton'],['fulham','Fulham'],['leeds-utd','Leeds Utd.'],['liverpool','Liverpool'],['manchester-city','Manchester City'],['manchester-utd','Manchester Utd.'],['newcastle-utd','Newcastle Utd.'],['nottingham-forest','Nottingham Forest'],['sunderland','Sunderland'],['tottenham','Tottenham'],['west-ham','West Ham'],['wolverhampton','Wolverhampton']] },
+    'efl-championship': { label: 'EFL Championship', items: [['derby','Derby'],['hull-city','Hull City'],['leicester','Leicester'],['millwall','Millwall'],['southampton','Southampton'],['swansea','Swansea'],['sheffield-utd','Sheffield Utd.'],['qpr','QPR']] },
+    'la-liga': { label: 'La Liga', items: [['athletic-bilbao','Athletic Bilbao'],['atletico-madrid','Atlético Madrid'],['barcelona','Barcelona'],['cd-tenerife','CD Tenerife'],['girona','Girona'],['malaga','Málaga'],['real-betis','Real Betis'],['real-madrid','Real Madrid'],['real-sociedad','Real Sociedad'],['sevilla','Sevilla'],['valencia','Valencia'],['villareal','Villarreal']] },
+    'serie-a': { label: 'Serie A', items: [['ac-milan','AC Milan'],['as-roma','AS Roma'],['atalanta','Atalanta'],['bologna','Bologna'],['como','Como'],['fiorentina','Fiorentina'],['inter-milan','Inter Milan'],['juventus','Juventus'],['lazio-roma','Lazio Roma'],['napoli','Napoli'],['parma','Parma'],['torino','Torino'],['venezia','Venezia'],['udinese','Udinese']] },
+    'serie-b': { label: 'Serie B', items: [['sampdoria','Sampdoria'],['monza','Monza'],['pescara','Pescara']] },
+    'bundesliga': { label: 'Bundesliga', items: [['bayer-leverkusen','Bayer 04 Leverkusen'],['bayern-munich','Bayern Munich'],['borussia-dortmund','Borussia Dortmund'],['borussia-monchengladbach','Borussia Mönchengladbach'],['eintracht-frankfurt','Eintracht Frankfurt'],['rb-leipzig','RB Leipzig'],['union-berlin','Union Berlin'],['vfb-stuttgart','VFB Stuttgart']] },
+    'ligue-1': { label: 'Ligue 1', items: [['as-monaco','AS Monaco'],['losc-lille','LOSC Lille'],['olympique-marseille','Olympique Marseille'],['olympique-lyon','Olympique Lyon'],['psg','PSG']] },
+    'mls': { label: 'MLS', items: [['chicago-fire','Chicago Fire'],['inter-miami','Inter Miami'],['la-galaxy','LA Galaxy'],['new-york-fc','New York FC'],['orlando-city','Orlando City'],['seattle-sounders','Seattle Sounders']] },
+    'eredivisie': { label: 'Eredivisie', items: [['ajax-amsterdam','Ajax Amsterdam'],['feyenoord','Feyenoord'],['psv-eindhoven','PSV Eindhoven']] },
+    'liga-portugal': { label: 'Liga Portugal', items: [['benfica-lisboa','Benfica Lizbona'],['sporting','Sporting'],['porto','Porto']] },
+    'ekstraklasa': { label: 'Ekstraklasa', items: [['lech-poznan','Lech Poznań'],['legia-warszawa','Legia Warszawa'],['wisla-krakow','Wisła Kraków']] },
+    'reszta-swiata': { label: 'Reszta świata', items: [['al-hilal','Al Hilal'],['al-nassr','Al Nassr'],['besiktas','Beşiktaş'],['galatasaray','Galatasaray'],['fenerbahce','Fenerbahçe'],['celtic','Celtic'],['rangers','Rangers'],['aek-athens','AEK Athens'],['paok-saloniki','PAOK Saloniki'],['panathinaikos','Panathinaikos'],['olympiakos','Olympiakos']] },
+  };
+  const MM_NATIONALS = {
+    'reprezentacje-europa': { label: 'Europa', items: [['polska','Polska'],['anglia','Anglia'],['belgia','Belgia'],['chorwacja','Chorwacja'],['czechy','Czechy'],['francja','Francja'],['grecja','Grecja'],['holandia','Holandia'],['hiszpania','Hiszpania'],['niemcy','Niemcy'],['portugalia','Portugalia'],['wlochy','Włochy']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-ameryka': { label: 'Ameryka', items: [['argentyna','Argentyna'],['brazylia','Brazylia'],['chile','Chile'],['ekwador','Ekwador'],['kolumbia','Kolumbia'],['urugwaj','Urugwaj'],['usa','USA']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-azja': { label: 'Azja', items: [['australia','Australia'],['japonia','Japonia'],['korea-poludniowa','Korea Płd.']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+    'reprezentacje-afryka': { label: 'Afryka', items: [['algieria','Algieria'],['egipt','Egipt'],['kamerun','Kamerun'],['maroko','Maroko'],['senegal','Senegal'],['wybrzeze-kosci-sloniowej','Wybrzeże Kości Słoniowej']].map(x=>['reprezentacja-'+x[0], x[1]]) },
+  };
+  const MM_CARDS = {
+    'karty-daka':   { label: 'DAKA',   items: [['daka-top-audience-ac-milan','Top Audience AC Milan'],['daka-top-audience-barcelona','Top Audience Barcelona'],['daka-top-audience-belgium','Top Audience Belgia'],['daka-top-audience-inter-milan','Top Audience Inter Milan'],['daka-top-audience-juventus','Top Audience Juventus'],['daka-top-audience-manchester-city','Top Audience Manchester City'],['daka-top-audience-real-madrid','Top Audience Real Madrid']] },
+    'karty-topps':  { label: 'Topps',  items: [['topps-chrome','Chrome'],['topps-merlin','Merlin'],['topps-arsenal','Arsenal'],['topps-atletico-madrid','Atlético Madrid'],['topps-barcelona','Barcelona'],['topps-bayern-munich','Bayern Munich'],['topps-chelsea','Chelsea'],['topps-liverpool','Liverpool'],['topps-manchester-city','Manchester City'],['topps-manchester-utd','Manchester Utd.'],['topps-psg','PSG'],['topps-real-madrid','Real Madrid']] },
+    'karty-panini': { label: 'Panini', items: [['panini-world-cup-2026','World Cup 2026'],['panini-euro-2012','Euro 2012']] },
+  };
+  const MM_MYSTERY = {
+    'mystery-basic':     { label: 'Basic',     items: [] },
+    'mystery-premium':   { label: 'Premium',   items: [] },
+    'mystery-ultimate':  { label: 'Ultimate',  items: [] },
+    'mystery-blind-box': { label: 'Blind Box', items: [] },
+  };
+  const MM_TOPS = [
+    { slug:'kluby',             label:'Kluby',             subs: MM_CLUBS,     seeAll:'Wszystkie kluby',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/></svg>' },
+    { slug:'reprezentacje',     label:'Reprezentacje',     subs: MM_NATIONALS, seeAll:'Wszystkie reprezentacje', icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>' },
+    { slug:'karty-pilkarskie',  label:'Karty piłkarskie',  subs: MM_CARDS,     seeAll:'Wszystkie karty',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>' },
+    { slug:'mystery-box',       label:'Mystery Box',       subs: MM_MYSTERY,   seeAll:'Wszystkie boxy',      icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18v13H3zM3 7l3-4h12l3 4M12 7v13M12 11v0"/></svg>' },
+  ];
+  const MM_FLATS = [
+    { slug:'bluzy-i-kurtki', label:'Kurtki i bluzy',         icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7l3-3h8l3 3 2 4-3 1v9H5v-9L2 11z"/></svg>' },
+    { slug:'best-of',        label:'Best Of',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>' },
+    { slug:'nowe-z-metka',   label:'Nowe z metką',           icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l9-10 9 10-9 8z"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></svg>' },
+    { slug:'nowosci',        label:'Nowości',                icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg>' },
+  ];
+
+  const mmRenderPills = () => `
+    ${MM_TOPS.map((t,i)=>`<button data-mm-top="${t.slug}" class="mm-toppill ${i===0?'mm-toppill-active':''}"><span class="mm-toppill-icon">${t.icon}</span><span class="mm-toppill-label">${t.label}</span><svg class="mm-toppill-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></button>`).join('')}
+    ${MM_FLATS.map(f=>`<a href="${R('collections/'+f.slug+'.html')}" class="mm-toppill mm-toppill-flat"><span class="mm-toppill-icon">${f.icon}</span><span class="mm-toppill-label">${f.label}</span></a>`).join('')}
+  `;
+
+  const mmRenderTopPanel = (top, isFirst) => {
+    const subEntries = Object.entries(top.subs);
+    return `
+    <div data-mm-panel-for="${top.slug}" class="mm-drill-panel${isFirst?'':' hidden'} grid grid-cols-[42%_58%] h-full">
+      <div class="mm-subs-col" data-mm-subs>
+        ${subEntries.map(([slug,sub],i)=>`<button type="button" data-mm-sub="${slug}" class="mm-sub${i===0?' mm-sub-active':''}">${sub.label}<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 6 15 12 9 18"/></svg></button>`).join('')}
+        <a href="${R('collections/'+top.slug+'.html')}" class="mm-see-all">${top.seeAll}</a>
+      </div>
+      <div class="mm-items-col" data-mm-items>
+        ${subEntries.map(([slug,sub],i)=>`<div data-mm-items-for="${slug}" class="${i===0?'':'hidden'}">${sub.items.length ? sub.items.map(([is,il])=>`<a href="${R('collections/'+is+'.html')}" class="mm-item">${il}</a>`).join('') : `<a href="${R('collections/'+slug+'.html')}" class="mm-item">Zobacz produkty →</a>`}</div>`).join('')}
+      </div>
+    </div>`;
+  };
+
   const mobileMenu = `
 <aside id="mobile-menu" class="fixed inset-0 z-[105] pointer-events-none md:hidden" aria-hidden="true">
   <div data-mm-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
-  <div data-mm-panel class="absolute inset-y-0 left-0 w-[86%] max-w-[380px] bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
-    <div class="flex items-center justify-between px-5 h-[60px] border-b hairline shrink-0">
+  <div data-mm-panel class="absolute inset-0 bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
+    <div class="flex items-center justify-between px-5 h-[56px] border-b hairline shrink-0">
       <a href="${R('index.html')}" class="inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
       <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <div class="flex-1 overflow-y-auto">
-      <nav data-mm-nav class="px-5 pt-2 pb-4 text-[15px]">
-        <a href="${R('collections/nowosci.html')}" class="flex items-center justify-between py-4 border-b hairline">Nowości<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <details class="border-b hairline group">
-          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Kluby</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
-          <ul class="pb-3 pl-3 space-y-1.5">
-            <li><a href="${R('collections/premier-league.html')}" class="block py-2 text-black/75 text-[14px]">Premier League</a></li>
-            <li><a href="${R('collections/efl-championship.html')}" class="block py-2 text-black/75 text-[14px]">EFL Championship</a></li>
-            <li><a href="${R('collections/la-liga.html')}" class="block py-2 text-black/75 text-[14px]">La Liga</a></li>
-            <li><a href="${R('collections/serie-a.html')}" class="block py-2 text-black/75 text-[14px]">Serie A</a></li>
-            <li><a href="${R('collections/serie-b.html')}" class="block py-2 text-black/75 text-[14px]">Serie B</a></li>
-            <li><a href="${R('collections/bundesliga.html')}" class="block py-2 text-black/75 text-[14px]">Bundesliga</a></li>
-            <li><a href="${R('collections/ligue-1.html')}" class="block py-2 text-black/75 text-[14px]">Ligue 1</a></li>
-            <li><a href="${R('collections/mls.html')}" class="block py-2 text-black/75 text-[14px]">MLS</a></li>
-            <li><a href="${R('collections/eredivisie.html')}" class="block py-2 text-black/75 text-[14px]">Eredivisie</a></li>
-            <li><a href="${R('collections/liga-portugal.html')}" class="block py-2 text-black/75 text-[14px]">Liga Portugal</a></li>
-            <li><a href="${R('collections/ekstraklasa.html')}" class="block py-2 text-black/75 text-[14px]">Ekstraklasa</a></li>
-            <li><a href="${R('collections/reszta-swiata.html')}" class="block py-2 text-black/75 text-[14px]">Reszta świata</a></li>
-            <li><a href="${R('collections/kluby.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
-          </ul>
-        </details>
-        <details class="border-b hairline group">
-          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Reprezentacje</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
-          <ul class="pb-3 pl-3 space-y-1.5">
-            <li><a href="${R('collections/reprezentacje-europa.html')}" class="block py-2 text-black/75 text-[14px]">Europa</a></li>
-            <li><a href="${R('collections/reprezentacje-ameryka.html')}" class="block py-2 text-black/75 text-[14px]">Ameryka</a></li>
-            <li><a href="${R('collections/reprezentacje-azja.html')}" class="block py-2 text-black/75 text-[14px]">Azja</a></li>
-            <li><a href="${R('collections/reprezentacje-afryka.html')}" class="block py-2 text-black/75 text-[14px]">Afryka</a></li>
-            <li><a href="${R('collections/reprezentacje.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
-          </ul>
-        </details>
-        <details class="border-b hairline group">
-          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Karty piłkarskie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
-          <ul class="pb-3 pl-3 space-y-1.5">
-            <li><a href="${R('collections/karty-daka.html')}" class="block py-2 text-black/75 text-[14px]">DAKA</a></li>
-            <li><a href="${R('collections/karty-topps.html')}" class="block py-2 text-black/75 text-[14px]">Topps</a></li>
-            <li><a href="${R('collections/karty-panini.html')}" class="block py-2 text-black/75 text-[14px]">Panini</a></li>
-            <li><a href="${R('collections/karty-pilkarskie.html')}" class="block py-2 text-black/55 text-[13px]">Zobacz wszystkie →</a></li>
-          </ul>
-        </details>
-        <details class="border-b hairline group">
-          <summary class="flex items-center justify-between py-4 cursor-pointer list-none"><span>Mystery Box</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40 transition-transform group-open:rotate-90"><path d="m9 6 6 6-6 6"/></svg></summary>
-          <ul class="pb-3 pl-3 space-y-1.5">
-            <li><a href="${R('collections/mystery-basic.html')}" class="block py-2 text-black/75 text-[14px]">Basic</a></li>
-            <li><a href="${R('collections/mystery-premium.html')}" class="block py-2 text-black/75 text-[14px]">Premium</a></li>
-            <li><a href="${R('collections/mystery-ultimate.html')}" class="block py-2 text-black/75 text-[14px]">Ultimate</a></li>
-            <li><a href="${R('collections/mystery-blind-box.html')}" class="block py-2 text-black/75 text-[14px]">Blind Box</a></li>
-          </ul>
-        </details>
-        <a href="${R('collections/bluzy-i-kurtki.html')}" class="flex items-center justify-between py-4 border-b hairline">Bluzy i kurtki<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('collections/best-of.html')}" class="flex items-center justify-between py-4 border-b hairline">Best Of<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('collections/nowe-z-metka.html')}" class="flex items-center justify-between py-4 border-b hairline">Koszulki nowe z metką<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('blogs/news.html')}" class="flex items-center justify-between py-4 border-b hairline">Blog<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('pages/about-us.html')}" class="flex items-center justify-between py-4 border-b hairline">O nas<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-        <a href="${R('pages/contact.html')}" class="flex items-center justify-between py-4 border-b hairline">Kontakt<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-black/40"><path d="m9 6 6 6-6 6"/></svg></a>
-      </nav>
-      <div class="px-5 pt-6 pb-8">
-        <div class="text-[10px] tracking-mega uppercase text-black/55 mb-3">Konto</div>
-        <a href="${R('pages/login.html')}" class="inline-flex h-11 px-7 mr-3 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Zaloguj się</a>
-        <a href="${R('pages/register.html')}" class="inline-flex h-11 px-7 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase mt-2">Załóż konto</a>
-      </div>
-      <div class="px-5 pt-6 pb-10 border-t hairline">
-        <div class="text-[10px] tracking-mega uppercase text-black/55 mb-3">Pomoc</div>
-        <a href="${R('pages/store-locator.html')}" class="block py-1.5 text-[13px] text-black/75">Nasze sklepy</a>
-        <a href="${R('pages/shipping.html')}" class="block py-1.5 text-[13px] text-black/75">Wymiana i zwroty</a>
-        <a href="${R('pages/terms.html')}" class="block py-1.5 text-[13px] text-black/75">Regulamin</a>
-        <a href="${R('pages/privacy.html')}" class="block py-1.5 text-[13px] text-black/75">Polityka prywatności</a>
-      </div>
+    <div class="mm-tabs-strip flex items-center gap-2 px-4 py-3 overflow-x-auto whitespace-nowrap border-b hairline shrink-0" data-mm-tabs>
+      ${mmRenderPills()}
+    </div>
+    <div class="flex-1 overflow-hidden" data-mm-drill>
+      ${MM_TOPS.map((t,i)=>mmRenderTopPanel(t,i===0)).join('')}
+    </div>
+    <div class="border-t hairline px-5 py-3 flex items-center gap-3 shrink-0">
+      <a href="${R('pages/login.html')}" class="flex-1 inline-flex h-10 px-4 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Zaloguj się</a>
+      <a href="${R('pages/register.html')}" class="flex-1 inline-flex h-10 px-4 rounded-full border hairline items-center justify-center text-[11px] tracking-wide2 uppercase">Załóż konto</a>
     </div>
   </div>
 </aside>`;
@@ -1119,6 +1124,27 @@
     // close on link click inside the panel
     panel.querySelectorAll('a[href]').forEach(a => a.addEventListener('click', shut));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') shut(); });
+
+    // Top-level pill switch (Kluby/Reprezentacje/Karty/Mystery Box)
+    drawer.querySelectorAll('[data-mm-top]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const top = btn.getAttribute('data-mm-top');
+        drawer.querySelectorAll('[data-mm-top]').forEach(b => b.classList.toggle('mm-toppill-active', b === btn));
+        drawer.querySelectorAll('[data-mm-panel-for]').forEach(p => p.classList.toggle('hidden', p.getAttribute('data-mm-panel-for') !== top));
+      });
+    });
+    // Sub switch inside each drill panel (league/continent/maker/tier)
+    drawer.querySelectorAll('[data-mm-panel-for]').forEach(panelEl => {
+      const subs = panelEl.querySelectorAll('[data-mm-sub]');
+      const itemsBlocks = panelEl.querySelectorAll('[data-mm-items-for]');
+      subs.forEach(sb => sb.addEventListener('click', () => {
+        const k = sb.getAttribute('data-mm-sub');
+        subs.forEach(x => x.classList.toggle('mm-sub-active', x === sb));
+        itemsBlocks.forEach(b => b.classList.toggle('hidden', b.getAttribute('data-mm-items-for') !== k));
+        const items = panelEl.querySelector('[data-mm-items]');
+        if (items) items.scrollTop = 0;
+      }));
+    });
   }
 
   function inject(){
