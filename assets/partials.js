@@ -191,7 +191,7 @@
     <div class="mx-auto max-w-[1600px] px-8 md:px-14 pt-8 pb-10">
       <div class="flex items-center gap-5 pb-6 border-b hairline">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-black/60 shrink-0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input data-search-input type="search" placeholder="Search for..." class="flex-1 bg-transparent text-[26px] md:text-[32px] outline-none placeholder:text-black/40 text-black"/>
+        <input data-search-input type="search" placeholder="Wyszukaj" class="flex-1 bg-transparent text-[26px] md:text-[32px] outline-none placeholder:text-black/40 text-black"/>
         <button type="button" data-search-close aria-label="Close" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
       <div class="mt-8">
@@ -212,9 +212,9 @@
   const quickviewDrawer = `
 <div id="qv-drawer" class="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
   <div data-qv-backdrop class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300"></div>
-  <aside data-qv-panel class="absolute top-0 right-0 h-full w-full max-w-[480px] bg-white translate-x-full transition-transform duration-400 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]" role="dialog" aria-label="Choose options">
-    <header class="flex items-center justify-between px-6 md:px-8 h-[72px] border-b hairline shrink-0">
-      <div class="text-[15px] font-medium">Choose options</div>
+  <aside data-qv-panel class="absolute top-0 right-0 h-full w-full max-w-[480px] bg-white translate-x-full transition-transform duration-400 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]" role="dialog" aria-label="Wybierz opcje">
+    <header class="flex items-center justify-between px-6 md:px-8 h-[60px] md:h-[64px] border-b hairline shrink-0">
+      <div class="text-[11px] tracking-wide2 uppercase">Wybierz opcje</div>
       <button type="button" data-qv-close aria-label="Zamknij" class="h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </header>
     <div data-qv-body class="flex-1 overflow-y-auto"></div>
@@ -729,13 +729,13 @@
           <h2 class="text-[20px] md:text-[22px] font-medium tracking-tight">${data.name || ''}</h2>
           <div class="mt-2 text-[18px]">${priceFmt}</div>
           <form class="mt-6" data-qv-form>
-            <div class="text-[11px] tracking-wide2 uppercase mb-3">Size <span class="text-black/55" data-qv-size-label>XS</span></div>
+            <div class="text-[11px] tracking-wide2 uppercase mb-3">Rozmiar <span class="text-black/55" data-qv-size-label>XS</span></div>
             <div class="flex flex-wrap items-center gap-2 mb-6">
               ${sizes.map((s, i) => `<button type="button" data-qv-size="${s}" class="h-11 w-12 border ${i===0?'border-black':'hairline'} text-[12px] rounded-[3px] hover:border-black transition">${s}</button>`).join('')}
             </div>
-            <button type="submit" class="block w-full h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Add to cart</button>
-            <a href="${data.url || '#'}" class="block text-center mt-3 h-12 leading-[3rem] rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Buy it now</a>
-            <a href="${data.url || '#'}" class="block text-center mt-4 text-[11px] tracking-wide2 uppercase link-underline">View full details</a>
+            <button type="submit" class="block w-full h-12 rounded-full bg-black text-white text-[11px] tracking-wide2 uppercase font-medium pill pill-dark">Dodaj do koszyka</button>
+            <a href="${data.url || '#'}" class="block text-center mt-3 h-12 leading-[3rem] rounded-full border hairline text-[11px] tracking-wide2 uppercase font-medium pill">Kup teraz</a>
+            <a href="${data.url || '#'}" class="block text-center mt-4 text-[11px] tracking-wide2 uppercase link-underline">Zobacz szczegóły</a>
           </form>
         </div>`;
       // size selection
