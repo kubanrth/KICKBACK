@@ -163,3 +163,31 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 @media (prefers-reduced-motion: reduce){
   .marquee{animation:none}
 }
+
+/* Before / After slider polish */
+#ba-handle{transition:transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s ease}
+#ba-slider.is-dragging #ba-handle{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 12px 28px -8px rgba(0,0,0,.4)}
+#ba-slider:not(.is-dragging) #ba-handle:hover{transform:translate(-50%,-50%) scale(1.05)}
+#ba-slider:focus-visible{outline:2px solid rgba(13,13,13,.6);outline-offset:2px}
+@media (max-width:767px){
+  #ba-handle{height:48px;width:48px}
+  #ba-divider{width:3px}
+}
+
+/* Footer trust-strip method cards (Dostawa / Płatności) */
+.fm-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:96px;height:80px;padding:10px 12px;background:#fff;border-radius:6px;box-shadow:0 4px 14px -8px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.04)}
+@media (min-width:768px){.fm-card{min-width:104px;height:86px}}
+.fm-card-label{font-size:10px;letter-spacing:.06em;color:rgba(13,13,13,.55);text-align:center;line-height:1.2}
+.fm-card-yellow{background:#ffd000}
+.fm-card-yellow .fm-card-label{color:rgba(13,13,13,.7)}
+.fm-card-dhl{background:#ffcc00}
+.fm-card-dpd{background:#dc0032}
+.fm-card-dark{background:#fff}
+.fm-card.flex-row{flex-direction:row;justify-content:flex-start;min-width:170px}
+/* InPost wordmark */
+.fm-inpost-mark{display:inline-flex;align-items:center;gap:6px}
+.fm-inpost-sun{position:relative;width:14px;height:14px;background:#0d0d0d;border-radius:50%}
+.fm-inpost-sun::before,.fm-inpost-sun::after{content:"";position:absolute;background:#0d0d0d}
+.fm-inpost-sun::before{inset:-3px 5.5px;border-radius:1px}
+.fm-inpost-sun::after{inset:5.5px -3px;border-radius:1px}
+.fm-inpost-word{font-family:'DM Sans',sans-serif;font-weight:800;font-size:14px;letter-spacing:-0.02em;color:#0d0d0d}
