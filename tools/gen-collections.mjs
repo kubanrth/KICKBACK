@@ -152,10 +152,20 @@ add('karty-panini', 'Panini', 'karty-pilkarskie', 'maker');
 });
 
 // ---------- MYSTERY BOX ----------
-['basic','premium','ultimate','blind-box'].forEach(s=>{
-  const labels={'basic':'Basic','premium':'Premium','ultimate':'Ultimate','blind-box':'Blind Box'};
-  add('mystery-'+s, labels[s], 'mystery-box', 'tier');
+// Three sub-groups, each with its own set of tier products.
+add('mystery-top5',          'Top 5 Lig',     'mystery-box',  'group');
+['standard','premium','hero','icon'].forEach(s=>{
+  const labels={'standard':'Standard','premium':'Premium','hero':'Hero','icon':'Icon'};
+  add('mystery-top5-'+s,         labels[s], 'mystery-top5', 'tier');
 });
+add('mystery-reprezentacje',          'Reprezentacje', 'mystery-box',          'group');
+['standard','premium','hero'].forEach(s=>{
+  const labels={'standard':'Standard','premium':'Premium','hero':'Hero'};
+  add('mystery-reprezentacje-'+s, labels[s], 'mystery-reprezentacje', 'tier');
+});
+add('mystery-szalik',                 'Szalik',        'mystery-box',          'group');
+add('mystery-szalik-top5',         'TOP 5',         'mystery-szalik', 'tier');
+add('mystery-szalik-reszta-swiata','Reszta Świata', 'mystery-szalik', 'tier');
 
 // =============================================================
 // helpers

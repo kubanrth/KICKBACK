@@ -186,10 +186,21 @@
     'karty-panini': { label: 'Panini', items: [['panini-world-cup-2026','World Cup 2026'],['panini-euro-2012','Euro 2012']] },
   };
   const MM_MYSTERY = {
-    'mystery-basic':     { label: 'Basic',     items: [] },
-    'mystery-premium':   { label: 'Premium',   items: [] },
-    'mystery-ultimate':  { label: 'Ultimate',  items: [] },
-    'mystery-blind-box': { label: 'Blind Box', items: [] },
+    'mystery-top5': { label: 'Top 5 Lig', items: [
+      ['mystery-top5-standard', 'Standard'],
+      ['mystery-top5-premium',  'Premium'],
+      ['mystery-top5-hero',     'Hero'],
+      ['mystery-top5-icon',     'Icon'],
+    ]},
+    'mystery-reprezentacje': { label: 'Reprezentacje', items: [
+      ['mystery-reprezentacje-standard', 'Standard'],
+      ['mystery-reprezentacje-premium',  'Premium'],
+      ['mystery-reprezentacje-hero',     'Hero'],
+    ]},
+    'mystery-szalik': { label: 'Szalik', items: [
+      ['mystery-szalik-top5',          'TOP 5'],
+      ['mystery-szalik-reszta-swiata', 'Reszta Świata'],
+    ]},
   };
   const MM_TOPS = [
     { slug:'kluby',             label:'Kluby',             subs: MM_CLUBS,     seeAll:'Wszystkie kluby',     icon:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/></svg>' },
@@ -1218,6 +1229,61 @@
     }));
   }
 
+  function bindExcludeClubs(){
+    document.querySelectorAll('[data-exclude-clubs]').forEach(root => {
+      const trigger = root.querySelector('[data-exclude-trigger]');
+      const panel = root.querySelector('[data-exclude-panel]');
+      const label = root.querySelector('[data-exclude-label]');
+      const search = root.querySelector('[data-exclude-search]');
+      const checks = root.querySelectorAll('[data-exclude-check]');
+      const clearBtn = root.querySelector('[data-exclude-clear]');
+      const doneBtn = root.querySelector('[data-exclude-done]');
+      // chips list lives outside .exclude-clubs so it doesn't widen the trigger
+      const chips = root.parentNode.querySelector('[data-exclude-chips]') || root.querySelector('[data-exclude-chips]');
+      const placeholder = label.textContent;
+      function selected(){ return Array.from(checks).filter(c => c.checked); }
+      function renderLabel(){
+        const sel = selected();
+        if (!sel.length){ label.textContent = placeholder; label.classList.remove('has-selection'); }
+        else { label.textContent = sel.length === 1 ? sel[0].dataset.name : `${sel.length} klubów wykluczonych`; label.classList.add('has-selection'); }
+      }
+      function renderChips(){
+        if (!chips) return;
+        chips.innerHTML = '';
+        selected().forEach(c => {
+          const chip = document.createElement('span');
+          chip.className = 'exclude-chip';
+          chip.innerHTML = `<span>${c.dataset.name}</span><button type="button" class="exclude-chip-x" aria-label="Usuń">×</button>`;
+          chip.querySelector('.exclude-chip-x').addEventListener('click', () => {
+            c.checked = false; renderLabel(); renderChips();
+          });
+          chips.appendChild(chip);
+        });
+      }
+      function open(){ panel.classList.add('open'); trigger.setAttribute('aria-expanded','true'); if (search) setTimeout(()=>search.focus(),50); }
+      function close(){ panel.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+      trigger.addEventListener('click', () => panel.classList.contains('open') ? close() : open());
+      document.addEventListener('click', e => { if (!root.contains(e.target) && panel.classList.contains('open')) close(); });
+      checks.forEach(c => c.addEventListener('change', () => { renderLabel(); renderChips(); }));
+      if (clearBtn) clearBtn.addEventListener('click', () => { checks.forEach(c => c.checked = false); renderLabel(); renderChips(); });
+      if (doneBtn) doneBtn.addEventListener('click', close);
+      if (search){
+        search.addEventListener('input', () => {
+          const q = search.value.trim().toLowerCase();
+          root.querySelectorAll('.exclude-item').forEach(item => {
+            const name = item.querySelector('span').textContent.toLowerCase();
+            item.style.display = (!q || name.includes(q)) ? '' : 'none';
+          });
+          root.querySelectorAll('.exclude-group').forEach(g => {
+            const anyVisible = Array.from(g.querySelectorAll('.exclude-item')).some(i => i.style.display !== 'none');
+            g.style.display = anyVisible ? '' : 'none';
+          });
+        });
+      }
+      renderLabel(); renderChips();
+    });
+  }
+
   function inject(){
     document.querySelectorAll('[data-release-header]').forEach(el => el.outerHTML = header);
     document.querySelectorAll('[data-release-footer]').forEach(el => el.outerHTML = footer);
@@ -1237,6 +1303,7 @@
     bindQuickview();
     bindProductPage();
     bindAuth();
+    bindExcludeClubs();
     updateCartBadges();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
