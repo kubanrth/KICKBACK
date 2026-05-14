@@ -23,7 +23,75 @@
     'manchester-utd':'manchester-united','manchester-city':'manchester-city',
     'juventus':'juventus','bayern-munich':'bayern-munich','borussia-dortmund':'borussia-dortmund'
   };
-  function iconFor(slug){
+  // primary kit colors per club, [bg, fg]. Used for the monogram fallback
+  // when we don't ship a real SVG crest. Keep keys in sync with MM_CLUBS items.
+  const CLUB_COLORS = {
+    // Premier League
+    'arsenal':['#DB0007','#FFFFFF'],'aston-villa':['#670E36','#94BFE5'],'bournemouth':['#DA291C','#FFFFFF'],
+    'brentford':['#E30613','#FFFFFF'],'brighton':['#0057B8','#FFFFFF'],'burnley':['#6C1D45','#FFFFFF'],
+    'chelsea':['#034694','#FFFFFF'],'crystal-palace':['#1B458F','#C4122E'],'everton':['#003399','#FFFFFF'],
+    'fulham':['#0A0A0A','#FFFFFF'],'leeds-utd':['#FFCD00','#1D428A'],'liverpool':['#C8102E','#FFFFFF'],
+    'manchester-city':['#6CABDD','#1C2C5B'],'manchester-utd':['#DA291C','#FBE122'],
+    'newcastle-utd':['#241F20','#FFFFFF'],'nottingham-forest':['#DD0000','#FFFFFF'],
+    'sunderland':['#EB172B','#FFFFFF'],'tottenham':['#132257','#FFFFFF'],
+    'west-ham':['#7A263A','#1BB1E7'],'wolverhampton':['#FDB913','#231F20'],
+    // EFL Championship
+    'derby':['#0A0A0A','#FFFFFF'],'hull-city':['#F18A01','#000000'],'leicester':['#003090','#FDBE11'],
+    'millwall':['#001B5E','#FFFFFF'],'southampton':['#D71920','#FFFFFF'],'swansea':['#0A0A0A','#FFFFFF'],
+    'sheffield-utd':['#EE2737','#FFFFFF'],'qpr':['#1B458F','#FFFFFF'],
+    // La Liga (Barca / Real have SVGs)
+    'athletic-bilbao':['#EE2523','#FFFFFF'],'atletico-madrid':['#CB3524','#FFFFFF'],
+    'cd-tenerife':['#1B458F','#FFFFFF'],'girona':['#CD0F2D','#FFFFFF'],'malaga':['#0066CC','#FFFFFF'],
+    'real-betis':['#00954C','#FFFFFF'],'real-sociedad':['#003399','#FFFFFF'],
+    'sevilla':['#D00027','#FFFFFF'],'valencia':['#FF7F00','#000000'],'villareal':['#FFD401','#003DA5'],
+    // Serie A (Juventus has SVG)
+    'ac-milan':['#FB090B','#000000'],'as-roma':['#8E1F2F','#F0BC42'],'atalanta':['#1B1B1B','#005EB8'],
+    'bologna':['#002D62','#B71234'],'como':['#1B458F','#FFFFFF'],'fiorentina':['#6F2C91','#FFFFFF'],
+    'inter-milan':['#0E2691','#000000'],'lazio-roma':['#87CEEB','#FFFFFF'],'napoli':['#002D72','#FFFFFF'],
+    'parma':['#F7B500','#003DA5'],'torino':['#80162F','#FFFFFF'],'venezia':['#000000','#FF8200'],
+    'udinese':['#0A0A0A','#FFFFFF'],
+    // Serie B
+    'sampdoria':['#1B458F','#FFFFFF'],'monza':['#C8102E','#FFFFFF'],'pescara':['#005DAA','#FFFFFF'],
+    // Bundesliga (Bayern / Dortmund have SVGs)
+    'bayer-leverkusen':['#E32221','#000000'],'borussia-monchengladbach':['#00863E','#FFFFFF'],
+    'eintracht-frankfurt':['#0A0A0A','#E1000F'],'rb-leipzig':['#D60028','#FFFFFF'],
+    'union-berlin':['#D60028','#FFFFFF'],'vfb-stuttgart':['#E32219','#FFFFFF'],
+    // Ligue 1
+    'as-monaco':['#C8102E','#FFFFFF'],'losc-lille':['#D11E2B','#FFFFFF'],
+    'olympique-marseille':['#009DDC','#FFFFFF'],'olympique-lyon':['#002B5C','#E03A3E'],
+    'psg':['#004170','#E30613'],
+    // MLS
+    'chicago-fire':['#102141','#E03A3E'],'inter-miami':['#F7B5CD','#231F20'],
+    'la-galaxy':['#00245D','#FFB81C'],'new-york-fc':['#6CACE4','#FFFFFF'],
+    'orlando-city':['#633492','#FFFFFF'],'seattle-sounders':['#5D9741','#005595'],
+    // Eredivisie
+    'ajax-amsterdam':['#FFFFFF','#D2122E'],'feyenoord':['#C8102E','#FFFFFF'],
+    'psv-eindhoven':['#ED1C24','#FFFFFF'],
+    // Liga Portugal
+    'benfica-lisboa':['#E60026','#FFFFFF'],'sporting':['#00855F','#FFFFFF'],'porto':['#003DA5','#FFFFFF'],
+    // Ekstraklasa
+    'lech-poznan':['#1F4E79','#FFFFFF'],'legia-warszawa':['#006837','#FFFFFF'],
+    'wisla-krakow':['#D40000','#FFFFFF'],
+    // Reszta świata
+    'al-hilal':['#1F4E79','#FFFFFF'],'al-nassr':['#FFCC00','#1F4E79'],
+    'besiktas':['#0A0A0A','#FFFFFF'],'galatasaray':['#B5191C','#FFCC00'],
+    'fenerbahce':['#1A2D4D','#FFCC00'],'celtic':['#008C44','#FFFFFF'],
+    'rangers':['#1B428C','#E63027'],'aek-athens':['#FFC10E','#0A0A0A'],
+    'paok-saloniki':['#0A0A0A','#FFFFFF'],'panathinaikos':['#008B3A','#FFFFFF'],
+    'olympiakos':['#D71921','#FFFFFF']
+  };
+  function clubInitials(label){
+    if (!label) return '';
+    const clean = label.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\./g,'').trim();
+    const words = clean.split(/\s+/);
+    if (words.length === 1){
+      const w = words[0];
+      if (w.length <= 4 && w === w.toUpperCase()) return w;
+      return w.slice(0,2).toUpperCase();
+    }
+    return (words[0][0] + words[1][0]).toUpperCase();
+  }
+  function iconFor(slug, label){
     if (!slug) return '';
     if (slug.indexOf('reprezentacja-') === 0){
       const c = slug.replace('reprezentacja-','');
@@ -32,6 +100,10 @@
     }
     if (CLUB_CRESTS[slug]){
       return '<span class="mm-crest"><img src="'+R('brand_assets/crests/'+CLUB_CRESTS[slug]+'.svg')+'" alt="" loading="lazy"/></span>';
+    }
+    if (CLUB_COLORS[slug]){
+      const c = CLUB_COLORS[slug];
+      return '<span class="mm-crest mm-crest-mono" style="background:'+c[0]+';color:'+c[1]+'">'+clubInitials(label||'')+'</span>';
     }
     return '';
   }
@@ -94,7 +166,7 @@
               <a href="${R('collections/'+top.slug+'.html')}" class="dm-see-all">${top.seeAll}</a>
             </div>
             <div class="dm-items-col py-2">
-              ${subs.map(([slug,sub],i) => `<div data-dm-items-for="${slug}" class="${i===0?'':'hidden'} grid ${itemColsClass} gap-x-8 gap-y-1.5">${sub.items.length ? sub.items.map(([is,il]) => { const ic = iconFor(is); return `<a href="${R('collections/'+is+'.html')}" class="mega-link ${ic?'mega-link-with-icon':''}">${ic}<span>${il}</span></a>`; }).join('') : `<div class="text-[13px] text-black/55 py-2 col-span-full"><a href="${R('collections/'+slug+'.html')}" class="link-underline">Zobacz produkty →</a></div>`}</div>`).join('')}
+              ${subs.map(([slug,sub],i) => `<div data-dm-items-for="${slug}" class="${i===0?'':'hidden'} grid ${itemColsClass} gap-x-8 gap-y-1.5">${sub.items.length ? sub.items.map(([is,il]) => { const ic = iconFor(is, il); return `<a href="${R('collections/'+is+'.html')}" class="mega-link ${ic?'mega-link-with-icon':''}">${ic}<span>${il}</span></a>`; }).join('') : `<div class="text-[13px] text-black/55 py-2 col-span-full"><a href="${R('collections/'+slug+'.html')}" class="link-underline">Zobacz produkty →</a></div>`}</div>`).join('')}
             </div>
           </div>
         </div>
@@ -397,7 +469,7 @@
       <button type="button" data-mm-back class="mm-back-row">${chevL}<span>${sub.label}</span></button>
       <div class="mm-list">
         ${sub.items.map(([is,il]) => {
-          const ic = iconFor(is);
+          const ic = iconFor(is, il);
           return `<a href="${R('collections/'+is+'.html')}" class="mm-row">${ic ? '<span class="mm-row-left">'+ic+'<span>'+il+'</span></span>' : il}</a>`;
         }).join('')}
         <a href="${R('collections/'+slug+'.html')}" class="mm-row mm-row-see-all">Wszystkie produkty (${sub.label})</a>
