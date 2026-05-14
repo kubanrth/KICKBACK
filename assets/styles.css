@@ -19,6 +19,9 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 .topowe-slider::-webkit-scrollbar{display:none}
 .topowe-slider > a{flex:0 0 100%;scroll-snap-align:center}
 @media (min-width:768px){.topowe-slider > a{flex:0 0 calc(33.333% - 19px);scroll-snap-align:start}}
+/* Peek variant: show one full banner + ~1/3 of next on mobile to hint at horizontal scroll */
+.topowe-peek > a{flex:0 0 74%;scroll-snap-align:start}
+@media (min-width:768px){.topowe-peek > a{flex:0 0 calc(33.333% - 19px);scroll-snap-align:start}}
 /* Quick-add "+" overlay on product cards */
 .qv-btn{position:absolute;right:14px;bottom:14px;height:38px;width:38px;border-radius:999px;background:#fff;color:#0d0d0d;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease,background .2s ease,color .2s ease;z-index:5;cursor:pointer;border:0}
 .qv-btn::after{content:"+";font-size:22px;font-weight:300;line-height:1}
@@ -207,10 +210,15 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 }
 
 /* Footer payment & shipping tiles — uniform white pills with brand glyphs */
-.pay-tile{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:64px;height:30px;padding:0 10px;background:#fff;border-radius:5px;font-size:11px;line-height:1;color:#0d0d0d;letter-spacing:.01em;border:1px solid rgba(0,0,0,.06)}
-.pay-tile-wide{padding:0 8px}
-.pay-tile-strong{font-family:'DM Sans',sans-serif;font-weight:800;font-size:12px;letter-spacing:.02em}
-.pay-tile-sub{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(13,13,13,.55)}
+/* Payment + delivery tiles — white rounded chip with real brand SVG inside */
+.pay-tile{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:54px;height:34px;padding:0 11px;background:#fff;border-radius:6px;line-height:1;color:#0d0d0d;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.pay-tile-with-sub{padding:0 9px 0 9px;gap:6px}
+.pay-logo{height:16px;width:auto;display:block;flex-shrink:0;max-width:64px}
+.pay-logo-tall{height:18px;width:auto;display:block;flex-shrink:0;max-width:64px}
+.pay-logo-wide{height:13px;width:auto;display:block;flex-shrink:0;max-width:80px}
+.pay-tile-sub{font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(13,13,13,.55)}
+.pay-tile-paynow{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:-0.01em}
+.pay-tile-paynow > b{color:#E03A3E;font-weight:800}
 /* shipping */
 .pay-inpost{background:#ffcc00}
 .pay-inpost-sun{display:inline-block;width:9px;height:9px;background:#0d0d0d;border-radius:50%;position:relative}

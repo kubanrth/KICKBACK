@@ -252,13 +252,14 @@
 </div>
 <div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
 <header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
-  <div class="mx-auto max-w-[1600px] pl-3 pr-1 md:px-6 lg:px-8 h-[60px] md:h-[72px] grid grid-cols-3 md:grid-cols-[auto_1fr_auto] items-center md:gap-8 transition-all duration-300 ease-out">
-    <div class="flex items-center md:justify-start">
-      <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  <div class="mx-auto max-w-[1600px] pl-1.5 pr-1.5 md:px-6 lg:px-8 h-[64px] md:h-[72px] grid grid-cols-[auto_1fr_auto] items-center md:gap-8 transition-all duration-300 ease-out">
+    <div class="flex items-center md:justify-start gap-0.5">
+      <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-12 w-12 text-black/85"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <button type="button" data-search-open aria-label="Szukaj" class="md:hidden inline-flex items-center justify-center h-12 w-12 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="${R('index.html')}" class="hidden md:inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-8 w-auto"/></a>
     </div>
     <div class="flex items-center justify-center">
-      <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
+      <a href="${R('index.html')}" class="md:hidden inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 w-auto"/></a>
       <nav data-site-nav class="hidden md:flex items-center justify-center gap-7 lg:gap-9 text-[12px] tracking-wide2 uppercase text-black/80">
         <a href="${R('collections/nowosci.html')}" class="hover:text-black inline-flex items-center h-[72px] whitespace-nowrap">Nowości</a>
         <div class="has-mega">
@@ -293,11 +294,11 @@
       </nav>
     </div>
     <nav class="justify-self-end flex items-center gap-0.5 md:gap-5 text-[12px] tracking-wide2 uppercase text-black/80">
-      <button type="button" data-search-open class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Search"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-      <a href="${R('pages/login.html')}" class="hover:text-black inline-flex items-center justify-center h-11 w-11 md:h-9 md:w-9" aria-label="Account"><svg class="md:!w-[15px] md:!h-[15px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
-      <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center justify-center relative h-11 w-11 md:h-9 md:w-auto md:gap-1.5 md:px-1" aria-label="Koszyk">
-        <svg class="md:!w-[16px] md:!h-[16px]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span data-cart-badge class="absolute md:static -top-0.5 -right-0.5 md:top-auto md:right-auto inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">0</span>
+      <button type="button" data-search-open class="hidden md:inline-flex items-center justify-center h-9 w-9 hover:text-black" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="${R('pages/login.html')}" class="hover:text-black inline-flex items-center justify-center h-12 w-12 md:h-9 md:w-9" aria-label="Account"><svg class="md:!w-[15px] md:!h-[15px]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="${R('pages/cart.html')}" data-cart-open class="hover:text-black inline-flex items-center justify-center relative h-12 w-12 md:h-9 md:w-auto md:gap-1.5 md:px-1" aria-label="Koszyk">
+        <svg class="md:!w-[16px] md:!h-[16px]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span data-cart-badge class="absolute md:static top-1 right-1 md:top-auto md:right-auto inline-flex items-center justify-center min-w-[18px] h-[18px] text-[10px] rounded-full bg-black text-white px-1">0</span>
       </a>
     </nav>
   </div>
@@ -360,25 +361,22 @@
         <div>
           <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Dostawa</div>
           <div class="flex flex-wrap items-center gap-2">
-            <span class="pay-tile pay-inpost"><span class="pay-inpost-sun"></span><span class="pay-inpost-text">InPost</span><span class="pay-tile-sub">Paczkomat</span></span>
-            <span class="pay-tile pay-inpost"><span class="pay-inpost-sun"></span><span class="pay-inpost-text">InPost</span><span class="pay-tile-sub">Kurier</span></span>
-            <span class="pay-tile pay-orlen"><span class="pay-tile-strong">ORLEN</span><span class="pay-tile-sub">Paczka</span></span>
-            <span class="pay-tile pay-dhl"><span class="pay-tile-strong">DHL</span></span>
-            <span class="pay-tile pay-dpd"><span class="pay-tile-strong">DPD</span></span>
+            <span class="pay-tile pay-tile-with-sub"><img src="${R('brand_assets/payment-logos/inpost.svg')}" alt="InPost" class="pay-logo-tall"/><span class="pay-tile-sub">Paczkomat</span></span>
+            <span class="pay-tile pay-tile-with-sub"><img src="${R('brand_assets/payment-logos/inpost.svg')}" alt="InPost" class="pay-logo-tall"/><span class="pay-tile-sub">Kurier</span></span>
+            <span class="pay-tile pay-tile-with-sub"><img src="${R('brand_assets/payment-logos/orlen.svg')}" alt="ORLEN" class="pay-logo"/><span class="pay-tile-sub">Paczka</span></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/dhl.svg')}" alt="DHL" class="pay-logo-tall"/></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/dpd.svg')}" alt="DPD" class="pay-logo-tall"/></span>
           </div>
         </div>
         <div>
           <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Płatności</div>
           <div class="flex flex-wrap items-center gap-2">
-            <span class="pay-tile"><span class="pay-blik">blik</span></span>
-            <span class="pay-tile"><span class="pay-visa">VISA</span></span>
-            <span class="pay-tile pay-tile-wide">
-              <span class="pay-mc"><span class="pay-mc-c1"></span><span class="pay-mc-c2"></span></span>
-              <span class="pay-mc-text">mastercard</span>
-            </span>
-            <span class="pay-tile"><span class="pay-apple"><svg viewBox="0 0 24 28" width="11" height="13" fill="currentColor" style="margin-right:4px;display:inline-block;vertical-align:-1px"><path d="M19.7 21.5c-1 1.5-2 3-3.6 3-1.5 0-2-1-3.8-1-1.8 0-2.4 1-3.8 1-1.6 0-2.8-1.7-3.8-3.2C2.7 18.4 1.4 13 4 9.2c1.3-1.9 3.5-3 5.5-3 1.6 0 3 1.1 4 1.1.9 0 2.7-1.3 4.5-1.1.8 0 3 .3 4.4 2.4-3.7 2.4-3 7.6.3 9 .6 1.5 1.4 3 0 4zM14.5 4C13.5 2.7 14 1 14 0c-1.4.1-3 .9-3.8 2-.8 1-1.5 2.5-1.3 4 1.5.1 3-.8 3.6-2z"/></svg>Pay</span></span>
-            <span class="pay-tile"><span class="pay-gpay"><b style="color:#4285F4">G</b> Pay</span></span>
-            <span class="pay-tile"><span class="pay-paynow">PayNow</span></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/blik.svg')}" alt="BLIK" class="pay-logo"/></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/visa.svg')}" alt="VISA" class="pay-logo-tall"/></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/mastercard.svg')}" alt="Mastercard" class="pay-logo-tall"/></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/applepay.svg')}" alt="Apple Pay" class="pay-logo-tall"/></span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/googlepay.svg')}" alt="Google Pay" class="pay-logo-tall"/></span>
+            <span class="pay-tile pay-tile-paynow"><b>Pay</b>Now</span>
           </div>
         </div>
       </div>
@@ -435,41 +433,6 @@
     <div data-cart-body class="flex-1 overflow-y-auto"></div>
     <div data-cart-foot class="shrink-0"></div>
   </aside>
-</div>`;
-
-  const sizeGuideModal = `
-<div id="size-guide-modal" class="fixed inset-0 z-[110] pointer-events-none" aria-hidden="true">
-  <div data-sg-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
-  <div class="absolute inset-0 flex items-center justify-center p-4 md:p-8">
-    <div data-sg-content class="relative bg-white max-w-[760px] w-full max-h-[88vh] overflow-y-auto rounded-[3px] shadow-[0_20px_60px_-20px_rgba(0,0,0,.35)] translate-y-3 opacity-0 transition-all duration-300 ease-out">
-      <button type="button" data-sg-close aria-label="Zamknij" class="sticky float-right top-5 right-5 mt-5 mr-5 h-10 w-10 rounded-full flex items-center justify-center hover:bg-black/5 transition z-10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <div class="px-8 md:px-12 py-10 md:py-14">
-        <h2 class="h-editorial text-[28px] md:text-[40px] leading-[1.05]">Tabela <em class="font-wonk font-normal">rozmiarów</em></h2>
-        <p class="mt-4 text-[14px] text-black/65 leading-[1.7] max-w-[520px]">Aby dobrać najlepszy rozmiar, zmierz się zgodnie z wymiarami w tabeli poniżej przed zakupem.</p>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full text-[13px] border-collapse">
-            <thead>
-              <tr class="border-b hairline">
-                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Rozmiar</th>
-                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Klatka (cm)</th>
-                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Talia (cm)</th>
-                <th class="text-left py-3 px-3 text-[11px] tracking-wide2 uppercase text-black/60">Biodra (cm)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">XS</td><td class="py-3 px-3 text-black/75">78–84</td><td class="py-3 px-3 text-black/75">60–66</td><td class="py-3 px-3 text-black/75">86–92</td></tr>
-              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">S</td><td class="py-3 px-3 text-black/75">85–91</td><td class="py-3 px-3 text-black/75">67–73</td><td class="py-3 px-3 text-black/75">93–99</td></tr>
-              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">M</td><td class="py-3 px-3 text-black/75">92–98</td><td class="py-3 px-3 text-black/75">74–80</td><td class="py-3 px-3 text-black/75">100–106</td></tr>
-              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">L</td><td class="py-3 px-3 text-black/75">99–105</td><td class="py-3 px-3 text-black/75">81–87</td><td class="py-3 px-3 text-black/75">107–113</td></tr>
-              <tr class="border-b hairline"><td class="py-3 px-3 font-medium">XL</td><td class="py-3 px-3 text-black/75">106–112</td><td class="py-3 px-3 text-black/75">88–94</td><td class="py-3 px-3 text-black/75">114–120</td></tr>
-              <tr><td class="py-3 px-3 font-medium">XXL</td><td class="py-3 px-3 text-black/75">113–119</td><td class="py-3 px-3 text-black/75">95–101</td><td class="py-3 px-3 text-black/75">121–127</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="mt-6 text-[12px] text-black/55 leading-[1.6]">Wymiary podane w tabeli odpowiadają wymiarom ciała, nie ubrania. Jeśli wahasz się między rozmiarami, polecamy wybrać większy dla luźniejszego kroju.</p>
-      </div>
-    </div>
-  </div>
 </div>`;
 
   // mobile drawer renders as a navigation STACK (iOS-style push/pop).
@@ -1051,38 +1014,6 @@
     });
   }
 
-  function bindSizeGuide(){
-    const root = document.getElementById('size-guide-modal');
-    if (!root) return;
-    const backdrop = root.querySelector('[data-sg-backdrop]');
-    const content = root.querySelector('[data-sg-content]');
-    const close = root.querySelector('[data-sg-close]');
-    function open(){
-      root.classList.remove('pointer-events-none');
-      root.setAttribute('aria-hidden', 'false');
-      requestAnimationFrame(() => {
-        backdrop.style.opacity = '1';
-        content.classList.remove('translate-y-3', 'opacity-0');
-      });
-      document.body.style.overflow = 'hidden';
-    }
-    function shut(){
-      root.setAttribute('aria-hidden', 'true');
-      backdrop.style.opacity = '0';
-      content.classList.add('translate-y-3', 'opacity-0');
-      document.body.style.overflow = '';
-      setTimeout(() => root.classList.add('pointer-events-none'), 300);
-    }
-    backdrop.addEventListener('click', shut);
-    close.addEventListener('click', shut);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && root.getAttribute('aria-hidden') === 'false') shut(); });
-    document.addEventListener('click', e => {
-      const t = e.target.closest('[data-size-guide-open]');
-      if (t) { e.preventDefault(); open(); }
-    });
-    window.openSizeGuide = open;
-  }
-
   function bindFilters(){
     const drawer = document.getElementById('filter-drawer');
     if (!drawer) return;
@@ -1263,7 +1194,6 @@
     document.body.insertAdjacentHTML('beforeend', searchDrawer);
     document.body.insertAdjacentHTML('beforeend', cartDrawer);
     document.body.insertAdjacentHTML('beforeend', quickviewDrawer);
-    document.body.insertAdjacentHTML('beforeend', sizeGuideModal);
     document.body.insertAdjacentHTML('beforeend', filterDrawer);
     bindMobileMenu();
     bindDesktopMega();
@@ -1276,7 +1206,6 @@
     bindQuickview();
     bindProductPage();
     bindAuth();
-    bindSizeGuide();
     updateCartBadges();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
