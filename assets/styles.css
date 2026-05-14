@@ -205,3 +205,43 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
   .cat-tile{padding:16px 18px;gap:12px}
   .cat-tile-label{font-size:13px}
 }
+
+/* Footer payment & shipping tiles — uniform white pills with brand glyphs */
+.pay-tile{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:64px;height:30px;padding:0 10px;background:#fff;border-radius:5px;font-size:11px;line-height:1;color:#0d0d0d;letter-spacing:.01em;border:1px solid rgba(0,0,0,.06)}
+.pay-tile-wide{padding:0 8px}
+.pay-tile-strong{font-family:'DM Sans',sans-serif;font-weight:800;font-size:12px;letter-spacing:.02em}
+.pay-tile-sub{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(13,13,13,.55)}
+/* shipping */
+.pay-inpost{background:#ffcc00}
+.pay-inpost-sun{display:inline-block;width:9px;height:9px;background:#0d0d0d;border-radius:50%;position:relative}
+.pay-inpost-sun::before,.pay-inpost-sun::after{content:"";position:absolute;background:#0d0d0d}
+.pay-inpost-sun::before{inset:-2px 4px;border-radius:1px}
+.pay-inpost-sun::after{inset:4px -2px;border-radius:1px}
+.pay-inpost-text{font-family:'DM Sans',sans-serif;font-weight:800;font-size:12px;color:#0d0d0d;letter-spacing:-0.01em}
+.pay-orlen .pay-tile-strong{color:#e60028}
+.pay-dhl{background:#ffcc00}
+.pay-dhl .pay-tile-strong{color:#d40511;font-family:'DM Sans',sans-serif;font-style:italic;font-weight:900;letter-spacing:-0.02em}
+.pay-dpd{background:#dc0032}
+.pay-dpd .pay-tile-strong{color:#fff;font-weight:800;letter-spacing:0}
+/* payment glyphs */
+.pay-blik{font-family:'DM Sans',sans-serif;font-weight:800;font-size:13px;color:#0d0d0d;letter-spacing:-0.01em}
+.pay-visa{font-family:'DM Sans',sans-serif;font-weight:900;font-style:italic;font-size:12px;color:#1a1f71;letter-spacing:0}
+.pay-mc{display:inline-flex;position:relative;width:24px;height:14px}
+.pay-mc-c1,.pay-mc-c2{position:absolute;top:0;width:14px;height:14px;border-radius:50%}
+.pay-mc-c1{left:0;background:#eb001b}
+.pay-mc-c2{left:10px;background:#f79e1b;mix-blend-mode:multiply}
+.pay-mc-text{font-size:8px;font-weight:600;letter-spacing:.02em;color:#0d0d0d;text-transform:lowercase}
+.pay-apple{display:inline-flex;align-items:center;font-weight:600;font-size:11px;color:#0d0d0d}
+.pay-gpay{font-size:11px;font-weight:500;color:#0d0d0d}
+.pay-gpay b{font-weight:700}
+.pay-paynow{font-family:'DM Sans',sans-serif;font-weight:800;font-size:11px;color:#e60028;letter-spacing:-0.01em}
+
+/* Menu item icons — flags + crests */
+.mm-flag{display:inline-flex;align-items:center;justify-content:center;width:24px;height:18px;flex-shrink:0;font-size:18px;line-height:1}
+.mm-crest{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0}
+.mm-crest img{max-width:100%;max-height:100%;object-fit:contain}
+.mm-row-left{display:inline-flex;align-items:center;gap:14px;flex:1;min-width:0}
+.mm-row-left > span:not(.mm-flag):not(.mm-crest){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mega-link-with-icon{display:inline-flex;align-items:center;gap:10px}
+.mega-link-with-icon .mm-flag{width:18px;height:14px;font-size:14px}
+.mega-link-with-icon .mm-crest{width:18px;height:18px}

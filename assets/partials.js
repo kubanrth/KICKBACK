@@ -10,6 +10,32 @@
   const base = src.replace(/assets\/partials\.js$/, '');
   const R = (p) => base + p;
 
+  // ---------- icon lookups for menu items (national flags + club crests) ----------
+  const COUNTRY_FLAGS = {
+    polska:'🇵🇱', anglia:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', belgia:'🇧🇪', chorwacja:'🇭🇷', czechy:'🇨🇿', francja:'🇫🇷',
+    grecja:'🇬🇷', holandia:'🇳🇱', hiszpania:'🇪🇸', niemcy:'🇩🇪', portugalia:'🇵🇹', wlochy:'🇮🇹',
+    argentyna:'🇦🇷', brazylia:'🇧🇷', chile:'🇨🇱', ekwador:'🇪🇨', kolumbia:'🇨🇴', urugwaj:'🇺🇾', usa:'🇺🇸',
+    australia:'🇦🇺', japonia:'🇯🇵', 'korea-poludniowa':'🇰🇷',
+    algieria:'🇩🇿', egipt:'🇪🇬', kamerun:'🇨🇲', maroko:'🇲🇦', senegal:'🇸🇳', 'wybrzeze-kosci-sloniowej':'🇨🇮'
+  };
+  const CLUB_CRESTS = {
+    'real-madrid':'real-madrid','barcelona':'barcelona','chelsea':'chelsea','arsenal':'arsenal',
+    'manchester-utd':'manchester-united','manchester-city':'manchester-city',
+    'juventus':'juventus','bayern-munich':'bayern-munich','borussia-dortmund':'borussia-dortmund'
+  };
+  function iconFor(slug){
+    if (!slug) return '';
+    if (slug.indexOf('reprezentacja-') === 0){
+      const c = slug.replace('reprezentacja-','');
+      const f = COUNTRY_FLAGS[c];
+      if (f) return '<span class="mm-flag">'+f+'</span>';
+    }
+    if (CLUB_CRESTS[slug]){
+      return '<span class="mm-crest"><img src="'+R('brand_assets/crests/'+CLUB_CRESTS[slug]+'.svg')+'" alt="" loading="lazy"/></span>';
+    }
+    return '';
+  }
+
   // ---------- shared category taxonomy (used by both desktop mega + mobile drawer) ----------
   const MM_CLUBS = {
     'premier-league': { label: 'Premier League', items: [['arsenal','Arsenal'],['aston-villa','Aston Villa'],['bournemouth','Bournemouth'],['brentford','Brentford'],['brighton','Brighton'],['burnley','Burnley'],['chelsea','Chelsea'],['crystal-palace','Crystal Palace'],['everton','Everton'],['fulham','Fulham'],['leeds-utd','Leeds Utd.'],['liverpool','Liverpool'],['manchester-city','Manchester City'],['manchester-utd','Manchester Utd.'],['newcastle-utd','Newcastle Utd.'],['nottingham-forest','Nottingham Forest'],['sunderland','Sunderland'],['tottenham','Tottenham'],['west-ham','West Ham'],['wolverhampton','Wolverhampton']] },
@@ -68,7 +94,7 @@
               <a href="${R('collections/'+top.slug+'.html')}" class="dm-see-all">${top.seeAll}</a>
             </div>
             <div class="dm-items-col py-2">
-              ${subs.map(([slug,sub],i) => `<div data-dm-items-for="${slug}" class="${i===0?'':'hidden'} grid ${itemColsClass} gap-x-8 gap-y-1.5">${sub.items.length ? sub.items.map(([is,il]) => `<a href="${R('collections/'+is+'.html')}" class="mega-link">${il}</a>`).join('') : `<div class="text-[13px] text-black/55 py-2 col-span-full"><a href="${R('collections/'+slug+'.html')}" class="link-underline">Zobacz produkty →</a></div>`}</div>`).join('')}
+              ${subs.map(([slug,sub],i) => `<div data-dm-items-for="${slug}" class="${i===0?'':'hidden'} grid ${itemColsClass} gap-x-8 gap-y-1.5">${sub.items.length ? sub.items.map(([is,il]) => { const ic = iconFor(is); return `<a href="${R('collections/'+is+'.html')}" class="mega-link ${ic?'mega-link-with-icon':''}">${ic}<span>${il}</span></a>`; }).join('') : `<div class="text-[13px] text-black/55 py-2 col-span-full"><a href="${R('collections/'+slug+'.html')}" class="link-underline">Zobacz produkty →</a></div>`}</div>`).join('')}
             </div>
           </div>
         </div>
@@ -85,7 +111,7 @@
       <span class="text-white/30">✦</span>
       <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 14.5 8.5 21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5z"/></svg>Sezon 25/26 — nowa kolekcja online</span>
       <span class="text-white/30">✦</span>
-      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayPo · Przelewy24</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayNow · Apple Pay</span>
       <span class="text-white/30">✦</span>
       <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-6.2-8.55"/><path d="M21 5v5h-5"/></svg>Wysyłka w 24h od poniedziałku do piątku</span>
       <span class="text-white/30">✦</span>
@@ -99,7 +125,7 @@
       <span class="text-white/30">✦</span>
       <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 14.5 8.5 21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5z"/></svg>Sezon 25/26 — nowa kolekcja online</span>
       <span class="text-white/30">✦</span>
-      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayPo · Przelewy24</span>
+      <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>BLIK · karta · PayNow · Apple Pay</span>
       <span class="text-white/30">✦</span>
       <span class="inline-flex items-center gap-2 px-7"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-6.2-8.55"/><path d="M21 5v5h-5"/></svg>Wysyłka w 24h od poniedziałku do piątku</span>
       <span class="text-white/30">✦</span>
@@ -217,29 +243,30 @@
       <div class="space-y-5">
         <div>
           <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Dostawa</div>
-          <div class="flex flex-wrap items-center gap-1.5">
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#ffcc00] text-black">InPost Paczkomat</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black">InPost Kurier</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#e60028]">Orlen Paczka</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#ffcc00] text-[#cc0000]">DHL</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-[#dc0032] text-white">DPD</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="pay-tile pay-inpost"><span class="pay-inpost-sun"></span><span class="pay-inpost-text">InPost</span><span class="pay-tile-sub">Paczkomat</span></span>
+            <span class="pay-tile pay-inpost"><span class="pay-inpost-sun"></span><span class="pay-inpost-text">InPost</span><span class="pay-tile-sub">Kurier</span></span>
+            <span class="pay-tile pay-orlen"><span class="pay-tile-strong">ORLEN</span><span class="pay-tile-sub">Paczka</span></span>
+            <span class="pay-tile pay-dhl"><span class="pay-tile-strong">DHL</span></span>
+            <span class="pay-tile pay-dpd"><span class="pay-tile-strong">DPD</span></span>
           </div>
         </div>
         <div>
           <div class="text-[10px] tracking-mega uppercase text-white/55 mb-3">Płatności</div>
-          <div class="flex flex-wrap items-center gap-1.5">
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black lowercase">blik</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-extrabold italic tracking-wide rounded-[4px] bg-white text-[#1a1f71]">VISA</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[10px] font-semibold tracking-wide rounded-[4px] bg-white text-[#eb001b]">Mastercard</span>
-            <span class="inline-flex items-center justify-center gap-1 h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-black"><svg width="11" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 11.5c0 3.7 3.3 4.9 3.3 5 0 0-2.7 1-3.4 2.8-.5 1.4 0 2.5-1.2 2.5-.8 0-1.4-.4-2.4-.4-1 0-1.6.4-2.4.4-1.7 0-3-3.1-3-5.6 0-3.7 2.3-5.6 4.5-5.6 1 0 2 .7 2.7.7.6 0 1.8-.8 3-.7 1.6.1 2.8.6 3.5 1.7-.1.1-2.6 1.6-2.6 4.6V11.5zm-3.5-8.5C12.7 1.4 13.7 0 14.8 0c.1 1.6-1.5 3.5-2.6 3.5z"/></svg>Pay</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[10px] font-semibold tracking-wide rounded-[4px] bg-white text-black">G Pay</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#34a853]">PayU</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#9b3eb1]">PayPo</span>
-            <span class="inline-flex items-center justify-center h-7 px-3 text-[11px] font-semibold tracking-wide rounded-[4px] bg-white text-[#d40000]">Przelewy24</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="pay-tile"><span class="pay-blik">blik</span></span>
+            <span class="pay-tile"><span class="pay-visa">VISA</span></span>
+            <span class="pay-tile pay-tile-wide">
+              <span class="pay-mc"><span class="pay-mc-c1"></span><span class="pay-mc-c2"></span></span>
+              <span class="pay-mc-text">mastercard</span>
+            </span>
+            <span class="pay-tile"><span class="pay-apple"><svg viewBox="0 0 24 28" width="11" height="13" fill="currentColor" style="margin-right:4px;display:inline-block;vertical-align:-1px"><path d="M19.7 21.5c-1 1.5-2 3-3.6 3-1.5 0-2-1-3.8-1-1.8 0-2.4 1-3.8 1-1.6 0-2.8-1.7-3.8-3.2C2.7 18.4 1.4 13 4 9.2c1.3-1.9 3.5-3 5.5-3 1.6 0 3 1.1 4 1.1.9 0 2.7-1.3 4.5-1.1.8 0 3 .3 4.4 2.4-3.7 2.4-3 7.6.3 9 .6 1.5 1.4 3 0 4zM14.5 4C13.5 2.7 14 1 14 0c-1.4.1-3 .9-3.8 2-.8 1-1.5 2.5-1.3 4 1.5.1 3-.8 3.6-2z"/></svg>Pay</span></span>
+            <span class="pay-tile"><span class="pay-gpay"><b style="color:#4285F4">G</b> Pay</span></span>
+            <span class="pay-tile"><span class="pay-paynow">PayNow</span></span>
           </div>
         </div>
       </div>
-      <div class="text-[11px] text-white/50 lg:text-right lg:self-end lg:max-w-[280px]">Copyright © 2026 DigiFist. Wszystkie prawa zastrzeżone. Powered by Shopify.</div>
+      <div class="text-[11px] text-white/50 lg:text-right lg:self-end lg:max-w-[280px]">Copyright © 2026 Kickback</div>
     </div>
   </div>
 </footer>`;
@@ -369,7 +396,10 @@
     <div data-mm-screen="${slug}" class="mm-screen mm-screen-right">
       <button type="button" data-mm-back class="mm-back-row">${chevL}<span>${sub.label}</span></button>
       <div class="mm-list">
-        ${sub.items.map(([is,il]) => `<a href="${R('collections/'+is+'.html')}" class="mm-row">${il}</a>`).join('')}
+        ${sub.items.map(([is,il]) => {
+          const ic = iconFor(is);
+          return `<a href="${R('collections/'+is+'.html')}" class="mm-row">${ic ? '<span class="mm-row-left">'+ic+'<span>'+il+'</span></span>' : il}</a>`;
+        }).join('')}
         <a href="${R('collections/'+slug+'.html')}" class="mm-row mm-row-see-all">Wszystkie produkty (${sub.label})</a>
       </div>
     </div>`;
