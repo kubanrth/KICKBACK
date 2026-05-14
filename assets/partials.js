@@ -18,10 +18,52 @@
     australia:'🇦🇺', japonia:'🇯🇵', 'korea-poludniowa':'🇰🇷',
     algieria:'🇩🇿', egipt:'🇪🇬', kamerun:'🇨🇲', maroko:'🇲🇦', senegal:'🇸🇳', 'wybrzeze-kosci-sloniowej':'🇨🇮'
   };
+  // slug -> crest filename (relative to brand_assets/crests/). Defaults to <slug>.svg
+  // when only a basename is given; pass a full "name.ext" for non-SVG files.
   const CLUB_CRESTS = {
     'real-madrid':'real-madrid','barcelona':'barcelona','chelsea':'chelsea','arsenal':'arsenal',
     'manchester-utd':'manchester-united','manchester-city':'manchester-city',
-    'juventus':'juventus','bayern-munich':'bayern-munich','borussia-dortmund':'borussia-dortmund'
+    'juventus':'juventus','bayern-munich':'bayern-munich','borussia-dortmund':'borussia-dortmund',
+    // Premier League
+    'aston-villa':'aston-villa','bournemouth':'bournemouth','brentford':'brentford',
+    'brighton':'brighton','burnley':'burnley','crystal-palace':'crystal-palace','everton':'everton',
+    'fulham':'fulham','leeds-utd':'leeds-utd','liverpool':'liverpool','newcastle-utd':'newcastle-utd',
+    'nottingham-forest':'nottingham-forest','sunderland':'sunderland','tottenham':'tottenham',
+    'west-ham':'west-ham','wolverhampton':'wolverhampton',
+    // EFL Championship
+    'derby':'derby','hull-city':'hull-city','leicester':'leicester','millwall':'millwall',
+    'southampton':'southampton','swansea':'swansea','sheffield-utd':'sheffield-utd','qpr':'qpr',
+    // La Liga
+    'athletic-bilbao':'athletic-bilbao','atletico-madrid':'atletico-madrid','cd-tenerife':'cd-tenerife',
+    'girona':'girona','malaga':'malaga','real-betis':'real-betis','real-sociedad':'real-sociedad',
+    'sevilla':'sevilla','valencia':'valencia','villareal':'villareal',
+    // Serie A
+    'ac-milan':'ac-milan','as-roma':'as-roma','atalanta':'atalanta','bologna':'bologna','como':'como',
+    'fiorentina':'fiorentina','inter-milan':'inter-milan','lazio-roma':'lazio-roma',
+    'napoli':'napoli','parma':'parma','torino':'torino','venezia':'venezia','udinese':'udinese',
+    // Serie B
+    'sampdoria':'sampdoria','monza':'monza','pescara':'pescara',
+    // Bundesliga
+    'bayer-leverkusen':'bayer-leverkusen','borussia-monchengladbach':'borussia-monchengladbach',
+    'eintracht-frankfurt':'eintracht-frankfurt','rb-leipzig':'rb-leipzig',
+    'union-berlin':'union-berlin','vfb-stuttgart':'vfb-stuttgart',
+    // Ligue 1
+    'as-monaco':'as-monaco','losc-lille':'losc-lille','olympique-marseille':'olympique-marseille',
+    'olympique-lyon':'olympique-lyon','psg':'psg',
+    // MLS
+    'chicago-fire':'chicago-fire','inter-miami':'inter-miami','la-galaxy':'la-galaxy',
+    'new-york-fc':'new-york-fc','orlando-city':'orlando-city','seattle-sounders':'seattle-sounders',
+    // Eredivisie
+    'ajax-amsterdam':'ajax-amsterdam','feyenoord':'feyenoord','psv-eindhoven':'psv-eindhoven',
+    // Liga Portugal
+    'benfica-lisboa':'benfica-lisboa','sporting':'sporting','porto':'porto',
+    // Ekstraklasa
+    'lech-poznan':'lech-poznan','legia-warszawa':'legia-warszawa','wisla-krakow':'wisla-krakow',
+    // Reszta świata
+    'al-hilal':'al-hilal','al-nassr':'al-nassr','besiktas':'besiktas','galatasaray':'galatasaray',
+    'fenerbahce':'fenerbahce','celtic':'celtic','rangers':'rangers',
+    'aek-athens':'aek-athens','paok-saloniki':'paok-saloniki.png','panathinaikos':'panathinaikos',
+    'olympiakos':'olympiakos'
   };
   // primary kit colors per club, [bg, fg]. Used for the monogram fallback
   // when we don't ship a real SVG crest. Keep keys in sync with MM_CLUBS items.
@@ -99,7 +141,9 @@
       if (f) return '<span class="mm-flag">'+f+'</span>';
     }
     if (CLUB_CRESTS[slug]){
-      return '<span class="mm-crest"><img src="'+R('brand_assets/crests/'+CLUB_CRESTS[slug]+'.svg')+'" alt="" loading="lazy"/></span>';
+      const f = CLUB_CRESTS[slug];
+      const file = f.includes('.') ? f : f + '.svg';
+      return '<span class="mm-crest"><img src="'+R('brand_assets/crests/'+file)+'" alt="" loading="lazy"/></span>';
     }
     if (CLUB_COLORS[slug]){
       const c = CLUB_COLORS[slug];
