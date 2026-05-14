@@ -168,16 +168,20 @@ html.js .js-animation-fade-in.animation-init{animation-play-state:running}
 [data-mm-nav] > details > summary{font-family:'Michroma','Fraunces',Georgia,serif;letter-spacing:.005em}
 
 /* Mobile drawer: stack-push navigation (iOS-style screens) */
-.mm-screen{position:absolute;inset:0;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.85,.2,1);overflow-y:auto;will-change:transform}
+.mm-screen{position:absolute;inset:0;background:#fff;transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.85,.2,1);will-change:transform;display:flex;flex-direction:column}
 .mm-screen-active{transform:translateX(0)}
 .mm-screen-right{transform:translateX(100%)}
 .mm-screen-left{transform:translateX(-25%)}
-.mm-list{display:flex;flex-direction:column}
+.mm-list{display:flex;flex-direction:column;flex:1;overflow-y:auto;overscroll-behavior:contain}
 .mm-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 20px;font-family:'Michroma','Fraunces',Georgia,serif;font-size:18px;letter-spacing:0;line-height:1.1;color:#0d0d0d;background:transparent;border:0;border-bottom:1px solid var(--hair);text-align:left;cursor:pointer;transition:background .15s}
 .mm-row:hover,.mm-row:focus-visible{background:rgba(13,13,13,.03);outline:none}
 .mm-chev{color:rgba(13,13,13,.35);flex-shrink:0;margin-left:12px}
 .mm-row-see-all{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);padding:18px 20px}
 .mm-row-see-all:hover{color:#0d0d0d}
+.mm-screen-cta{padding:16px 16px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--hair);background:#fff;flex-shrink:0}
+.mm-see-all-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:52px;border-radius:999px;background:#0d0d0d;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:background .15s,transform .15s;cursor:pointer}
+.mm-see-all-btn:hover{background:#1a1a1a}
+.mm-see-all-btn:active{transform:scale(.98)}
 .mm-back-row{display:flex;align-items:center;gap:8px;width:100%;padding:14px 20px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);background:transparent;border:0;border-bottom:1px solid var(--hair);cursor:pointer;text-align:left}
 .mm-back-row:hover{color:#0d0d0d}
 .mm-back-chev{color:rgba(13,13,13,.55)}

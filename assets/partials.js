@@ -4,6 +4,13 @@
 // Path resolution: derives base from the script's own src attribute — works at any URL depth.
 
 (function(){
+  // Always land at the top of the page — disable browser scroll restoration
+  // on refresh / navigation so users don't open into a random middle section.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  // Skip if URL has a hash (anchor link should still work).
+  if (!window.location.hash) window.scrollTo(0, 0);
+  window.addEventListener('beforeunload', () => { if (!window.location.hash) window.scrollTo(0, 0); });
+
   const scripts = document.querySelectorAll('script[src*="partials.js"]');
   const myScript = scripts[scripts.length - 1];
   const src = myScript.getAttribute('src');
@@ -465,7 +472,12 @@
         ${subs.map(([slug,sub]) => sub.items.length
           ? `<button type="button" data-mm-go="${slug}" class="mm-row">${sub.label}${chevR}</button>`
           : `<a href="${R('collections/'+slug+'.html')}" class="mm-row">${sub.label}</a>`).join('')}
-        <a href="${R('collections/'+top.slug+'.html')}" class="mm-row mm-row-see-all">${top.seeAll}</a>
+      </div>
+      <div class="mm-screen-cta">
+        <a href="${R('collections/'+top.slug+'.html')}" class="mm-see-all-btn">
+          <span>${top.seeAll}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>`;
   }
@@ -479,7 +491,12 @@
           const ic = iconFor(is, il);
           return `<a href="${R('collections/'+is+'.html')}" class="mm-row">${ic ? '<span class="mm-row-left">'+ic+'<span>'+il+'</span></span>' : il}</a>`;
         }).join('')}
-        <a href="${R('collections/'+slug+'.html')}" class="mm-row mm-row-see-all">Wszystkie produkty (${sub.label})</a>
+      </div>
+      <div class="mm-screen-cta">
+        <a href="${R('collections/'+slug+'.html')}" class="mm-see-all-btn">
+          <span>Zobacz wszystkie (${sub.label})</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>`;
   }
@@ -499,14 +516,10 @@
 <aside id="mobile-menu" class="fixed inset-0 z-[105] pointer-events-none md:hidden" aria-hidden="true">
   <div data-mm-backdrop class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"></div>
   <div data-mm-panel class="absolute inset-0 bg-white -translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-[0_0_60px_-20px_rgba(0,0,0,0.25)]">
-    <div class="flex items-center justify-between px-4 h-[56px] border-b hairline shrink-0">
-      <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-10 w-10 -ml-2 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <a href="${R('index.html')}" class="inline-flex items-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-6 w-auto"/></a>
-      <div class="flex items-center gap-0.5">
-        <button type="button" data-search-open class="inline-flex items-center justify-center h-10 w-10 text-black/85" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-        <a href="${R('pages/login.html')}" class="inline-flex items-center justify-center h-10 w-10 text-black/85" aria-label="Konto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
-        <a href="${R('pages/cart.html')}" data-cart-open class="inline-flex items-center justify-center h-10 w-10 -mr-2 text-black/85" aria-label="Koszyk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
-      </div>
+    <div class="grid grid-cols-[auto_1fr_auto] items-center px-1.5 h-[64px] border-b hairline shrink-0">
+      <button type="button" data-mm-close aria-label="Zamknij" class="inline-flex items-center justify-center h-12 w-12 text-black/85"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <a href="${R('index.html')}" class="inline-flex items-center justify-center" aria-label="Kickback"><img src="${R('brand_assets/kickback_logo.svg')}" alt="Kickback" class="h-7 w-auto"/></a>
+      <button type="button" data-mm-search class="inline-flex items-center justify-center h-12 w-12 text-black/85" aria-label="Szukaj"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
     </div>
     <div class="relative flex-1 overflow-hidden" data-mm-stack>
       ${mmStackScreens()}
@@ -1185,6 +1198,24 @@
     drawer.querySelectorAll('[data-mm-close]').forEach(b => { b.removeEventListener('click', shut); b.addEventListener('click', wrappedShut); });
     backdrop.removeEventListener('click', shut);
     backdrop.addEventListener('click', wrappedShut);
+    // Search button inside the drawer header: close the drawer first, then open the
+    // search drawer once the close animation has cleared (avoids z-index stacking)
+    drawer.querySelectorAll('[data-mm-search]').forEach(b => b.addEventListener('click', () => {
+      wrappedShut();
+      setTimeout(() => {
+        const sd = document.getElementById('search-drawer');
+        if (!sd) return;
+        sd.classList.remove('pointer-events-none');
+        sd.setAttribute('aria-hidden', 'false');
+        const bg = sd.querySelector('[data-search-backdrop]');
+        const pn = sd.querySelector('[data-search-panel]');
+        const inp = sd.querySelector('[data-search-input]');
+        if (bg) bg.style.opacity = '1';
+        if (pn) pn.style.transform = 'translateY(0)';
+        if (inp) setTimeout(() => inp.focus(), 80);
+        document.body.style.overflow = 'hidden';
+      }, 320);
+    }));
   }
 
   function inject(){
