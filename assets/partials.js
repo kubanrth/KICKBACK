@@ -1238,14 +1238,25 @@
       const checks = root.querySelectorAll('[data-exclude-check]');
       const clearBtn = root.querySelector('[data-exclude-clear]');
       const doneBtn = root.querySelector('[data-exclude-done]');
+      const max = parseInt(root.getAttribute('data-max') || '2', 10);
       // chips list lives outside .exclude-clubs so it doesn't widen the trigger
       const chips = root.parentNode.querySelector('[data-exclude-chips]') || root.querySelector('[data-exclude-chips]');
       const placeholder = label.textContent;
+      // Hint row inside the panel that doubles as a "max reached" warning
+      let hint = panel.querySelector('[data-exclude-hint]');
+      if (!hint){
+        hint = document.createElement('div');
+        hint.className = 'exclude-hint';
+        hint.setAttribute('data-exclude-hint','');
+        hint.textContent = `Wybierz maksymalnie ${max} kluby`;
+        panel.insertBefore(hint, panel.querySelector('.exclude-actions'));
+      }
       function selected(){ return Array.from(checks).filter(c => c.checked); }
       function renderLabel(){
         const sel = selected();
         if (!sel.length){ label.textContent = placeholder; label.classList.remove('has-selection'); }
-        else { label.textContent = sel.length === 1 ? sel[0].dataset.name : `${sel.length} klubów wykluczonych`; label.classList.add('has-selection'); }
+        else if (sel.length === 1){ label.textContent = sel[0].dataset.name; label.classList.add('has-selection'); }
+        else { label.textContent = sel.map(c => c.dataset.name).join(' · '); label.classList.add('has-selection'); }
       }
       function renderChips(){
         if (!chips) return;
@@ -1255,23 +1266,37 @@
           chip.className = 'exclude-chip';
           chip.innerHTML = `<span>${c.dataset.name}</span><button type="button" class="exclude-chip-x" aria-label="Usuń">×</button>`;
           chip.querySelector('.exclude-chip-x').addEventListener('click', () => {
-            c.checked = false; renderLabel(); renderChips();
+            c.checked = false; updateState();
           });
           chips.appendChild(chip);
         });
+      }
+      function updateState(){
+        const sel = selected();
+        // Disable unchecked options once we hit the limit
+        checks.forEach(c => {
+          if (c.checked) return;
+          c.disabled = sel.length >= max;
+          c.closest('.exclude-item')?.classList.toggle('is-disabled', sel.length >= max);
+        });
+        hint.classList.toggle('is-reached', sel.length >= max);
+        renderLabel(); renderChips();
       }
       function open(){ panel.classList.add('open'); trigger.setAttribute('aria-expanded','true'); if (search) setTimeout(()=>search.focus(),50); }
       function close(){ panel.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
       trigger.addEventListener('click', () => panel.classList.contains('open') ? close() : open());
       document.addEventListener('click', e => { if (!root.contains(e.target) && panel.classList.contains('open')) close(); });
-      checks.forEach(c => c.addEventListener('change', () => { renderLabel(); renderChips(); }));
-      if (clearBtn) clearBtn.addEventListener('click', () => { checks.forEach(c => c.checked = false); renderLabel(); renderChips(); });
+      checks.forEach(c => c.addEventListener('change', () => {
+        if (c.checked && selected().length > max){ c.checked = false; }
+        updateState();
+      }));
+      if (clearBtn) clearBtn.addEventListener('click', () => { checks.forEach(c => c.checked = false); updateState(); });
       if (doneBtn) doneBtn.addEventListener('click', close);
       if (search){
         search.addEventListener('input', () => {
           const q = search.value.trim().toLowerCase();
           root.querySelectorAll('.exclude-item').forEach(item => {
-            const name = item.querySelector('span').textContent.toLowerCase();
+            const name = item.querySelector('span:last-of-type').textContent.toLowerCase();
             item.style.display = (!q || name.includes(q)) ? '' : 'none';
           });
           root.querySelectorAll('.exclude-group').forEach(g => {
@@ -1280,7 +1305,7 @@
           });
         });
       }
-      renderLabel(); renderChips();
+      updateState();
     });
   }
 

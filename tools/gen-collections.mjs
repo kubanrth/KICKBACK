@@ -224,12 +224,12 @@ function sampleProducts(cat){
 // =============================================================
 function breadcrumbHtml(cat){
   const chain_ = chain(cat.slug);
-  const parts = [`<a href="../index.html" class="hover:text-white border-b border-white/40 pb-1">Home</a>`];
+  const parts = [`<a href="../index.html" class="hover:text-black">Home</a>`];
   chain_.forEach((c, idx) => {
     const isLast = idx === chain_.length - 1;
-    parts.push(`<span class="mx-3 text-white/40">/</span>`);
-    if (isLast) parts.push(`<span class="text-white">${c.label}</span>`);
-    else parts.push(`<a href="${c.slug}.html" class="hover:text-white">${c.label}</a>`);
+    parts.push(`<span class="mx-2 text-black/30">/</span>`);
+    if (isLast) parts.push(`<span class="text-black">${c.label}</span>`);
+    else parts.push(`<a href="${c.slug}.html" class="hover:text-black">${c.label}</a>`);
   });
   return parts.join('');
 }
@@ -309,16 +309,12 @@ function pageHtml(cat){
 <body class="min-h-screen">
 <div data-release-header></div>
 
-<section class="relative">
-  <div class="relative h-[min(50vh,520px)] min-h-[260px] md:min-h-[380px] overflow-hidden bg-black">
-    ${heroBg(cat)}
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
-    <div class="relative z-10 h-full flex flex-col items-center justify-center text-white px-6">
-      <div class="text-[11px] tracking-wide2 uppercase text-white/70 mb-6">
-        ${breadcrumbHtml(cat)}
-      </div>
-      <h1 class="h-editorial text-[28px] md:text-[64px]" style="letter-spacing:0.01em">${escapeHtml(cat.label)}</h1>
+<section class="onlight bg-white">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 pt-8 md:pt-14 pb-6 md:pb-10 border-b hairline">
+    <div class="crumbs-light text-[11px] tracking-wide2 uppercase text-black/55">
+      ${breadcrumbHtml(cat)}
     </div>
+    <h1 class="h-section text-[26px] md:text-[36px] mt-4 md:mt-5">${escapeHtml(cat.label)}</h1>
   </div>
 </section>
 
