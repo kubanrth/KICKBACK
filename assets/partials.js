@@ -360,7 +360,6 @@
           <li><a href="${R('collections/mystery-box.html')}" class="hover:text-white">Mystery Box</a></li>
           <li><a href="${R('collections/bluzy-i-kurtki.html')}" class="hover:text-white">Bluzy i kurtki</a></li>
           <li><a href="${R('collections/nowe-z-metka.html')}" class="hover:text-white">Koszulki nowe z metką</a></li>
-          <li><a href="${R('collections/best-of.html')}" class="hover:text-white text-[#e8c87a]">Best Of</a></li>
         </ul>
       </div>
     </div>
@@ -394,7 +393,7 @@
             <span class="pay-tile"><img src="${R('brand_assets/payment-logos/mastercard.svg')}" alt="Mastercard" class="pay-logo-tall"/></span>
             <span class="pay-tile"><img src="${R('brand_assets/payment-logos/applepay.svg')}" alt="Apple Pay" class="pay-logo-tall"/></span>
             <span class="pay-tile"><img src="${R('brand_assets/payment-logos/googlepay.svg')}" alt="Google Pay" class="pay-logo-tall"/></span>
-            <span class="pay-tile pay-tile-paynow"><b>Pay</b>Now</span>
+            <span class="pay-tile"><img src="${R('brand_assets/payment-logos/paynow.svg')}" alt="paynow" class="pay-logo"/></span>
           </div>
         </div>
       </div>
