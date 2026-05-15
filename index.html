@@ -212,7 +212,10 @@
 <!-- ==================== PARALLAX QUOTE ==================== -->
 <section class="relative">
   <div class="relative h-[min(88vh,860px)] min-h-[620px] overflow-hidden">
-    <img src="brand_assets/photos/banner-karty.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    <picture>
+      <source media="(max-width: 767px)" srcset="brand_assets/photos/banner-karty-mobile.webp">
+      <img src="brand_assets/photos/banner-karty-desktop.webp" alt="" class="absolute inset-0 h-full w-full object-cover"/>
+    </picture>
     <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/45"></div>
     <div class="grain"></div>
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
@@ -397,7 +400,7 @@
       </a>
       <a href="collections/all.html" class="group">
         <div class="tile relative aspect-[3/4] overflow-hidden rounded-[2px] shadow-tile">
-          <img src="brand_assets/photos/messi-banner.webp" alt="Messi" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
+          <img src="brand_assets/photos/banner-messi-pop.webp" alt="Messi" class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"/>
         </div>
         <h3 class="mt-7 md:mt-9 text-center text-[26px] md:text-[36px] font-medium tracking-tight">Messi</h3>
       </a>
