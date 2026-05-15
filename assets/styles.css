@@ -26,8 +26,8 @@ html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-
 /* Blog slider — uniform cards with clamped title, even baseline */
 .blog-slider{scrollbar-width:none;-ms-overflow-style:none}
 .blog-slider::-webkit-scrollbar{display:none}
-.blog-slider > article{flex:0 0 78%;scroll-snap-align:start;display:flex;flex-direction:column}
-@media (min-width:768px){.blog-slider > article{flex:0 0 calc(33.333% - 22px)}}
+.blog-slider > article{flex:0 0 100%;scroll-snap-align:center;display:flex;flex-direction:column;min-width:0}
+@media (min-width:768px){.blog-slider > article{flex:0 0 calc(33.333% - 22px);scroll-snap-align:start}}
 .blog-slider .blog-card-img{flex-shrink:0}
 .blog-slider .blog-card-meta{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.55);margin-top:18px}
 .blog-slider .blog-card-title{font-family:'Michroma','Fraunces',Georgia,serif;font-size:14px;line-height:1.35;margin-top:10px;color:#0d0d0d;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(3 * 1.35 * 14px)}
