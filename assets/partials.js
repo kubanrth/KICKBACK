@@ -268,9 +268,9 @@
     </div>
   </div>
 </div>
-<div id="site-header-wrap" class="sticky top-0 z-50 transition-all duration-300 ease-out">
-<header id="site-header" class="bg-white border-b hairline onlight relative transition-all duration-300 ease-out">
-  <div class="mx-auto max-w-[1600px] pl-1.5 pr-1.5 md:px-6 lg:px-8 h-[64px] md:h-[72px] grid grid-cols-[auto_1fr_auto] items-center md:gap-8 transition-all duration-300 ease-out">
+<div id="site-header-wrap" class="sticky top-0 z-50 transition-[transform,box-shadow] duration-300 ease-out">
+<header id="site-header" class="bg-white border-b hairline onlight relative transition-[background-color,box-shadow,border-color] duration-300 ease-out">
+  <div class="mx-auto max-w-[1600px] pl-1.5 pr-1.5 md:px-6 lg:px-8 h-[64px] md:h-[72px] grid grid-cols-[auto_1fr_auto] items-center md:gap-8 transition-[height] duration-300 ease-out">
     <div class="flex items-center md:justify-start gap-0.5">
       <button type="button" data-mobile-menu-toggle aria-label="Menu" class="md:hidden inline-flex items-center justify-center h-12 w-12 text-black/85"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
       <button type="button" data-search-open aria-label="Szukaj" class="md:hidden inline-flex items-center justify-center h-12 w-12 text-black/85"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
@@ -642,6 +642,18 @@
   window.ReleaseCart = CartState;
 
   function formatPLN(n){ return n.toFixed(2).replace('.', ',') + ' zł'; }
+  // Escape any user/localStorage-controlled string before injecting into innerHTML.
+  // Reason: cart items round-trip through localStorage and are interpolated as HTML
+  // by renderCartDrawer; without this an attacker who can write to localStorage
+  // (or any future entry point that feeds CartState) gets stored XSS.
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function escAttr(s){ return esc(s); }
+  function escUrl(s){
+    const v = String(s == null ? '' : s);
+    // Block javascript:/data:/vbscript: scheme injections; allow relative + http(s) + mail/tel.
+    if (/^\s*(javascript|data|vbscript):/i.test(v)) return '#';
+    return esc(v);
+  }
 
   function renderCartDrawer(){
     const drawer = document.getElementById('cart-drawer');
@@ -663,19 +675,19 @@
     }
     body.innerHTML = s.items.map((item, i) => `
       <article class="flex gap-4 px-6 md:px-8 py-5 border-b hairline">
-        <a href="${item.url || '#'}" class="w-[88px] h-[110px] shrink-0 rounded-[2px] overflow-hidden bg-[var(--tile)] block">
-          ${item.image ? '<img src="' + item.image + '" alt="" class="w-full h-full object-cover">' : ''}
+        <a href="${escUrl(item.url || '#')}" class="w-[88px] h-[110px] shrink-0 rounded-[2px] overflow-hidden bg-[var(--tile)] block">
+          ${item.image ? '<img src="' + escUrl(item.image) + '" alt="" class="w-full h-full object-cover">' : ''}
         </a>
         <div class="flex-1 min-w-0">
-          <h3 class="pc-name">${item.name}</h3>
-          ${(item.size || item.color) ? '<div class="text-[10px] tracking-wide2 uppercase text-black/55 mt-1">' + [item.size, item.color].filter(Boolean).join(' / ') + '</div>' : ''}
+          <h3 class="pc-name">${esc(item.name)}</h3>
+          ${(item.size || item.color) ? '<div class="text-[10px] tracking-wide2 uppercase text-black/55 mt-1">' + esc([item.size, item.color].filter(Boolean).join(' / ')) + '</div>' : ''}
           <div class="flex items-center justify-between mt-4">
             <div class="flex items-center border hairline rounded-full h-9 px-2 text-[13px]">
               <button type="button" data-cart-qty="${i}" data-delta="-1" aria-label="Zmniejsz" class="w-6 text-black/55 hover:text-black">−</button>
-              <span class="w-7 text-center tabular-nums">${item.qty}</span>
+              <span class="w-7 text-center tabular-nums">${Number(item.qty) || 0}</span>
               <button type="button" data-cart-qty="${i}" data-delta="1" aria-label="Zwiększ" class="w-6 text-black/55 hover:text-black">+</button>
             </div>
-            <div class="text-[13px] tabular-nums">${formatPLN(item.price * item.qty)}</div>
+            <div class="text-[13px] tabular-nums">${formatPLN((Number(item.price) || 0) * (Number(item.qty) || 0))}</div>
           </div>
         </div>
         <button type="button" data-cart-remove="${i}" aria-label="Usuń" class="text-black/40 hover:text-black self-start mt-1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>

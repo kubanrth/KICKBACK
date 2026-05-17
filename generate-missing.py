@@ -1,21 +1,35 @@
 #!/usr/bin/env python3
-"""Generate missing Release pages: cart, account/login, search, blog tag pages,
-and ~16 product PDPs for jackets/knitwear/tops. Run once: python3 generate-missing.py
+"""Generate missing Kickback pages: cart, account/login, search, blog tag pages,
+and ~16 product PDPs for jackets/knitwear/tops.
+
+Idempotent by default — existing files are skipped to protect hand-edited
+content. Pass --force to overwrite everything.
+
+Usage:
+    python3 generate-missing.py             # safe: skip existing files
+    python3 generate-missing.py --force     # destructive: overwrite all
 """
-import os
+import os, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+FORCE = '--force' in sys.argv
 
 HEAD = """<!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{title} — release</title>
+<title>{title} — Kickback</title>
+<meta name="description" content="{description}" />
+<meta property="og:title" content="{title} — Kickback" />
+<meta property="og:description" content="{description}" />
+<meta property="og:image" content="{base}brand_assets/photos/banner-glowny-pop.webp" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}assets/styles.css">
 </head>
 <body class="min-h-screen">
@@ -29,10 +43,16 @@ TAIL = """
 </html>
 """
 
-def write(path, title, main, depth):
+DEFAULT_DESC = "Kickback — koszulki piłkarskie i karty. Klasyka, retro, reprezentacje. Wysyłka 24h, BLIK i PayNow."
+
+def write(path, title, main, depth, description=None):
     base = '../' * depth
-    html = HEAD.format(title=title, base=base) + main + TAIL.format(base=base)
+    desc = description or DEFAULT_DESC
+    html = HEAD.format(title=title, base=base, description=desc) + main + TAIL.format(base=base)
     full = os.path.join(ROOT, path)
+    if os.path.exists(full) and not FORCE:
+        print('skip (exists)', path)
+        return
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, 'w') as f: f.write(html)
     print('wrote', path)

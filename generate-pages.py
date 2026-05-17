@@ -1,19 +1,34 @@
 #!/usr/bin/env python3
-"""Generate all Release theme subpages. Run once: python3 generate-pages.py"""
-import os, textwrap
+"""Generate all Kickback theme subpages.
+
+Idempotent by default — existing files are skipped to protect hand-edited
+content. Pass --force to overwrite everything.
+
+Usage:
+    python3 generate-pages.py             # safe: skip existing files
+    python3 generate-pages.py --force     # destructive: overwrite all
+"""
+import os, sys, textwrap
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+FORCE = '--force' in sys.argv
 
 HEAD = """<!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{title} — release</title>
+<title>{title} — Kickback</title>
+<meta name="description" content="{description}" />
+<meta property="og:title" content="{title} — Kickback" />
+<meta property="og:description" content="{description}" />
+<meta property="og:image" content="{base}brand_assets/photos/banner-glowny-pop.webp" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}assets/styles.css">
 </head>
 <body class="min-h-screen">
@@ -27,10 +42,16 @@ TAIL = """
 </html>
 """
 
-def write(path, title, main, depth):
+DEFAULT_DESC = "Kickback — koszulki piłkarskie i karty. Klasyka, retro, reprezentacje. Wysyłka 24h, BLIK i PayNow."
+
+def write(path, title, main, depth, description=None):
     base = '../' * depth
-    html = HEAD.format(title=title, base=base) + main + TAIL.format(base=base)
+    desc = description or DEFAULT_DESC
+    html = HEAD.format(title=title, base=base, description=desc) + main + TAIL.format(base=base)
     full = os.path.join(ROOT, path)
+    if os.path.exists(full) and not FORCE:
+        print('skip (exists)', path)
+        return
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, 'w') as f: f.write(html)
     print('wrote', path)
@@ -544,12 +565,15 @@ def build_content_tiles():
 build_content_tiles()
 
 # ---------- BLOG LISTING ----------
+# Slugs must match real files in blogs/news/. Re-running this script (without
+# --force) will NOT overwrite the existing Polish posts; this list only drives
+# the listing page + related-posts grid.
 POSTS = [
-    ('fashion-forward-navigating-the-path-to-sustainable-style', 'Fashion Forward: Navigating the Path to Sustainable Style', 'Julia Hampel', 'March 1, 2024', 'Sustainability', '#3f3d55'),
-    ('10-fresh-fashion-trends-for-the-season-ahead', '10 Fresh Fashion Trends for the Season Ahead', 'Julia Hampel', 'March 1, 2024', 'Trends', '#b9a27f'),
-    ('denim-decoded-a-guide-to-styling-your-favorite-jeans', 'BTS: Matching Shooting Locations With Our Collections', 'Julia Hampel', 'March 1, 2024', 'Trends', '#6b5a44'),
-    ('the-benefits-of-organic-cotton', 'Cruelty Free Fashion, is it possible?', 'Julia Hampel', 'March 1, 2024', 'Benefits', '#e4e1db'),
-    ('the-timeless-elegance-of-soft-beige-cream-and-peach', 'Defying the Twilight: Bold Styles for Modern Rebels', 'Julia Hampel', 'March 1, 2024', 'Trends', '#4a4137'),
+    ('blokecore-streetwear-koszulki-pilkarskie', 'Koszulki piłkarskie to nowa fala streetwearu? Analizujemy trend Blokecore', 'Redakcja Kickback', '1 marca 2026', 'Trendy', '#3f3d55'),
+    ('koszulki-pilkarskie-zyskuja-na-wartosci', 'Jakie koszulki piłkarskie zyskują na wartości?', 'Redakcja Kickback', '1 marca 2026', 'Kolekcjonerstwo', '#b9a27f'),
+    ('karty-pilkarskie-gdzie-kupic', 'Karty piłkarskie — gdzie kupić oryginalne wydania kolekcjonerskie?', 'Redakcja Kickback', '1 marca 2026', 'Karty', '#6b5a44'),
+    ('ewolucja-sponsorow-na-koszulkach', 'Ewolucja sponsorów na koszulkach piłkarskich', 'Redakcja Kickback', '1 marca 2026', 'Historia', '#e4e1db'),
+    ('oryginalna-koszulka-pilkarska-poradnik', 'Jak sprawdzić oryginalność koszulki piłkarskiej? Poradnik kolekcjonera', 'Redakcja Kickback', '1 marca 2026', 'Poradnik', '#4a4137'),
 ]
 
 def build_blog_listing():
@@ -709,8 +733,14 @@ def build_post(slug, title, author, date, tag, color):
 '''
     write(f'blogs/news/{slug}.html', title, main, 2)
 
-for p in POSTS:
-    build_post(*p)
+# The Polish blog posts in blogs/news/ are hand-curated and considered canonical.
+# `build_post()` + POST_BODIES above are dead code kept only as a scaffold for
+# any future autogenerated post; the loop that called it is intentionally disabled
+# to prevent --force from overwriting curated Polish content with English stubs.
+# Re-enable only after rewriting POST_BODIES with Polish text and re-keying it.
+#
+# for p in POSTS:
+#     build_post(*p)
 
 # ---------- SIMPLE TEXT PAGES (size guide, store locator, terms, privacy, sample-page, test-page, vendor-list) ----------
 SIMPLE_PAGES = [

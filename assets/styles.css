@@ -8,7 +8,22 @@
   --muted:#8a8680;
   --hair:#e5e2dc;
   --moss:#6e7d73;
+  /* Status tokens derived from brand palette — replace banned default-Tailwind
+     bg-green-50/text-green-700 + bg-blue-50/text-blue-700 + bg-amber-50/text-amber-700
+     on account/order status badges. */
+  --status-paid-bg:#eef2ec;
+  --status-paid-fg:#3a5a44;
+  --status-fulfilled-bg:#ece6dc;
+  --status-fulfilled-fg:#5a4a32;
+  --status-pending-bg:#f5ece0;
+  --status-pending-fg:#7a5530;
+  --status-neutral-bg:#ece9e2;
+  --status-neutral-fg:#5a544a;
 }
+.status-paid{background:var(--status-paid-bg);color:var(--status-paid-fg)}
+.status-fulfilled{background:var(--status-fulfilled-bg);color:var(--status-fulfilled-fg)}
+.status-pending{background:var(--status-pending-bg);color:var(--status-pending-fg)}
+.status-neutral{background:var(--status-neutral-bg);color:var(--status-neutral-fg)}
 html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .prod-slider{scrollbar-width:none;-ms-overflow-style:none}
 .prod-slider::-webkit-scrollbar{display:none}
