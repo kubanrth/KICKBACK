@@ -109,6 +109,13 @@ function initPdpAjaxAtc() {
             document.body.dispatchEvent(new CustomEvent('added_to_cart', { detail: { fragments: json.fragments } }));
           }
         }
+
+        // Schów page loader (został pokazany przez page-loader.js na submit event)
+        const pageLoader = document.querySelector('[data-kb-loader]');
+        if (pageLoader) {
+          pageLoader.classList.remove('is-active');
+        }
+
         if (isBuyNow) {
           const checkout = (window.KB && window.KB.checkoutUrl) || '/zamowienie/';
           window.location.href = checkout;
