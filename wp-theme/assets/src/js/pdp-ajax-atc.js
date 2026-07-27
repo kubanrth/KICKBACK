@@ -80,14 +80,24 @@ function initPdpAjaxAtc() {
       return;
     }
 
+    // Fetch z timeoutem (15s) — jeśli backend nie odpowiada, fallback na form.submit().
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     fetch(wcAjaxUrl('add_to_cart'), {
       method: 'POST',
       credentials: 'same-origin',
       body: formData,
+      signal: controller.signal,
     })
       .then((r) => r.json())
       .then((json) => {
         if (json && json.error) {
+          // Backend zwrócił błąd — fallback na normalny submit.
+          if (clickedBtn) {
+            clickedBtn.disabled = false;
+            if (clickedBtn.dataset.kbOrig) clickedBtn.textContent = clickedBtn.dataset.kbOrig;
+          }
           form.submit();
           return;
         }
@@ -108,12 +118,20 @@ function initPdpAjaxAtc() {
           setTimeout(() => window.kbCartDrawer.open(), 180);
         }
       })
-      .catch(() => form.submit())
-      .finally(() => {
-        if (clickedBtn && !isBuyNow) {
+      .catch((err) => {
+        // Network error, timeout, abort → fallback na form.submit().
+        // Przywróć button stan przed fallback.
+        if (clickedBtn) {
           clickedBtn.disabled = false;
           if (clickedBtn.dataset.kbOrig) clickedBtn.textContent = clickedBtn.dataset.kbOrig;
         }
+        form.submit();
+      })
+      .finally(() => {
+        clearTimeout(timeoutId);
+        // Fallback (form.submit()) będzie obsługiwany przez page-loader listener.
+        // Tutaj tylko przywracamy button do normalnego stanu jeśli AJAX powiedzie się.
+        // Jeśli AJAX fail → catch przywróci stan i zrobi form.submit().
       });
   });
 }
