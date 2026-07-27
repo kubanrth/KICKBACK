@@ -113,7 +113,12 @@ function initPdpAjaxAtc() {
         // Schów page loader (został pokazany przez page-loader.js na submit event)
         const pageLoader = document.querySelector('[data-kb-loader]');
         if (pageLoader) {
+          // Debug: sprawdzamy czy loader istnieje i czy ma is-active
+          console.log('🔍 pageLoader found, current class:', pageLoader.className);
           pageLoader.classList.remove('is-active');
+          console.log('✅ pageLoader hidden, new class:', pageLoader.className);
+        } else {
+          console.log('❌ pageLoader NOT found in DOM');
         }
 
         if (isBuyNow) {
