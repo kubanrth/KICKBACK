@@ -48,10 +48,21 @@ function initPdpAjaxAtc() {
     }
 
     // Serialize całego formularza (mystery box fields, size, variants, etc.)
-    // zamiast tylko product_id + quantity.
-    const formData = new FormData(form);
-    formData.set('product_id', String(productId));
-    formData.set('quantity', qtyField ? String(qtyField.value || 1) : '1');
+    // używaj FormData dla proper encoding z attachment support (jeśli w przyszłości)
+    const params = new URLSearchParams();
+    params.append('product_id', String(productId));
+    params.append('quantity', qtyField ? String(qtyField.value || 1) : '1');
+
+    // Dodaj mystery box fields jeśli istnieją (dla kompatybilności z inc/mystery-box.php)
+    const mysterySize = form.querySelector('input[name="kb_mystery_size"]');
+    const mysteryExcludes = form.querySelector('input[name="kb_mystery_excludes"]');
+    const mysteryBirthday = form.querySelector('input[name="kb_mystery_birthday"]');
+    const mysteryPack = form.querySelector('input[name="kb_mystery_pack"]');
+
+    if (mysterySize && mysterySize.value) params.append('kb_mystery_size', mysterySize.value);
+    if (mysteryExcludes && mysteryExcludes.value) params.append('kb_mystery_excludes', mysteryExcludes.value);
+    if (mysteryBirthday && mysteryBirthday.checked) params.append('kb_mystery_birthday', '1');
+    if (mysteryPack) params.append('kb_mystery_pack', mysteryPack.value || '1');
 
     // ── KUP TERAZ — pomijamy AJAX i submitujemy serwerowo z flagą `kb_buy_now`.
     // Filter `woocommerce_add_to_cart_redirect` w inc/woocommerce-hooks.php podmienia
@@ -84,7 +95,8 @@ function initPdpAjaxAtc() {
     fetch(wcAjaxUrl('add_to_cart'), {
       method: 'POST',
       credentials: 'same-origin',
-      body: formData,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString(),
       signal: controller.signal,
     })
       .then((r) => r.json())
