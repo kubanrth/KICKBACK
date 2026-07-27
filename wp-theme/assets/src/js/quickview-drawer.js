@@ -71,6 +71,10 @@ function initQuickviewDrawer() {
       const params = new URLSearchParams();
       params.append('product_id', String(data.id));
       params.append('quantity', '1');
+      // Dodaj wybrany rozmiar jeśli istnieje (dla variable products z pa_rozmiar attribute)
+      if (selectedSize) {
+        params.append('attribute_pa_rozmiar', selectedSize);
+      }
       if (submitter) {
         submitter.disabled = true;
         submitter.dataset.kbOrig = submitter.textContent;
