@@ -82,9 +82,17 @@ function initQuickviewDrawer() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString(),
       })
-        .then((r) => r.json())
+        .then((r) => {
+          if (!r.ok) {
+            console.error('❌ AJAX status error:', r.status, r.statusText);
+            throw new Error(`HTTP ${r.status}`);
+          }
+          return r.json();
+        })
         .then((json) => {
+          console.log('✅ AJAX success:', json);
           if (json && json.error) {
+            console.error('❌ Backend error:', json.error);
             // np. variation required — fallback do permalink
             if (data.url) window.location.href = data.url;
             return;
@@ -111,7 +119,8 @@ function initQuickviewDrawer() {
             setTimeout(() => window.kbCartDrawer.open(), 200);
           }
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error('❌ AJAX fail:', err.message);
           if (data.url) window.location.href = data.url;
         })
         .finally(() => {
