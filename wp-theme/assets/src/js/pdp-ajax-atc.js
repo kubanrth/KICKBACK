@@ -39,9 +39,6 @@ function initPdpAjaxAtc() {
 
     const isBuyNow = submitter && submitter.hasAttribute && submitter.hasAttribute('data-buy-now');
     const qtyField = form.querySelector('input[name="quantity"]');
-    const params = new URLSearchParams();
-    params.append('product_id', String(productId));
-    params.append('quantity', qtyField ? String(qtyField.value || 1) : '1');
 
     const clickedBtn = submitter || submitBtn;
     if (clickedBtn) {
