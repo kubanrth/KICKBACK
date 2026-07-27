@@ -18,9 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Slugi którym w templacie dopinamy mega-menu (z kb_menu_data). */
+/** Slugi którym w templacie dopinamy mega-menu (z kb_menu_data).
+ * karty-pilkarskie — zwykły link bez mega, klient tak chce. */
 function kb_primary_mega_slugs(): array {
-	return [ 'kluby', 'reprezentacje', 'karty-pilkarskie', 'mystery-box' ];
+	return [ 'kluby', 'reprezentacje', 'mystery-box' ];
 }
 
 /**
